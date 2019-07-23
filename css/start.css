@@ -32,6 +32,9 @@ html, body {
   height: 100%;
   background: #000;
 }
+.open, .header, .navBox, .content, .cake, .view, .fooBack {
+  overflow: hidden;
+}
 
 div {
   box-sizing: border-box;
