@@ -693,6 +693,7 @@ div {
 @media screen and (max-width: 1024px) {
   * {
     font-size: 16px;
+    cursor: auto;
   }
   .posSocial i{
     line-height: 60px;
@@ -705,33 +706,19 @@ div {
   .contact a{
     padding: 12px 6px;
   }
-  .footerClick .fCircle .fline{
-    width: 1px;
-    height: 25px;
-    background: white;
-  }
-
-  .footerClick .fCircle {
-    top: -100px;
-  }
-  .fBack {
-    left: calc(50% + 80px);
-  }
-  .fGoogle {
-    left: calc(50% + 160px);
-  }
-  .fCircle{
-    width: 60px;
-    height: 60px;
-    top: -30px;
-    background:  #86377b;
+.fCircle{
+  background:#86377b;
+}
+.fline{
+  background-color: white!important;
+}
+  .fB {
+    opacity: 0;
   }
 
   .navBtn {
     left: 60px;
     top: 50%;
-    width: 60px;
-    height: 60px;
   }
   .header {
     height: 100px;
@@ -739,7 +726,7 @@ div {
   }
   .navBox {
     top: 0;
-    width: 100vh;
+    width: 100vw;
     height: 0;
     border-radius: 0 0 100% 100%;
   }
@@ -753,6 +740,7 @@ div {
   .navlink {
     padding-bottom: 0px;
     font-size: 25px;
+    left:50%;
   }
 
   .navLine {
