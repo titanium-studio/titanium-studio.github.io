@@ -143,7 +143,6 @@ fG.onclick = ()=>{
   console.log('read');
 }
 letsGo.onclick = ()=>{
-  console.log("ds");
   let style = "top:-100vh";
   btn2Func();
 }

@@ -689,94 +689,93 @@ div {
   }
 }
 
-   @media screen and (max-width: 1024px) {
-* {
-  font-size: 16px;
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: 16px;
+  }
+  .posSocial i{
+    line-height: 60px;
+    font-size: 16px;
+  }
+  .posBtn{
+    width:60px;
+    height: 60px;
+  }
+  .contact a{
+    padding: 12px 6px;
+  }
+  .footerClick .fCircle .fline{
+    width: 1px;
+    height: 25px;
+    background: white;
+  }
+
+  .footerClick .fCircle {
+    top: -100px;
+  }
+  .fBack {
+    left: calc(50% + 80px);
+  }
+  .fGoogle {
+    left: calc(50% + 160px);
+  }
+  .fCircle{
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    background:  #86377b;
+  }
+
+  .navBtn {
+    left: 60px;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+  }
+  .header {
+    height: 100px;
+    width: 100%;
+  }
+  .navBox {
+    top: 0;
+    width: 100vh;
+    height: 0;
+    border-radius: 0 0 100% 100%;
+  }
+
+  .block {
+    opacity: 1;
+    height: 50vh;
+    border-radius: 0;
+    background: #fff;
+  }
+  .navlink {
+    padding-bottom: 0px;
+    font-size: 25px;
+  }
+
+  .navLine {
+    width: 1px;
+  }
+
+  .navLine::before, .navLine::after {
+    width: 1px;
+  }
+
+  .navLine::before {
+    transform: translateX(-4px);
+  }
+
+  .navLine::after {
+    transform: translateX(4px);
+  }
+  .back, #ball, #minBall{
+    opacity: 0!important;
+  }
+  .back2{
+    opacity: 1!important;
+  }
+  .section{
+    padding:5px;
+  }
 }
-     .posSocial i{
-       line-height: 60px;
-       font-size: 16px;
-     }
-     .posBtn{
-     width:60px;
-     height: 60px;
-     }
-     .contact a{
-       padding: 12px 6px;
-     }
-     .footerClick .fCircle .fline{
-     width: 1px;
-     height: 25px;
-     background: white;
-     }
-
-     .footerClick .fCircle {
-       top: -100px;
-     }
-     .fBack {
-       left: calc(50% + 80px);
-     }
-     .fGoogle {
-       left: calc(50% + 160px);
-     }
-     .fCircle{
-       width: 60px;
-       height: 60px;
-       top: -30px;
-       background:  #86377b;
-     }
-
-     .navBtn {
-       left: 60px;
-       top: 50%;
-       width: 60px;
-       height: 60px;
-     }
-     .header {
-       height: 100px;
-       width: 100%;
-     }
-     .navBox {
-       top: 0;
-       width: 100vh;
-       height: 0;
-       border-radius: 0 0 100% 100%;
-     }
-
-     .block {
-       opacity: 1;
-       height: 50vh;
-       border-radius: 0;
-       background: #fff;
-     }
-     .navlink {
-       padding-bottom: 0px;
-       font-size: 25px;
-     }
-
-     .navLine {
-       width: 1px;
-     }
-
-     .navLine::before, .navLine::after {
-       width: 1px;
-     }
-
-     .navLine::before {
-       transform: translateX(-4px);
-     }
-
-     .navLine::after {
-       transform: translateX(4px);
-     }
-     .back{
-       opacity: 0!important;
-     }
-     .back2{
-      opacity: 1!important;
-     }
-     .section{
-       padding:5px;
-     }
-
-   }
