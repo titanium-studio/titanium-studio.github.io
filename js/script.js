@@ -1,208 +1,172 @@
-var c = document.getElementById("c");
-var ctx = c.getContext("2d");
-var cH;
-var cW;
-var bgColor = "#FF6138";
-var animations = [];
-var circles = [];
+var open = document.getElementById('open');
+open.classList.add('openOn');
+</script>
+<script  src="./script.js" defer></script>
+<script type="text/javascript" defer>
+var click1=0, click2=0;
 
-var colorPicker = (function() {
-  var colors = ["#FF6138", "#FFBE53", "#2980B9", "#282741", "#546CF9", " #E95BFF"];
-  var index = 0;
-  function next() {
-    index = index++ < colors.length-1 ? index : 0;
-    return colors[index];
-  }
-  function current() {
-    return colors[index]
-  }
-  return {
-    next: next,
-    current: current
-  }
-})();
+var $ = document.querySelector.bind(document);
+var $on = document.addEventListener.bind(document);
+var footerElements =document.getElementById('footer');
+var navBtn = document.getElementById('navBtn');
+var navBox = document.getElementById('navBox');
 
-function removeAnimation(animation) {
-  var index = animations.indexOf(animation);
-  if (index > -1) animations.splice(index, 1);
+var fC = document.getElementById('fC');
+var fB = document.getElementById('fB');
+var fG = document.getElementById('fG');
+var bigFooter = document.getElementById('bigFooter');
+var fooBack = document.getElementById('fooBack');
+var letsGo = document.getElementById('letsGo');
+
+var btn1 = document.getElementById('homeBtn');
+var btn2 = document.getElementById('workBtn');
+var btn3 = document.getElementById('cakeBtn');
+var btn4 = document.getElementById('teamBtn');
+
+var content = document.getElementById('content');
+var first = document.getElementById('first');
+var second = document.getElementById('second');
+
+var xmouse, ymouse;
+var ball = $('#ball');
+var x = void 0,
+y = void 0,
+dx = void 0,
+dy = void 0,
+tx = 0,
+ty = 0,
+key = -1;
+
+function btn1Func(){
+  content.classList.add('cont1');
+  content.classList.remove('cont2');
+  content.classList.remove('cont3');
+  content.classList.remove('cont4');
 }
-
-function calcPageFillRadius(x, y) {
-  var l = Math.max(x - 0, cW - x);
-  var h = Math.max(y - 0, cH - y);
-  return Math.sqrt(Math.pow(l, 2) + Math.pow(h, 2));
+function btn2Func(){
+  content.classList.add('cont2');
+  content.classList.remove('cont1');
+  content.classList.remove('cont3');
+  content.classList.remove('cont4');
 }
+function btn3Func(){
+  content.classList.add('cont3');
+  content.classList.remove('cont1');
+  content.classList.remove('cont2');
+  content.classList.remove('cont4');
+}
+function btn4Func(){
+  content.classList.add('cont4');
+  content.classList.remove('cont1');
+  content.classList.remove('cont2');
+  content.classList.remove('cont3');
+}
+document.onmousedown = ()=>{
+  ball.classList.add('ballClick')
+}
+document.onmouseup = ()=>{
+  ball.classList.remove('ballClick')
+}
+document.onmousemove = ()=>{
+  document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeEnd', '</div><div id="minBall"></div>');
+  var ball = document.getElementById('minBall');
+  ball.style.position = 'fixed';
 
-function addClickListeners() {
-  document.addEventListener("touchstart", handleEvent);
-  document.addEventListener("mousedown", handleEvent);
+  document.onmousemove = (event)=>{
+    minBall.style.left = event.clientX +'px';
+    minBall.style.top = event.clientY +'px';
+  }
+}
+$on('mousemove', function (e) {
+  xmouse = e.clientX || e.pageX;
+  ymouse = e.clientY || e.pageY;
+})
+
+var followMouse = function followMouse() {
+  key = requestAnimationFrame(followMouse);
+
+  if(!x || !y) {
+    x = xmouse;
+    y = ymouse;
+  } else {
+    dx = (xmouse - x) * 0.125;
+    dy = (ymouse - y) * 0.125;
+    if(Math.abs(dx) + Math.abs(dy) < 0.1) {
+      x = xmouse;
+      y = ymouse;
+    } else {
+      x += dx;
+      y += dy;
+    }
+  }
+  ball.style.left = x + 'px';
+  ball.style.top = y + 'px';
 };
-
-function handleEvent(e) {
-    if (e.touches) {
-      e.preventDefault();
-      e = e.touches[0];
-    }
-    var currentColor = colorPicker.current();
-    var nextColor = colorPicker.next();
-    var targetR = calcPageFillRadius(e.pageX, e.pageY);
-    var rippleSize = Math.min(200, (cW * .4));
-    var minCoverDuration = 750;
-
-    var pageFill = new Circle({
-      x: e.pageX,
-      y: e.pageY,
-      r: 0,
-      fill: nextColor
-    });
-    var fillAnimation = anime({
-      targets: pageFill,
-      r: targetR,
-      duration:  Math.max(targetR / 2 , minCoverDuration ),
-      easing: "easeOutQuart",
-      complete: function(){
-        bgColor = pageFill.fill;
-        removeAnimation(fillAnimation);
-      }
-    });
-
-    var ripple = new Circle({
-      x: e.pageX,
-      y: e.pageY,
-      r: 0,
-      fill: currentColor,
-      stroke: {
-        width: 3,
-        color: currentColor
-      },
-      opacity: 1
-    });
-    var rippleAnimation = anime({
-      targets: ripple,
-      r: rippleSize,
-      opacity: 0,
-      easing: "easeOutExpo",
-      duration: 900,
-      complete: removeAnimation
-    });
-
-    var particles = [];
-    for (var i=0; i<32; i++) {
-      var particle = new Circle({
-        x: e.pageX,
-        y: e.pageY,
-        fill: currentColor,
-        r: anime.random(24, 48)
-      })
-      particles.push(particle);
-    }
-    var particlesAnimation = anime({
-      targets: particles,
-      x: function(particle){
-        return particle.x + anime.random(rippleSize, -rippleSize);
-      },
-      y: function(particle){
-        return particle.y + anime.random(rippleSize * 1.15, -rippleSize * 1.15);
-      },
-      r: 0,
-      easing: "easeOutExpo",
-      duration: anime.random(1000,1300),
-      complete: removeAnimation
-    });
-    animations.push(fillAnimation, rippleAnimation, particlesAnimation);
-}
-
-function extend(a, b){
-  for(var key in b) {
-    if(b.hasOwnProperty(key)) {
-      a[key] = b[key];
-    }
+document.getElementById('navBtn').onclick = ()=>{
+  if(click2 == 0){
+    navBox.classList.add('block');
+    click2++;
+  }else{
+    navBox.classList.remove('block');
+    click2--;
   }
-  return a;
 }
-
-var Circle = function(opts) {
-  extend(this, opts);
+fC.onclick = ()=>{
+  if(click1 == 0){
+    footerElements.classList.add('footerClick');
+    fooBack.classList.add('onFoo');
+    fB.classList.add('fB');
+    fG.classList.add('fB');
+    click1++;
+  }else{
+    footerElements.classList.remove('footerClick');
+    fooBack.classList.remove('onFoo');
+    fB.classList.remove('fB');
+    fG.classList.remove('fB');
+    click1--;
+  }
 }
-
-Circle.prototype.draw = function() {
-  ctx.globalAlpha = this.opacity || 1;
-  ctx.beginPath();
-  ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
-  if (this.stroke) {
-    ctx.strokeStyle = this.stroke.color;
-    ctx.lineWidth = this.stroke.width;
-    ctx.stroke();
+fB.onclick = ()=>{
+  if(content.classList.contains('cont1')==true){
+    btn2Func()
+  }else if(content.classList.contains('cont2')==true){
+    btn3Func()
+  }else if(content.classList.contains('cont3')==true){
+    btn4Func()
+  }else{
+    btn1Func()
   }
-  if (this.fill) {
-    ctx.fillStyle = this.fill;
-    ctx.fill();
-  }
-  ctx.closePath();
-  ctx.globalAlpha = 1;
 }
-
-var animate = anime({
-  duration: Infinity,
-  update: function() {
-    ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, cW, cH);
-    animations.forEach(function(anim) {
-      anim.animatables.forEach(function(animatable) {
-        animatable.target.draw();
-      });
-    });
-  }
-});
-
-var resizeCanvas = function() {
-  cW = window.innerWidth;
-  cH = window.innerHeight;
-  c.width = cW * devicePixelRatio;
-  c.height = cH * devicePixelRatio;
-  ctx.scale(devicePixelRatio, devicePixelRatio);
-};
-
-(function init() {
-  resizeCanvas();
-  if (window.CP) {
-    // CodePen's loop detection was causin' problems
-    // and I have no idea why, so...
-    window.CP.PenTimer.MAX_TIME_IN_LOOP_WO_EXIT = 6000;
-  }
-  window.addEventListener("resize", resizeCanvas);
-  addClickListeners();
-  if (!!window.location.pathname.match(/fullcpgrid/)) {
-    startFauxClicking();
-  }
-  handleInactiveUser();
-})();
-
-function handleInactiveUser() {
-  var inactive = setTimeout(function(){
-    fauxClick(cW/2, cH/2);
-  }, 2000);
-
-  function clearInactiveTimeout() {
-    clearTimeout(inactive);
-    document.removeEventListener("mousedown", clearInactiveTimeout);
-    document.removeEventListener("touchstart", clearInactiveTimeout);
-  }
-
-  document.addEventListener("mousedown", clearInactiveTimeout);
-  document.addEventListener("touchstart", clearInactiveTimeout);
+fB.onmouseover = ()=>{
+  fB.classList.add('fbOn');
 }
-
-function startFauxClicking() {
-  setTimeout(function(){
-    fauxClick(anime.random( cW * .2, cW * .8), anime.random(cH * .2, cH * .8));
-    startFauxClicking();
-  }, anime.random(200, 900));
+fB.onmouseout = ()=>{
+  fB.classList.remove('fbOn');
 }
-
-function fauxClick(x, y) {
-  var fauxClick = new Event("mousedown");
-  fauxClick.pageX = x;
-  fauxClick.pageY = y;
-  document.dispatchEvent(fauxClick);
+fG.onclick = ()=>{
+  console.log('read');
 }
+letsGo.onclick = ()=>{
+  let style = "top:-100vh";
+  btn2Func();
+}
+btn1.onclick = ()=>{
+  btn1Func();
+}
+btn2.onclick = ()=>{
+  btn2Func();
+}
+btn3.onclick = ()=>{
+  btn3Func();
+}
+btn4.onclick = ()=>{
+  btn4Func();
+}
+window.onscroll = function(e) {
+  var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+  console.log(e);
+}
+function openFunc() {
+  open.classList.remove('openOn');
+}
+var timerId = setTimeout(openFunc, 5000)
