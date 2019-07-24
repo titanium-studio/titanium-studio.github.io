@@ -7,6 +7,14 @@
   height: 100vh;
   width: 100vw;
 }
+.back2{
+  opacity: 0;
+    display: block;
+    position: absolute;
+    z-index: 0;
+    height: 100vh;
+    width: 100vw;
+}
 canvas {
   display: block;
   width: 100vw;
