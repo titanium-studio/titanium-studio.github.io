@@ -162,3 +162,7 @@ window.onscroll = function(e) {
   var scrolled = window.pageYOffset || document.documentElement.scrollTop;
   console.log(e);
 }
+function openFunc() {
+  open.classList.remove('openOn');
+}
+var timerId = setTimeout(openFunc, 5000)
