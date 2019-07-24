@@ -71,6 +71,7 @@ canvas {
 }
 .waveTop {
   background-size: 50% 100px;
+  z-index: 10;
 }
 .waveAnimation .waveTop {
   animation: move-wave 3s;
