@@ -3,138 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/start.css">
-  <link rel="stylesheet" href="css/background.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="CSS/start.css">
+  <link rel="stylesheet" href="CSS/index.css">
+  <link rel="stylesheet" href="CSS/background.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
   <title></title>
 </head>
-<body onload = "followMouse();" class="body_style">
-  <div id="open" class="open">
-    <div class="loading">
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
-      <div class="loadDiv"></div>
+<body class="body-style content">
+  <div id="nav_parent" class="nav">
+    <div id="nav_btn" class="square_big btn_nav">
+      <div class="hamb wrapper">
+        <span class="stick stick_linear_1"></span>
+        <span class="stick stick_linear_2"></span>
+        <span class="stick stick_linear_3"></span>
+      </div>
+      <div class="nav_back wrapper">
+        <span class="stick_back wrapper stick_l_back_1"></span>
+        <span class="stick_back wrapper stick_l_back_2"></span>
+      </div>
     </div>
   </div>
-  <div class="body">
-    <div class="back">
-      <canvas id="c"></canvas>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/1.0.0/anime.min.js"></script>
+  <div id="open" class="open content flex">
+    <p>Please wait, the site is Loading</p>
+  </div>
+  <div id="divBody" class="body background open_off">
+    <div id="header" class="header content flex">
+      <p class="wellcome">Wellcome to Future</p>
+      <div id="angle" class="angle">
+        <i class="fas fa-angle-down"></i>
+      </div>
+      <div id="float" class="float"></div>
     </div>
-    <div class="back2">
-      <div class="waveWrapper waveAnimation">
-        <div class="waveWrapperInner bgTop">
-          <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
-        </div>
-        <div class="waveWrapperInner bgMiddle">
-          <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
-        </div>
-        <div class="waveWrapperInner bgBottom">
-          <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
-        </div>
+    <div id="second" class="second content_2"></div>
+    <div id="social" class="social content flex">
+      <div class="cosialBox">
+        <a href=""><i class="fab fa-twitter-square"></i></a>
+        <a href=""><i class="fab fa-facebook-square"></i></a>
+        <a href=""><i class="fab fa-vk"></i></a>
+        <a href=""><i class="fab fa-whatsapp-square"></i></a>
       </div>
     </div>
-    <div class="header">
-      <div id="navBtn" class="navBtn"><span class="navLine"></span></div>
-      <div class="noneHeader">
-        <div id="search" class="search">
-          <form class="form_search" action="https://www.google.com/search" method="GET">
-            <input type="search" class="input_search" autocomplete="off" placeholder="Type..." name="q">
-            <input type="submit" value=""><!-- value="search"-->
-          </form>
-        </div>
-      </div>
+  </div>
+  <div id="navBlock" class="navBlock">
+    <div class="block flex">
+      <a id="a1" href="#header">Home</a>
+      <a id="a2" href="#second">About</a>
+      <a id="a3" href="#social">Social</a>
+      <a id="a4" href="#contact">Contact</a>
     </div>
-    <div class="navBox" id="navBox">
-      <div></div>
-      <div class="navlink">
-        <a id="homeBtn" class="link">Home</a>
-        <a id="workBtn" class="link">Work</a>
-        <a id="cakeBtn" class="link">Cake</a>
-        <a id="teamBtn" class="link">Team</a>
-      </div>
-    </div>
-    <div id="content" class="content cont1">
-      <div id="first" class="first section">
-        <div class="space"></div>
-        <h1 class="name">Welcome</h1>
-        <div class="lorem FirstLorem">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium commodi, ut facere quia quibusdam ipsam laboriosam dolorem sunt, natus non.</p>
-        </div>
-        <a id="letsGo" class="btn box">Let's Go</a>
-        <div class="space"></div>
-      </div>
-      <div id="second" class="second section">
-        <h1 class="name">Work</h1>
-        <div class="lorem">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
-    </div>
-    <div class="cake"></div>
-    <div class="view"></div>
-    <div id="bigFooter" class="bigFooter box">
-      <div id="fooBack" class="fooBack"></div>
-      <div id="footer" class="footer">
-        <div id="fC" class="fCircle fClose">
-          <span class="fline footX1"></span>
-          <span class="fline footX2"></span>
-        </div>
-        <div id="fB" class="fCircle fR fBack">
-          <span class="fline footB1"></span>
-          <span class="fline footB2"></span>
-          <span class="fline footB3"></span>
-        </div>
-        <div id="fG" class="fCircle fR fGoogle"></div>
-        <div class="scrool">
-          <div class="contact box">
-            <div class="c_card">
-              <a href="https://www.google.com" class="href">Google</a>
-              <a href="https://www.bing.com" class="href">Bing</a>
-              <a href="https://yandex.com" class="href">Yandex</a>
-              <a href="#" class="href">Main</a>
-              <a href="#" class="href">Vacancy</a>
-              <a href="#" class="href">Contacts</a>
-            </div>
-          </div>
-          <div class="social">
-            <div class="posSocial">
-              <a href="" class="posBtn"><i class="fab fa-facebook-f"></i></a>
-              <a href="" class="posBtn"><i class="fab fa-google-plus-g"></i></a>
-              <a href="" class="posBtn"><i class="fab fa-vk"></i></a>
-              <a href="" class="posBtn"><i class="fab fa-whatsapp"></i></a>
-            </div>
-          </div>
-          <div class="faq">
-            <div class="c_card">
-              <a id="puch">Titan LTD</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div id="ball"></div>
-    <script type="text/javascript">
-    var open = document.getElementById('open');
-    open.classList.add('openOn');
-    </script>
-    <script src="js/script.js" defer></script>
-    <script src="js/index.js" defer></script>
-  </body>
-  </html>
+  </div>
+  <div id="contact" class="footer content">
+    <div id="footer" class="footer_small"></div>
+  </div>
+  <script  src="js/index.js" defer></script>
+  <script  src="js/script.js" defer></script>
+</body>
+</html>
