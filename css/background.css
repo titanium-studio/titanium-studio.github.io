@@ -126,3 +126,34 @@
     border-left: none;
   }
 }
+
+
+
+/* second */
+
+.next{
+  position: relative;
+  width: 70vw;
+  height: 60vh;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.card{
+  margin: auto;
+  background: #E71D36;
+}
+.card_small{
+  height: 40vh;
+  width: 20vw;
+  border-radius: 32px;
+}
+.card_medium{
+  height: 60vh;
+  width: 30vw;
+  position: absolute;
+  right: -35vw;
+  top:0;
+  border-top-left-radius:32px;
+  border-bottom-left-radius:32px;
+}

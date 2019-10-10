@@ -12,7 +12,7 @@ function openFunc() {
   divBody.classList.remove("open_off")
   footer.classList.add('footer-back')
 }
-var timerId = setTimeout(openFunc, 2000)
+var timerId = setTimeout(openFunc, 0000)
 
 document.addEventListener("DOMContentLoaded", ready)
 function ready(){

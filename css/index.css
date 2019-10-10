@@ -72,7 +72,7 @@
   font-size: 32px;
 }
 .second{
-  height: 200vh;
+  position: relative;
   background: #699DF4;
   background: -webkit-linear-gradient(top left, #699DF4, #7C04D3);
   background: -moz-linear-gradient(top left, #699DF4, #7C04D3);
