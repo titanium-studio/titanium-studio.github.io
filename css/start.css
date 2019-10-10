@@ -11,6 +11,9 @@
 }
 ::-webkit-scrollbar {
     width: 0;
+    height: 0;
+    opacity: 0;
+    display: none;
 }
 .roboto{
   font-family: 'Roboto', sans-serif;
@@ -33,7 +36,15 @@ input, button {
 }
 
 html, body {
-  /* overflow: hidden; */
+  background: red;
+  width: 100%;
+  height: 100%;
+}
+body{
+  background: green;
+  /* background: black; */
+  width: auto;
+  height: 100%;
 }
 
 div {
@@ -88,5 +99,5 @@ div {
   width: calc(36px*2);
 }
 .body-style{
-  position: relative;
+  /* position: relative; */
 }

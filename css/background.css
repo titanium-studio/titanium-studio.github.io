@@ -157,3 +157,9 @@
   border-top-left-radius:32px;
   border-bottom-left-radius:32px;
 }
+@media screen and (max-width:900px) {
+  .nav{
+    top:5px;
+    right: 40px;
+  }
+}

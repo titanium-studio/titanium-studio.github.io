@@ -8,11 +8,11 @@ var navBlock = $id("navBlock")
 
 function openFunc() {
   ready()
+  nav_load()
   open.classList.add('open_off')
   divBody.classList.remove("open_off")
-  footer.classList.add('footer-back')
 }
-var timerId = setTimeout(openFunc, 3000)
+var timerId = setTimeout(openFunc, 0000)
 
 document.addEventListener("DOMContentLoaded", ready)
 function ready(){
@@ -62,6 +62,7 @@ function out() {
   fyy.classList.remove('floatIn')
 }
 foo.onclick=()=>{
+  console.log(window);
   let a = window.innerHeight
   window.scrollBy(0,a)
 }
@@ -73,7 +74,7 @@ function nav_load(){
   } else {
     nav_parent.classList.remove("nav_scroll")
   }
-  if(window.scrollY>=window.innerHeight*3-100){
+  if(window.scrollY>=window.innerHeight*2-100){
     nav_parent.classList.remove("nav_scroll")
   }
 }
