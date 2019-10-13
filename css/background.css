@@ -1,5 +1,5 @@
-.red{
-
+.color_white{
+  color:white;
 }
 .footer-back{
   background: #011627;
@@ -140,8 +140,18 @@
   transform: translateY(-50%);
 }
 .card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
   margin: auto;
-  background: #E71D36;
+  position: relative;
+  transition: all 0.5s ease-out;
+  box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.card:hover{
+  box-shadow:0 17px 5px rgba(0, 0, 0, 0.5);
+  transform: translateY(-12px);
 }
 .card_small{
   height: 40vh;
@@ -156,6 +166,25 @@
   top:0;
   border-top-left-radius:32px;
   border-bottom-left-radius:32px;
+}
+.card .button{
+  display: block;
+  position: absolute;
+  bottom: 24px;
+  left: 36px;
+  height: 40px;
+  width: calc(100% - 36px - 36px);
+  background: transparent;
+  border-radius: 20px;
+}
+
+@media screen and (min-width:900px) {
+  ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      display: none;
+  }
 }
 @media screen and (max-width:900px) {
   .nav{

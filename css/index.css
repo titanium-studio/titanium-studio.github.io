@@ -23,7 +23,7 @@
   z-index: 10;
   height: 20vh;
   width: 100vw;
-  background: #2c3e50;
+  background: #011627;
 }
 .body{
   position: relative;
@@ -43,6 +43,13 @@
   display:flex;
   justify-content: center;
   color:#011627;
+}
+.cosialBox_small{
+  width: 20vw;
+  height: 20vw;
+}
+.cosialBox_small a{
+  font-size: 5vw;
 }
 .angle{
   position: absolute;
