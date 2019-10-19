@@ -21,9 +21,9 @@
   bottom: 0;
   left:0;
   z-index: 10;
-  height: 20vh;
+  min-height: 64px;
+  height: 10vh;
   width: 100vw;
-  background: #011627;
 }
 .body{
   position: relative;
@@ -42,7 +42,6 @@
   align-items: center;
   display:flex;
   justify-content: center;
-  color:#011627;
 }
 .cosialBox_small{
   width: 20vw;
@@ -65,7 +64,6 @@
 }
 .float{
   transition:all 0.5s;
-  background: #699DF4;
   height: 0;
   width: 100vw;
   position: absolute;
@@ -77,10 +75,13 @@
   height: 10vh;
 }
 .wellcome{
-  font-size: 32px;
+  font-size: 42px;
+  color: black;
 }
 .second{
   position: relative;
+}
+.gradient{
   background: #699DF4;
   background: -webkit-linear-gradient(top left, #699DF4, #7C04D3);
   background: -moz-linear-gradient(top left, #699DF4, #7C04D3);

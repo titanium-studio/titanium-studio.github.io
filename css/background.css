@@ -1,3 +1,36 @@
+.color_1{
+  background: #011627;
+}
+.text_1{
+  color: #011627;
+}
+.color_2{
+  background: #FDFFFC;
+}
+.text_2{
+  color: #FDFFFC;
+}
+.color_3{
+  background: #2EC4B6;
+}
+.text_3{
+  color: #2EC4B6;
+}
+.color_4{
+  background: #E71D36;
+}
+.text_4{
+  color: #E71D36;
+}
+.color_5{
+  background: #FF9F1C;
+}
+.text_5{
+  color: #FF9F1C;
+}
+
+/* color */
+
 .color_white{
   color:white;
 }
@@ -7,9 +40,6 @@
 }
 .background{
   background: #FDFFFC;
-}
-.color-white{
-  color:white;
 }
 .nav{
   position: fixed;
@@ -155,17 +185,27 @@
 }
 .card_small{
   height: 40vh;
-  width: 20vw;
+  width: 25vw;
   border-radius: 32px;
 }
 .card_medium{
   height: 60vh;
   width: 30vw;
   position: absolute;
-  right: -35vw;
+  right: -55vw;
   top:0;
-  border-top-left-radius:32px;
-  border-bottom-left-radius:32px;
+  border-radius:32px;
+}
+.delete:hover{
+  transform: translateX(-12px);
+}
+.card .in{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left:0;
+  border-radius:32px;
 }
 .card .button{
   display: block;
@@ -176,6 +216,17 @@
   width: calc(100% - 36px - 36px);
   background: transparent;
   border-radius: 20px;
+  border:1px solid #2EC4B6;
+  transform-origin: bottom;
+  transition: all 0.5s ease-in;
+}
+.card_move{
+  right:-28vw;
+}
+.card .button:hover{
+  cursor: pointer;
+  background: #2EC4B6;
+  color:white;
 }
 
 @media screen and (min-width:900px) {
