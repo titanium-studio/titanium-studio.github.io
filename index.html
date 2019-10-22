@@ -6,17 +6,17 @@
   <link rel="stylesheet" href="css/start.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/background.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Barlow&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Barlow|Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
   <title>Future</title>
 </head>
-<body>
+<body id="body_origin">
   <div id="nav_parent" class="nav">
     <div id="nav_btn" class="square_big btn_nav">
       <div class="hamb wrapper">
-        <span class="stick stick_linear_1"></span>
-        <span class="stick stick_linear_2"></span>
-        <span class="stick stick_linear_3"></span>
+        <span class="stick stick_linear_1 color_1"></span>
+        <span class="stick stick_linear_2 color_1"></span>
+        <span class="stick stick_linear_3 color_1"></span>
       </div>
       <div class="nav_back wrapper">
         <span class="stick_back wrapper stick_l_back_1"></span>
@@ -37,19 +37,20 @@
     </div>
     <div id="second" class="second content color_4">
 
-      <div class="next flex">
-        <div class="card background card_small">
-          <p>Hello</p>
-          <button class="btn button" type="button" id="button1">Add</button>
-        </div>
-        <div class="card background card_small">
-          <p>Hello</p>
-          <button class="btn button" type="button" id="button2">Add</button>
-        </div>
-        <div id="card_move" class="card background delete card_medium">
-          <p>Hello</p>
-          <button class="button" type="button" id="button3">Add</button>
-          <div id="card_in" class="in color_2"></div>
+      <div id="next" class="next">
+        <div class="scroll_next">
+          <div class="card background card_small">
+            <p>Hello</p>
+            <button class="btn button" type="button" id="button1">Add</button>
+          </div>
+          <div class="card background card_small">
+            <p>Hello</p>
+            <button class="btn button" type="button" id="button2">Add</button>
+          </div>
+          <div id="card_move" class="card background card_medium">
+            <p>Hello</p>
+            <button class="button" type="button" id="button3">Add</button>
+          </div>
         </div>
       </div>
 
@@ -63,12 +64,13 @@
       </div>
     </div>
     <div id="contact" class="footer content">
+      <div class="contact color_2"></div>
       <div id="footer" class="footer_small flex color_4">
         <a href="" class="Barlow color_white">All rights reserved. Copyright © 2019</a>
       </div>
     </div>
   </div>
-  <div id="navBlock" class="navBlock">
+  <div id="navBlock" class="navBlock color_1 Roboto">
     <div class="block flex">
       <a id="a1" href="#header">Home</a>
       <a id="a2" href="#second">About</a>

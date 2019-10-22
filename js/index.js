@@ -11,6 +11,8 @@ var footer = $id("footer")
 var nav_btn = $id("nav_btn")
 var nav_parent = $id("nav_parent")
 var navBlock = $id("navBlock")
+var body_origin = $id("body_origin")
+var next = $id("next")
 var clicker_nav=false
 
 function get() {
@@ -57,6 +59,17 @@ document.onmousewheel=(e)=>{
   e.preventDefault
   nav_load()
   let a = window.innerHeight
+  let b = window.innerWidth / 3
+  for(let i=0; i<e.path.length; i++){
+    if(e.path[i]==next  ){
+      if(e.deltaY>=0){
+        next.scrollBy(b, 0)
+      } else {
+        next.scrollBy(-b, 0)
+      }
+      return null
+    }
+  }
   if(e.deltaY>=0){
     window.scrollBy(0, a)
   } else {
@@ -75,3 +88,39 @@ function nav_load(){
     nav_parent.classList.remove("nav_scroll")
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end code
