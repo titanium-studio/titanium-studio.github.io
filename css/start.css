@@ -68,9 +68,13 @@ div {
   height: 100%;
 }
 .content{
+  /* transform: translate(100vw,100vh); */
   position: relative;
   width: 100vw;
   height: 100vh;
+}
+.current{
+  transform: translate(0,0);
 }
 .content_2{
   width: 100vw;
@@ -110,4 +114,8 @@ div {
 .square_big{
   height: calc(36px*2);
   width: calc(36px*2);
+}
+
+.btn_nav, .angle, .btn{
+  cursor: pointer;
 }

@@ -247,7 +247,23 @@
 }
 @media screen and (max-width:900px) {
   .nav{
-    top:5px;
-    right: 40px;
+    /* top:5px; */
+    /* right: 40px; */
+  }
+  .nav_go{
+    height: 50vh;
+  }
+  .nav_go::after{
+    content: '';
+    position: absolute;
+    display: block;
+    top: 50vh;
+    height: 50vh;
+    width: 100vw;
+    background: #01162755;
+    transition: all 0.5s ease;
+  }
+  .nav_go a{
+    width: 100%;
   }
 }

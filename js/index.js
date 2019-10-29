@@ -41,10 +41,12 @@ function clicker_nav_function() {
 }
 
 function openFunc() {
+  let list = document.getElementsByClassName('content')
   ready()
   nav_load()
   open.classList.add('open_off')
   divBody.classList.remove("open_off")
+  list[1].classList.add("current")
 }
 
 var timerId = setTimeout(openFunc, 0000)
@@ -60,16 +62,19 @@ document.onmousewheel=(e)=>{
   nav_load()
   let a = window.innerHeight
   let b = window.innerWidth / 3
-  for(let i=0; i<e.path.length; i++){
-    if(e.path[i]==next  ){
-      if(e.deltaY>=0){
-        next.scrollBy(b, 0)
-      } else {
-        next.scrollBy(-b, 0)
+  if(window.innerWidth>=1100){
+    for(let i=0; i<e.path.length; i++){
+      if(e.path[i]==next){
+        if(e.deltaY>=0){
+          next.scrollBy(b, 0)
+        } else {
+          next.scrollBy(-b, 0)
+        }
+        return null;
       }
-      return null
     }
   }
+  let list = document.getElementsByClassName('content')
   if(e.deltaY>=0){
     window.scrollBy(0, a)
   } else {
@@ -88,7 +93,6 @@ function nav_load(){
     nav_parent.classList.remove("nav_scroll")
   }
 }
-
 
 
 
