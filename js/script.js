@@ -1,22 +1,72 @@
-//start
+const content = document.querySelectorAll('section');
+const idlePeriod = 100;
+const animationDuration = 500;
 
-var foo = $id('angle')
-var fyy = $id('float')
-var card_move = $id("card_move")
+let lastAnimation = 0;
+let index = 0;
 
-foo.addEventListener("mouseover",enter)
-foo.addEventListener("mouseleave",out)
 
-function enter() {
-  fyy.classList.add('floatIn')
+const toggleText = (index, state) => {
+    // if (state === 'show') {
+    //     content[index].querySelector('.text').classList.add('show');
+    // } else {
+    //     content[index].querySelector('.text').classList.remove('show');
+    // }
 }
 
-function out() {
-  fyy.classList.remove('floatIn')
+// toggleText(0, 'show');
+
+function setup(params) {
+    content[0].scrollIntoView({ behavior: "smooth" });
+    index = 0
+}
+if (document.readyState == 'loading') {
+    // ещё загружается, ждём события
+    document.addEventListener('DOMContentLoaded', setup);
+} else {
+    // DOM готов!
+    setup();
+}
+setTimeout(setup,10)
+function prev(){
+    if (index < 1) return;
+    // toggleText(index, 'hide');
+    index--;
+
+    content.forEach((section, i) => {
+        if (i === index) {
+            // toggleText(i, 'show');
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    });
 }
 
-foo.onclick=()=>{
-  console.log(window);
-  let a = window.innerHeight
-  window.scrollBy(0,a)
+function next() {
+    if (index > content.length) return;
+    toggleText(index, 'hide');
+    index++;
+    content.forEach((section, i) => {
+        if (i === index) {
+            // toggleText(i, 'show');
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    })
 }
+
+document.addEventListener('wheel', event => {
+    var delta = event.wheelDelta;
+    var timeNow = new Date().getTime();
+    // Cancel scroll if currently animating or within quiet period
+    if (timeNow - lastAnimation < idlePeriod + animationDuration) {
+        // event.preventDefault();
+        return;
+    }
+
+    if (delta < 0) {
+        next();
+    } else {
+        prev();
+    }
+
+    lastAnimation = timeNow;
+}) 
