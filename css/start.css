@@ -46,7 +46,7 @@ input, button {
 
 body{
   /* line-height: 1.6; */
-  --background: #FDFFFC;
+  --background: #F9F9F7;
   background: var(--background);
   overflow: hidden;
 }
@@ -63,6 +63,7 @@ body{
   background: rgb(36, 77, 255);
   color: white;
   overflow: hidden;
+  cursor: pointer;
 }
 .button text{
 	position: relative;
@@ -80,9 +81,11 @@ body{
 	content: "";
 	z-index: 0;
 	width: 0;
-	height: 0;
+  height: 0;
 
-	background: var(--background);
+
+  background: var(--background);
+  /* background: white; */
 	transform: translate(-50%, -50%);
 	transition: width var(--time), padding-top var(--time);
 }

@@ -1,51 +1,77 @@
 var nav_body = document.getElementById('nav_body')
 var nav_in = document.querySelectorAll('.nav_btn')
 var btn = document.getElementById('nav')
-var current = undefined
-var nav_index = undefined
+var back_span = document.querySelector('.back')
+var section = document.querySelectorAll('.name_title');
+var visible = document.querySelectorAll('.content')
+setTimeout(()=>{
+    section.forEach((elem, i)=>{
+        elem.onclick = ()=>{
+            nav_btn(i)
+        }
+    })
+},500)
 
-function nav_function(params) {
+function nav_btn(params) {
     if((typeof params)=='string'){
-        if(nav_body.classList.contains('active')){
+        if (btn.classList.contains('active')) {
+            btn.classList.remove('active')
+        } else {
+            btn.classList.add('active')
+        }
+        visible.forEach((k) => {
+            if(k.classList.contains('none')){
+                k.classList.remove('none')
+            } else {
+                k.classList.add('none')
+            } 
+        })
+        if (nav_body.classList.contains('active') && back_span.classList.contains('active')) {
             nav_body.classList.remove('active')
+            back_span.classList.remove('active')
         } else {
             nav_body.classList.add('active')
+            back_span.classList.add('active')
         }
-        nav_in.forEach((item, i)=>{
-            if (!(item.classList.contains('hide'))) {
-                if (!(item.classList.contains('current'))) {
-                    item.classList.add('hide')
-                } else {
-                    nav_index = i
-                }
+        section.forEach((page, i) => {
+            if (page.classList.contains('fly')) {
+                page.style.top = 25 + 'vh'
+                page.classList.remove('fly')
             } else {
-                item.classList.remove('hide')
+                page.classList.add('fly')
+                page.style.top = (i * 12) + 30 + 'vh'
             }
         })
     }
-    if((typeof params)=='number'){
-        nav_in.forEach((item, i)=>{
-            if(i != params){
-                if (!(item.classList.contains('hide'))) {
-                    item.classList.add('hide')
-                }
-                if (item.classList.contains('current')) {
-                    nav_index = i
-                    item.classList.remove('current')
-                }
-            } else {
-                item.classList.add('current')
-                nav_body.classList.remove('active')
+    if ((typeof params) == 'number'){
+index = params
+
+        if (btn.classList.contains('active')) {
+            btn.classList.remove('active')
+        }
+        if (nav_body.classList.contains('active') && back_span.classList.contains('active')) {
+            nav_body.classList.remove('active')
+            back_span.classList.remove('active')
+        }
+        visible.forEach((k) => {
+            if (k.classList.contains('none')) {
+                k.classList.remove('none')
+            }
+        })
+        section.forEach((page, i) =>{
+            if(i == params){
+                page.parentElement.scrollIntoView({ behavior: "smooth" });
+            }
+            if (page.classList.contains('fly')) {
+                page.classList.remove('fly')
+                page.style.top = 35 + 'vh'
             }
         })
     }
 }
 
-btn.onclick = () => {
-    nav_function('btn')
+btn.onclick = ()=>{
+    nav_btn('btn')
 }
-nav_in.forEach((elem, i)=>{
-    elem.addEventListener('click',()=>{
-        nav_function(i)
-    })
-})
+
+

@@ -52,7 +52,29 @@ function next() {
         }
     })
 }
-
+document.addEventListener('keypress', event => {
+    console.log(event)
+    switch (event.code) {
+        case 'Space':
+            next()
+            break;
+        case 'Enter':
+            next()
+            break;
+        case 'NumpadEnter':
+            next()
+            break;
+        case 'Numpad8':
+            prev()
+            break;
+        case 'Numpad2':
+            next()
+            break;
+    
+        default:
+            break;
+    }
+})
 document.addEventListener('wheel', event => {
     var delta = event.wheelDelta;
     var timeNow = new Date().getTime();
