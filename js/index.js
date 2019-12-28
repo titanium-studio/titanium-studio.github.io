@@ -1,6 +1,7 @@
 const animatedClassName = "animated";
 const ELEMENTS = document.querySelectorAll(".button");
 const ELEMENTS_SPAN = [];
+console.log(ELEMENTS)
 
 ELEMENTS.forEach((element, index) => {
     let addAnimation = false;
