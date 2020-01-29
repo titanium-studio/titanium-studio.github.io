@@ -12,7 +12,7 @@
   <title>Future</title>
 </head>
 
-<body id="body_origin">
+<body id="body_origin" onload="followMouse();">
   <header class='header'>
     <div class="header_inner">
       <div class="logo">ASET</div>
@@ -69,7 +69,6 @@
             <a class='next button'>
               <span></span>
               <text>Learn More</text>
-              <!-- <i class="fas fa-chevron-right"></i> -->
               <div class="arrow right">
                 <div class="line"></div>
                 <div class="line"></div>
@@ -92,76 +91,80 @@
           <div class="box"></div>
           <div class="box"></div>
           <div class="box"></div>
-          <div class="box"><div class="card">
-            <div class="icon">
-              <i class="fas fa-microphone"></i>
+          <div class="box">
+            <div class="card">
+              <div class="icon">
+                <i class="fas fa-microphone"></i>
+              </div>
+              <div class="text">
+
+              </div>
+              <a class='next button'>
+                <span></span>
+                <text>Learn More</text>
+                <div class="arrow right">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                </div>
+              </a>
             </div>
-            <div class="text">
+          </div>
+          <div class="box">
+            <div class="card">
+              <div class="icon">
+                <i class="fas fa-compass"></i>
+              </div>
+              <div class="text">
+
+              </div>
+              <a class='next button'>
+                <span></span>
+                <text>Learn More</text>
+                <div class="arrow right">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="box">
+            <div class="card">
+              <div class="icon">
+                <i class="fas fa-draw-polygon"></i>
+              </div>
+              <div class="text">
+                <b>plo</b>
+                <p>plo</p>
+              </div>
+              <a class='next button'>
+                <span></span>
+                <text>Learn More</text>
+                <div class="arrow right">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="box">
+            <div class="card">
+              <div class="icon">
+                <i class="fas fa-drafting-compass"></i>
+              </div>
+              <div class="text">
+
+              </div>
+              <a class='next button'>
+                <span></span>
+                <text>Learn More</text>
+                <div class="arrow right">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                </div>
+              </a>
 
             </div>
-            <a class='next button'>
-              <span></span>
-              <text>Learn More</text>
-              <!-- <i class="fas fa-chevron-right"></i> -->
-              <div class="arrow right">
-                <div class="line"></div>
-                <div class="line"></div>
-              </div>
-            </a>
-          </div></div>
-          <div class="box"><div class="card">
-            <div class="icon">
-              <i class="fas fa-compass"></i>
-            </div>
-            <div class="text">
-            
-            </div>
-            <a class='next button'>
-              <span></span>
-              <text>Learn More</text>
-              <!-- <i class="fas fa-chevron-right"></i> -->
-              <div class="arrow right">
-                <div class="line"></div>
-                <div class="line"></div>
-              </div>
-            </a>
-          </div></div>
-          <div class="box"><div class="card">
-            <div class="icon">
-              <i class="fas fa-draw-polygon"></i>
-            </div>
-            <div class="text">
-              <b>plo</b>
-              <p>plo</p>
-            </div>
-            <a class='next button'>
-              <span></span>
-              <text>Learn More</text>
-              <!-- <i class="fas fa-chevron-right"></i> -->
-              <div class="arrow right">
-                <div class="line"></div>
-                <div class="line"></div>
-              </div>
-            </a>
-          </div></div>
-          <div class="box"><div class="card">
-            <div class="icon">
-              <i class="fas fa-drafting-compass"></i>
-            </div>
-            <div class="text">
-            
-            </div>
-            <a class='next button'>
-              <span></span>
-              <text>Learn More</text>
-              <!-- <i class="fas fa-chevron-right"></i> -->
-              <div class="arrow right">
-                <div class="line"></div>
-                <div class="line"></div>
-              </div>
-            </a>
-            
-          </div></div>
+          </div>
         </div>
       </div>
     </section>
@@ -193,9 +196,94 @@
       <a href="#name" class="nav_btn btn hide"><span>NAM</span>E</a>
     </div> -->
   </div>
+  <div id="ball"></div>
+  <div id="circle"></div>
   <script src="./js/index.js" defer></script>
   <script src="./js/nav.js" defer></script>
   <script src="./js/script.js" defer></script>
+  <script type="text/javascript">
+
+    var $ = document.querySelector.bind(document);
+    var $on = document.addEventListener.bind(document);
+
+    var xmouse, ymouse;
+    $on('mousemove', (e) => {
+      xmouse = e.clientX || e.pageX;
+      ymouse = e.clientY || e.pageY;
+    });
+
+    var circle = $('#circle')
+    var zx= void 0,
+      zy= void 0,
+      zdx= void 0,
+      zdy= void 0;
+    
+    var matrix = {
+      x: 1,
+      y: 1
+    }
+    var ball = $('#ball');
+    var x = void 0,
+      y = void 0,
+      dx = void 0,
+      dy = void 0,
+      tx = 0,
+      ty = 0,
+      key = -1;
+
+    var followMouse = function followMouse() {
+      key = requestAnimationFrame(followMouse);
+
+
+
+      if (!zx || !zy) {
+        zx = xmouse;
+        zy = ymouse;
+      } else {
+        zdx = (xmouse - zx) * 0.5;
+        zdy = (ymouse - zy) * 0.5;
+        if (Math.abs(zdx) + Math.abs(zdy) < 0.1) {
+          zx = xmouse;
+          zy = ymouse;
+        } else {
+          zx += zdx;
+          zy += zdy;
+        }
+      }
+
+      if (!x || !y) {
+        x = xmouse;
+        y = ymouse;
+      } else {
+        dx = (xmouse - x) * 0.125;
+        dy = (ymouse - y) * 0.125;
+        if (Math.abs(dx) + Math.abs(dy) < 0.1) {
+          x = xmouse;
+          y = ymouse;
+        } else {
+          x += dx;
+          y += dy;
+        }
+      }
+      ball.style.left = x + 'px';
+      ball.style.top = y + 'px';
+
+      circle.style.left = zx + 'px';
+      circle.style.top = zy + 'px';
+      if (zx != x) {
+        matrix.x = 1.8
+      } else {
+        matrix.x = 1
+      }
+      if (zy != y) {
+        matrix.y = 1.8
+      } else {
+        matrix.y = 1
+      }
+      // circle.style.transform = `matrix( ${matrix.x},0,0,${matrix.y} ,${matrix.x},${matrix.y}) translate(-50%, -50%)`;
+    };
+
+  </script>
 </body>
 
 </html>

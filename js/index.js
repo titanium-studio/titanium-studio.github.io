@@ -32,3 +32,4 @@ ELEMENTS.forEach((element, index) => {
         ELEMENTS_SPAN[index].style.top = e.pageY - element.offsetTop + "px";
     });
 });
+

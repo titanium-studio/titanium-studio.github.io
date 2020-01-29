@@ -8,6 +8,7 @@
   font-size: 16px;
   border: none;
   scroll-behavior: smooth;
+  /* cursor: none; */
 }
 *::before, *::after{
   box-sizing: border-box;
@@ -63,7 +64,6 @@ body{
   background: rgb(36, 77, 255);
   color: white;
   overflow: hidden;
-  cursor: pointer;
 }
 .button text{
 	position: relative;
@@ -120,4 +120,27 @@ body{
 	100% {
 		transform: rotate(0deg);
 	}
+}
+
+/* ball Mouse */
+#ball, #circle{
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: exclusion;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top:50%;
+  left:50%;
+  pointer-events: none;
+  z-index: 10000;
+  /* filter: blur(25px) contrast(25px); */
+}
+#circle{
+  width: 40px;
+  height: 40px;
+  background: var(--background);
+  /* transform: matrix(1, 0, 0, 1, 0, 0) translate(-50%, -50%); */
+  /* transition: all 0.4s ease; */
 }
