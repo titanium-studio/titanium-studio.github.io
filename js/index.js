@@ -193,3 +193,83 @@ ELEMENTS.forEach((target, index) => {
 
 /** For Experiment[s] */
 let __target = document.createElement("div")
+
+
+
+
+// ;(()=>{
+//     var xmouse, ymouse;
+//     document.addEventListener('mousemove', (e) => {
+//         xmouse = e.clientX || e.pageX;
+//         ymouse = e.clientY || e.pageY;
+//     });
+
+//     var circle = $('#circle')
+//     var zx = void 0,
+//         zy = void 0,
+//         zdx = void 0,
+//         zdy = void 0;
+
+//     var matrix = {
+//         x: 1,
+//         y: 1
+//     }
+//     var ball = $('#ball')
+//     var x = void 0,
+//         y = void 0,
+//         dx = void 0,
+//         dy = void 0,
+//         key = -1;
+
+//     var followMouse = function followMouse() {
+//         key = requestAnimationFrame(followMouse)
+
+
+
+//         if (!zx || !zy) {
+//             zx = xmouse
+//             zy = ymouse
+//         } else {
+//             zdx = (xmouse - zx) * 0.5
+//             zdy = (ymouse - zy) * 0.5
+//             if (Math.abs(zdx) + Math.abs(zdy) < 0.1) {
+//                 zx = xmouse
+//                 zy = ymouse
+//             } else {
+//                 zx += zdx
+//                 zy += zdy
+//             }
+//         }
+
+//         if (!x || !y) {
+//             x = xmouse;
+//             y = ymouse;
+//         } else {
+//             dx = (xmouse - x) * 0.125;
+//             dy = (ymouse - y) * 0.125;
+//             if (Math.abs(dx) + Math.abs(dy) < 0.1) {
+//                 x = xmouse
+//                 y = ymouse
+//             } else {
+//                 x += dx
+//                 y += dy
+//             }
+//         }
+//         ball.style.left = x + 'px'
+//         ball.style.top = y + 'px'
+
+//         circle.style.left = zx + 'px'
+//         circle.style.top = zy + 'px'
+//         if (zx != x) {
+//             matrix.x = 1.8
+//         } else {
+//             matrix.x = 1
+//         }
+//         if (zy != y) {
+//             matrix.y = 1.8
+//         } else {
+//             matrix.y = 1
+//         }
+        
+//     };
+// })()
