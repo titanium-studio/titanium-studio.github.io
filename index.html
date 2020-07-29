@@ -2,288 +2,143 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/start.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/background.css">
-  <link href="https://fonts.googleapis.com/css?family=Barlow|Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-  <title>Future</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat:wght@100;200;300;400;500;700&family=Open+Sans&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
 </head>
 
-<body id="body_origin" onload="followMouse();">
-  <header class='header'>
-    <div class="header_inner">
-      <div class="logo">ASET</div>
-      <nav class='nav'>
-        <a>
-          <i class="fas fa-paper-plane"></i>
-        </a>
-        <a id='nav' class="nav_burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-      </nav>
+<body>
+    <div id="back">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
     </div>
-    <div class="back">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div id="body">
+        <section id="DSGN" class="section active">
+            <div class="title" link="DSGN"><a translate="no" class="notranslate"><span>DSG</span>N</a></div>
+            <div class="content grid">
+                <div class="box_height transparent"></div>
+                <div class="box_height">
+                    <!-- <img class="box slide" src=".\second\files\img\20200718_210341-01.jpeg" alt=""> -->
+                    <div class="box slide"><span></span></div>
+                </div>
+                <div class="box_height">
+                    <div class="box slide"><span></span></div>
+                </div>
+                <div class="box_height">
+                    <div class="box slide"><span></span></div>
+                    <div class="btn slide next"><a href="./second/index.html">Go to second page</a><span></span></div>
+                </div>
+            </div>
+        </section>
+        <section id="WORK" class="section">
+            <div class="title" link="WORK"><a translate="no" class="notranslate"><span>WOR</span>K</a></div>
+            <div class="content grid">
+                <div class="box_height">
+                    <div class="card">
+                        <div class="boxz">
+                            <h2 translate="no" class="notranslate">"Struct"</h2>
+                            <p>Library for <a href="https://learn.javascript.ru/">Javascript</a> and <a
+                                    href="https://nodejs.org/">NodeJS</a></p>
+                        </div>
+                        <div class="more btn slide">
+                            <text>More</text>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_height">
+                    <div class="card">
+                        <div class="boxz">
+                            <h2 translate="no" class="notranslate">"Titan"</h2>
+                            <p>My new Programming language</p>
+                        </div>
+                        <div class="more btn slide">
+                            <text>More</text>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_height">
+                    <div class="card">
+                        <div class="boxz">
+                            <h2 translate="no" class="notranslate">"Fast Code"</h2>
+                            <p>My <a href="https://jquery.com/">JQuery</a></p>
+                        </div>
+                        <div class="more btn slide">
+                            <text>More</text>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_height">
+                    <div class="card">
+                        <div class="boxz">
+                            <h2 translate="no" class="notranslate">"MAX"</h2>
+                            <p>Text editor [beta]</p>
+                        </div>
+                        <div class="more btn slide">
+                            <a href="https://github.com/NoNameTitan/max">More</a>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="SKILLS" class="section small">
+            <div class="title" link="SKILLS"><a translate="no" class="notranslate"><span>SKILL</span>S</a></div>
+            <div class="content grid">
+                <div class="box_height">
+                    <div class="circle"></div>
+                    <h2>Coding</h2>
+                    <p>I know <a href="https://learn.javascript.ru/">Javascript</a>, <a
+                            href="https://nodejs.org/">NodeJS</a>, <a>C#</a> and <a
+                            href="https://www.python.org/">Python</a></p>
+                </div>
+                <div class="box_height">
+                    <div class="circle"></div>
+                    <h2>Design</h2>
+                    <p>I can work with <a href="https://www.adobe.com/products/photoshop.html">photoshop</a>. Minimalistic.</p>
+                </div>
+                <div class="box_height">
+                    <div class="circle"></div>
+                    <h2 translate="no" class="notranslate">Gaming</h2>
+                    <p>I like play shooter game</p>
+                </div>
+                <div class="box_height">
+                    <div class="circle"></div>
+                    <h2><a href="https://www.arduino.cc/">Arduino</a></h2>
+                    <p>I know and have worked with robotics</p>
+                </div>
+            </div>
+        </section>
+        <section id="CALL" class="section small">
+            <div class="title" link="CALL"><a translate="no" class="notranslate"><span>CAL</span>L</a></div>
+            <div class="content grid"></div>
+        </section>
     </div>
-  </header>
-
-
-  <div id="Main">
-
-    <section id='dsgn' class="intro bef aft">
-      <div class="intro_inner name_title">
-        <a class="title current"><span>DSG</span>N</a>
-      </div>
-      <div class="content">
-        <div class="intro grid">
-          <div class="box"></div>
-          <div class="box">
-            <!-- <h1>intro</h1> -->
-          </div>
-          <div class="box"></div>
-          <div class="box">
-          </div>
-          <div class="box">
-          </div>
-          <div class="box">
-            <div class="card button">
-              <span></span>
-            </div>
-          </div>
-          <div class="box">
-            <div class="card button">
-              <span></span>
-            </div>
-          </div>
-          <div class="box">
-            <div class="card button">
-              <span></span>
-            </div>
-            <a class='next button'>
-              <span></span>
-              <text>Learn More</text>
-              <div class="arrow right">
-                <div class="line"></div>
-                <div class="line"></div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id='work' class="page work">
-      <div class="work_inner name_title">
-        <a class="title"><span>WOR</span>K</a>
-      </div>
-      <div class="content">
-
-        <!-- work -->
-        <div class="work grid">
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box">
-            <div class="card">
-              <div class="icon">
-                <i class="fas fa-microphone"></i>
-              </div>
-              <div class="text">
-
-              </div>
-              <a class='next button'>
-                <span></span>
-                <text>Learn More</text>
-                <div class="arrow right">
-                  <div class="line"></div>
-                  <div class="line"></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="box">
-            <div class="card">
-              <div class="icon">
-                <i class="fas fa-compass"></i>
-              </div>
-              <div class="text">
-
-              </div>
-              <a class='next button'>
-                <span></span>
-                <text>Learn More</text>
-                <div class="arrow right">
-                  <div class="line"></div>
-                  <div class="line"></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="box">
-            <div class="card">
-              <div class="icon">
-                <i class="fas fa-draw-polygon"></i>
-              </div>
-              <div class="text">
-                <b>plo</b>
-                <p>plo</p>
-              </div>
-              <a class='next button'>
-                <span></span>
-                <text>Learn More</text>
-                <div class="arrow right">
-                  <div class="line"></div>
-                  <div class="line"></div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="box">
-            <div class="card">
-              <div class="icon">
-                <i class="fas fa-drafting-compass"></i>
-              </div>
-              <div class="text">
-
-              </div>
-              <a class='next button'>
-                <span></span>
-                <text>Learn More</text>
-                <div class="arrow right">
-                  <div class="line"></div>
-                  <div class="line"></div>
-                </div>
-              </a>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id='make' class="page make">
-      <div class="make_inner name_title">
-        <a class="title"><span>MAK</span>E</a>
-      </div>
-      <div class="content">
-
-      </div>
-    </section>
-
-    <section id='name' class="page name">
-      <div class="name_inner name_title">
-        <a class="title"><span>NAM</span>E</a>
-      </div>
-      <div class="content">
-
-      </div>
-    </section>
-  </div>
-
-  <div id="nav_body" class='nav_body'>
-    <!-- <div id='nav_in' class="nav_in">
-      <a href="#dsgn" class="nav_btn btn current"><span>DSG</span>N</a>
-      <a href="#work" class="nav_btn btn hide"><span>WOR</span>K</a>
-      <a href="#make" class="nav_btn btn hide"><span>MAK</span>E</a>
-      <a href="#name" class="nav_btn btn hide"><span>NAM</span>E</a>
-    </div> -->
-  </div>
-  <div id="ball"></div>
-  <div id="circle"></div>
-  <script src="./js/index.js" defer></script>
-  <script src="./js/nav.js" defer></script>
-  <script src="./js/script.js" defer></script>
-  <script type="text/javascript">
-
-    var $ = document.querySelector.bind(document);
-    var $on = document.addEventListener.bind(document);
-
-    var xmouse, ymouse;
-    $on('mousemove', (e) => {
-      xmouse = e.clientX || e.pageX;
-      ymouse = e.clientY || e.pageY;
-    });
-
-    var circle = $('#circle')
-    var zx= void 0,
-      zy= void 0,
-      zdx= void 0,
-      zdy= void 0;
-    
-    var matrix = {
-      x: 1,
-      y: 1
-    }
-    var ball = $('#ball');
-    var x = void 0,
-      y = void 0,
-      dx = void 0,
-      dy = void 0,
-      tx = 0,
-      ty = 0,
-      key = -1;
-
-    var followMouse = function followMouse() {
-      key = requestAnimationFrame(followMouse);
-
-
-
-      if (!zx || !zy) {
-        zx = xmouse;
-        zy = ymouse;
-      } else {
-        zdx = (xmouse - zx) * 0.5;
-        zdy = (ymouse - zy) * 0.5;
-        if (Math.abs(zdx) + Math.abs(zdy) < 0.1) {
-          zx = xmouse;
-          zy = ymouse;
-        } else {
-          zx += zdx;
-          zy += zdy;
-        }
-      }
-
-      if (!x || !y) {
-        x = xmouse;
-        y = ymouse;
-      } else {
-        dx = (xmouse - x) * 0.125;
-        dy = (ymouse - y) * 0.125;
-        if (Math.abs(dx) + Math.abs(dy) < 0.1) {
-          x = xmouse;
-          y = ymouse;
-        } else {
-          x += dx;
-          y += dy;
-        }
-      }
-      ball.style.left = x + 'px';
-      ball.style.top = y + 'px';
-
-      circle.style.left = zx + 'px';
-      circle.style.top = zy + 'px';
-      if (zx != x) {
-        matrix.x = 1.8
-      } else {
-        matrix.x = 1
-      }
-      if (zy != y) {
-        matrix.y = 1.8
-      } else {
-        matrix.y = 1
-      }
-      // circle.style.transform = `matrix( ${matrix.x},0,0,${matrix.y} ,${matrix.x},${matrix.y}) translate(-50%, -50%)`;
-    };
-
-  </script>
+    <div id="front">
+        <header class="header">
+            <div class="logo"><a id="hero" translate="no" class="notranslate">ASET</a></div>
+            <nav class="nav">
+                <a id="plane" class="btn">
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+                <a id="nav" class="nav_burger btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </nav>
+        </header>
+    </div>
+    <script src="./js/index.js" defer></script>
 </body>
 
 </html>
