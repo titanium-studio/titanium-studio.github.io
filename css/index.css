@@ -54,7 +54,6 @@ input, button {
 }
 body{
     overflow: hidden;
-    height: 100vh;
     width: 100vw;
 }
 h1, h2, h3, h4, h5, h6{
@@ -146,7 +145,9 @@ a.btn:hover::after{
 }
 
 /* ===== _BODY_ ===== */
-
+html, body{
+    height: -webkit-fill-available;
+}
 #body, section{
     width: 100vw;
     height: -webkit-fill-available;
@@ -222,6 +223,13 @@ section .title span{
     flex-direction: column-reverse;
     justify-content: end;
 }
+.btn a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 .content.grid .box_height .btn a,
 .content.grid .box_height .btn text{
     z-index: 30;
@@ -288,13 +296,6 @@ section .title span{
 #DSGN .content.grid .box_height .btn{
     border-top: 1px solid rgb(172, 172, 172);
 }
-#DSGN .content.grid .box_height .btn a{
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
 
 /* ===== WORK page ===== */
 
@@ -328,13 +329,6 @@ section .title span{
 #WORK .content.grid .box_height .card:hover .more{
     height: 8vh;
     min-height: var(--size3);
-}
-#WORK .content.grid .box_height .card:hover .more a{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* ===== SKILLS ===== */
