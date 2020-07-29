@@ -149,7 +149,7 @@ a.btn:hover::after{
 
 #body, section{
     width: 100vw;
-    height: 100vh;
+    height: -webkit-fill-available;
     overflow: hidden;
 }
 section{
