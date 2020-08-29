@@ -16,6 +16,7 @@
     --size2: 24px;
     --size3: 32px;
     --size4: 48px;
+    --size5: 64px;
 }
 *{
     font-family: 'Montserrat', sans-serif;
@@ -55,6 +56,7 @@ input, button {
 body{
     overflow: hidden;
     width: 100vw;
+    background: var(--first-color);
 }
 h1, h2, h3, h4, h5, h6{
     font-weight: 500;
@@ -204,7 +206,10 @@ section .title span{
     height: 100%;
     transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
 }
-.content.none{
+.section.none{
+    background: var(--first-color);
+}
+.section.none .content{
     transform: rotateX(90deg);
 }
 .content.grid{
@@ -334,19 +339,15 @@ section .title span{
 /* ===== SKILLS ===== */
 
 #SKILLS .content.grid .box_height .circle{
-    width: 18vw;
-    height: 18vw;
-    background: #011267;
-    border-radius: 50%;
-    margin: 0 0 1em 0;
-    background-position: center!important;
-    background-size: cover!important;
+    position: relative;
 }
-#SKILLS .content.grid .box_height:nth-child(1) .circle{
-    background: url("../second/files/img/20200719_013050-01.jpeg") no-repeat;
-}
-#SKILLS .content.grid .box_height:nth-child(2) .circle{
-    background: url("../second/files/img/IMG_20200319_220853_175.JPG") no-repeat;
+#SKILLS .content.grid .box_height .circle span{
+    font-weight: 500;
+    font-size: var(--h5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 #SKILLS .content.grid .box_height h1, #SKILLS .content.grid .box_height{
     flex-direction: column;
@@ -458,6 +459,27 @@ section .title span{
   left: 50%;
 }
 
+/* ===== MOUSE ===== */
+
+#circle, #ball{
+    z-index: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--size3);
+    height: var(--size3);
+    background: #fff;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    pointer-events: none;
+    transition:width 0.3s ease,height 0.3s ease;
+}
+#ball{
+    width: 3px;
+    height: 3px;
+    background: #fff;
+}
 
 /* ===== MOBILE Version ===== */
 
