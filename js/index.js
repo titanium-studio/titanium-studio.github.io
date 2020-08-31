@@ -128,8 +128,8 @@ function nav_off() {
             remove(__sections__[i], "none")
             title.style.top = ``
             title.style.fontSize = ""
-            $("#circle").style.width = ""
-            $("#circle").style.height = ""
+            $("#mouse").style.width = ""
+            $("#mouse").style.height = ""
         }
     }
 }
@@ -167,14 +167,14 @@ function title_function(target) {
     })
     target.addEventListener("mouseenter", () => {
         if (contains(target, "fly")) {
-            $("#circle").style.width = "var(--size5)"
-            $("#circle").style.height = "var(--size5)"
+            $("#mouse").style.width = "var(--size5)"
+            $("#mouse").style.height = "var(--size5)"
         }
     })
     target.addEventListener("mouseleave", () => {
         if (contains(target, "fly")) {
-            $("#circle").style.width = ""
-            $("#circle").style.height = ""
+            $("#mouse").style.width = ""
+            $("#mouse").style.height = ""
         }
     })
 }
@@ -213,7 +213,7 @@ ELEMENTS.forEach((target, index) => {
         ymouse = e.clientY || e.pageY;
     });
 
-    var circle = $('#circle')
+    var circle = $('#mouse')
     var zx = void 0,
         zy = void 0,
         zdx = void 0,
@@ -268,12 +268,13 @@ ELEMENTS.forEach((target, index) => {
 })();
 BUTTONS.forEach((target) => {
     target.addEventListener("mouseenter", () => {
-        $("#circle").style.width = "var(--size5)"
-        $("#circle").style.height = "var(--size5)"
+        $("#mouse").style.width = "var(--size5)"
+        $("#mouse").style.height = "var(--size5)"
+
     })
     target.addEventListener("mouseleave", () => {
-        $("#circle").style.width = ""
-        $("#circle").style.height = ""
+        $("#mouse").style.width = ""
+        $("#mouse").style.height = ""
     })
 });
 

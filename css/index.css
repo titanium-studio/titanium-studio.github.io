@@ -96,6 +96,7 @@ a, li {
     font-size: inherit;
     font-family: inherit;
     transition: all 0.3s ease;
+    font-weight: 400;
 }
 a::after{
     position: absolute;
@@ -104,12 +105,14 @@ a::after{
     display: block;
     content: "";
     width: 0;
-    height: 1px;
-    background: var(--blue-color);
+    height: 2px;
+    background: var(--bad-black);
+    /* background: var(--blue-color); */
     transition: all 0.2s ease-in-out;
 }
 a:hover{
-    color: var(--blue-color);
+    /* color: var(--blue-color); */
+    font-weight: 400;
 }
 a:hover::after{
     width: 100%;
@@ -278,7 +281,8 @@ section .title span{
 	transition: width var(--time), padding-top var(--time);
 }
 .slide:hover {
-	color: var(--blue-color);
+    /* color: var(--blue-color); */
+    color: var(--bad-black);
 }
 .slide:hover span {
 	width: calc(var(--width)*3.25);
@@ -428,7 +432,7 @@ section .title span{
     bottom: 0;
 }
 .nav_burger:hover span{
-    background: var(--blue-color);
+    /* background: var(--blue-color); */
 }
 .nav_burger:hover span:nth-child(1),
 .nav_burger:hover span:nth-child(3){
@@ -461,7 +465,7 @@ section .title span{
 
 /* ===== MOUSE ===== */
 
-#circle, #ball{
+#mouse, #ball{
     z-index: 500;
     position: absolute;
     top: 50%;
