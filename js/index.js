@@ -153,6 +153,13 @@ function nav_view() {
     contains(__nav__, "active") ? nav_off() : nav_on()
 }
 function plane_function(ev) {
+    for (let i = 0; i < __sections__.length; i++) {
+        const section = __sections__[i];
+        if (contains(section, "active")) {
+            remove(section, "active")
+        }
+    }
+    add($id("CALL"), "active")
     smooth($id("CALL"))
 }
 function title_function(target) {
@@ -338,7 +345,3 @@ reDraw()
 
 /** For Experiment[s] */
 let __target = document.createElement("div")
-
-
-
-

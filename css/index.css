@@ -26,9 +26,11 @@
     font-size: 16px;
     border: none;
     scroll-behavior: smooth;
-    color: var(--bad-black)
+    color: var(--bad-black);
+    cursor: none;
+
 }
-*, ::before, ::after{
+*, *::before, *::after{
     box-sizing: border-box;
 }
 *::selection{
@@ -201,6 +203,7 @@ section .title, section .title span{
 }
 section .title span{
     letter-spacing: 3vw;
+    font-weight: inherit;
     font-size: inherit;
 }
 .content{
@@ -430,9 +433,6 @@ section .title span{
 .nav_burger span:nth-child(3){
     left: 0;
     bottom: 0;
-}
-.nav_burger:hover span{
-    /* background: var(--blue-color); */
 }
 .nav_burger:hover span:nth-child(1),
 .nav_burger:hover span:nth-child(3){
