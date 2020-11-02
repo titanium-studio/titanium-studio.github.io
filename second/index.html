@@ -25,10 +25,10 @@
     </div>
     <div id="block" class="block">
       <div class="list">
-        <a href="" class="link on">Home</a>
-        <a href="" class="link">Works</a>
-        <a href="" class="link">Help</a>
-        <a href="#footer" class="link">FeedBack</a>
+        <a onclick="changePos('#top')" class="link on">Home</a>
+        <a onclick="changePos('#gallery')" class="link">Works</a>
+        <a onclick="changePos('#skill')" class="link">Skill</a>
+      <a onclick="changePos('#footer')" class="link">FeedBack</a>
       </div>
     </div>
     <canvas id="canvas" width="200" height="100"></canvas>
@@ -71,7 +71,7 @@
         </div>
       </div>
     </div>
-    <div class="skill page">
+    <div id="skill" class="skill page">
       <div class="content">
         <h1>My skill</h1>
         <div class="stats">
@@ -146,6 +146,7 @@
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/smooth-scrollbar@8.2.7,npm/smooth-scrollbar@8.2.7/dist/plugins/overscroll.min.js"></script>
   <script src="./js/master.js" defer></script>
   <script src="./js/index.js" defer></script>
 </body>

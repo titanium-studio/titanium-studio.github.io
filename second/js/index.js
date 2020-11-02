@@ -1,4 +1,6 @@
 // Canvas "close" Function
+
+// "background-image: linear-gradient(to right top, #051937, #0d296a, #3a349c, #7633c8, #bc12eb);"
 (function () {
     var canvasBody = document.getElementById("canvas"),
         canvas = canvasBody.getContext("2d"),
@@ -10,9 +12,11 @@
 
         //YOU CAN CHANGE OPTIONS HERE. DO NOT REALLY MESS WITH STUFF BELOW THAT
         opts = { //Options, you can change those
-            backgroundColor: "#011627",
+            backgroundColor: "#051937",
+            backgroundColors: ["#051937","#0d296a", "#3a349c", "#7633c8", "#bc12eb"],
+            radiusGrd: -w / 3 * 2,
             particleColor: "#fcfcfc",
-            particleAmount: 40,
+            particleAmount: 100,
             defaultSpeed: 0.2,
             addedSpeed: 0.2,
 
@@ -97,7 +101,13 @@
         tick++;
 
         //Drawing the background. Basically clearing the frame that was before
-        canvas.fillStyle = opts.backgroundColor
+        let grd = canvas.createLinearGradient(0, 0, w, opts.radiusGrd/3);
+        for (let i = 0; i < opts.backgroundColors.length; i++) {
+            let t = 1 / (opts.backgroundColors.length)
+            const color = opts.backgroundColors[i];
+            grd.addColorStop((i) * t, color)
+        }
+        canvas.fillStyle = grd
         canvas.fillRect(0, 0, w, h)
 
         //Executing particle functions
@@ -143,44 +153,6 @@ const $toogle = function $toogle(el, cls) {
         // return false
     }
 };
-(()=>{
-    for (let i = 0; i < nav_links.length-1; i++) {
-        const link = nav_links[i];
-        link.addEventListener("click",navigation_view)
-    }
-    nav_links[nav_links.length - 1].addEventListener("click",(ev)=>{
-        nav_links[nav_links.length - 1].scrollBy()
-        navigation_view(ev)
-        console.log("dd")
-    })
-})()
-
-// Document Event Function(s) need Params
-var h = 0 // for [wheel__]
-var x = 0 // for [to_up, to_down]
-// Document Event Function(s)
-function wheel__(ev) {
-    // if (ev.deltaY > 0) {
-    //     to_down()
-
-    // } else {
-    //     to_up()
-    // }
-
-    if (h > 1000) {
-        h = 0
-    }
-    DOC.setSpeed(ev.deltaY / 10)
-    var g = h + 1
-    h++
-    setTimeout(() => {
-        if (g !== h) {
-            return
-        } else {
-            DOC.setSpeed(0)
-        }
-    }, 200)
-}
 function navigation_view(ev) {
     $toogle(block, "view")
     $toogle(_body_, "move")
@@ -188,81 +160,46 @@ function navigation_view(ev) {
     $toogle(document.getElementById("canvas"), "move")
     $toogle(nav, "close")
 }
-function to_up(params) {
-    if (x == 12 || x > 12) {
-        x = 0
-        return
-    }
-    if (_body_.scrollTop == 0) {
-        x = 0
-        return
-    }
-    x++
-    _body_.scrollTop--
-    _body_.scrollTop--
-    _body_.scrollTop--
-    _body_.scrollTop--
-    _body_.scrollTop--
-    _body_.scrollTop--
-    _body_.scrollTop--
-    _body_.scrollTop--
-
-    requestAnimationFrame(to_up)
-}
-function to_down(params) {
-    if (x == 12 || x > 12) {
-        x = 0
-        return
-    }
-    x++
-    _body_.scrollTop = _body_.scrollTop + (8)
-    console.log(x)
-    setTimeout(to_down,1000/60)
-}
-
-// PageScroll need Params
-var speed = 0
-var target = _body_
-var fps = 60
-var targetInterval = setInterval(() => { }, 1000)
-
-// PageScroll
-function PageScroll(params) {
-    if (this === globalThis) {
-        return new PageScroll(params)
-    }
-}
-// PageScroll prototype Function(s)
-PageScroll.prototype.setSpeed = function (num = 0) {
-    if (num == 0) {
-        speed = 0
-        return
-    }
-    speed = num
-}
-PageScroll.prototype.draw = function draw() {
-    if (speed !== 0) {
-        if (target.scrollTop < 0) {
-            speed = 0
-            target.scrollTop = 0
-        } else {
-            target.scrollTop += speed
-        }
-    }
-    // requestAnimationFrame(draw)
-    setTimeout(draw,1000/fps)
-}
-PageScroll.prototype.stop = function () {
-    clearInterval(targetInterval)
-}
-PageScroll.prototype.start = function () {
-    this.draw()
-}
-
-// Create new Object(s)
-var DOC = new PageScroll()
-DOC.start()
-
-// Document Add Event Listener
-document.addEventListener("wheel", wheel__)
 nav.addEventListener("click", navigation_view)
+
+var Scrollbar = window.Scrollbar;
+Scrollbar.use(OverscrollPlugin)
+var option = {
+    damping: 0.10,
+    thumbMinSize: 5,
+    renderByPixel: true,
+    alwaysShowTracks: false,
+    continuousScrolling: true,
+    plugins: {
+        overscroll: {
+            effect: 'bounce',
+            damping: 0.15,
+            maxOverscroll: 80
+        }
+    },
+
+}
+/**
+ * @param { "#top" | "#gallery" | "#skill" | "#footer" } params 
+ */
+function changePos(params) {
+    if (typeof params != "string" || params == "") {
+        return
+    }
+    if (!(params == "#top" | params == "#gallery" | params == "#skill" | params == "#footer")) {
+        return
+    }
+    s.scrollTop = document.querySelector(params).offsetTop
+
+    if (block.classList.contains("view")) {
+        navigation_view()
+    }
+}
+
+var s = Scrollbar.init(document.querySelector('#body'), option);
+
+setTimeout(() => {
+    document.querySelectorAll(".scrollbar-track, .scrollbar-thumb").forEach((el) => {
+        el.classList.remove("scrollbar-track", "scrollbar-thumb")
+    })
+}, 100)
