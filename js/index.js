@@ -66,7 +66,7 @@ const __sections__ = $all("section")
 const __content__ = $all(".content")
 const __titles__ = $all(".title")
 const ELEMENTS = $all(".slide")
-const BUTTONS = $all(".btn")
+const BUTTONS = $all(".btn, #hero")
 
 //#endregion
 //#region For Function param[s]
@@ -351,7 +351,7 @@ reDraw()
 
 function alpha(params) {
 
-    let $ = (query)=>{
+    let $ = (query) => {
 
     }
 
@@ -391,4 +391,14 @@ if (mobileCheck()) {
     $$.querySelector("head").innerHTML += '<link id="favicon" rel="shortcut icon" href="./src/png/icons8-ноутбук-50.png" type="image/png">'
 }
 
+console.log("call")
 //#endregion
+
+setTimeout(() => {
+    document.getElementById("back").classList.remove("hide")
+    document.getElementById("body").classList.remove("hide")
+    document.getElementById("mouse").classList.add("invert")
+    document.getElementById("mouse").classList.remove("loader")
+    document.getElementById("ball").classList.add("invert")
+    document.getElementById("ball").innerHTML = ""
+}, 2500)

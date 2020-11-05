@@ -1,7 +1,7 @@
 // Canvas "close" Function
 
 // "background-image: linear-gradient(to right top, #051937, #0d296a, #3a349c, #7633c8, #bc12eb);"
-(function () {
+var p = (function () {
     var canvasBody = document.getElementById("canvas"),
         canvas = canvasBody.getContext("2d"),
 
@@ -13,7 +13,7 @@
         //YOU CAN CHANGE OPTIONS HERE. DO NOT REALLY MESS WITH STUFF BELOW THAT
         opts = { //Options, you can change those
             backgroundColor: "#051937",
-            backgroundColors: ["#051937","#0d296a", "#3a349c", "#7633c8", "#bc12eb"],
+            backgroundColors: ["#051937", "#0d296a", "#3a349c", "#7633c8", "#bc12eb"],
             radiusGrd: -w / 3 * 2,
             particleColor: "#fcfcfc",
             particleAmount: 100,
@@ -88,20 +88,29 @@
                 }
             }
         }
-
+    let isCall = false
     function setup() { //Function called once to set everything up
+        particles = new Array()
         for (var i = 0; i < opts.particleAmount; i++) {
             particles.push(new Particle())
         }
+        if (isCall) {
+            return
+        }
         window.requestAnimationFrame(loop)
+        isCall = true
     }
 
+    let lastT = new Date(),
+        nowT = new Date()
     function loop() { //Function of loop that will be called for a frame of the animation
         window.requestAnimationFrame(loop)
-        tick++;
+        nowT = new Date()
+        tick = nowT - lastT
+        lastT = nowT
 
         //Drawing the background. Basically clearing the frame that was before
-        let grd = canvas.createLinearGradient(0, 0, w, opts.radiusGrd/3);
+        let grd = canvas.createLinearGradient(0, 0, w, opts.radiusGrd / 3);
         for (let i = 0; i < opts.backgroundColors.length; i++) {
             let t = 1 / (opts.backgroundColors.length)
             const color = opts.backgroundColors[i];
@@ -126,14 +135,11 @@
 
     //Some event listeners for backup to look professional
     window.addEventListener("resize", function () {
-        if (w < window.innerWidth || h < window.innerHeight) {
-            // particles.push(new Particle())
-        } else {
-            // particles.shift()
-        }
         w = canvasBody.width = window.innerWidth;
         h = canvasBody.height = window.innerHeight;
+        setup()
     })
+    return particles
 })()
 
 // Document Element(s)
@@ -142,22 +148,22 @@ const block = document.getElementById("block")
 const nav_links = block.children[0].children
 const _body_ = document.getElementById("body")
 const _footer_ = document.getElementById("footer")
+const canvas = document.getElementById("canvas")
+const top_ = document.getElementById("top")
 
 // Need Function(s)
 const $toogle = function $toogle(el, cls) {
     if (el.classList.contains(cls)) {
         el.classList.remove(cls)
-        // return true
     } else {
         el.classList.add(cls)
-        // return false
     }
 };
 function navigation_view(ev) {
     $toogle(block, "view")
     $toogle(_body_, "move")
-    $toogle(document.getElementById("top"), "move")
-    $toogle(document.getElementById("canvas"), "move")
+    $toogle(top_, "move")
+    $toogle(canvas, "move")
     $toogle(nav, "close")
 }
 nav.addEventListener("click", navigation_view)
