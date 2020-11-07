@@ -150,6 +150,9 @@ const _body_ = document.getElementById("body")
 const _footer_ = document.getElementById("footer")
 const canvas = document.getElementById("canvas")
 const top_ = document.getElementById("top")
+const logo = document.querySelector(".logo")
+const objectview = document.querySelector(".objectview")
+var scrollContent;
 
 // Need Function(s)
 const $toogle = function $toogle(el, cls) {
@@ -201,11 +204,39 @@ function changePos(params) {
         navigation_view()
     }
 }
+window.onmousewheel = (e)=>{
+    // if(e.deltaY>0&&_body_.style.transform)
+    /**@type { string } */
+    if(scrollContent.style.transform == undefined) scrollContent.style.transform = ""
+    let a = (scrollContent.style.transform.split(",")[1]) || ""
 
-var s = Scrollbar.init(document.querySelector('#body'), option);
+    a = a.split("px")[0]
+    a *= -1
+    if(e.deltaY>0&&a>=0){
+        logo.classList.remove("fly")
+    }else if(e.deltaY<0&&a<=100){
+        logo.classList.add("fly")
+    }
+}
+
+var s = Scrollbar.init(_body_, option);
+scrollContent = document.querySelector(".scroll-content")
 
 setTimeout(() => {
     document.querySelectorAll(".scrollbar-track, .scrollbar-thumb").forEach((el) => {
         el.classList.remove("scrollbar-track", "scrollbar-thumb")
     })
 }, 100)
+
+document.querySelector("#gallery").querySelectorAll("img").forEach((img)=>{
+    img.addEventListener("click",(e)=>{
+        objectview.classList.remove("null")
+        _body_.classList.add("fullscreen")
+        objectview.innerHTML = `<img src="${img.getAttribute('src')}">`
+    })
+})
+objectview.addEventListener("click",()=>{
+    objectview.classList.add("null")
+    _body_.classList.remove("fullscreen")
+    objectview.innerHTML = ""
+})

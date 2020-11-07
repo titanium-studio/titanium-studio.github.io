@@ -20,21 +20,21 @@
           <span class="small"></span>
         </div>
       </div>
-      <div class="logo hero">TITAN</div>
+      <div class="logo hero fly">TITAN</div>
       <div class="null"></div>
     </div>
     <div id="block" class="block">
       <div class="list">
-        <a onclick="changePos('#top')" class="link on">Home</a>
+        <a onclick="changePos('#wellcome')" class="link">Home</a>
         <a onclick="changePos('#gallery')" class="link">Works</a>
         <a onclick="changePos('#skill')" class="link">Skill</a>
-      <a onclick="changePos('#footer')" class="link">FeedBack</a>
+        <a onclick="changePos('#feedback')" class="link">FeedBack</a>
       </div>
     </div>
     <canvas id="canvas" width="200" height="100"></canvas>
   </div>
   <div id="body">
-    <div class="wellcome page transparent">
+    <div id="wellcome" class="wellcome page transparent">
       <h1>Wellcome</h1>
       <p>My name is <b>Aset</b></p>
       <p class="last">And I'm <b>Programmer</b> | <b>Designer</b> | <b>Gamer</b></p>
@@ -46,26 +46,38 @@
         <div class="gallery">
           <div class="left g">
             <div class="card">
-              <img src="./files/img/20200718_200204-01.jpeg" alt="kaspi">
+              <img src="./files/img/city.jpg">
             </div>
             <div class="card">
-              <img src="./files/img/20200718_201158-01.jpeg" alt="катер">
+              <img src="./files/img/1.jpg">
+            </div>
+            <div class="card">
+              <img src="./files/img/2.jpeg">
             </div>
           </div>
           <div class="center g">
             <div class="card">
-              <img src="./files/img/20200718_210341-01.jpeg" alt="green">
+              <img src="./files/img/badocean.jpg">
             </div>
             <div class="card">
-              <img src="./files/img/IMG_20200508_213221_719.JPG" alt="трасса">
+              <img src="./files/img/oeac and green.jpeg">
+            </div>
+            <div class="card">
+              <img src="./files/img/blur1.jpg">
             </div>
           </div>
           <div class="right g">
             <div class="card">
-              <img src="./files/img/IMG_20200508_212831_119.JPG" alt="picture">
+              <img src="./files/img/green.jpeg">
             </div>
             <div class="card">
-              <img src="./files/img/20200719_013050-01.jpeg" alt="keyboard">
+              <img src="./files/img/keyboard.jpeg">
+            </div>
+            <div class="card">
+              <img src="./files/img/ocean1.jpg">
+            </div>
+            <div class="card">
+              <img src="./files/img/palma.jpg">
             </div>
           </div>
         </div>
@@ -113,7 +125,7 @@
         <div class="card link"></div>
       </div>
     </div>
-    <div id="footer" class="footer">
+    <!-- <div id="footer" class="footer">
       <div class="content">
         <div class="left">
           <div class="f_top f_nav">
@@ -144,9 +156,19 @@
           </div>
         </div>
       </div>
+    </div> -->
+    <div id="footer">
+      <div class="content"
+        style="color: white; padding: 12px;display: flex; flex-direction: row; justify-content: space-between;">
+        <a class="basic_hover" href="/">Main Site</a>
+        <p>Powered by <a class="basic_hover" href="https://github.com/NoNameTitan">NoNameTitan</a></p>
+      </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/combine/npm/smooth-scrollbar@8.2.7,npm/smooth-scrollbar@8.2.7/dist/plugins/overscroll.min.js"></script>
+  <div class="objectview null">
+  </div>
+  <script
+    src="https://cdn.jsdelivr.net/combine/npm/smooth-scrollbar@8.2.7,npm/smooth-scrollbar@8.2.7/dist/plugins/overscroll.min.js"></script>
   <script src="./js/master.js" defer></script>
   <script src="./js/index.js" defer></script>
 </body>

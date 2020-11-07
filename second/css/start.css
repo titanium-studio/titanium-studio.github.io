@@ -209,6 +209,17 @@ body {
   color: #fff;
   letter-spacing: 0.2em;
   font-weight: 200;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.logo.fly{
+  position: fixed;
+  right: 64px;
+  top: 50%;
+  height: auto;
+  width: auto;
+  font-weight: 500;
+  transform: scale(5) translate(-50%,-10%);
+  writing-mode: vertical-lr;
 }
 
 .footer {
@@ -280,7 +291,7 @@ body {
 .wellcome p {
   font-size: 2em;
   font-weight: 200;
-  padding-left: 1.1em;
+  /* padding-left: 1.1em; */
 }
 
 .wellcome p.last {
@@ -300,7 +311,7 @@ body {
 
 .hello {
   height: auto;
-  border-bottom: 1px solid #011627;
+  /* border-bottom: 1px solid #011627; */
 }
 
 .hello .content {
@@ -329,24 +340,41 @@ body {
 .gallery .g {
   display: flex;
   flex-direction: column;
+  /* overflow: hidden; */
 }
 
 .card {
-  width: 100%;
-  height: auto;
-  padding: 5px;
+  width: auto;
+  /* height: auto; */
+  margin: 5px;
+  overflow: hidden;
+}
+
+.card:hover img {
+  transform: scale(1.1);
 }
 
 .card img {
   width: 100%;
+  transition: transform 0.2s ease;
 }
 
 .card div {
   background: linear-gradient(#451212, #121245);
 }
 
+.card.this{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 .skill {
   height: auto;
+  /* background: rgba(0, 0, 0, 0.8); */
+  color: #f8f9fa;
+  padding-bottom: 25px;
 }
 
 .skill .content {
@@ -354,6 +382,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 5%;
+  background: hsla(210, 90%, 80%, 1);
+  background: linear-gradient(135deg, hsla(210, 90%, 80%, 1) 0%, hsla(212, 93%, 49%, 1) 100%);
 }
 
 .skill .content h1 {
@@ -388,7 +419,7 @@ body {
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  background: #845515;
+  background: #3a86ff;
 }
 
 .circle.big {
@@ -468,7 +499,29 @@ body {
 }
 
 .null {
-  display: block;
+  display: none;
+}
+.basic_hover:hover{
+  border-bottom: solid 1px white;
+}
+.objectview{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+}
+.objectview img{
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 70vh;
+  border: 5px solid white;
+}
+#body.fullscreen{
+  filter: blur(3px) grayscale(80%);
 }
 
 /* IMPORTANT */
