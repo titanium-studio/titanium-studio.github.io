@@ -355,7 +355,7 @@ section .title span {
 /* ===== DSGN page ===== */
 
 #DSGN .content.grid .box_height:nth-child(2) .box {
-    background: url("../second/files/img/20200718_210341-01.jpeg") no-repeat;
+    background: url("../second/files/img/IMG_20200319_220853_175.JPG") no-repeat;
 }
 
 #DSGN .content.grid .box_height:nth-child(3) .box {
@@ -364,7 +364,7 @@ section .title span {
 }
 
 #DSGN .content.grid .box_height:nth-child(4) .box {
-    background: url("../second/files/img/20200718_201158-01.jpeg") no-repeat;
+    background: url("../second/files/img/IMG_20200508_213221_719.JPG") no-repeat;
     background-position: center;
 }
 

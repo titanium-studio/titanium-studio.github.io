@@ -106,7 +106,7 @@ body {
 
 #body.move, #top.move, #canvas.move {
   top: 0;
-  left: 50vw;
+  left: 30vw;
 }
 
 .page {
@@ -460,8 +460,8 @@ body {
 #block {
   position: fixed;
   top: 0;
-  right: 100vw;
-  width: 50vw;
+  left: -30vw;
+  width: 30vw;
   height: 100vh;
   transition: all 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   background: #011627;
@@ -472,7 +472,7 @@ body {
 }
 
 #block.view {
-  right: 50vw;
+  left: 0;
   top: 0;
   color: #9795a0;
 }
@@ -482,6 +482,7 @@ body {
   flex-direction: column;
   font-size: 3em;
   font-weight: 300;
+  align-items: center;
 }
 
 #block .list .link {
@@ -517,7 +518,7 @@ body {
   top:50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  height: 70vh;
+  height: 70vmin;
   border: 5px solid white;
 }
 #body.fullscreen{

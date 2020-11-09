@@ -165,6 +165,7 @@ const $toogle = function $toogle(el, cls) {
 function navigation_view(ev) {
     $toogle(block, "view")
     $toogle(_body_, "move")
+    $toogle(_body_, "blur")
     $toogle(top_, "move")
     $toogle(canvas, "move")
     $toogle(nav, "close")
@@ -189,32 +190,36 @@ var option = {
 
 }
 /**
- * @param { "#top" | "#gallery" | "#skill" | "#footer" } params 
+ * @param { "#wellcome" | "#gallery" | "#skill" | "#footer" | Number } params 
  */
 function changePos(params) {
-    if (typeof params != "string" || params == "") {
-        return
+    if (typeof params == "number") {
+        s.scrollTop = 0
     }
-    if (!(params == "#top" | params == "#gallery" | params == "#skill" | params == "#footer")) {
-        return
+    if (typeof params == "string") {
+        s.scrollTop = document.querySelector(params).offsetTop
     }
-    s.scrollTop = document.querySelector(params).offsetTop
 
+    if (!logo.classList.contains("fly") && (params == "#wellcome" || params == 0)) {
+        logo.classList.add("fly")
+    } else if (!(params == "#wellcome" || params == 0)) {
+        logo.classList.remove("fly")
+    }
     if (block.classList.contains("view")) {
         navigation_view()
     }
 }
-window.onmousewheel = (e)=>{
+window.onmousewheel = (e) => {
     // if(e.deltaY>0&&_body_.style.transform)
     /**@type { string } */
-    if(scrollContent.style.transform == undefined) scrollContent.style.transform = ""
+    if (scrollContent.style.transform == undefined) scrollContent.style.transform = ""
     let a = (scrollContent.style.transform.split(",")[1]) || ""
 
     a = a.split("px")[0]
     a *= -1
-    if(e.deltaY>0&&a>=0){
+    if (e.deltaY > 0 && a >= 0) {
         logo.classList.remove("fly")
-    }else if(e.deltaY<0&&a<=100){
+    } else if (e.deltaY < 0 && a <= 100) {
         logo.classList.add("fly")
     }
 }
@@ -228,14 +233,14 @@ setTimeout(() => {
     })
 }, 100)
 
-document.querySelector("#gallery").querySelectorAll("img").forEach((img)=>{
-    img.addEventListener("click",(e)=>{
+document.querySelector("#gallery").querySelectorAll("img").forEach((img) => {
+    img.addEventListener("click", (e) => {
         objectview.classList.remove("null")
         _body_.classList.add("fullscreen")
         objectview.innerHTML = `<img src="${img.getAttribute('src')}">`
     })
 })
-objectview.addEventListener("click",()=>{
+objectview.addEventListener("click", () => {
     objectview.classList.add("null")
     _body_.classList.remove("fullscreen")
     objectview.innerHTML = ""
