@@ -390,8 +390,6 @@ if (mobileCheck()) {
     $id("favicon").remove()
     $$.querySelector("head").innerHTML += '<link id="favicon" rel="shortcut icon" href="./src/png/icons8-ноутбук-50.png" type="image/png">'
 }
-
-console.log("call")
 //#endregion
 
 setTimeout(() => {

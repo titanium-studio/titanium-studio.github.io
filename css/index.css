@@ -412,6 +412,10 @@ section .title span {
 
 /* ===== SKILLS ===== */
 
+#SKILLS .content.grid .box_height{
+    justify-content: flex-end;
+    padding-bottom: 10vh;
+}
 #SKILLS .content.grid .box_height .circle {
     position: relative;
 }
@@ -628,5 +632,13 @@ section .title span {
     }
     #WORK .content.grid .box_height .card .boxz, #WORK .content.grid .box_height .card {
         height: 100%;
+    }
+    #CALL .content.grid .box_height{
+        display: none;
+    }
+    #CALL .content.grid .box_height:last-child{
+        display: initial;
+        grid-column: 1/3;
+        grid-row: 1/3;
     }
 }
