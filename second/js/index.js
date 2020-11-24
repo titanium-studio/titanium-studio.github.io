@@ -218,8 +218,10 @@ window.onmousewheel = (e) => {
     a = a.split("px")[0]
     a *= -1
     if (e.deltaY > 0 && a >= 0) {
+        top_.children[0].classList.add("black")
         logo.classList.remove("fly")
     } else if (e.deltaY < 0 && a <= 100) {
+        top_.children[0].classList.remove("black")
         logo.classList.add("fly")
     }
 }
@@ -232,7 +234,6 @@ setTimeout(() => {
         el.classList.remove("scrollbar-track", "scrollbar-thumb")
     })
 }, 100)
-
 document.querySelector("#gallery").querySelectorAll("img").forEach((img) => {
     img.addEventListener("click", (e) => {
         objectview.classList.remove("null")

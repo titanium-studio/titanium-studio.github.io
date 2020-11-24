@@ -377,12 +377,12 @@ if (mobileCheck()) {
 //#endregion
 
 setTimeout(() => {
-    document.getElementById("back").classList.remove("hide")
-    document.getElementById("body").classList.remove("hide")
-    document.getElementById("mouse").classList.add("invert")
-    document.getElementById("mouse").classList.remove("loader")
-    document.getElementById("ball").classList.add("invert")
-    document.getElementById("ball").innerHTML = ""
+    $$.getElementById("back").classList.remove("hide")
+    $$.getElementById("body").classList.remove("hide")
+    $$.getElementById("mouse").classList.add("invert")
+    $$.getElementById("mouse").classList.remove("loader")
+    $$.getElementById("ball").classList.add("invert")
+    .getElementById("ball").innerHTML = ""
     if (isMobile){
         $id("mouse").style.display = "none"
         $id("ball").style.display = "none"
