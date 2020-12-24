@@ -382,7 +382,7 @@ setTimeout(() => {
     $$.getElementById("mouse").classList.add("invert")
     $$.getElementById("mouse").classList.remove("loader")
     $$.getElementById("ball").classList.add("invert")
-    .getElementById("ball").innerHTML = ""
+    $$.getElementById("ball").innerHTML = ""
     if (isMobile){
         $id("mouse").style.display = "none"
         $id("ball").style.display = "none"
