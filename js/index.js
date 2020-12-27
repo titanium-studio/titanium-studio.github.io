@@ -144,6 +144,7 @@ function setup(ev) {
     smooth(__sections__[0])
 }
 function wheel_target(event) {
+    event.preventDefault()
     var delta = event.wheelDelta
     var timeNow = new Date().getTime()
     if (timeNow - lastAnimation < idlePeriod + animationDuration) {
