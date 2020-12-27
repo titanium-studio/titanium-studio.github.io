@@ -198,7 +198,7 @@ window.addEventListener("resize", () => {
     reDraw()
 })
 $$.readyState == 'loading' ? $$.addEventListener("DOMContentLoaded", setup) : setTimeout(setup, 10)
-$$.addEventListener("wheel", wheel_target)
+$$.addEventListener("wheel", wheel_target,{passive:false})
 __hero__.addEventListener("click", () => { smooth($id("DSGN")) })
 __nav__.addEventListener("click", nav_view)
 __plane__.addEventListener("click", plane_function)
