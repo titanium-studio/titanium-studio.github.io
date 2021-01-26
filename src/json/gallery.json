@@ -1,0 +1,22 @@
+{
+    "gallery": {
+        "corePath": "/src/jpg/",
+        "data": [
+            {
+                "aktau": [
+                    ""
+                ]
+            },
+            {
+                "almaty": [
+                    ""
+                ]
+            }
+        ],
+        "dsgn":[
+            "je-suis-charlie-karandashi.jpg",
+                    "keyboard.jpeg",
+                    "trava-zelen-priroda.jpg"
+        ]
+    }
+}

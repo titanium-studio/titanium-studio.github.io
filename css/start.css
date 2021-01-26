@@ -1,0 +1,146 @@
+:root {
+    --header-height: 64;
+    --first-color: #FDFFFC;
+    --second-color: #011267;
+    --blue-color: rgb(36, 76, 255);
+    --red-color: #e71d36;
+    --blue-color-2: #00a8e8;
+    --bad-black: #282828;
+    --dark_black: #010303;
+    --h1: 3em;
+    --h2: 2.6em;
+    --h3: 2.2em;
+    --h4: 1.8em;
+    --h5: 1.4em;
+    --h6: 1.2em;
+    --size1: 16px;
+    --size2: 24px;
+    --size3: 32px;
+    --size4: 48px;
+    --size5: 64px;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-size: 16px;
+    border: none;
+    scroll-behavior: smooth;
+    color: var(--bad-black);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+*::selection {
+    background: var(--second-color);
+    color: var(--first-color);
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.Open_sans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.Roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.Barlow {
+    font-family: 'Barlow', sans-serif;
+}
+
+input, button {
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    width: 100vw;
+    background: var(--first-color);
+}
+body.none_mouse_visible{
+    cursor: none;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: var(--h1);
+}
+
+h2 {
+    font-size: var(--h2);
+}
+
+h3 {
+    font-size: var(--h3);
+}
+
+h4 {
+    font-size: var(--h4);
+}
+
+h5 {
+    font-size: var(--h5);
+}
+
+h6 {
+    font-size: var(--h6);
+}
+
+b {
+    font-weight: 600;
+}
+
+p, h1, h2, h3, h4, h5, h6, i, span, div, b, text, font, ya-tr-span {
+    text-align: center;
+    color: inherit;
+    font-family: inherit;
+}
+
+i, font, ya-tr-span {
+    font-size: inherit;
+}
+
+a, li {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+a::after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    display: block;
+    content: "";
+    width: 0;
+    height: 2px;
+    background: var(--bad-black);
+    /* background: var(--blue-color); */
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    /* color: var(--blue-color); */
+    font-weight: 400;
+}
+
+a:hover::after {
+    width: 100%;
+}

@@ -1,0 +1,15 @@
+{
+    "billboard": {
+        "corePath": "/src/jpg/",
+        "img": [
+            {
+                "aktau": [
+                    "1.jpg",
+                    "ocean_and_green.jpeg",
+                    "2.jpeg",
+                    "city.jpg"
+                ]
+            }
+        ]
+    }
+}

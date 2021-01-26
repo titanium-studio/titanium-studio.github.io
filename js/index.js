@@ -1,4 +1,8 @@
 //#region Search Document Element[s]
+/**
+ * @param { string | "div" } query
+ * @returns { Element | HTMLDivElement }
+ */
 function $(query) {
     return document.querySelector(query)
 }
@@ -64,9 +68,8 @@ const __footer__ = $(".footer")
 const __nav__ = $id("nav") // Nav Button
 const __plane__ = $id("plane")
 const __sections__ = $all("section")
-const __content__ = $all(".content")
 const __titles__ = $all(".title")
-const ELEMENTS = $all(".slide")
+var ELEMENTS = $all(".slide")
 const BUTTONS = $all(".btn, #hero")
 
 //#endregion
@@ -136,10 +139,29 @@ function nav_off() {
             remove(__sections__[i], "none")
             title.style.top = ``
             title.style.fontSize = ""
-            $("#mouse").style.width = ""
-            $("#mouse").style.height = ""
+            // $("#mouse").style.width = ""
+            // $("#mouse").style.height = ""
         }
     }
+}
+function reSlide() {
+    ELEMENTS = $all(".slide")
+    ELEMENTS.forEach((target, index) => {
+        if (!ELEMENTS_SPAN[index])
+            ELEMENTS_SPAN[index] = target.querySelector("span")
+
+        target.addEventListener("mouseover", function (e) {
+            ELEMENTS_SPAN[index].style.left = e.pageX - target.offsetLeft + "px"
+            ELEMENTS_SPAN[index].style.top = e.pageY - target.offsetTop + "px"
+
+            add(target, animatedClassName)
+        })
+
+        target.addEventListener("mouseout", function (e) {
+            ELEMENTS_SPAN[index].style.left = e.pageX - target.offsetLeft + "px"
+            ELEMENTS_SPAN[index].style.top = e.pageY - target.offsetTop + "px"
+        })
+    });
 }
 //#endregion
 //#region For Event Function[s]
@@ -172,8 +194,8 @@ function plane_function(ev) {
     smooth($id("CALL"))
 }
 function reSize() {
-    let a = contains($("body"),"dark_mode")
-    a ? reDraw("#333","#244dff") : reDraw()
+    let a = contains($("body"), "dark_mode")
+    a ? reDraw("#333", "#244dff") : reDraw()
 }
 function title_function(target) {
     target.addEventListener("click", function () {
@@ -213,25 +235,9 @@ __titles__.forEach(title_function)
 $(".dark_mode_change").addEventListener("click", () => {
     toggle($("body"), "dark_mode")
     reSize()
-})
-//#endregion
-//#region Hover Event
-ELEMENTS.forEach((target, index) => {
-    if (!ELEMENTS_SPAN[index])
-        ELEMENTS_SPAN[index] = target.querySelector("span")
-
-    target.addEventListener("mouseover", function (e) {
-        ELEMENTS_SPAN[index].style.left = e.pageX - target.offsetLeft + "px"
-        ELEMENTS_SPAN[index].style.top = e.pageY - target.offsetTop + "px"
-
-        add(target, animatedClassName)
-    })
-
-    target.addEventListener("mouseout", function (e) {
-        ELEMENTS_SPAN[index].style.left = e.pageX - target.offsetLeft + "px"
-        ELEMENTS_SPAN[index].style.top = e.pageY - target.offsetTop + "px"
-    })
 });
+//#endregion
+//#region Mouse Event
 (() => {
     var xmouse, ymouse;
     $$.addEventListener('mousemove', (e) => {
@@ -342,8 +348,8 @@ circles.forEach((circle, i) => {
     circle.appendChild(listCanvas[i])
     circle.appendChild(listSpan[i])
 })
-reDraw = (firstColor = "#efefef",secondColor = "#555555") => {
-    secondColor ="#244dff"
+reDraw = (firstColor = "#efefef", secondColor = "#555555") => {
+    secondColor = "#244dff"
     opts.radius = window.innerWidth / 6 / 3
     opts.size = window.innerWidth / 6
     opts.lineWidth = Math.max(window.innerWidth / 6 / 3 / 6, 5)
@@ -391,6 +397,87 @@ if (mobileCheck()) {
 }
 //#endregion
 
+getimages("src/json/gallery.json", (err, res) => {
+    if (err) throw new Error(err)
+
+    if (res?.gallery?.dsgn !== undefined) {
+        let pathsList = res.gallery.dsgn
+        for (let i = 0; i < pathsList.length; i++) {
+            let a = box_height(box(true, { background: "url(" + window.location.origin + res.gallery.corePath + pathsList[i] + ")" }), { gridArea: "a" + i })
+            __sections__[0].querySelector(".content").appendChild(a)
+        }
+    }
+})
+getData("src/json/social.json", (err, res) => {
+    if (err) throw new Error(err)
+
+    if (res?.social?.data !== undefined) {
+        let data = res.social.data
+        for (const obj of data) {
+            for (const key in obj) {
+                if (Object.hasOwnProperty.call(obj, key)) {
+                    __sections__[3].querySelector(".content").appendChild(box_height(btn("<a href='" + obj[key] + "'>" + key + "</a>")))
+                }
+            }
+        }
+
+    }
+})
+
+function Div() {
+    return document.createElement("div")
+}
+function btn(innerHTML = "") {
+    let div = Div()
+    div.classList.add("btn", "slide")
+    div.innerHTML = innerHTML + "<span></span>"
+    return div
+}
+
+function box_height(child, style) {
+    let div = Div()
+    div.classList.add("box_height")
+
+    if (child) div.appendChild(child)
+    if (style) Styler(div, style)
+
+    return div
+}
+/**
+ * @param { HTMLDivElement } div
+ * @param {{ }} style
+ */
+function Styler(div, style) {
+    for (const key in style) {
+        if (Object.hasOwnProperty.call(style, key)) {
+            div.style[key] = style[key]
+        }
+    }
+}
+function box(slide, style) {
+    let div = Div()
+    div.classList.add("box")
+
+    if (style) Styler(div, style)
+    if (slide) {
+        div.classList.add("slide")
+        div.innerHTML = "<span></span>"
+    }
+
+    return div
+}
+function card(innerHTML, style) {
+    let div = Div()
+    div.classList.add("card")
+
+    if (innerHTML) div.innerHTML = innerHTML
+    if (style) Styler(div, style)
+
+    return div
+}
+
+
+
 setTimeout(() => {
     $$.getElementById("back").classList.remove("hide")
     $$.getElementById("body").classList.remove("hide")
@@ -401,5 +488,9 @@ setTimeout(() => {
     if (isMobile) {
         $id("mouse").style.display = "none"
         $id("ball").style.display = "none"
+        $$.querySelector("body").classList.remove("none_mouse_visible")
     }
+    reSlide()
 }, 2500)
+
+
