@@ -89,12 +89,6 @@ section .title {
     z-index: 20;
 }
 
-section.active.small .title {
-    transition-delay: 0.5s;
-    top: 10vh;
-    font-size: 10vh;
-}
-
 section .title.fly {
     position: fixed;
     z-index: 30;
@@ -130,9 +124,9 @@ section .title span {
     transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
 }
 
-.section.none {
+/* .section.none {
     background: var(--first-color);
-}
+} */
 
 .dark_mode .section.none {
     background: var(--dark_black);

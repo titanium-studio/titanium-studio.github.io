@@ -66,9 +66,13 @@ body {
     width: 100vw;
     background: var(--first-color);
 }
-body.none_mouse_visible{
-    cursor: none;
 
+body.none_mouse_visible {
+    cursor: none;
+}
+
+html, body {
+    height: -webkit-fill-available;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -143,4 +147,173 @@ a:hover {
 
 a:hover::after {
     width: 100%;
+}
+
+#body, section {
+    width: 100vw;
+    height: -webkit-fill-available;
+    overflow: hidden;
+}
+
+.hide {
+    transition: transform 0.5s ease;
+    transform-origin: top;
+    transform: rotateX(90deg);
+}
+
+#back {
+    background: var(--first-color);
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -10;
+    border-top: 1px solid rgb(172, 172, 172);
+    transition: all 0.5s cubic-bezier(1.000, 0.045, 0.425, 1);
+}
+
+#back .line {
+    width: 1px;
+    height: 100vh;
+    background: rgb(172, 172, 172);
+    transition: all 0.5s cubic-bezier(1.000, 0.045, 0.425, 1);
+}
+
+#back.active, #back.active .line {
+    height: 0;
+}
+
+#front {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 0;
+    z-index: 20;
+}
+
+.header {
+    position: absolute;
+    top: var(--size2);
+    left: var(--size2);
+    right: var(--size2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .nav {
+    width: calc(var(--size3) * 3);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header .nav i, .header .logo {
+    font-size: var(--size3);
+}
+
+.nav_burger {
+    width: var(--size3);
+    height: var(--size2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
+
+.nav_burger span {
+    position: absolute;
+    display: block;
+    width: var(--size3);
+    height: 2px;
+    background: var(--bad-black);
+    transition: all 0.3s ease;
+}
+
+.dark_mode .nav_burger span {
+    background: var(--first-color);
+}
+
+.nav_burger span:nth-child(1) {
+    right: 0;
+    top: 0;
+}
+
+.nav_burger span:nth-child(2) {
+    width: var(--size1);
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav_burger span:nth-child(3) {
+    left: 0;
+    bottom: 0;
+}
+
+.nav_burger:hover span:nth-child(1), .nav_burger:hover span:nth-child(3) {
+    width: var(--size1);
+}
+
+.nav_burger:hover span:nth-child(2) {
+    width: var(--size3);
+}
+
+.nav_burger.active span {
+    position: absolute;
+}
+
+.nav_burger.active span:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(45deg);
+    top: 50%;
+    left: 50%;
+}
+
+.nav_burger.active span:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(90deg);
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+}
+
+.nav_burger.active span:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(-45deg);
+    top: 50%;
+    left: 50%;
+}
+
+#mouse, #ball {
+    z-index: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+#mouse.invert {
+    width: var(--size3);
+    height: var(--size3);
+}
+
+.invert {
+    mix-blend-mode: difference;
+}
+
+#ball {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3px;
+    height: 3px;
+    background: #fff;
 }

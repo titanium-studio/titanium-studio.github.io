@@ -284,9 +284,9 @@ section .title span {
     transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
 }
 
-.section.none {
+/* .section.none {
     background: var(--first-color);
-}
+} */
 
 .dark_mode .section.none {
     background: var(--dark_black);

@@ -1,4 +1,5 @@
-.btn {}
+/* .btn {} */
+
 .slide {
     position: relative;
     --width: 100%;
@@ -75,7 +76,7 @@ a.btn:hover::after {
 section {
     position: relative;
     display: block;
-    background: linear-gradient(#e71d36, #011267);
+    /* background: linear-gradient(#e71d36, #011267); */
     border-bottom: 1px solid rgb(172, 172, 172);
 }
 
@@ -85,26 +86,37 @@ section .title {
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.7s cubic-bezier(0.47, 0, 0.75, 0.72);
+    transition: all 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     font-size: 10vw;
     z-index: 20;
+}
+
+section.small .title {
+    /* transition-delay: 0.5s; */
+    font-size: 10vh;
 }
 
 section.fly .title {
     position: fixed;
     z-index: 30;
 }
+section.fly .title:hover {
+    color: var(--blue-color-2);
+}
 
-section.fly:nth-of-type(1) .title{
+section.fly:nth-of-type(1) .title {
     top: 30vh
 }
-section.fly:nth-of-type(2) .title{
+
+section.fly:nth-of-type(2) .title {
     top: 42vh
 }
-section.fly:nth-of-type(3) .title{
+
+section.fly:nth-of-type(3) .title {
     top: 54vh
 }
-section.fly:nth-of-type(4) .title{
+
+section.fly:nth-of-type(4) .title {
     top: 66vh
 }
 
@@ -159,12 +171,14 @@ section .title span {
     flex-direction: column-reverse;
     justify-content: end;
 }
+
 .content.grid .box_height .btn {
     width: 100%;
     height: 8vh;
     min-height: var(--size3);
     background: var(--blue-color);
 }
+
 .content.grid .box_height .box {
     width: 100%;
     height: 25vw;

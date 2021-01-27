@@ -21,6 +21,7 @@ class Main {
         this.values = {}
         this.percentCircles = []
         Main.Self = this
+        return Main.Self
     }
 
     //#region Static
@@ -28,8 +29,20 @@ class Main {
         let main = new Main()
         let titles = ["DSGN", "WORK", "SKILLS", "CALL"]
         for (let i = 0; i < 4; i++) {
-            main.__sections__.push(section(titles[i]))
+            let _x_ = section(titles[i])
+            _x_.setEventTitle(() => {
+                main.forEach(main.__sections__, (_s_) => {
+                    remove(_s_.self, "active")
+                })
+                add(_x_.self, "active")
+                smooth(_x_.self)
+                main.nav_off()
+            })
+            main.__sections__.push(_x_)
         }
+        __logo__.addEventListener("click", () => {
+            main.firstPage()
+        });
 
         [__logo__, __nav__, __plane__].forEach((_x_) => {
             main.btn_hover(_x_)
@@ -139,9 +152,10 @@ class Main {
         if (!contains(__nav__, "active")) {
             add(__nav__, "active")
             add(__back__, "active")
-            this.forEach(_s_, (_x_, i) => {
+            this.forEach(_s_, (_x_) => {
                 add(_x_.self, "fly")
-                add(_s_[i].self, "none")
+                add(_x_.self, "none")
+                add(_x_.self, "small")
                 // _s_.style.top = `${(i * 12) + 30}vh`
                 // _s_.style.fontSize = "10vh"
             })
@@ -152,9 +166,10 @@ class Main {
         if (contains(__nav__, "active")) {
             remove(__nav__, "active")
             remove(__back__, "active")
-            this.forEach(_s_, (_x_, i) => {
+            this.forEach(_s_, (_x_) => {
                 remove(_x_.self, "fly")
-                remove(_s_[i].self, "none")
+                remove(_x_.self, "none")
+                remove(_x_.self, "small")
                 // _s_.style.top = `${(i * 12) + 30}vh`
                 // _s_.style.fontSize = "10vh"
             })
@@ -203,7 +218,7 @@ class Main {
         } else {
             self.timeOut(() => {
                 self.endLoading(callback, ++recursion)
-            }, 750)
+            }, 10)
         }
     }
     //#endregion

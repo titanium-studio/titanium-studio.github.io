@@ -16,8 +16,8 @@ const ELEMENTS_SPAN = []
 
 function wheel_target(ev) {
     ev.preventDefault()
-    var delta = ev.wheelDelta
-    var timeNow = new Date().getTime()
+    let delta = ev.wheelDelta
+    let timeNow = new Date().getTime()
     if (timeNow - lastAnimation < idlePeriod + animationDuration) {
         return;
     }
@@ -26,7 +26,7 @@ function wheel_target(ev) {
 
     lastAnimation = timeNow
 }
-function nav_btn(ev) {
+function nav_btn() {
     contains(__nav__, "active") ? main.nav_off() : main.nav_on()
 }
 
@@ -44,6 +44,7 @@ main.timeOut(() => {
 
 
     getimages("/src/json/index.json", (err, res) => {
+        remove(__back__, "hide")
         if (err) throw new Error(err)
         let core = window.location.origin + res.index.corePath
         for (let i = 0; i < res.index.img.length; i++) {
@@ -60,3 +61,4 @@ main.timeOut(() => {
     })
 
 }, 1200)
+export default main

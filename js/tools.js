@@ -47,7 +47,7 @@ function remove(target, css) {
  * @param { string } css
  */
 function toggle(target, css) {
-    var params = [target, css]
+    let params = [target, css]
     contains(...params) ? remove(...params) : add(...params)
 }
 //#endregion
@@ -95,6 +95,7 @@ function Div(cssClass) {
     }
     return x
 }
+
 function section(title = "", content) {
     if (!(this instanceof section)) {
         return new section(title, content)
@@ -102,8 +103,15 @@ function section(title = "", content) {
 
     let div = document.createElement("section")
     let c = Div(["content", "grid"])
+    let t = document.createElement("a")
     add(div, "section")
-    div.innerHTML = "<a translate='no' class='notranslate title' link=" + title + "><span>" + title.slice(0, title.length - 1) + "</span>" + title[title.length - 1] + "</a>"
+    div.id = title
+    add(t, "title")
+    add(t, "notranslate")
+    t.setAttribute("translate", "no")
+    t.innerHTML = "<span>" + title.slice(0, title.length - 1) + "</span>" + title[title.length - 1]
+    div.appendChild(t)
+    // div.innerHTML = "<a translate='no' onclick='main.toScrool(\"" + title + "\")' class='notranslate title' link=" + title + "><span>" + title.slice(0, title.length - 1) + "</span>" + title[title.length - 1] + "</a>"
     if (Array.isArray(content)) {
         for (let i = 0; i < content.length; i++) {
             c.appendChild(content[i])
@@ -115,6 +123,9 @@ function section(title = "", content) {
     this.setContent = (value) => {
         c.appendChild(value)
         return this
+    }
+    this.setEventTitle = (callback) => {
+        t.addEventListener("click", callback)
     }
     /**
      * @param {boolean} bool
@@ -131,8 +142,7 @@ function section(title = "", content) {
 }
 function btn(innerHTML = "", withSlide = false) {
     let div = Div("btn")
-    withSlide ? add(div, "slide") : void 0;
-    withSlide ? innerHTML += "<span></span>" : void 0;
+    withSlide ? addSlide(div) : void 0;
     div.innerHTML = innerHTML
     return div
 }
@@ -166,8 +176,7 @@ function box(slide, style) {
 
     if (style) Styler(div, style)
     if (slide) {
-        div.classList.add("slide")
-        div.innerHTML = "<span></span>"
+        addSlide(div)
     }
 
     return div
@@ -179,6 +188,20 @@ function card(innerHTML, style) {
     if (style) Styler(div, style)
 
     return div
+}
+function addSlide(div){
+    let s = document.createElement("span")
+    div.classList.add("slide")
+    div.appendChild(s)
+    div.addEventListener("mouseover",(e)=>{
+        s.style.left = e.pageX - div.offsetLeft + "px"
+        s.style.top = e.pageY - div.offsetTop + "px"
+        add(div,"animated")
+    })
+    div.addEventListener("mouseout", function (e) {
+        s.style.left = e.pageX - div.offsetLeft + "px"
+        s.style.top = e.pageY - div.offsetTop + "px"
+    })
 }
 //#endregion
 
