@@ -134,7 +134,7 @@ a::after {
     display: block;
     content: "";
     width: 0;
-    height: 2px;
+    height: 1px;
     background: var(--bad-black);
     /* background: var(--blue-color); */
     transition: all 0.2s ease-in-out;
@@ -217,6 +217,9 @@ a:hover::after {
 .header .nav i, .header .logo {
     font-size: var(--size3);
 }
+.header .nav i, .header .logo a::after {
+    height: 2px;
+}
 
 .nav_burger {
     width: var(--size3);
@@ -234,10 +237,6 @@ a:hover::after {
     height: 2px;
     background: var(--bad-black);
     transition: all 0.3s ease;
-}
-
-.dark_mode .nav_burger span {
-    background: var(--first-color);
 }
 
 .nav_burger span:nth-child(1) {

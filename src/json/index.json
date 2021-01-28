@@ -2,9 +2,42 @@
     "index": {
         "corePath": "/src/jpg/",
         "img": [
-            "je-suis-charlie-karandashi.jpg",
-            "keyboard.jpeg",
-            "trava-zelen-priroda.jpg"
+            {
+                "url": "je-suis-charlie-karandashi.jpg",
+                "p": "Drawing"
+            },
+            {
+                "url": "keyboard.jpeg",
+                "p": "Coding"
+            },
+            {
+                "url": "trava-zelen-priroda.jpg",
+                "p": "Photography"
+            }
+        ]
+    },
+    "work": {
+        "data": [
+            {
+                "name": "<i class='fas fa-tools'></i> Array tools",
+                "description": "Library for <a href='https://learn.javascript.ru/'>Javascript</a> and <a href='https: //nodejs.org/'>NodeJS</a>",
+                "more": "https://github.com/noname-titan/Tools"
+            },
+            {
+                "name": "<i class='fas fa-gamepad'></i> Game (alpha)",
+                "description": "Simple 2d game. My first game",
+                "more": "https://github.com/NoNameTitan/Game"
+            },
+            {
+                "name": "<i class='fas fa-code'></i> \"Fast Code\"",
+                "description": "My <a href='https://jquery.com/'>JQuery</a>",
+                "more": ""
+            },
+            {
+                "name": "<i class='fas fa-edit'></i> \"MAX\"",
+                "description": "Text editor [beta]",
+                "more": "https://github.com/NoNameTitan/max"
+            }
         ]
     }
 }

@@ -86,6 +86,9 @@ const is = {
 //#endregion
 
 //#region Doc Create
+/**
+ * @param { string | string[] } cssClass
+ */
 function Div(cssClass) {
     let x = document.createElement("div")
     if (typeof cssClass == "string") {
@@ -139,11 +142,13 @@ function section(title = "", content) {
         return this
     }
     this.self = div
+    this.title = t
 }
-function btn(innerHTML = "", withSlide = false) {
+function btn(innerHTML = "", withSlide = false, cssClass = []) {
     let div = Div("btn")
+    cssClass[0] ? div.classList.add(...cssClass) : void 0;
     withSlide ? addSlide(div) : void 0;
-    div.innerHTML = innerHTML
+    innerHTML ? div.innerHTML = innerHTML : void 0;
     return div
 }
 
@@ -171,32 +176,73 @@ function Styler(div, style) {
  * @param { boolean } slide
  * @param {{ }} style
  */
-function box(slide, style) {
+function box(slide, style, innerText = "") {
     let div = Div("box")
 
     if (style) Styler(div, style)
     if (slide) {
         addSlide(div)
     }
+    if (innerText !== "") {
+        let a = document.createElement("a")
+        a.innerText = innerText
+        div.appendChild(a)
+    }
 
     return div
 }
-function card(innerHTML, style) {
+function card_(innerHTML, style) {
     let div = Div("card")
+
+
 
     if (innerHTML) div.innerHTML = innerHTML
     if (style) Styler(div, style)
 
     return div
 }
-function addSlide(div){
+function card__() {
+
+    if (!(this instanceof card__)) {
+        return new card__()
+    }
+
+    let div = Div("card")
+    let b = Div("boxz")
+    let m = btn(null, true, ["more"])
+
+    div.appendChild(b)
+    div.appendChild(m)
+
+    this.addH2 = (iHTML) => {
+        b.innerHTML += "<h2 translate='no' class='notranslate'>" + iHTML + "</h2>"
+    }
+    this.addP = (iHTML) => {
+        b.innerHTML += "<p>" + iHTML + "</p>"
+    }
+    this.addMore = (href) => {
+        let a = document.createElement("a")
+        a.setAttribute("href", href)
+        a.innerText = "More"
+        m.appendChild(a)
+        // m.innerHTML+="<a href='" + href + "'>More</a>"
+        // div.appendChild(btn("<a href='" + href + "'>More</a>", true, ["more"]))
+    }
+
+    this.self = div
+}
+/**
+ * @param {Element} div 
+ */
+function addSlide(div) {
     let s = document.createElement("span")
     div.classList.add("slide")
     div.appendChild(s)
-    div.addEventListener("mouseover",(e)=>{
+
+    div.addEventListener("mouseover", (e) => {
         s.style.left = e.pageX - div.offsetLeft + "px"
         s.style.top = e.pageY - div.offsetTop + "px"
-        add(div,"animated")
+        // add(div, "animated")
     })
     div.addEventListener("mouseout", function (e) {
         s.style.left = e.pageX - div.offsetLeft + "px"
@@ -227,6 +273,7 @@ const tools = {
     isMobile,
     isMobileAndTablet
 }
+let card = card__
 const Box = {
     card,
     Div,

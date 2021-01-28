@@ -2,7 +2,7 @@ import Main from "./main.js"
 import { css, tools, Box, globalVariables } from "./tools.js"
 import mouseEventAdd from "./mouse.js"
 const { $, $all, $id, smooth, add, remove, toggle, contains, Styler } = css
-const { box_height, box } = Box
+const { box_height, box, card } = Box
 const { is, isMobile } = tools
 const { __body__, __nav__, __back__, __logo__, __plane__ } = globalVariables
 const $$ = document.querySelector("#body")
@@ -45,18 +45,43 @@ main.timeOut(() => {
 
     getimages("/src/json/index.json", (err, res) => {
         remove(__back__, "hide")
+
         if (err) throw new Error(err)
         let core = window.location.origin + res.index.corePath
-        for (let i = 0; i < res.index.img.length; i++) {
+        let imgs = res.index.img
+
+        for (let i = 0; i < imgs.length; i++) {
             main.__sections__[0]
                 .setContent(
                     box_height(
                         box(true,
-                            { background: "url(" + core + res.index.img[i] + ")" }
+                            { background: "url(" + core + imgs[i].url + ")" },
+                            imgs[i].p
                         ), { gridArea: "x" + i }
                     )
                 )
                 .reverse(true)
+        }
+
+        for (let i = 0; i < res.work.data.length; i++) {
+            let c = card()
+            c.addH2(res.work.data[i].name)
+            c.addP(res.work.data[i].description)
+            c.addMore(res.work.data[i].more)
+            main.__sections__[1].setContent(
+                box_height(
+                    c.self
+                )
+            )
+            // main.__sections__[0]
+            //     .setContent(
+            //         box_height(
+            //             box(true,
+            //                 { background: "url(" + core + res.index.img[i] + ")" }
+            //             ), { gridArea: "x" + i }
+            //         )
+            //     )
+            //     .reverse(true)
         }
     })
 

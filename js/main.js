@@ -38,6 +38,16 @@ class Main {
                 smooth(_x_.self)
                 main.nav_off()
             })
+            _x_.title.addEventListener("mouseenter", () => {
+                if (contains(_x_.self, "fly")) {
+                    $("#mouse").style.width = "var(--size5)"
+                    $("#mouse").style.height = "var(--size5)"
+                }
+            })
+            _x_.title.addEventListener("mouseleave", () => {
+                $("#mouse").style.width = ""
+                $("#mouse").style.height = ""
+            })
             main.__sections__.push(_x_)
         }
         __logo__.addEventListener("click", () => {
