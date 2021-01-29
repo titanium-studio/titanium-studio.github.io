@@ -71,6 +71,10 @@ body.none_mouse_visible {
     cursor: none;
 }
 
+body.none_mouse_visible *:hover{
+    cursor: inherit;
+}
+
 html, body {
     height: -webkit-fill-available;
 }

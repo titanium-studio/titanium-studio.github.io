@@ -39,5 +39,29 @@
                 "more": "https://github.com/NoNameTitan/max"
             }
         ]
+    },
+    "skills": {
+        "data": []
+    },
+    "social":{
+        "other":[
+            {
+                "VK": "https://vk.com/aset_telmanov"
+            }
+        ],
+        "data":[
+            {
+                "Telegram": "https://t.me/titanov"
+            },
+            {
+                "WhatsApp": "https://api.whatsapp.com/send?phone=+77788405404"
+            },
+            {
+                "Github": "https://github.com/NoNameTitan"
+            },
+            {
+                "Facebook": "https://www.facebook.com/ace.titan.404"
+            }
+        ]
     }
 }

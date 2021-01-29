@@ -197,6 +197,7 @@ section .title span {
 .content.grid .box_height .box a {
     transition: all 0.5s ease;
     font-size: var(--h5);
+    font-weight: 500;
 }
 
 .content.grid .box_height .box a:hover::after {

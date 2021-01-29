@@ -144,12 +144,18 @@ function section(title = "", content) {
     this.self = div
     this.title = t
 }
-function btn(innerHTML = "", withSlide = false, cssClass = []) {
+function btn(innerHTML, withSlide = false, cssClass = []) {
     let div = Div("btn")
     cssClass[0] ? div.classList.add(...cssClass) : void 0;
     withSlide ? addSlide(div) : void 0;
-    innerHTML ? div.innerHTML = innerHTML : void 0;
+    innerHTML ? div.appendChild(innerHTML) : void 0;
     return div
+}
+function link(innerHTML, href) {
+    let a = document.createElement("a")
+    href ? a.setAttribute("href", href) : void 0;
+    a.innerHTML = innerHTML
+    return a
 }
 
 function box_height(child, style) {
@@ -221,10 +227,7 @@ function card__() {
         b.innerHTML += "<p>" + iHTML + "</p>"
     }
     this.addMore = (href) => {
-        let a = document.createElement("a")
-        a.setAttribute("href", href)
-        a.innerText = "More"
-        m.appendChild(a)
+        m.appendChild(link("More", href))
         // m.innerHTML+="<a href='" + href + "'>More</a>"
         // div.appendChild(btn("<a href='" + href + "'>More</a>", true, ["more"]))
     }
@@ -280,7 +283,8 @@ const Box = {
     box_height,
     box,
     btn,
-    section
+    section,
+    link
 }
 const globalVariables = {
     __nav__: $id("nav"),

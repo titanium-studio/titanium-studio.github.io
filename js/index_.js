@@ -2,7 +2,7 @@ import Main from "./main.js"
 import { css, tools, Box, globalVariables } from "./tools.js"
 import mouseEventAdd from "./mouse.js"
 const { $, $all, $id, smooth, add, remove, toggle, contains, Styler } = css
-const { box_height, box, card } = Box
+const { box_height, box, card, btn, link } = Box
 const { is, isMobile } = tools
 const { __body__, __nav__, __back__, __logo__, __plane__ } = globalVariables
 const $$ = document.querySelector("#body")
@@ -39,6 +39,13 @@ main.timeOut(() => {
     main.addEventListener(window, "wheel", wheel_target, { passive: false })
     main.addEventListener(__nav__, "click", nav_btn)
 
+    let faviconPathCore = "./src/png/"
+    if (isMobile) {
+        $id("favicon").attributes.getNamedItem("href").value = faviconPathCore + "icons8-iphone-50.png"
+    } else {
+        $id("favicon").attributes.getNamedItem("href").value = faviconPathCore + "icons8-ноутбук-50.png"
+    }
+
     add(mouseEventAdd.mouse, "invert")
     add(mouseEventAdd.ball, "invert")
 
@@ -73,15 +80,18 @@ main.timeOut(() => {
                     c.self
                 )
             )
-            // main.__sections__[0]
-            //     .setContent(
-            //         box_height(
-            //             box(true,
-            //                 { background: "url(" + core + res.index.img[i] + ")" }
-            //             ), { gridArea: "x" + i }
-            //         )
-            //     )
-            //     .reverse(true)
+        }
+
+        if (res?.social?.data !== undefined) {
+            let data = res.social.data
+            for (const obj of data) {
+                for (const key in obj) {
+                    if (Object.hasOwnProperty.call(obj, key)) {
+                        main.__sections__[3].setContent(box_height(btn(link(key, obj[key]), true)))
+                    }
+                }
+            }
+
         }
     })
 

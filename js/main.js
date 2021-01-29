@@ -40,23 +40,30 @@ class Main {
             })
             _x_.title.addEventListener("mouseenter", () => {
                 if (contains(_x_.self, "fly")) {
-                    $("#mouse").style.width = "var(--size5)"
-                    $("#mouse").style.height = "var(--size5)"
+                    mouseEventAdd.mouse.style.width = "var(--size5)"
+                    mouseEventAdd.mouse.style.height = "var(--size5)"
                 }
             })
             _x_.title.addEventListener("mouseleave", () => {
-                $("#mouse").style.width = ""
-                $("#mouse").style.height = ""
+                mouseEventAdd.mouse.style.width = mouseEventAdd.mouse.style.height = ""
             })
             main.__sections__.push(_x_)
         }
         __logo__.addEventListener("click", () => {
             main.firstPage()
-        });
-
-        [__logo__, __nav__, __plane__].forEach((_x_) => {
-            main.btn_hover(_x_)
         })
+        __plane__.addEventListener("click", () => {
+            let _s_ = main.__sections__
+            for (let i = 0; i < _s_.length; i++) {
+                remove(_s_[i].self, "active")
+            }
+            add(_s_[3].self, "active")
+            smooth(_s_[3].self)
+        })
+
+            ;[__logo__, __nav__, __plane__].forEach((_x_) => {
+                main.btn_hover(_x_)
+            })
         main.firstPage()
         return main
     }

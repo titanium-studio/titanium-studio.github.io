@@ -214,10 +214,8 @@ function title_function(target) {
         }
     })
     target.addEventListener("mouseleave", () => {
-        if (contains(target, "fly")) {
-            $("#mouse").style.width = ""
-            $("#mouse").style.height = ""
-        }
+        $("#mouse").style.width = ""
+        $("#mouse").style.height = ""
     })
 }
 //#endregion
