@@ -3,7 +3,7 @@ import mouseEventAdd from "./mouse.js"
 const { $, $all, $id, smooth, contains, add, remove } = css
 const { is } = tools
 const { section, box_height } = Box
-const { __body__, __nav__, __back__, __plane__, __logo__ } = globalVariables
+const { __body__, __nav__, __back__, __plane__, __logo__, __front__ } = globalVariables
 
 class Main {
     constructor() {
@@ -49,16 +49,10 @@ class Main {
             })
             main.__sections__.push(_x_)
         }
-        __logo__.addEventListener("click", () => {
-            main.firstPage()
-        })
-        __plane__.addEventListener("click", () => {
-            let _s_ = main.__sections__
-            for (let i = 0; i < _s_.length; i++) {
-                remove(_s_[i].self, "active")
-            }
-            add(_s_[3].self, "active")
-            smooth(_s_[3].self)
+        main.event(window, "resize", main.reSize)
+        main.event(__logo__, "click", main.firstPage)
+        main.event(__plane__, "click", () => {
+            main.scrollTo(4)
         })
 
             ;[__logo__, __nav__, __plane__].forEach((_x_) => {
@@ -81,6 +75,28 @@ class Main {
     //#endregion
 
     //#region Public Functions
+    view(_x_) {
+        remove(__front__, "hide")
+        _x_.innerHTML = ""
+        this.forEach(this.__sections__, (s) => {
+            _x_.appendChild(s.self)
+        })
+        return this
+    }
+    reSize() {
+        smooth($(".section.active"))
+        return Main.Self
+    }
+    scrollTo(num) {
+        this.forEach(this.__sections__, (_x_, i) => {
+            remove(_x_.self, "active")
+            if (num == i + 1) {
+                add(_x_.self, "active")
+                smooth(_x_.self)
+            }
+        })
+        return this
+    }
     /**
      * @param {HTMLElement} el
      */
@@ -97,8 +113,9 @@ class Main {
      * @param { string } eventName
      * @param { () => void } callback
      */
-    addEventListener(el, eventName, callback, options = {}) {
+    event(el, eventName, callback, options = {}) {
         el.addEventListener(eventName, callback, options)
+        return this
     }
     firstPage() {
         let _s_ = Main.Self.__sections__
@@ -107,28 +124,41 @@ class Main {
         })
         add(_s_[0].self, "active")
         smooth(_s_[0].self)
+        return this
     }
-    reAddButtonHover() {
-        this.buttons_with_slide = []
-        let ELEMENTS = this.buttons_with_slide
-        let ELEMENTS_SPAN = []
+    addScroll() {
+        const idlePeriod = 100
+        const animationDuration = 500
+        let lastAnimation = 0
 
-        ELEMENTS.forEach((target, index) => {
-            if (!ELEMENTS_SPAN[index])
-                ELEMENTS_SPAN[index] = target.querySelector("span")
+        this.event(document, "keypress", (ev) => {
+            if (ev.code.slice(0, 5) == "Digit") {
+                let i = (+ev.code.slice(5))
+                if (i <= 4) {
+                    this.scrollTo(i)
+                }
+            }
+        })
+        this.event(window, "wheel", (ev) => {
+            ev.preventDefault()
+            let delta = ev.wheelDelta
+            let timeNow = new Date().getTime()
+            if (timeNow - lastAnimation < idlePeriod + animationDuration) {
+                return
+            }
 
-            target.addEventListener("mouseover", function (e) {
-                ELEMENTS_SPAN[index].style.left = e.pageX - target.offsetLeft + "px"
-                ELEMENTS_SPAN[index].style.top = e.pageY - target.offsetTop + "px"
+            delta < 0 ? this.nextPage() : this.prevPage()
 
-                add(target, animatedClassName)
-            })
+            lastAnimation = timeNow
+        }, { passive: false })
 
-            target.addEventListener("mouseout", function (e) {
-                ELEMENTS_SPAN[index].style.left = e.pageX - target.offsetLeft + "px"
-                ELEMENTS_SPAN[index].style.top = e.pageY - target.offsetTop + "px"
-            })
-        });
+        return this
+    }
+    changeFavicon(url) {
+        let faviconPathCore = "./src/png/"
+        $id("favicon").attributes.getNamedItem("href").value = faviconPathCore + url
+        return this
+
     }
     nextPage() {
         let _s_ = this.__sections__
@@ -173,10 +203,9 @@ class Main {
                 add(_x_.self, "fly")
                 add(_x_.self, "none")
                 add(_x_.self, "small")
-                // _s_.style.top = `${(i * 12) + 30}vh`
-                // _s_.style.fontSize = "10vh"
             })
         }
+        return this
     }
     nav_off() {
         let _s_ = this.__sections__
@@ -187,10 +216,9 @@ class Main {
                 remove(_x_.self, "fly")
                 remove(_x_.self, "none")
                 remove(_x_.self, "small")
-                // _s_.style.top = `${(i * 12) + 30}vh`
-                // _s_.style.fontSize = "10vh"
             })
         }
+        return this
     }
     /**
      * @param {any[]} arr
@@ -224,6 +252,7 @@ class Main {
     timeOut(callback, time) {
         let self = Main.Self
         setTimeout(callback, time, self)
+        return this
     }
     /**
      * @param {( main: Main ) => void } callback -
@@ -237,9 +266,9 @@ class Main {
                 self.endLoading(callback, ++recursion)
             }, 10)
         }
+        return this
     }
     //#endregion
-
 }
 
 export default Main

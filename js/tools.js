@@ -291,7 +291,8 @@ const globalVariables = {
     __body__: $id("body"),
     __back__: $id("back"),
     __plane__: $id("plane"),
-    __logo__: $id("hero")
+    __logo__: $id("hero"),
+    __front__:$id("front")
 }
 
 export { css, Box, tools, globalVariables }

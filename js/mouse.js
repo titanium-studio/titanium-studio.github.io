@@ -1,6 +1,7 @@
 //#region Mouse Event
 const mouseEventAdd = (() => {
-    let xmouse, ymouse;
+    let xmouse, ymouse
+    let stopWhile = false
 
     document.addEventListener('mousemove', (e) => {
         xmouse = e.clientX || e.pageX;
@@ -11,15 +12,18 @@ const mouseEventAdd = (() => {
     let zx = void 0,
         zy = void 0,
         zdx = void 0,
-        zdy = void 0;
+        zdy = void 0
 
     let ball = document.createElement("div")
     let x = void 0,
         y = void 0,
         dx = void 0,
-        dy = void 0;
+        dy = void 0
 
     let followMouse = function followMouse() {
+        if (stopWhile) {
+            return
+        }
         requestAnimationFrame(followMouse)
 
         if (!zx || !zy) {
@@ -61,14 +65,23 @@ const mouseEventAdd = (() => {
     let body = document.querySelector("body")
     circle.id = "mouse"
     ball.id = "ball"
-    body.appendChild(circle)
-    body.appendChild(ball)
     followMouse()
 
     return {
         followMouse: followMouse,
         mouse: circle,
-        ball: ball
+        ball: ball,
+        stopAnimate: () => {
+            stopWhile = true
+        },
+        view: () => {
+            body.appendChild(circle)
+            body.appendChild(ball)
+        },
+        remove: () => {
+            body.removeChild(circle)
+            body.removeChild(ball)
+        }
     }
 })();
 export default mouseEventAdd

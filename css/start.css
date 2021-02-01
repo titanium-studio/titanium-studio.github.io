@@ -140,12 +140,10 @@ a::after {
     width: 0;
     height: 1px;
     background: var(--bad-black);
-    /* background: var(--blue-color); */
     transition: all 0.2s ease-in-out;
 }
 
 a:hover {
-    /* color: var(--blue-color); */
     font-weight: 400;
 }
 
@@ -319,4 +317,22 @@ a:hover::after {
     width: 3px;
     height: 3px;
     background: #fff;
+}
+.loader {
+    width: 44px;
+    height: 44px;
+    animation: spinner 0.5s linear infinite;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spinner {
+    0% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(359deg);
+    }
 }

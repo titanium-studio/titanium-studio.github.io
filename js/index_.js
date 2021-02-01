@@ -8,52 +8,30 @@ const { __body__, __nav__, __back__, __logo__, __plane__ } = globalVariables
 const $$ = document.querySelector("#body")
 
 const main = Main.init()
-const idlePeriod = 100
-const animationDuration = 500
-let lastAnimation = 0
-const animatedClassName = "animated"
-const ELEMENTS_SPAN = []
-
-function wheel_target(ev) {
-    ev.preventDefault()
-    let delta = ev.wheelDelta
-    let timeNow = new Date().getTime()
-    if (timeNow - lastAnimation < idlePeriod + animationDuration) {
-        return;
-    }
-
-    delta < 0 ? main.nextPage() : main.prevPage()
-
-    lastAnimation = timeNow
-}
-function nav_btn() {
-    contains(__nav__, "active") ? main.nav_off() : main.nav_on()
-}
 
 main.timeOut(() => {
+    main.view($$)
 
-    $$.innerHTML = ""
-    main.forEach(main.__sections__, (section, i) => {
-        $$.appendChild(section.self)
-    })
-    main.addEventListener(window, "wheel", wheel_target, { passive: false })
-    main.addEventListener(__nav__, "click", nav_btn)
-
-    let faviconPathCore = "./src/png/"
     if (isMobile) {
-        $id("favicon").attributes.getNamedItem("href").value = faviconPathCore + "icons8-iphone-50.png"
+        main.changeFavicon("icons8-iphone-50.png")
+
+        mouseEventAdd.stopAnimate()
     } else {
-        $id("favicon").attributes.getNamedItem("href").value = faviconPathCore + "icons8-ноутбук-50.png"
+        main.changeFavicon("icons8-ноутбук-50.png")
+            .event(__nav__, "click", () => {
+                contains(__nav__, "active") ? main.nav_off() : main.nav_on()
+            })
+            .addScroll()
+
+        mouseEventAdd.view()
+        add(mouseEventAdd.mouse, "invert")
+        add(mouseEventAdd.ball, "invert")
     }
 
-    add(mouseEventAdd.mouse, "invert")
-    add(mouseEventAdd.ball, "invert")
-
-
-    getimages("/src/json/index.json", (err, res) => {
+    getJSON("/src/json/index.json", (err, res) => {
+        if (err) throw new Error(err)
         remove(__back__, "hide")
 
-        if (err) throw new Error(err)
         let core = window.location.origin + res.index.corePath
         let imgs = res.index.img
 
@@ -82,18 +60,20 @@ main.timeOut(() => {
             )
         }
 
-        if (res?.social?.data !== undefined) {
-            let data = res.social.data
-            for (const obj of data) {
-                for (const key in obj) {
-                    if (Object.hasOwnProperty.call(obj, key)) {
-                        main.__sections__[3].setContent(box_height(btn(link(key, obj[key]), true)))
-                    }
+        for (const obj of res.social.data) {
+            for (const key in obj) {
+                if (Object.hasOwnProperty.call(obj, key)) {
+                    main.__sections__[3].setContent(
+                        box_height(
+                            btn(
+                                link(key, obj[key]), true
+                            )
+                        )
+                    )
                 }
             }
-
         }
     })
 
-}, 1200)
+}, 1500)
 export default main
