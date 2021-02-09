@@ -40,6 +40,10 @@
   font-family: 'Barlow', sans-serif;
 }
 
+.Comfortaa {
+  font-family: 'Comfortaa', sans-serif;
+}
+
 a, li {
   text-decoration: none;
   color: inherit;
@@ -119,7 +123,7 @@ body {
   width: 100vw;
 }
 
-.page .content::selection, .back .content::selection {
+.page .content *::selection, .back .content *::selection {
   background: #222;
   color: #fdfffc;
 }
@@ -275,6 +279,16 @@ body {
   width: auto;
 }
 
+#footer {
+  height: 120px;
+}
+
+#footer .content {
+  align-items: center;
+  padding: 0 80px;
+  height: 100%;
+}
+
 .wellcome {
   padding: 0 7em;
   color: #fdfffc;
@@ -312,7 +326,6 @@ body {
 
 .hello {
   height: auto;
-  /* border-bottom: 1px solid #011627; */
 }
 
 .hello .content {

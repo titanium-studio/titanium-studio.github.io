@@ -200,9 +200,7 @@ class Main {
             add(__nav__, "active")
             add(__back__, "active")
             this.forEach(_s_, (_x_) => {
-                add(_x_.self, "fly")
-                add(_x_.self, "none")
-                add(_x_.self, "small")
+                add(_x_.self, ["fly", "none", "small"])
             })
         }
         return this
@@ -213,9 +211,7 @@ class Main {
             remove(__nav__, "active")
             remove(__back__, "active")
             this.forEach(_s_, (_x_) => {
-                remove(_x_.self, "fly")
-                remove(_x_.self, "none")
-                remove(_x_.self, "small")
+                remove(_x_.self, ["fly", "none", "small"])
             })
         }
         return this

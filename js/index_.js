@@ -35,6 +35,7 @@ main.timeOut(() => {
         let core = window.location.origin + res.index.corePath
         let imgs = res.index.img
 
+        // DSGN
         for (let i = 0; i < imgs.length; i++) {
             main.__sections__[0]
                 .setContent(
@@ -48,6 +49,7 @@ main.timeOut(() => {
                 .reverse(true)
         }
 
+        // WORK
         for (let i = 0; i < res.work.data.length; i++) {
             let c = card()
             c.addH2(res.work.data[i].name)
@@ -60,6 +62,7 @@ main.timeOut(() => {
             )
         }
 
+        // CALL
         for (const obj of res.social.data) {
             for (const key in obj) {
                 if (Object.hasOwnProperty.call(obj, key)) {
