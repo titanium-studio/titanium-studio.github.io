@@ -11,6 +11,9 @@ const main = Main.init()
 
 main.timeOut(() => {
     main.view($$)
+        .event(__nav__, "click", () => {
+            contains(__nav__, "active") ? main.nav_off() : main.nav_on()
+        })
 
     if (isMobile) {
         main.changeFavicon("icons8-iphone-50.png")
@@ -18,9 +21,6 @@ main.timeOut(() => {
         mouseEventAdd.stopAnimate()
     } else {
         main.changeFavicon("icons8-ноутбук-50.png")
-            .event(__nav__, "click", () => {
-                contains(__nav__, "active") ? main.nav_off() : main.nav_on()
-            })
             .addScroll()
 
         mouseEventAdd.view()
