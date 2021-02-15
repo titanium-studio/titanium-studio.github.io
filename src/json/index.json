@@ -41,15 +41,32 @@
         ]
     },
     "skills": {
-        "data": []
+        "data": [
+            {
+                "icon": "<i class='fab fa-js'></i>",
+                "name": "Javascript"
+            },
+            {
+                "icon":"C#",
+                "name":"C-sharp"
+            },
+            {
+                "icon": "<i class='fab fa-python'></i>",
+                "name":"Python"
+            },
+            {
+                "icon":"<i class='fas fa-camera'></i>",
+                "name":"Photoshop"
+            }
+        ]
     },
-    "social":{
-        "other":[
+    "social": {
+        "other": [
             {
                 "<i class='fab fa-vk'></i>VK": "https://vk.com/aset_telmanov"
             }
         ],
-        "data":[
+        "data": [
             {
                 "<i class='fab fa-telegram'></i>Telegram": "https://t.me/titanov"
             },

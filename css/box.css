@@ -1,4 +1,4 @@
-.btn i{
+.btn i {
     margin-right: var(--size1);
     font-size: 1.5rem;
 }
@@ -44,26 +44,6 @@ a.btn:hover::after {
     align-items: center;
     width: 100%;
     height: 100%;
-}
-
-.circle {
-    border-radius: 50%;
-}
-
-.center_float {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-}
-
-.center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.half {
-    transform: translate(-50%, -50%);
 }
 
 .transparent, #transparent {
@@ -230,9 +210,10 @@ section .title span {
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 0 20px;
 }
 
-.card .boxz h2 {
+.card .boxz h2, .card .boxz h3 {
     padding: 0.5em 0;
 }
 
@@ -247,4 +228,13 @@ section .title span {
 .content.grid .box_height .card:hover .more {
     height: 8vh;
     min-height: var(--size3);
+}
+
+#SKILLS .icon {
+    font-size: 15vmin;
+}
+
+#SKILLS .name {
+    font-size: var(--h3);
+    padding: 3vmin 0 10vmin;
 }

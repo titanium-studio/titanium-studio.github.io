@@ -175,8 +175,13 @@ function box_height(child, style) {
     let div = Div()
     div.classList.add("box_height")
 
-    if (child) div.appendChild(child)
-    if (style) Styler(div, style)
+    if (is.array(child)) {
+        for (let i = 0; i < child.length; i++) {
+            div.appendChild(child[i])
+            
+        }
+    } else if (!is.empty(child)) div.appendChild(child)
+    if (!is.empty(style)) Styler(div, style)
 
     return div
 }
@@ -234,7 +239,7 @@ function card__() {
     div.appendChild(m)
 
     this.addH2 = (iHTML) => {
-        b.innerHTML += "<h2 translate='no' class='notranslate'>" + iHTML + "</h2>"
+        b.innerHTML += "<h3 translate='no' class='notranslate'>" + iHTML + "</h3>"
     }
     this.addP = (iHTML) => {
         b.innerHTML += "<p>" + iHTML + "</p>"

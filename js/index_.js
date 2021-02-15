@@ -2,7 +2,7 @@ import Main from "./main.js"
 import { css, tools, Box, globalVariables } from "./tools.js"
 import mouseEventAdd from "./mouse.js"
 const { $, $all, $id, smooth, add, remove, toggle, contains, Styler } = css
-const { box_height, box, card, btn, link } = Box
+const { box_height, box, card, btn, link, Div } = Box
 const { is, isMobile } = tools
 const { __body__, __nav__, __back__, __logo__, __plane__ } = globalVariables
 const $$ = document.querySelector("#body")
@@ -51,13 +51,30 @@ main.timeOut(() => {
 
         // WORK
         for (let i = 0; i < res.work.data.length; i++) {
+            let x = res.work.data[i]
             let c = card()
-            c.addH2(res.work.data[i].name)
-            c.addP(res.work.data[i].description)
-            c.addMore(res.work.data[i].more)
+            c.addH2(x.name)
+            c.addP(x.description)
+            c.addMore(x.more)
             main.__sections__[1].setContent(
                 box_height(
                     c.self
+                )
+            )
+        }
+
+
+        // SKILLS
+        for (let i = 0; i < res.skills.data.length; i++) {
+            let x = res.skills.data[i]
+            let y = Div("icon")
+            let z = Div("name")
+            y.innerHTML = x.icon
+            z.innerHTML = x.name
+            console.log(x)
+            main.__sections__[2].setContent(
+                box_height(
+                    [z, y]
                 )
             )
         }
