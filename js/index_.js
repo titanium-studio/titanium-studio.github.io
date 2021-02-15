@@ -71,7 +71,6 @@ main.timeOut(() => {
             let z = Div("name")
             y.innerHTML = x.icon
             z.innerHTML = x.name
-            console.log(x)
             main.__sections__[2].setContent(
                 box_height(
                     [z, y]
