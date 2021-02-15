@@ -163,6 +163,7 @@ section .title span {
     min-height: var(--size3);
     /* background: var(--blue-color); */
     background: var(--bad-black);
+    /* background: var(--dark-black); */
 }
 
 .content.grid .box_height .box {
@@ -190,7 +191,7 @@ section .title span {
 }
 
 .content.grid .box_height .box:hover a {
-    color: var(--dark_black);
+    color: var(--dark-black);
 }
 
 .card {

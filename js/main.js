@@ -1,9 +1,9 @@
 import { tools, css, Box, globalVariables } from "./tools.js"
 import mouseEventAdd from "./mouse.js"
-const { $, $all, $id, smooth, contains, add, remove } = css
+const { $, $id, smooth, contains, add, remove } = css
 const { is } = tools
-const { section, box_height } = Box
-const { __body__, __nav__, __back__, __plane__, __logo__, __front__ } = globalVariables
+const { section } = Box
+const { __nav__, __back__, __plane__, __logo__, __front__ } = globalVariables
 
 class Main {
     constructor() {

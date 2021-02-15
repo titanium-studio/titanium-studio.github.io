@@ -1,10 +1,10 @@
 import Main from "./main.js"
 import { css, tools, Box, globalVariables } from "./tools.js"
 import mouseEventAdd from "./mouse.js"
-const { $, $all, $id, smooth, add, remove, toggle, contains, Styler } = css
+const { add, remove, contains } = css
 const { box_height, box, card, btn, link, Div } = Box
-const { is, isMobile } = tools
-const { __body__, __nav__, __back__, __logo__, __plane__ } = globalVariables
+const { isMobile } = tools
+const { __nav__, __back__ } = globalVariables
 const $$ = document.querySelector("#body")
 
 const main = Main.init()
