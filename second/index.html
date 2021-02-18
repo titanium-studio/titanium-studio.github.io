@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link
-    href="https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat:wght@100;200;300;400;500;700&family=Open+Sans&family=Roboto&family=Comfortaa&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat:wght@100;200;300;400;500;700&family=Open+Sans&family=Roboto&family=Comfortaa&family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet">
   <link rel="shortcut icon" href="../src/png/icons8-исходный-код-50.png" type="image/x-icon">
   <link rel="stylesheet" href="./css/start.css">
@@ -13,165 +13,44 @@
 </head>
 
 <body>
-  <div id="top">
-    <div class="header">
-      <div id="nav" class="nav btn">
-        <div class="box">
-          <span class="long"></span>
-          <span class="small"></span>
-        </div>
-      </div>
-      <div class="logo hero fly Comfortaa">titan</div>
-      <div class="null"></div>
-    </div>
-    <div id="block" class="block">
-      <div class="list">
-        <a onclick="changePos(0)" class="link">Home</a>
-        <a onclick="changePos('#gallery')" class="link">Works</a>
-        <a onclick="changePos('#skill')" class="link">Skill</a>
-        <a onclick="changePos('#footer')" class="link">FeedBack</a>
-      </div>
-    </div>
-    <canvas id="canvas" width="200" height="100"></canvas>
-  </div>
+  <header class="to_center">
+    <nav>
+      <li>
+        <a>Home</a>
+        <a>Gallery</a>
+        <a>Projects</a>
+        <a>About</a>
+      </li>
+    </nav>
+  </header>
   <div id="body">
-    <div id="wellcome" class="wellcome page transparent">
-      <h1>Wellcome</h1>
-      <p>My name is <b>Aset</b></p>
-      <p class="last">And I'm <b>Programmer</b> | <b>Designer</b> | <b>Gamer</b></p>
-      <div class="get_to_down">Scroll to down</div>
-    </div>
-    <div id="gallery" class="hello page">
-      <div class="content">
-        <h1>Gallery</h1>
-        <div class="gallery">
-          <div class="left g">
-            <div class="card">
-              <img src="./files/img/city.jpg">
-            </div>
-            <div class="card">
-              <img src="./files/img/1.jpg">
-            </div>
-            <div class="card">
-              <img src="./files/img/2.jpeg">
-            </div>
-          </div>
-          <div class="center g">
-            <div class="card">
-              <img src="./files/img/badocean.jpg">
-            </div>
-            <div class="card">
-              <img src="./files/img/oeac and green.jpeg">
-            </div>
-            <div class="card">
-              <img src="./files/img/blur1.jpg">
-            </div>
-          </div>
-          <div class="right g">
-            <div class="card">
-              <img src="./files/img/green.jpeg">
-            </div>
-            <div class="card">
-              <img src="./files/img/keyboard.jpeg">
-            </div>
-            <div class="card">
-              <img src="./files/img/ocean1.jpg">
-            </div>
-            <div class="card">
-              <img src="./files/img/palma.jpg">
-            </div>
-          </div>
-        </div>
+    <section grid class="page hello">
+      <p block class="flex" style="--position: 3/4/4/10; align-items: center;">You didn’t come this far to stop.</p>
+      <h1 block class="font_700 flex" style="--position: 4/4/7/10;">Wellcome to the future for you</h1>
+      <div block class="flex" style="--position: 6/4/8/7; overflow: visible; align-items: center;">
+        <button style="background-color: var(--grey-600); color: var(--light);">LEARN MORE</button>
       </div>
-    </div>
-    <div id="skill" class="skill background page">
-      <div class="shapes">
-        <div class="circle big"></div>
-        <div class="rect deg45"></div>
-        <div class="circle normal"></div>
+    </section>
+    <section grid class="page info">
+      <h2 block class="to_center font_700 text_center flex" style="--position: 3/5/5/13;">If there's one thing I can do,
+        it's write code</h2>
+      <p block class="to_center text_center flex" style="--position: 5/5/6/13;">I know how to program in languages like
+        js, python, c#</p>
+      <div block class="flex to_center" style="--position: 6/8/7/10; overflow: visible;">
+        <button style="background-color: var(--grey-600); color: var(--light);">PORTFOLLIO</button>
       </div>
-      <div class="content">
-        <h1>My skill</h1>
-        <div class="stats">
-          <div class="top s">
-            <!-- <div class="circle normal"></div> -->
-            <h2>Programming</h2>
-          </div>
-          <div class="center s">
-            <h2>Design</h2>
-            <!-- <div class="circle big"></div> -->
-          </div>
-          <div class="bottom s">
-            <!-- <div class="circle small"></div> -->
-            <h2>Gaming</h2>
-          </div>
-        </div>
+    </section>
+    <section grid class="page photo">
+      <div block class="flex to_center" style="--position: 4/-15/9/7; justify-content: flex-end;">
+        <img style="width: 90%; aspect-ratio: 1/1; height: auto;" src="./files/img/1.jpg" alt="">
       </div>
-    </div>
-    <div class="works back links">
-      <div class="content">
-        <div class="card link">
-          <h2>struct</h2>
-          <p>From: NODE, JS(document)</p>
-          <p>Version: 0.1</p>
-          <p>Idea: Copied from React</p>
-        </div>
-        <div class="card link">
-          <h2>"fast_code"</h2>
-          <p>From: JS(document)</p>
-          <p>Version: 0.1</p>
-          <p>Idea: Copied from JQuery</p>
-        </div>
-        <div class="card link">
-          <h2>MAX</h2>
-          <p>From: WINDOWS, and all another PC OS</p>
-          <p>Version: 0.1</p>
-          <p>Idea: Copied from Sublime Text 3</p>
-        </div>
-        <div class="card link"></div>
+      <div block class="flex to_center" style="--position: 4/7/9/11;">
+        <img style="width: 90%; aspect-ratio: 1/1; height: auto;" src="./files/img/badocean.jpg" alt="">
       </div>
-    </div>
-    <!-- <div id="footer" class="footer">
-      <div class="content">
-        <div class="left">
-          <div class="f_top f_nav">
-            <h3>Home</h3>
-            <a href="" class="link">About</a>
-            <a href="" class="link">Donate</a>
-            <a href="" class="link">Help</a>
-          </div>
-          <div class="f_bottom f_social">
-            <h3>SOCIAL</h3>
-            <a href="https://api.whatsapp.com/send?phone=87788405404" class="link">WhatsApp</a>
-            <a href="https://www.facebook.com/ace.titan.505" class="link">Facebook</a>
-            <a href="https://github.com/NoNameTitan" class="link">Github</a>
-          </div>
-        </div>
-        <div class="right">
-          <div class="f_top f_powered">
-            <h3>POWERED BY</h3>
-            <a href="https://github.com/NoNameTitan" class="link">NoNameTitan[github]</a>
-            <a href="https://drog3rvcpwzccugtdl5myq-on.drv.tw/www.future.com/" class="link">SPECTRUME</a>
-          </div>
-          <div class="f_bottom f_author">
-            <h3>ORIGIN AUTHORS</h3>
-            <a href="https://coolors.co/" class="link">coolors</a>
-            <a href="https://www.awwwards.com/" class="link">AWWWARDS</a>
-            <a href="https://www.w3schools.com/" class="link">w3shools</a>
-            <a href="https://codepen.io/Godje" class="link">Godje[codepen]</a>
-          </div>
-        </div>
+      <div block class="flex to_center" style="--position: 4/11/9/15; justify-content: flex-start;">
+        <img style="width: 90%; aspect-ratio: 1/1; height: auto;" src="./files/img/keyboard.jpeg" alt="">
       </div>
-    </div> -->
-    <div id="footer" class="black">
-      <div class="content"
-        style="color: white; display: flex; flex-direction: row; justify-content: space-between;">
-        <a class="basic_hover" href="/">Main Site</a>
-        <p>Powered by <a class="basic_hover" href="https://github.com/NoNameTitan">NoNameTitan</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="objectview null">
+    </section>
   </div>
   <script
     src="https://cdn.jsdelivr.net/combine/npm/smooth-scrollbar@8.2.7,npm/smooth-scrollbar@8.2.7/dist/plugins/overscroll.min.js"></script>
