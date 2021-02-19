@@ -13,12 +13,16 @@ const forEach = (arr, callback) => {
     for (let i = 0; i < arr.length; i++) if (callback(arr[i], i) == true) return
 }
 const print = console.log.bind(globalThis)
+const smooth = target => target.scrollIntoView({ behavior: "smooth" });
 //#endregion
 
 //#region $ Query
 const $$ = document
+/** @type { () => HTMLDivElement | HTMLElement | Element } */
 const $ = $$.querySelector.bind($$)
+/** @type { () => HTMLDivElement[] | HTMLElement[] | Element[] } */
 const $all = $$.querySelectorAll.bind($$)
+/** @type { () => HTMLDivElement | HTMLElement | Element } */
 const $id = $$.getElementById.bind($$)
 //#endregion
 
@@ -58,6 +62,8 @@ const UI = function () {
 //#endregion
 
 const _body_ = $id("body")
+const _nav_ = $id("nav")
+const _nav_li_ = $id("nav_li")
 let Scrollbar = window.Scrollbar;
 let option = {
     damping: 0.10,
@@ -74,11 +80,14 @@ let option = {
     }
 }
 Scrollbar.use(OverscrollPlugin)
-
 let s = Scrollbar.init(_body_, option);
+
+forEach(_nav_li_.children, (a) => {
+    a.addEventListener("click", () => s.scrollTop = $id(a.innerText.toLowerCase()).offsetTop)
+})
 
 setTimeout(() => {
     $all(".scrollbar-track, .scrollbar-thumb").forEach((el) => {
-        remove(el,["scrollbar-track", "scrollbar-thumb"])
+        remove(el, ["scrollbar-track", "scrollbar-thumb"])
     })
 }, 100)

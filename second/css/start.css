@@ -279,7 +279,7 @@ button:hover{
 .text_center{
   text-align: center;
 }
-@supports(aspect-ratio: 1/1){
+@supports not (aspect-ratio: 1/1){
   img{
     height: 90%;
   }
