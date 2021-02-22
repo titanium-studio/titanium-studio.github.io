@@ -12,6 +12,7 @@ const EXTEND = (target = {}, proto = {}) => {
 const forEach = (arr, callback) => {
     for (let i = 0; i < arr.length; i++) if (callback(arr[i], i) == true) return
 }
+/**  @type {( ...args ) => void } */
 const print = console.log.bind(globalThis)
 const smooth = target => target.scrollIntoView({ behavior: "smooth" });
 //#endregion
@@ -64,6 +65,9 @@ const UI = function () {
 const _body_ = $id("body")
 const _nav_ = $id("nav")
 const _nav_li_ = $id("nav_li")
+const _dialog_ = $id("dialog")
+const _img_viewver_ = $$.createElement("img")
+let data_img = $all("[data-img]")
 let Scrollbar = window.Scrollbar;
 let option = {
     damping: 0.10,
@@ -79,6 +83,18 @@ let option = {
         }
     }
 }
+_img_viewver_.style.height = "70vmin"
+_img_viewver_.addEventListener("click",()=>{
+    _dialog_.open = false
+})
+forEach(data_img,(img)=>{
+    img.addEventListener("click",()=>{
+        _img_viewver_.src = img.getAttribute("data-img")
+        _dialog_.open = true
+        _dialog_.innerHTML = ""
+        _dialog_.appendChild(_img_viewver_)
+    })
+})
 Scrollbar.use(OverscrollPlugin)
 let s = Scrollbar.init(_body_, option);
 
