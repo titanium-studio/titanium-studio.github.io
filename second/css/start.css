@@ -140,6 +140,13 @@ a:hover::after {
   width: 100%;
 }
 
+a[not_after]:hover{
+  color: var(--accent);
+}
+a[not_after] i{
+  width: 2rem;
+}
+
 a, button, .btn {
   cursor: pointer;
 }
@@ -214,6 +221,10 @@ body {
 
 .width_1024 {
   width: 1024px!important;
+}
+
+a[not_after]::after{
+  display: none!important;
 }
 
 /* START */
