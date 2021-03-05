@@ -211,6 +211,9 @@ section .title span {
     flex-direction: column;
     padding: 0 20px;
 }
+.card .boxz svg{
+    font-size: 1.8em;
+}
 
 .card .boxz h2, .card .boxz h3 {
     padding: 0.5em 0;
@@ -231,6 +234,9 @@ section .title span {
 
 #SKILLS .icon {
     font-size: 15vmin;
+}
+#SKILLS .icon .fa-secondary{
+    color: inherit;
 }
 
 #SKILLS .name {
