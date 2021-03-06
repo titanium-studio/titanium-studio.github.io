@@ -3,7 +3,7 @@
         "corePath": "/src/jpg/",
         "img": [
             {
-                "url": "je-suis-charlie-karandashi.jpg",
+                "url": "drawing.jpg",
                 "p": "Drawing"
             },
             {
@@ -11,7 +11,7 @@
                 "p": "Coding"
             },
             {
-                "url": "trava-zelen-priroda.jpg",
+                "url": "1.jpg",
                 "p": "Photography"
             }
         ]
