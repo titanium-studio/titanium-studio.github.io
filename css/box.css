@@ -155,6 +155,7 @@ section .title span {
     align-items: center;
     flex-direction: column-reverse;
     justify-content: end;
+    overflow: hidden;
 }
 
 .content.grid .box_height .btn {
