@@ -51,13 +51,9 @@ class Main {
         }
         main.event(window, "resize", main.reSize)
         main.event(__logo__, "click", main.firstPage)
-        main.event(__plane__, "click", () => {
-            main.scrollTo(4)
-        })
+        // main.event(__plane__, "click", () => main.scrollTo(4))
 
-            ;[__logo__, __nav__, __plane__].forEach((_x_) => {
-                main.btn_hover(_x_)
-            })
+            ;[__logo__, __nav__, __plane__].forEach(_x_ => main.btn_hover(_x_))
         main.firstPage()
         return main
     }

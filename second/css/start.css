@@ -24,11 +24,13 @@
   --rows: 9;
   --width: 1224px;
   --row-gap: 0px;
-  /* --row-size: 64px; */
   --row-size: 1fr;
   --column-gap: 0px;
   --grid-width: 1224px;
   --column-count: 12;
+  --image-height: calc(var(--size5)*7);
+  --image-width: 40vw;
+  --min-image-width: 400px;
 }
 
 * {
@@ -140,10 +142,11 @@ a:hover::after {
   width: 100%;
 }
 
-a[not_after]:hover{
+a[not_after]:hover {
   color: var(--accent);
 }
-a[not_after] i{
+
+a[not_after] i {
   width: 2rem;
 }
 
@@ -223,7 +226,7 @@ body {
   width: 1024px!important;
 }
 
-a[not_after]::after{
+a[not_after]::after {
   display: none!important;
 }
 
@@ -232,7 +235,7 @@ a[not_after]::after{
 header {
   height: var(--height-height);
   display: flex;
-  justify-content: flex-end!important;
+  justify-content: space-between!important;
   padding: 0 2vw;
   max-width: var(--width, 1200);
   margin: 0 auto;
@@ -259,6 +262,22 @@ button, .button {
 
 button:hover, .button:hover {
   opacity: 0.9;
+  box-shadow: 0 0 7px rgb(0 0 0 / 40%);
+}
+
+[list], .list {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(var(--min-image-width), var(--image-width));
+  grid-template-rows: repeat(auto-fill, 1fr);
+  justify-content: center;
+}
+
+[item] {
+  margin-bottom: 2rem;
+  width: 100%;
+  min-width: var(--min-image-width);
+  overflow: hidden;
 }
 
 [grid], .grid {
@@ -269,7 +288,6 @@ button:hover, .button:hover {
   /* grid-template-rows: repeat(var(--rows), 1fr); */
   grid-template-columns: calc((var(--container-width) - var(--content-width))/2) 1fr repeat(var(--column-count), minmax(0, var(--column-width))) 1fr calc((var(--container-width) - var(--content-width))/2);
   grid-auto-rows: var(--row-size);
-  width: 100%;
   padding: var(--block-padding);
   margin: auto;
   row-gap: var(--row-gap);
@@ -292,7 +310,8 @@ button:hover, .button:hover {
   z-index: 999;
   border: 2px solid var(--grey);
 }
-#dialog::before{
+
+#dialog::before {
   position: fixed;
   top: -50%;
   left: -50%;
