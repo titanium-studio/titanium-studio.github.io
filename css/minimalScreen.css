@@ -24,7 +24,7 @@
     #CALL .content.grid{
         height: initial;
     }
-    /* #WORK .content.grid .btn{
-        display: none;
-    } */
+    #WORK h2, #WORK h3{
+        font-size: var(--h4);
+    }
 }

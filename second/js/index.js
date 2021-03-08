@@ -99,7 +99,7 @@ Scrollbar.use(OverscrollPlugin)
 let s = Scrollbar.init(_body_, option);
 
 forEach(_nav_li_.children, (a) => {
-    a.addEventListener("click", () => s.scrollTop = $id(a.innerText.toLowerCase()).offsetTop)
+    a.addEventListener("click", () => s.scrollIntoView($id(a.innerText.toLowerCase())))
 })
 
 setTimeout(() => {
