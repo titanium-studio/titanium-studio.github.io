@@ -28,30 +28,12 @@ const $id = $$.getElementById.bind($$)
 //#endregion
 
 //#region Style
-const add = (target, style) => {
-    if (Array.isArray(style)) {
-        target.classList.add(...style)
-    } else target.classList.add(style)
-}
-const remove = (target, style) => {
-    if (Array.isArray(style)) {
-        target.classList.remove(...style)
-    } else target.classList.remove(style)
-}
+const add = (target, style) => Array.isArray(style) ? target.classList.add(...style) : target.classList.add(style);
+const remove = (target, style) => Array.isArray(style) ? target.classList.remove(...style) : target.classList.remove(style);
 /** @returns { boolean } */
-const contains = (target, style) => {
-    return target.classList.contains(style)
-}
-const __toggle = (a, b) => {
-    contains(a, b) ? remove(a, b) : add(a, b)
-}
-const toggle = (target, style) => {
-    if (Array.isArray(style)) {
-        forEach(style, (s) => {
-            __toggle(target, s)
-        })
-    } else __toggle(target, style)
-}
+const contains = (target, style) => target.classList.contains(style);
+const __toggle = (a, b) => contains(a, b) ? remove(a, b) : add(a, b);
+const toggle = (target, style) => Array.isArray(style) ? forEach(style, s => __toggle(target, s)) : __toggle(target, style);
 //#endregion
 
 //#region UI support
@@ -83,6 +65,7 @@ let option = {
         }
     }
 }
+
 // _img_viewver_.style.height = "70vmin"
 // _img_viewver_.addEventListener("click",()=>{
 //     _dialog_.open = false
@@ -95,15 +78,12 @@ let option = {
 //         _dialog_.appendChild(_img_viewver_)
 //     })
 // })
+
 Scrollbar.use(OverscrollPlugin)
 let s = Scrollbar.init(_body_, option);
 
-forEach(_nav_li_.children, (a) => {
-    a.addEventListener("click", () => s.scrollIntoView($id(a.innerText.toLowerCase())))
-})
+forEach(_nav_li_.children, a => a.addEventListener("click", () => s.scrollIntoView($id(a.innerText.toLowerCase()))))
 
 setTimeout(() => {
-    $all(".scrollbar-track, .scrollbar-thumb").forEach((el) => {
-        remove(el, ["scrollbar-track", "scrollbar-thumb"])
-    })
+    $all(".scrollbar-track, .scrollbar-thumb").forEach(el => remove(el, ["scrollbar-track", "scrollbar-thumb"]))
 }, 100)

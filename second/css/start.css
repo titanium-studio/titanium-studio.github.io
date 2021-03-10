@@ -28,9 +28,9 @@
   --column-gap: 0px;
   --grid-width: 1224px;
   --column-count: 12;
-  --image-height: calc(var(--size5)*7);
-  --image-width: 40vw;
-  --min-image-width: 400px;
+  --list-height: calc(var(--size5)*7);
+  --list-width: 1224px;
+  --min-list-width: 400px;
 }
 
 * {
@@ -268,16 +268,19 @@ button:hover, .button:hover {
 [list], .list {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(var(--min-image-width), var(--image-width));
+  grid-template-columns: minmax(var(--min-list-width), var(--list-width));
   grid-template-rows: repeat(auto-fill, 1fr);
   justify-content: center;
 }
 
 [item] {
-  margin-bottom: 2rem;
   width: 100%;
-  min-width: var(--min-image-width);
+  min-width: var(--min-list-width);
   overflow: hidden;
+}
+
+[list].m_bottom [item], .list.m_bottom [item] {
+  margin-bottom: 2rem;
 }
 
 [grid], .grid {
@@ -285,7 +288,6 @@ button:hover, .button:hover {
   display: grid;
   grid-area: 1/1/-1/-1;
   grid-template-rows: repeat(var(--rows), var(--row-size));
-  /* grid-template-rows: repeat(var(--rows), 1fr); */
   grid-template-columns: calc((var(--container-width) - var(--content-width))/2) 1fr repeat(var(--column-count), minmax(0, var(--column-width))) 1fr calc((var(--container-width) - var(--content-width))/2);
   grid-auto-rows: var(--row-size);
   padding: var(--block-padding);
@@ -332,6 +334,13 @@ button:hover, .button:hover {
 
 .text_center {
   text-align: center;
+}
+
+.fullscreen{
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  width: 100vmin;
 }
 
 @supports not (aspect-ratio: 1/1) {
