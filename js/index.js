@@ -29,7 +29,7 @@ main.timeOut(() => {
       imgs = res.index.img;
 
     // DSGN
-    forEach(imgs, x => {
+    forEach(imgs, (x,i) => {
       main.__sections__[0]
         .setContent(
           box_height(
