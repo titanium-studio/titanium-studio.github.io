@@ -5,7 +5,7 @@ import mouse from "./mouse.js"
 const { add, remove, contains } = css,
   { box_height, box, card, btn, link, Div } = Box,
   { isMobile, forEach } = tools,
-  { _nav_, _back_ } = gVars,
+  { _nav_, _back_ ,_body_} = gVars,
   $$ = document.querySelector("#body"),
   main = Main.init();
 
@@ -22,7 +22,7 @@ main.timeOut(() => {
   }
 
   getJSON("/src/json/index.json", (err, res) => {
-    if (err) throw new Error(err)
+    if (err) _body_.innerHTML = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
     remove(_back_, "hide")
 
     let core = window.location.origin + res.index.corePath,
