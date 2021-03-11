@@ -52,8 +52,9 @@ let data_img = $all("[data-img]")
 //#endregion
 
 //#region ScrollBar
-let sb = window.Scrollbar
-let s_t = ".scrollbar-track, .scrollbar-thumb"
+let sb = window.Scrollbar,
+  st = "scrollbar-t",
+  s_t = [st + "rack", st + "humb"];
 sb.use(OverscrollPlugin)
 let s = sb.init(_body_, {
   damping: 0.10,
@@ -70,5 +71,5 @@ let s = sb.init(_body_, {
   }
 })
 forEach(_nav_li_.children, a => a.addEventListener("click", () => s.scrollIntoView($id(a.innerText.toLowerCase()))))
-setTimeout(() => $all(s_t).forEach(el => remove(el, [s_t])), 100)
+setTimeout(() => $all(s_t.join(", ").replaceAll("s", ".s")).forEach(h => remove(h, s_t)), 100)
 //#endregion
