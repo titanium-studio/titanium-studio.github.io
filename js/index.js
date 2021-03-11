@@ -22,7 +22,7 @@ main.timeOut(() => {
   }
 
   getJSON("/src/json/index.json", (err, res) => {
-    if (err) _body_.innerHTML = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
+    if (err) return _body_.innerHTML = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
     remove(_back_, "hide")
 
     let core = window.location.origin + res.index.corePath,
