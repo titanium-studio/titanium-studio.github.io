@@ -219,7 +219,8 @@ const tools = {
   print,
   is,
   isMobile,
-  isMobileAndTablet
+  isMobileAndTablet,
+  forEach
 }
 const Box = {
   card: card__,
@@ -230,13 +231,13 @@ const Box = {
   section,
   link
 }
-const globalVariables = {
-  __nav__: $id("nav"),
-  __body__: $id("body"),
-  __back__: $id("back"),
-  __plane__: $id("plane"),
-  __logo__: $id("hero"),
-  __front__: $id("front")
+const gVars = {
+  _nav_: $id("nav"),
+  _body_: $id("body"),
+  _back_: $id("back"),
+  _plane_: $id("plane"),
+  _logo_: $id("hero"),
+  _front_: $id("front")
 }
 
-export { css, Box, tools, globalVariables }
+export { css, Box, tools, gVars }
