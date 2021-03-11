@@ -55,7 +55,7 @@ class Main {
   view(_x_) {
     remove(_front_, "hide")
     _x_.innerHTML = ""
-    this.forEach(this.__sections__, s => _x_.appendChild(s.self))
+    forEach(this.__sections__, s => _x_.appendChild(s.self))
     return this
   }
   reSize() {
