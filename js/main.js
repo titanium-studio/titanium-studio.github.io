@@ -59,7 +59,7 @@ class Main {
     return this
   }
   reSize() {
-    smooth($(".section.active"))
+    smooth($("section.active"))
     return Main.Self
   }
   scrollTo(num) {
