@@ -5,7 +5,7 @@ import mouse from "./mouse.js"
 const { add, remove, contains } = css,
   { box_height, box, card, btn, link, Div } = Box,
   { isMobile, forEach } = tools,
-  { _nav_, _back_ ,_body_} = gVars,
+  { _nav_, _back_, _body_ } = gVars,
   $$ = document.querySelector("#body"),
   main = Main.init();
 
@@ -29,7 +29,7 @@ main.timeOut(() => {
       imgs = res.index.img;
 
     // DSGN
-    forEach(imgs, (x,i) => {
+    forEach(imgs, (x, i) => {
       main.__sections__[0]
         .setContent(
           box_height(
