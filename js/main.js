@@ -24,23 +24,21 @@ class Main {
   static init() {
     let main = new Main()
     forEach(["DSGN", "WORK", "SKILLS", "CALL"], t => {
-      let _x_ = section(t)
-      _x_.setEventTitle(() => {
-        forEach(main.__sections__, _s_ => remove(_s_.self, "active"))
-        add(_x_.self, "active")
-        smooth(_x_.self)
+      let x = section(t)
+      x.setEventTitle(() => {
+        forEach(main.__sections__, s => remove(s.self, "active"))
+        add(x.self, "active")
+        smooth(x.self)
         main.nav_off()
       })
-      _x_.title.addEventListener("mouseenter", () => {
-        if (contains(_x_.self, "fly")) mouse.mouse.style.width = mouse.mouse.style.height = "var(--size5)"
-      })
-      _x_.title.addEventListener("mouseleave", () => mouse.mouse.style.width = mouse.mouse.style.height = "")
-      main.__sections__.push(_x_)
+      x.title.addEventListener("mouseenter", () => { if (contains(x.self, "fly")) mouse.mouse.style.width = mouse.mouse.style.height = "var(--size5)" })
+      x.title.addEventListener("mouseleave", () => mouse.mouse.style.width = mouse.mouse.style.height = "")
+      main.__sections__.push(x)
     })
     main.event(window, "resize", main.reSize)
     main.event(_logo_, "click", main.firstPage)
 
-      ;[_logo_, _nav_, _plane_].forEach(_x_ => main.btn_hover(_x_))
+      ;[_logo_, _nav_, _plane_].forEach(x => main.btn_hover(x))
     main.firstPage()
     return main
   }
@@ -52,46 +50,37 @@ class Main {
   //#endregion
 
   //#region Public Functions
-  view(_x_) {
+  view(x) {
     remove(_front_, "hide")
-    _x_.innerHTML = ""
-    forEach(this.__sections__, s => _x_.appendChild(s.self))
+    x.innerHTML = ""
+    forEach(this.__sections__, s => x.appendChild(s.self))
     return this
   }
   reSize() {
     smooth($("section.active"))
     return Main.Self
   }
-  scrollTo(num) {
-    forEach(this.__sections__, (_x_, i) => {
-      remove(_x_.self, "active")
-      if (num == i + 1) {
-        add(_x_.self, "active")
-        smooth(_x_.self)
-      }
-    })
-    return this
-  }
   /**
    * @param {HTMLElement} el
    */
-  btn_hover(el) {
-    el.addEventListener("mouseenter", () => mouse.mouse.style.width = mouse.mouse.style.height = "var(--size5)")
-    el.addEventListener("mouseleave", () => mouse.mouse.style.width = mouse.mouse.style.height = "")
+  btn_hover(x) {
+    let d = "mouse", m = mouse[d], a = "style", b = "width", c = "height";
+    x.addEventListener(d + "enter", () => m[a][b] = m[a][c] = "var(--size5)")
+    x.addEventListener(d + "leave", () => m[a][b] = m[a][c] = "")
   }
   /**
    * @param { string } eventName
    * @param { () => void } callback
    */
-  event(el, eventName, callback, options = {}) {
-    el.addEventListener(eventName, callback, options)
+  event(x, eventName, callback, options = {}) {
+    x.addEventListener(eventName, callback, options)
     return this
   }
   firstPage() {
-    let _s_ = Main.Self.__sections__
-    _s_.forEach(_x_ => remove(_x_.self, "active"))
-    add(_s_[0].self, "active")
-    smooth(_s_[0].self)
+    let s = Main.Self.__sections__
+    s.forEach(x => remove(x.self, "active"))
+    add(s[0].self, "active")
+    smooth(s[0].self)
     return this
   }
   addScroll() {
@@ -99,12 +88,6 @@ class Main {
       animationDuration = 500,
       lastAnimation = 0;
 
-    this.event(document, "keypress", e => {
-      if (e.code.slice(0, 5) == "Digit") {
-        let i = (+e.code.slice(5))
-        if (i <= 4) this.scrollTo(i)
-      }
-    })
     this.event(window, "wheel", e => {
       e.preventDefault()
       let delta = e.wheelDelta, timeNow = new Date().getTime();
@@ -112,73 +95,46 @@ class Main {
       delta < 0 ? this.nextPage() : this.prevPage()
       lastAnimation = timeNow
     }, { passive: false })
-
     return this
   }
   changeFavicon(url) {
     $id("favicon").attributes.getNamedItem("href").value = "./src/png/" + url
     return this
   }
+  #x(n) { let a = Main.Self.__sections__[n].self; add(a, "active"); smooth(a) }
   nextPage() {
-    let _s_ = this.__sections__
-    forEach(_s_, (_x_, i) => {
-      if (contains(_x_.self, "active")) {
-        remove(_x_.self, "active")
-        if (i == _s_.length - 1) {
-          add(_s_[0].self, "active")
-          smooth(_s_[0].self)
-        } else {
-          add(_s_[i + 1].self, "active")
-          smooth(_s_[i + 1].self)
-        }
+    let a = this.#x, s = this.__sections__
+    forEach(s, (x, i) => {
+      if (contains(x.self, "active")) {
+        remove(x.self, "active")
+        if (i == s.length - 1) a(0)
+        else a(i + 1)
         return true
       }
     })
-    return false
   }
   prevPage() {
-    let _s_ = this.__sections__
-    forEach(_s_, (_x_, i) => {
-      if (contains(_x_.self, "active")) {
-        remove(_x_.self, "active")
-        if (i == 0) {
-          add(_s_[_s_.length - 1].self, "active")
-          smooth(_s_[_s_.length - 1].self)
-        } else {
-          add(_s_[i - 1].self, "active")
-          smooth(_s_[i - 1].self)
-        }
+    let a = this.#x, s = this.__sections__
+    forEach(this.__sections__, (x, i) => {
+      if (contains(x.self, "active")) {
+        remove(x.self, "active")
+        if (i == 0) a(s.length - 1)
+        else a(i - 1)
         return true
       }
     })
-    return false
   }
   nav_on() {
-    let _s_ = this.__sections__
     add(_nav_, "active")
     add(_back_, "active")
-    forEach(_s_, _x_ => add(_x_.self, ["fly", "none", "small"]))
+    forEach(this.__sections__, x => add(x.self, ["fly", "none", "small"]))
     return this
   }
   nav_off() {
-    let _s_ = this.__sections__
     remove(_nav_, "active")
     remove(_back_, "active")
-    forEach(_s_, _x_ => remove(_x_.self, ["fly", "none", "small"]))
+    forEach(this.__sections__, x => remove(x.self, ["fly", "none", "small"]))
     return this
-  }
-  reDrawAllPercentCircle() {
-
-  }
-  drawPecrentCircle(ctx, color, percent_) {
-    percent = Math.min(Math.max(0, percent_ || 1), 1)
-    ctx.beginPath()
-    ctx.arc(0, 0, opts.radius, 0, Math.PI * 2 * (percent_ / 100), false)
-    ctx.strokeStyle = color
-    ctx.lineCap = 'round'
-    ctx.lineWidth = opts.lineWidth
-    ctx.stroke()
-    ctx.closePath()
   }
   /**
    * @param {( main: Main ) => void } callback

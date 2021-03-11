@@ -1,7 +1,7 @@
 getData("/src/json/gallery.json", (r, d) => {
   if (r) throw new Error(r)
-  let b = d.gallery.data, с = window.location.origin + b, z = $id("gallery");
-  forEach(b, a => z.appendChild(imageItem(с + a.src, a.tags)))
+  let a =d.gallery, b = a.data, с = window.location.origin + a.corePath, z = $id("gallery");
+  forEach(b, x => z.appendChild(imageItem(с + x.src, x.tags)))
 })
 
 function imageItem(img, alt) {

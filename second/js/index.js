@@ -11,10 +11,7 @@ const is = {
     } else return false
   },
 
-  forEach = (arr, callback) => { for (let i = 0; i < arr.length; i++) if (callback(arr[i], i) == true) return };
-/**  @type {( ...args ) => void } */
-const print = console.log.bind(globalThis),
-  smooth = target => target.scrollIntoView({ behavior: "smooth" });
+  forEach = (arr, fn) => { for (let i = 0; i < arr.length; i++) if (fn(arr[i], i) == true) return };
 //#endregion
 
 //#region $ Query
@@ -28,12 +25,12 @@ const $id = $$.getElementById.bind($$)
 //#endregion
 
 //#region Style
-const add = (target, style) => Array.isArray(style) ? target.classList.add(...style) : target.classList.add(style),
-  remove = (target, style) => Array.isArray(style) ? target.classList.remove(...style) : target.classList.remove(style),
+const add = (target, style) => is.array(style) ? target.classList.add(...style) : target.classList.add(style),
+  remove = (target, style) => is.array(style) ? target.classList.remove(...style) : target.classList.remove(style),
   /** @returns { boolean } */
   contains = (target, style) => target.classList.contains(style),
   __toggle = (a, b) => contains(a, b) ? remove(a, b) : add(a, b),
-  toggle = (target, style) => Array.isArray(style) ? forEach(style, s => __toggle(target, s)) : __toggle(target, style);
+  toggle = (target, style) => is.array(style) ? forEach(style, s => __toggle(target, s)) : __toggle(target, style);
 //#endregion
 
 //#region UI support
@@ -45,10 +42,9 @@ const UI = function () {
 //#endregion
 
 //#region HTML Element[s]
-const _body_ = $id("body")
-const _nav_ = $id("nav")
-const _nav_li_ = $id("nav_li")
-let data_img = $all("[data-img]")
+const _body_ = $id("body"),
+  _nav_ = $id("nav"),
+  _nav_li_ = $id("nav_li");
 //#endregion
 
 //#region ScrollBar

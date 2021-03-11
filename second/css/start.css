@@ -94,10 +94,6 @@ i, font, ya-tr-span {
   font-size: inherit;
 }
 
-/* h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-} */
-
 h1 {
   font-size: var(--h1);
 }
@@ -305,42 +301,12 @@ button:hover, .button:hover {
   overflow: hidden;
 }
 
-#dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 999;
-  border: 2px solid var(--grey);
-}
-
-#dialog::before {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  content: "";
-  width: 100vw;
-  height: 100vh;
-  background: red;
-  display: block;
-}
-
-/* .hello{
-  
-} */
-
 .font_700 {
   font-weight: 700;
 }
 
 .text_center {
   text-align: center;
-}
-
-.fullscreen {
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  width: 100vmin;
 }
 
 @supports not (aspect-ratio: 1/1) {

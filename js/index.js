@@ -25,8 +25,7 @@ main.timeOut(() => {
     if (err) return _body_.innerHTML = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
     remove(_back_, "hide")
 
-    let core = window.location.origin + res.index.corePath,
-      imgs = res.index.img;
+    let core = window.location.origin + res.index.corePath, imgs = res.index.img;
 
     // DSGN
     forEach(imgs, (x, i) => {
@@ -58,10 +57,8 @@ main.timeOut(() => {
     })
 
     // CALL
-    for (const obj of res.social.data) {
-      for (const key in obj) {
-        if (Object.hasOwnProperty.call(obj, key)) main.__sections__[3].setContent(box_height(btn(link(key, obj[key]), true)))
-      }
+    for (let x of res.social.data) for (let y in x) {
+      if (Object.hasOwnProperty.call(x, y)) main.__sections__[3].setContent(box_height(btn(link(y, x[y]), true)))
     }
   })
 
