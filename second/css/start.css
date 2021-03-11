@@ -336,7 +336,7 @@ button:hover, .button:hover {
   text-align: center;
 }
 
-.fullscreen{
+.fullscreen {
   position: fixed;
   top: 50vh;
   left: 50vw;

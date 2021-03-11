@@ -1,246 +1,248 @@
 .btn i {
-    margin-right: var(--size1);
-    font-size: 1.5rem;
+  margin-right: var(--size1);
+  font-size: 1.5rem;
 }
 
 .slide {
-    position: relative;
-    --width: 100%;
-    --time: 0.7s;
-    background: var(--blue-color);
-    color: white;
-    overflow: hidden;
+  position: relative;
+  --width: 100%;
+  --time: 0.7s;
+  background: var(--blue-color);
+  color: white;
+  overflow: hidden;
 }
 
 .slide span {
-    border-radius: 100%;
-    position: absolute;
-    display: block;
-    content: "";
-    z-index: 0;
-    width: 0;
-    height: 0;
-    background: var(--first-color);
-    transform: translate(-50%, -50%);
-    transition: width var(--time), padding-top var(--time);
+  border-radius: 100%;
+  position: absolute;
+  display: block;
+  content: "";
+  z-index: 0;
+  width: 0;
+  height: 0;
+  background: var(--first-color);
+  transform: translate(-50%, -50%);
+  transition: width var(--time), padding-top var(--time);
 }
 
 .slide:hover {
-    color: var(--bad-black);
+  color: var(--bad-black);
 }
 
 .slide:hover span {
-    width: calc(var(--width)*3.25);
-    padding-top: calc(var(--width)* 3.25);
+  width: calc(var(--width)*3.25);
+  padding-top: calc(var(--width)* 3.25);
 }
 
 a.btn:hover::after {
-    display: none;
+  display: none;
 }
 
 .btn a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .transparent, #transparent {
-    opacity: 0!important;
+  opacity: 0!important;
 }
 
 .hide {
-    transition: transform 0.5s ease;
-    transform-origin: top;
-    transform: rotateX(90deg);
+  transition: transform 0.5s ease;
+  transform-origin: top;
+  transform: rotateX(90deg);
 }
 
 section {
-    position: relative;
-    display: block;
-    border-bottom: 1px solid rgb(172, 172, 172);
+  position: relative;
+  display: block;
+  border-bottom: 1px solid rgb(172, 172, 172);
 }
 
 section .title {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    font-size: 10vw;
-    transform: translate(-50%, -50%);
-    transition: all 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 20;
-    overflow: hidden;
-    height: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  font-size: 10vw;
+  transform: translate(-50%, -50%);
+  transition: all 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 20;
+  overflow: hidden;
+  height: 0;
 }
 
 section.active .title {
-    height: 10vw;
+  height: 10vw;
 }
 
 section.fly .title {
-    position: fixed;
-    z-index: 30;
-    height: 10vw;
+  position: fixed;
+  z-index: 30;
+  height: 10vw;
 }
 
 section.factive.small .title, section.fly.small .title {
-    font-size: 9.5vh;
-    height: 9.5vh;
+  font-size: 9.5vh;
+  height: 9.5vh;
 }
 
 section.fly .title:hover {
-    color: var(--blue-color);
+  color: var(--blue-color);
 }
 
 section.fly:nth-of-type(1) .title {
-    top: 30vh;
+  top: 30vh;
 }
 
 section.fly:nth-of-type(2) .title {
-    top: 42vh;
+  top: 42vh;
 }
 
 section.fly:nth-of-type(3) .title {
-    top: 54vh;
+  top: 54vh;
 }
 
 section.fly:nth-of-type(4) .title {
-    top: 66vh;
+  top: 66vh;
 }
 
 section .title::after {
-    display: none;
+  display: none;
 }
 
 section .title, section .title span {
-    color: inherit;
-    font-weight: 400;
+  color: inherit;
+  font-weight: 400;
 }
 
 section .title span {
-    letter-spacing: 3vw;
-    font-weight: inherit;
-    font-size: inherit;
+  letter-spacing: 3vw;
+  font-weight: inherit;
+  font-size: inherit;
 }
 
 .content {
-    transform-origin: bottom;
-    width: 100%;
-    height: 100%;
-    transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+  transform-origin: bottom;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
 }
 
 .section.none .content {
-    transform: rotateX(90deg);
+  transform: rotateX(90deg);
 }
 
 .content.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-    width: 100%;
-    height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 100%;
 }
 
 .content.grid.reverse {
-    grid-template: "x3 x0 x1 x2" 1fr/25vw 25vw 25vw 25vw;
+  grid-template: "x3 x0 x1 x2" 1fr/25vw 25vw 25vw 25vw;
 }
 
 .content.grid .box_height {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    align-items: center;
-    flex-direction: column-reverse;
-    justify-content: end;
-    overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  align-items: center;
+  flex-direction: column-reverse;
+  justify-content: end;
+  overflow: hidden;
 }
 
 .content.grid .box_height .btn {
-    width: 100%;
-    height: 8vh;
-    min-height: var(--size3);
-    background: var(--bad-black);
+  width: 100%;
+  height: 8vh;
+  min-height: var(--size3);
+  background: var(--bad-black);
 }
 
 .content.grid .box_height .box {
-    width: 100%;
-    height: 25vw;
-    max-height: 32vh;
-    background: linear-gradient(135deg, var(--red-color), var(--second-color));
-    background-size: cover!important;
-    background-position: center!important;
-    border-top: 1px solid rgb(172, 172, 172);
-    color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 25vw;
+  max-height: 32vh;
+  background: linear-gradient(135deg, var(--red-color), var(--second-color));
+  background-size: cover!important;
+  background-position: center!important;
+  border-top: 1px solid rgb(172, 172, 172);
+  color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content.grid .box_height .box a {
-    transition: all 0.5s ease;
-    font-size: var(--h5);
-    font-weight: 500;
+  transition: all 0.5s ease;
+  font-size: var(--h5);
+  font-weight: 500;
 }
 
 .content.grid .box_height .box a:hover::after {
-    display: none;
+  display: none;
 }
 
 .content.grid .box_height .box:hover a {
-    color: var(--dark-black);
+  color: var(--dark-black);
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
 }
 
 .card .boxz {
-    transition: all 0.3s ease;
-    width: 100%;
-    height: 25vw;
-    max-height: 32vh;
-    border-top: 1px solid rgb(172, 172, 172);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 0 20px;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 25vw;
+  max-height: 32vh;
+  border-top: 1px solid rgb(172, 172, 172);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px;
 }
-.card .boxz svg{
-    font-size: 1.8em;
+
+.card .boxz svg {
+  font-size: 1.8em;
 }
 
 .card .boxz h2, .card .boxz h3 {
-    padding: 0.5em 0;
+  padding: 0.5em 0;
 }
 
 .content.grid .box_height .card .more {
-    border-top: 1px solid rgb(172, 172, 172);
-    height: 0;
-    min-height: 0;
-    transition: all 0.3s ease;
-    transform-origin: bottom;
+  border-top: 1px solid rgb(172, 172, 172);
+  height: 0;
+  min-height: 0;
+  transition: all 0.3s ease;
+  transform-origin: bottom;
 }
 
 .content.grid .box_height .card:hover .more {
-    height: 8vh;
-    min-height: var(--size3);
+  height: 8vh;
+  min-height: var(--size3);
 }
 
 #SKILLS .icon {
-    font-size: 15vmin;
+  font-size: 15vmin;
 }
-#SKILLS .icon .fa-secondary{
-    color: inherit;
+
+#SKILLS .icon .fa-secondary {
+  color: inherit;
 }
 
 #SKILLS .name {
-    font-size: var(--h3);
-    padding: 3vmin 0 10vmin;
+  font-size: var(--h3);
+  padding: 3vmin 0 10vmin;
 }

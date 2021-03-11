@@ -1,111 +1,111 @@
 {
-    "gallery": {
-        "corePath": "/src/jpg/",
-        "data": [
-            {
-                "src": "1.jpg",
-                "tags": [
-                    "blue",
-                    "Aktau"
-                ]
-            },
-            {
-                "src": "2.jpeg",
-                "tags": [
-                    "ship",
-                    "blue",
-                    "Aktau",
-                    "ocean"
-                ]
-            },
-            {
-                "src": "3.jpg",
-                "tags": [
-                    "white",
-                    "snow",
-                    "tree",
-                    "Almaty"
-                ]
-            },
-            {
-                "src": "4.jpeg",
-                "tags": [
-                    "Aktau",
-                    "green",
-                    "ocean",
-                    "white"
-                ]
-            },
-            {
-                "src": "badocean.jpg",
-                "tags": [
-                    "black",
-                    "aesthetic",
-                    "Aktau"
-                ]
-            },
-            {
-                "src": "blur1.jpg",
-                "tags": [
-                    "blue",
-                    "blur",
-                    "Aktau"
-                ]
-            },
-            {
-                "src": "city.jpg",
-                "tags": [
-                    "night",
-                    "Aktau",
-                    "palm",
-                    "tree"
-                ]
-            },
-            {
-                "src": "drawing.jpg",
-                "tags": [
-                    "house",
-                    "tree",
-                    "white",
-                    "paper",
-                    "draw"
-                ]
-            },
-            {
-                "src": "green.jpeg",
-                "tags": [
-                    "green",
-                    "leaves",
-                    "Aktau"
-                ]
-            },
-            {
-                "src": "keyboard.jpeg",
-                "tags": [
-                    "black",
-                    "red",
-                    "aesthetic"
-                ]
-            },
-            {
-                "src": "ocean1.jpg",
-                "tags": [
-                    "ocean",
-                    "Aktau"
-                ]
-            },
-            {
-                "src": "palma.jpg",
-                "tags": [
-                    "blue",
-                    "palm",
-                    "tree"
-                ]
-            }
-        ],
-        "dataFormat": {
-            "src": "",
-            "tags": []
-        }
+  "gallery": {
+    "corePath": "/src/jpg/",
+    "data": [
+      {
+        "src": "1.jpg",
+        "tags": [
+          "blue",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "2.jpeg",
+        "tags": [
+          "ship",
+          "blue",
+          "Aktau",
+          "ocean"
+        ]
+      },
+      {
+        "src": "3.jpg",
+        "tags": [
+          "white",
+          "snow",
+          "tree",
+          "Almaty"
+        ]
+      },
+      {
+        "src": "4.jpeg",
+        "tags": [
+          "Aktau",
+          "green",
+          "ocean",
+          "white"
+        ]
+      },
+      {
+        "src": "badocean.jpg",
+        "tags": [
+          "black",
+          "aesthetic",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "blur1.jpg",
+        "tags": [
+          "blue",
+          "blur",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "city.jpg",
+        "tags": [
+          "night",
+          "Aktau",
+          "palm",
+          "tree"
+        ]
+      },
+      {
+        "src": "drawing.jpg",
+        "tags": [
+          "house",
+          "tree",
+          "white",
+          "paper",
+          "draw"
+        ]
+      },
+      {
+        "src": "green.jpeg",
+        "tags": [
+          "green",
+          "leaves",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "keyboard.jpeg",
+        "tags": [
+          "black",
+          "red",
+          "aesthetic"
+        ]
+      },
+      {
+        "src": "ocean1.jpg",
+        "tags": [
+          "ocean",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "palma.jpg",
+        "tags": [
+          "blue",
+          "palm",
+          "tree"
+        ]
+      }
+    ],
+    "dataFormat": {
+      "src": "",
+      "tags": []
     }
+  }
 }

@@ -12,22 +12,24 @@ function getData(path, callback) {
  * @param {( err: Error, res: JSON ) => void } callback
  */
 const getJSON = function (url, callback) {
-  let xhr = new XMLHttpRequest(),
+  let x = new XMLHttpRequest(),
     c = callback;
-  xhr.open('GET', url, true)
-  xhr.responseType = 'json'
-  xhr.onload = (() => (xhr.status === 200) ? c(null, xhr.response) : c(xhr.status, xhr.response))
-  xhr.send()
+  x.open('GET', url, true)
+  x.responseType = 'json'
+  x.onload = (() => (x.status === 200) ? c(null, x.response) : c(x.status, x.response))
+  x.send()
 }
 
+/** @type { (a: number, b: number, c: number, d: number) => number } */
 const calcRatio = (() => {
-  let x = (...v) => v.every(u => "number" == typeof u),
-    y = (...v) => v.reduce((a, b) => a + ("number" == typeof b ? 1 : 0), 0);
+  let x = v => "number" == typeof v,
+    y = (...v) => v.every(u => x(u)),
+    z = (...v) => v.reduce((a, b) => a + (x(b) ? 1 : 0), 0);
   return (a, b, c, d) => {
-    if (y(a, b, c, d) == 3) throw new Error("Bad arguments")
-    if (x(a, c, d)) return a * d / c
-    if (x(a, b, d)) return a * d / b
-    if (x(a, b, c)) return c * b / a
-    if (x(b, c, d)) return c * b / d
+    if (z(a, b, c, d) !== 3) throw new Error("Bad arguments")
+    if (y(a, c, d)) return a * d / c
+    if (y(a, b, d)) return a * d / b
+    if (y(a, b, c)) return c * b / a
+    if (y(b, c, d)) return c * b / d
   }
 })();
