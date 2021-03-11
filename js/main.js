@@ -26,7 +26,7 @@ class Main {
     forEach(["DSGN", "WORK", "SKILLS", "CALL"], t => {
       let _x_ = section(t)
       _x_.setEventTitle(() => {
-        main.forEach(main.__sections__, _s_ => remove(_s_.self, "active"))
+        forEach(main.__sections__, _s_ => remove(_s_.self, "active"))
         add(_x_.self, "active")
         smooth(_x_.self)
         main.nav_off()
