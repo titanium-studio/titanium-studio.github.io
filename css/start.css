@@ -91,9 +91,6 @@ p, a, h1, h2, h3, h4, h5, h6, i, span, div, b, text, font, ya-tr-span {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 h1 {
