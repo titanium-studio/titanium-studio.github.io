@@ -65,7 +65,11 @@ let s = sb.init(_body_, {
       maxOverscroll: 80
     }
   }
-})
-forEach(_nav_li_.children, a => a.addEventListener("click", () => s.scrollIntoView($id(a.innerText.toLowerCase()))))
+}),
+  ScrollTo = query => s.scrollIntoView($(query))
+
+forEach(_nav_li_.children, a => a.addEventListener("click", () => ScrollTo("#" + a.innerText.toLowerCase())))
 setTimeout(() => $all(s_t.join(", ").replaceAll("s", ".s")).forEach(h => remove(h, s_t)), 100)
 //#endregion
+
+forEach($$.querySelectorAll("[press]"), x => x.addEventListener("click", () => ScrollTo(x.getAttribute("press"))))

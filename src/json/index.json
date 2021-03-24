@@ -54,8 +54,8 @@
         "name": "Javascript"
       },
       {
-        "icon": "C#",
-        "name": "C-sharp"
+        "icon": "<span class='notranslate' translate='no'>C#</span>",
+        "name": "<span class='notranslate' translate='no'>C-sharp</span>"
       },
       {
         "icon": "<i class='fab fa-python'></i>",
