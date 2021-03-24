@@ -99,7 +99,22 @@
         "tags": [
           "blue",
           "palm",
-          "tree"
+          "tree",
+          "Aktau"
+        ]
+      },
+      {
+        "src":"robot1.jpeg",
+        "tags":[
+          "robot",
+          "Aktau"
+        ]
+      },
+      {
+        "src":"robot2.jpeg",
+        "tags":[
+          "robot",
+          "Aktau"
         ]
       }
     ],
