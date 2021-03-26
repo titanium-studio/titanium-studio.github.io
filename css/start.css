@@ -40,6 +40,10 @@
   color: var(--first-color);
 }
 
+*:focus {
+  background: red;
+}
+
 *::-webkit-scrollbar {
   display: none;
 }

@@ -4,7 +4,7 @@ import mouse from "./mouse.js"
 
 const { add, remove, contains } = css,
   { box_height, box, card, btn, link, Div } = Box,
-  { isMobile, forEach } = tools,
+  { isMobile, forEach, forIn } = tools,
   { _nav_, _back_, _body_ } = gVars,
   $$ = document.querySelector("#body"),
   main = Main.init();
@@ -25,42 +25,26 @@ main.timeOut(() => {
     if (err) return _body_.innerHTML = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
     remove(_back_, "hide")
 
-    let core = window.location.origin + res.index.corePath, imgs = res.index.img;
+    let core = window.location.origin + res.index.corePath, imgs = res.index.img,
+      set = (i, ...value) => { return main.__sections__[i].setContent(...value) },
+      b_h = box_height;
 
     // DSGN
-    forEach(imgs, (x, i) => {
-      main.__sections__[0]
-        .setContent(
-          box_height(
-            box(true, { background: "url(" + core + x.url + ")" }, x.p), { gridArea: "x" + i }
-          )
-        )
-        .reverse(true)
-    })
+    forEach(imgs, (x, i) => set(0, b_h(box(true, core + x.url, x.p), { gridArea: "x" + i })).reverse(true))
 
     // WORK
-    forEach(res.work.data, x => {
-      let c = card()
-      c.addH2(x.name)
-      c.addP(x.description)
-      c.addMore(x.more)
-      main.__sections__[1].setContent(box_height(c.self))
-    })
+    forEach(res.work.data, x => set(1, b_h(card().addH2(x.name).addP(x.description).addMore(x.more).self)))
 
     // SKILLS
     forEach(res.skills.data, x => {
-      let y = Div("icon"),
-        z = Div("name");
+      let y = Div("icon"), z = Div("name");
       y.innerHTML = x.icon
       z.innerHTML = x.name
-      main.__sections__[2].setContent(box_height([z, y]))
+      set(2, b_h([z, y]))
     })
 
     // CALL
-    for (let x of res.social.data) for (let y in x) {
-      if (Object.hasOwnProperty.call(x, y)) main.__sections__[3].setContent(box_height(btn(link(y, x[y]), true)))
-    }
+    for (let x of res.social.data) forIn(x, y => set(3, b_h(btn(link(y, x[y]), true))))
   })
-
 }, 1500)
 export default main

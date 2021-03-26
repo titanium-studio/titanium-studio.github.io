@@ -1,17 +1,17 @@
 //#region Search Document Element[s]
 /**
  * @param { string | "div" } query
- * @returns { Element | HTMLDivElement }
  */
 const $ = query => document.querySelector(query),
-  /**
-   * @param {string} id
-   */
   $id = id => document.getElementById(id),
-  /**
-   * @param {string} query
-   */
   $all = query => document.querySelectorAll(query);
+/**
+ * @param { Element | HTMLDivElement } x
+ * @param { string } ev
+ * @param { EventListenerOrEventListenerObject } fn
+ * @param { AddEventListenerOptions } opt
+ */
+const $event = (x, ev, fn, opt) => x.addEventListener(ev, fn, opt);
 //#endregion
 
 //#region CSS Function[s]
@@ -59,6 +59,11 @@ const smooth = target => target.scrollIntoView({ behavior: "smooth" });
  * @param  { (item: any, index: number) => void } callback
  */
 const forEach = (arr, callback) => { for (let i = 0; i < arr.length; i++) if (callback(arr[i], i) == true) return }
+/**
+ * @param {{ }} obj
+ * @param { (x, y) => void } fn
+ */
+const forIn = (obj, fn) => { for (let x in obj) if (Object.hasOwnProperty.call(obj, x)) fn(x) }
 const is = {
   empty: value => (value == undefined || value == null),
   mobileCheck: () => {
@@ -85,7 +90,6 @@ function Div(cssClass) {
   else if (Array.isArray(cssClass)) x.classList.add(...cssClass)
   return x
 }
-
 function section(title = "", content) {
   if (!(this instanceof section)) return new section(title, content)
 
@@ -105,20 +109,15 @@ function section(title = "", content) {
 
   d.appendChild(t)
   d.appendChild(c)
-  this.setContent = value => {
-    c.appendChild(value)
-    return this
-  }
-  this.setEventTitle = callback => t.addEventListener("click", callback);
-  this.reverse = bool => {
-    bool ? add(c, "reverse") : remove(c, "reverse")
-    return this
-  }
+  this.setContent = value => { c.appendChild(value); return this }
+  this.setEventTitle = callback => $event(t, "click", callback);
+  this.reverse = bool => { bool ? add(c, "reverse") : remove(c, "reverse"); return this }
   this.self = d
   this.title = t
 }
 function btn(innerHTML, withSlide = false, cssClass = []) {
   let div = Div("btn")
+  div.setAttribute("focusable","true")
   cssClass[0] ? add(div, cssClass) : void 0;
   withSlide ? addSlide(div) : void 0;
   innerHTML ? div.appendChild(innerHTML) : void 0;
@@ -130,11 +129,9 @@ function link(innerHTML, href) {
   a.innerHTML = innerHTML
   return a
 }
-
 function box_height(child, style) {
   let div = Div()
   add(div, "box_height")
-
   if (!is.empty(style)) Styler(div, style)
   if (is.array(child)) forEach(child, c => div.appendChild(c))
   else if (!is.empty(child)) div.appendChild(child)
@@ -145,17 +142,32 @@ function box_height(child, style) {
  * @param { HTMLDivElement } div
  * @param {{ }} style
  */
-function Styler(div, style) {
-  for (let k in style) if (Object.hasOwnProperty.call(div.style, k)) div.style[k] = style[k]
-}
+function Styler(div, style) { forIn(style, x => div.style[x] = style[x]) }
+/**
+ * @param { HTMLDivElement } div
+ * @param {{ }} style
+ */
+Styler.set = function (div, style) { forIn(style, x => div.style.setProperty(x, style[x])) }
 /**
  * @param { boolean } slide
  * @param {{ }} style
  */
-function box(slide, style, innerText = "") {
+function box(slide, imgsrc, innerText = "") {
   let div = Div("box")
 
-  if (style) Styler(div, style)
+
+  if (imgsrc) {
+    let x = new Image(), a = "width"
+    x.src = imgsrc
+    $event(x, "load", () => x.style.setProperty(x.clientHeight < x.clientWidth ? "height" : "width", "100%"))
+    Styler.set(x, {
+      "top": "50%",
+      "left": "50%",
+      "transform": "translate(-50%,-50%)",
+      "position": "absolute"
+    })
+    div.appendChild(x)
+  }
   if (slide) addSlide(div)
   if (innerText !== "") {
     let a = document.createElement("a")
@@ -174,9 +186,9 @@ function card__() {
   div.appendChild(b)
   div.appendChild(m)
 
-  this.addH2 = iHTML => b.innerHTML += "<h3 translate='no' class='notranslate'>" + iHTML + "</h3>";
-  this.addP = iHTML => b.innerHTML += "<p>" + iHTML + "</p>";
-  this.addMore = href => m.appendChild(link("More", href));
+  this.addH2 = iHTML => { b.innerHTML += "<h3 translate='no' class='notranslate'>" + iHTML + "</h3>"; return this }
+  this.addP = iHTML => { b.innerHTML += "<p>" + iHTML + "</p>"; return this }
+  this.addMore = href => { m.appendChild(link("More", href)); return this }
   this.self = div
 }
 /**
@@ -188,11 +200,11 @@ function addSlide(div) {
   add(div, "slide")
   div.appendChild(s)
 
-  div.addEventListener("mouseover", e => {
+  $event(div, "mouseover", e => {
     s.style.left = e.pageX - div.offsetLeft + "px"
     s.style.top = e.pageY - div.offsetTop + "px"
   })
-  div.addEventListener("mouseout", e => {
+  $event(div, "mouseout", e => {
     s.style.left = e.pageX - div.offsetLeft + "px"
     s.style.top = e.pageY - div.offsetTop + "px"
   })
@@ -208,6 +220,7 @@ const css = {
   $,
   $id,
   $all,
+  $event,
   add,
   remove,
   toggle,
@@ -220,7 +233,8 @@ const tools = {
   is,
   isMobile,
   isMobileAndTablet,
-  forEach
+  forEach,
+  forIn
 }
 const Box = {
   card: card__,

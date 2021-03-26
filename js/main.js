@@ -1,6 +1,6 @@
 import { tools, css, Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
-const { $, $id, smooth, contains, add, remove } = css
+const { $, $id, $event, smooth, contains, add, remove } = css
 const { is, forEach } = tools
 const { section } = Box
 const { _nav_, _back_, _plane_, _logo_, _front_ } = gVars
@@ -31,8 +31,8 @@ class Main {
         smooth(x.self)
         main.nav_off()
       })
-      x.title.addEventListener("mouseenter", () => { if (contains(x.self, "fly")) mouse.mouse.style.width = mouse.mouse.style.height = "var(--size5)" })
-      x.title.addEventListener("mouseleave", () => mouse.mouse.style.width = mouse.mouse.style.height = "")
+      $event(x.title, "mouseenter", () => { if (contains(x.self, "fly")) mouse.mouse.style.width = mouse.mouse.style.height = "var(--size5)" })
+      $event(x.title, "mouseleave", () => mouse.mouse.style.width = mouse.mouse.style.height = "")
       main.__sections__.push(x)
     })
     main.event(window, "resize", main.reSize)
@@ -65,15 +65,15 @@ class Main {
    */
   btn_hover(x) {
     let d = "mouse", m = mouse[d], a = "style", b = "width", c = "height";
-    x.addEventListener(d + "enter", () => m[a][b] = m[a][c] = "var(--size5)")
-    x.addEventListener(d + "leave", () => m[a][b] = m[a][c] = "")
+    $event(x, d + "enter", () => m[a][b] = m[a][c] = "var(--size5)")
+    $event(x, d + "leave", () => m[a][b] = m[a][c] = "")
   }
   /**
    * @param { string } eventName
    * @param { () => void } callback
    */
   event(x, eventName, callback, options = {}) {
-    x.addEventListener(eventName, callback, options)
+    $event(x, eventName, callback, options)
     return this
   }
   firstPage() {

@@ -84,7 +84,7 @@ section.fly .title {
   height: 10vw;
 }
 
-section.factive.small .title, section.fly.small .title {
+section.small .title {
   font-size: 9.5vh;
   height: 9.5vh;
 }
@@ -145,7 +145,7 @@ section.none .content {
   grid-template: "x3 x0 x1 x2" 1fr/25vw 25vw 25vw 25vw;
 }
 
-.content.grid .box_height {
+.content .box_height {
   display: flex;
   width: 100%;
   height: 100%;
@@ -156,14 +156,14 @@ section.none .content {
   overflow: hidden;
 }
 
-.content.grid .box_height .btn {
+.content .btn {
   width: 100%;
   height: 8vh;
   min-height: var(--size3);
   background: var(--bad-black);
 }
 
-.content.grid .box_height .box {
+.box {
   width: 100%;
   height: 25vw;
   max-height: 32vh;
@@ -176,17 +176,17 @@ section.none .content {
   align-items: center;
 }
 
-.content.grid .box_height .box a {
+.box a {
   transition: all 0.5s ease;
   font-size: var(--h5);
   font-weight: 500;
 }
 
-.content.grid .box_height .box a:hover::after {
+.box a:hover::after {
   display: none;
 }
 
-.content.grid .box_height .box:hover a {
+.box:hover a {
   color: var(--dark-black);
 }
 
@@ -210,11 +210,11 @@ section.none .content {
   padding: 0 20px;
 }
 
-.card .boxz h2, .card .boxz h3 {
+.card h2, .card h3 {
   padding: 0.5em 0;
 }
 
-.content.grid .box_height .card .more {
+.content .card .more {
   border-top: 1px solid rgb(172, 172, 172);
   height: 0;
   min-height: 0;
@@ -222,7 +222,7 @@ section.none .content {
   transform-origin: bottom;
 }
 
-.content.grid .box_height .card:hover .more {
+.content .card:hover .more, .content .card:focus-within .more {
   height: 8vh;
   min-height: var(--size3);
 }

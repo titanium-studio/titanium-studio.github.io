@@ -37,6 +37,15 @@
         ]
       },
       {
+        "src": "college.jpeg",
+        "tags": [
+          "robot",
+          "Aktau",
+          "blue",
+          "people"
+        ]
+      },
+      {
         "src": "badocean.jpg",
         "tags": [
           "black",
@@ -104,17 +113,36 @@
         ]
       },
       {
-        "src":"robot1.jpeg",
-        "tags":[
+        "src": "robot1.jpeg",
+        "tags": [
           "robot",
-          "Aktau"
+          "Aktau",
+          "grey"
         ]
       },
       {
-        "src":"robot2.jpeg",
-        "tags":[
+        "src": "robot2.jpeg",
+        "tags": [
           "robot",
-          "Aktau"
+          "Aktau",
+          "grey"
+        ]
+      },
+      {
+        "src": "robot3.jpeg",
+        "tags": [
+          "robot",
+          "Aktau",
+          "red"
+        ]
+      },
+      {
+        "src": "robot4.jpeg",
+        "tags": [
+          "robot",
+          "Aktau",
+          "red",
+          "blue"
         ]
       }
     ],
