@@ -1,4 +1,4 @@
-let imgs = [{ x: new Image, y: [""] }]
+let imgs = []
 
 getData("/src/json/gallery.json", (r, d) => {
   if (r) throw new Error(r)

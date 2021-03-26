@@ -41,7 +41,8 @@
 }
 
 *:focus {
-  background: red;
+  background: var(--blue-color);
+  color: var(--first-color);
 }
 
 *::-webkit-scrollbar {
