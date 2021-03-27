@@ -6,18 +6,11 @@ getData("/src/json/gallery.json", (r, d) => {
   forEach(b, x => z.appendChild(imageItem(с, x.src, x.tags)))
 })
 
-function filter(query) {
-  let r = []
-  imgs.forEach(x => x.y.includes(query) ? r.push(x.x) : void 0)
-  return r
-}
+function filter(query) { let r = []; imgs.forEach(x => x.y.includes(query) ? r.push(x.x) : void 0); return r }
 
 function imageItem(path, img, alt) {
   let x = $$.createElement("div"), y = new Image();
-  imgs.push({
-    x: x,
-    y: alt
-  })
+  imgs.push({ x: x, y: alt })
   x.setAttributeNode($$.createAttribute("item"))
   add(x, ["flex", "to_center"])
   y.src = path + img
