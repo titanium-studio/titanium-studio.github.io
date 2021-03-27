@@ -223,7 +223,11 @@ a:hover::after {
   align-items: center;
 }
 
-.header .nav i, .header .logo {
+.nav *:focus{
+  background: none;
+}
+
+.header .nav i,  .logo {
   font-size: var(--size3);
 }
 
