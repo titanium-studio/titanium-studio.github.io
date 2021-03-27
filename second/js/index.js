@@ -47,29 +47,29 @@ const _body_ = $id("body"),
   _nav_li_ = $id("nav_li");
 //#endregion
 
-//#region ScrollBar
-let sb = window.Scrollbar,
-  st = "scrollbar-t",
-  s_t = [st + "rack", st + "humb"];
-sb.use(OverscrollPlugin)
-let s = sb.init(_body_, {
-  damping: 0.10,
-  thumbMinSize: 5,
-  renderByPixel: true,
-  alwaysShowTracks: false,
-  continuousScrolling: true,
-  plugins: {
-    overscroll: {
-      effect: 'bounce',
-      damping: 0.15,
-      maxOverscroll: 80
-    }
-  }
-}),
-  ScrollTo = query => s.scrollIntoView($(query))
+// //#region ScrollBar
+// let sb = window.Scrollbar,
+//   st = "scrollbar-t",
+//   s_t = [st + "rack", st + "humb"];
+// sb.use(OverscrollPlugin)
+// let s = sb.init(_body_, {
+//   damping: 0.10,
+//   thumbMinSize: 5,
+//   renderByPixel: true,
+//   alwaysShowTracks: false,
+//   continuousScrolling: true,
+//   plugins: {
+//     overscroll: {
+//       effect: 'bounce',
+//       damping: 0.15,
+//       maxOverscroll: 80
+//     }
+//   }
+// }),
+//   ScrollTo = query => s.scrollIntoView($(query))
 
-forEach(_nav_li_.children, a => a.addEventListener("click", () => ScrollTo("#" + a.innerText.toLowerCase())))
-setTimeout(() => $all(s_t.join(", ").replaceAll("s", ".s")).forEach(h => remove(h, s_t)), 100)
-//#endregion
+// forEach(_nav_li_.children, a => a.addEventListener("click", () => ScrollTo("#" + a.innerText.toLowerCase())))
+// setTimeout(() => $all(s_t.join(", ").replaceAll("s", ".s")).forEach(h => remove(h, s_t)), 100)
+// //#endregion
 
-forEach($$.querySelectorAll("[press]"), x => x.addEventListener("click", () => ScrollTo(x.getAttribute("press"))))
+// forEach($$.querySelectorAll("[press]"), x => x.addEventListener("click", () => ScrollTo(x.getAttribute("press"))))

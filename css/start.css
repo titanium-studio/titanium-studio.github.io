@@ -215,7 +215,7 @@ a:hover::after {
   align-items: center;
 }
 
-.header .nav {
+ .nav {
   width: calc(var(--size3) * 3);
   display: flex;
   justify-content: space-between;
@@ -227,7 +227,7 @@ a:hover::after {
   font-size: var(--size3);
 }
 
-.header .logo a::after {
+ .logo a::after {
   display: none;
 }
 
