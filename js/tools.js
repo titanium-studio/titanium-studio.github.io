@@ -1,10 +1,11 @@
 //#region Search Document Element[s]
+const $$ = document
 /**
  * @param { string | "div" } query
  */
-const $ = query => document.querySelector(query),
-  $id = id => document.getElementById(id),
-  $all = query => document.querySelectorAll(query);
+const $ = query => $$.querySelector(query),
+  $id = id => $$.getElementById(id),
+  $all = query => $$.querySelectorAll(query);
 /**
  * @param { Element | HTMLDivElement } x
  * @param { string } ev
@@ -85,7 +86,7 @@ const is = {
  * @param { string | string[] } cssClass
  */
 function Div(cssClass) {
-  let x = document.createElement("div")
+  let x = $$.createElement("div")
   if (typeof cssClass == "string") add(x, cssClass)
   else if (Array.isArray(cssClass)) x.classList.add(...cssClass)
   return x
@@ -93,9 +94,9 @@ function Div(cssClass) {
 function section(title = "", content) {
   if (!(this instanceof section)) return new section(title, content)
 
-  let d = document.createElement("section"),
+  let d = $$.createElement("section"),
     c = Div(["content", "grid"]),
-    t = document.createElement("a");
+    t = $$.createElement("a");
 
   d.id = title
   add(c, "section")
@@ -124,7 +125,7 @@ function btn(innerHTML, withSlide = false, cssClass = []) {
   return div
 }
 function link(innerHTML, href) {
-  let a = document.createElement("a")
+  let a = $$.createElement("a")
   href ? a.setAttribute("href", href) : void 0;
   a.innerHTML = innerHTML
   return a
@@ -170,7 +171,7 @@ function box(slide, imgsrc, innerText = "") {
   }
   if (slide) addSlide(div)
   if (innerText !== "") {
-    let a = document.createElement("a")
+    let a = $$.createElement("a")
     a.innerText = innerText
     div.appendChild(a)
   }
@@ -195,7 +196,7 @@ function card__() {
  * @param {Element} div 
  */
 function addSlide(div) {
-  let s = document.createElement("span")
+  let s = $$.createElement("span")
 
   add(div, "slide")
   div.appendChild(s)
@@ -216,11 +217,12 @@ const isMobile = is.mobileCheck()
 const isMobileAndTablet = is.mobileAndTabletCheck()
 //#endregion
 
-const css = {
+const html = {
   $,
   $id,
   $all,
   $event,
+  $$,
   add,
   remove,
   toggle,
@@ -254,4 +256,4 @@ const gVars = {
   _front_: $id("front")
 }
 
-export { css, Box, tools, gVars }
+export { html, Box, tools, gVars }

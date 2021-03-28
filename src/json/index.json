@@ -38,13 +38,6 @@
         "description": "Text editor [beta]",
         "more": "https://github.com/NoNameTitan/max"
       }
-    ],
-    "other": [
-      {
-        "name": "<svg aria-hidden='true' focusable='false' class='icon-archive' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><g class='fa-group'><path fill='currentColor' d='M32 160v288a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V160zm288 84a12 12 0 0 1-12 12H204a12 12 0 0 1-12-12v-8a12 12 0 0 1 12-12h104a12 12 0 0 1 12 12z' class='fa-secondary'></path><path fill='currentColor' d='M512 64v48a16 16 0 0 1-16 16H16a16 16 0 0 1-16-16V64a32 32 0 0 1 32-32h448a32 32 0 0 1 32 32z' class='fa-primary'></path></g></svg> \"Fast Code\"",
-        "description": "My <a href='https://jquery.com/'>JQuery</a>",
-        "more": ""
-      }
     ]
   },
   "skills": {
@@ -62,17 +55,12 @@
         "name": "Python"
       },
       {
-        "icon": "<svg aria-hidden='true' focusable='false' class='icon-paint-brush' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><g class='fa-group'><path fill='currentColor' d='M512 49.55c0 16.14-6.52 31.64-13.9 46C385.06 306.53 349.06 352 287 352a92 92 0 0 1-22.39-3l-63.82-53.18a92.58 92.58 0 0 1-8.73-38.7c0-53.75 21.27-58 225.68-240.64C428.53 6.71 442.74 0 457.9 0 486 0 512 20.64 512 49.55z' class='fa-secondary'></path><path fill='currentColor' d='M255 382.68a86.64 86.64 0 0 1 1 9.13C256 468.23 203.87 512 128 512 37.94 512 0 439.62 0 357.27c9.79 6.68 44.14 34.35 55.25 34.35a15.26 15.26 0 0 0 14.59-10c20.66-54.44 57.07-69.72 97.19-72.3z' class='fa-primary'></path></g></svg>",
-        "name": "Photoshop"
+        "icon": "<svg aria-hidden='true' focusable='false' class='icon-microchip' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><g class='fa-group'><path fill='currentColor' d='M24 190v6H6a6 6 0 0 0-6 6v12a6 6 0 0 0 6 6h18v6a6 6 0 0 0 6 6h42v-48H30a6 6 0 0 0-6 6zm0-96v6H6a6 6 0 0 0-6 6v12a6 6 0 0 0 6 6h18v6a6 6 0 0 0 6 6h42V88H30a6 6 0 0 0-6 6zm482 6h-18v-6a6 6 0 0 0-6-6h-42v48h42a6 6 0 0 0 6-6v-6h18a6 6 0 0 0 6-6v-12a6 6 0 0 0-6-6zm0 192h-18v-6a6 6 0 0 0-6-6h-42v48h42a6 6 0 0 0 6-6v-6h18a6 6 0 0 0 6-6v-12a6 6 0 0 0-6-6zm0-96h-18v-6a6 6 0 0 0-6-6h-42v48h42a6 6 0 0 0 6-6v-6h18a6 6 0 0 0 6-6v-12a6 6 0 0 0-6-6zm0 192h-18v-6a6 6 0 0 0-6-6h-42v48h42a6 6 0 0 0 6-6v-6h18a6 6 0 0 0 6-6v-12a6 6 0 0 0-6-6zm-482-6v6H6a6 6 0 0 0-6 6v12a6 6 0 0 0 6 6h18v6a6 6 0 0 0 6 6h42v-48H30a6 6 0 0 0-6 6zm0-96v6H6a6 6 0 0 0-6 6v12a6 6 0 0 0 6 6h18v6a6 6 0 0 0 6 6h42v-48H30a6 6 0 0 0-6 6z' class='fa-secondary'></path><path fill='currentColor' d='M144 512a48 48 0 0 1-48-48V48a48 48 0 0 1 48-48h224a48 48 0 0 1 48 48v416a48 48 0 0 1-48 48z' class='fa-primary'></path></g></svg>",
+        "name": "Robotics"
       }
     ]
   },
   "social": {
-    "other": [
-      {
-        "<i class='fab fa-vk'></i>VK": "https://vk.com/aset_telmanov"
-      }
-    ],
     "data": [
       {
         "<i class='fab fa-telegram'></i>Telegram": "https://t.me/titanov"
@@ -85,6 +73,11 @@
       },
       {
         "<i class='fab fa-facebook-f'></i>Facebook": "https://www.facebook.com/ace.titan.404"
+      }
+    ],
+    "other": [
+      {
+        "<i class='fab fa-vk'></i>VK": "https://vk.com/aset_telmanov"
       }
     ]
   }

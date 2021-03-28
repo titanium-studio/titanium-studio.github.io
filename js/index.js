@@ -1,12 +1,12 @@
 import Main from "./main.js"
-import { css, tools, Box, gVars } from "./tools.js"
+import { html, tools, Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
 
-const { add, remove, contains } = css,
+const { $id,add, remove, contains } = html,
   { box_height, box, card, btn, link, Div } = Box,
   { isMobile, forEach, forIn } = tools,
   { _nav_, _back_, _body_ } = gVars,
-  $$ = document.querySelector("#body"),
+  $$ = $id("body"),
   main = Main.init();
 
 main.timeOut(() => {
@@ -26,7 +26,7 @@ main.timeOut(() => {
     remove(_back_, "hide")
 
     let core = window.location.origin + res.index.corePath, imgs = res.index.img,
-      set = (i, ...value) => { return main.__sections__[i].setContent(...value) },
+      set = (i, ...v) => { return main.__sections__[i].setContent(...v) },
       b_h = box_height;
 
     // DSGN

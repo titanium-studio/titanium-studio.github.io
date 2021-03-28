@@ -1,6 +1,6 @@
-import { tools, css, Box, gVars } from "./tools.js"
+import { html, tools, Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
-const { $, $id, $event, smooth, contains, add, remove } = css
+const { $, $id, $event, smooth, contains, add, remove } = html
 const { is, forEach } = tools
 const { section } = Box
 const { _nav_, _back_, _plane_, _logo_, _front_ } = gVars
