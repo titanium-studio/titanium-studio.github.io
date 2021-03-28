@@ -12,6 +12,7 @@ const is = {
   },
 
   forEach = (arr, fn) => { for (let i = 0; i < arr.length; i++) if (fn(arr[i], i) == true) return };
+  const smooth = target => target.scrollIntoView({ behavior: "smooth" });
 //#endregion
 
 //#region $ Query
@@ -72,4 +73,5 @@ const _body_ = $id("body"),
 // setTimeout(() => $all(s_t.join(", ").replaceAll("s", ".s")).forEach(h => remove(h, s_t)), 100)
 // //#endregion
 
+forEach(_nav_li_.children, a => a.addEventListener("click", () => smooth($id(a.innerText.toLowerCase()))))
 // forEach($$.querySelectorAll("[press]"), x => x.addEventListener("click", () => ScrollTo(x.getAttribute("press"))))
