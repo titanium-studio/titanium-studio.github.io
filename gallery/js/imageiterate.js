@@ -1,12 +1,12 @@
-let imgs = []
+let src = $id("src"), imgs = [], z = "hide", filter = src => imgs.forEach(x => src == "" ? remove(x.x, z) : (x.y.includes(src) ? remove(x.x, z) : add(x.x, z)))
 
 getData("/src/json/gallery.json", (r, d) => {
   if (r) throw new Error(r)
   let a = d.gallery, b = a.data, с = window.location.origin + a.corePath, z = $id("gallery");
-  forEach(b, x => z.appendChild(imageItem(с, x.src, x.tags)))
+  forEach(b, x => z.appendChild(imageItem(с, x.src + ".jpg", x.tags)))
 })
 
-function filter(query) { let r = []; imgs.forEach(x => x.y.includes(query) ? r.push(x.x) : void 0); return r }
+src.addEventListener("input", () => filter(src.value))
 
 function imageItem(path, img, alt) {
   let x = $$.createElement("div"), y = new Image();

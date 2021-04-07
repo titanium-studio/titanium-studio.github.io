@@ -3,14 +3,14 @@
     "corePath": "/src/jpg/",
     "data": [
       {
-        "src": "1.jpg",
+        "src": "1",
         "tags": [
           "blue",
           "Aktau"
         ]
       },
       {
-        "src": "2.jpeg",
+        "src": "2",
         "tags": [
           "ship",
           "blue",
@@ -19,7 +19,7 @@
         ]
       },
       {
-        "src": "3.jpg",
+        "src": "3",
         "tags": [
           "white",
           "snow",
@@ -28,7 +28,7 @@
         ]
       },
       {
-        "src": "4.jpeg",
+        "src": "4",
         "tags": [
           "Aktau",
           "green",
@@ -37,7 +37,7 @@
         ]
       },
       {
-        "src": "college.jpeg",
+        "src": "college",
         "tags": [
           "robot",
           "Aktau",
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "src": "badocean.jpg",
+        "src": "badocean",
         "tags": [
           "black",
           "aesthetic",
@@ -54,7 +54,7 @@
         ]
       },
       {
-        "src": "blur1.jpg",
+        "src": "blur1",
         "tags": [
           "blue",
           "blur",
@@ -62,7 +62,7 @@
         ]
       },
       {
-        "src": "city.jpg",
+        "src": "city",
         "tags": [
           "night",
           "Aktau",
@@ -71,7 +71,7 @@
         ]
       },
       {
-        "src": "drawing.jpg",
+        "src": "drawing",
         "tags": [
           "house",
           "tree",
@@ -81,7 +81,7 @@
         ]
       },
       {
-        "src": "green.jpeg",
+        "src": "green",
         "tags": [
           "green",
           "leaves",
@@ -89,7 +89,7 @@
         ]
       },
       {
-        "src": "keyboard.jpeg",
+        "src": "keyboard",
         "tags": [
           "black",
           "red",
@@ -97,14 +97,14 @@
         ]
       },
       {
-        "src": "ocean1.jpg",
+        "src": "ocean1",
         "tags": [
           "ocean",
           "Aktau"
         ]
       },
       {
-        "src": "palma.jpg",
+        "src": "palma",
         "tags": [
           "blue",
           "palm",
@@ -113,7 +113,7 @@
         ]
       },
       {
-        "src": "robot1.jpeg",
+        "src": "robot1",
         "tags": [
           "robot",
           "Aktau",
@@ -121,7 +121,7 @@
         ]
       },
       {
-        "src": "robot2.jpeg",
+        "src": "robot2",
         "tags": [
           "robot",
           "Aktau",
@@ -129,7 +129,7 @@
         ]
       },
       {
-        "src": "robot3.jpeg",
+        "src": "robot3",
         "tags": [
           "robot",
           "Aktau",
@@ -137,7 +137,7 @@
         ]
       },
       {
-        "src": "robot4.jpeg",
+        "src": "robot4",
         "tags": [
           "robot",
           "Aktau",
@@ -145,10 +145,6 @@
           "blue"
         ]
       }
-    ],
-    "dataFormat": {
-      "src": "",
-      "tags": []
-    }
+    ]
   }
 }

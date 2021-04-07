@@ -45,6 +45,10 @@
   scroll-behavior: smooth;
 }
 
+*:focus {
+  background: var(--accent);
+}
+
 *::before, *::after {
   box-sizing: border-box;
 }
@@ -301,12 +305,30 @@ button:hover, .button:hover {
   overflow: hidden;
 }
 
+input#src {
+  border: 1px solid var(--grey);
+  font-size: 1.1em;
+  padding: 6px 14px;
+  border-radius: var(--size0);
+  color: #aaa;
+}
+
+input#src:focus, input#src:hover {
+  border-color: var(--accent);
+  background: transparent!important;
+  color: black;
+}
+
 .font_700 {
   font-weight: 700;
 }
 
 .text_center {
   text-align: center;
+}
+
+.hide {
+  display: none!important;
 }
 
 @supports not (aspect-ratio: 1/1) {
