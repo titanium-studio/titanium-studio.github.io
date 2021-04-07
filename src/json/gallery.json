@@ -133,7 +133,8 @@
         "tags": [
           "robot",
           "Aktau",
-          "red"
+          "red",
+          "aesthetic"
         ]
       },
       {
@@ -143,6 +144,39 @@
           "Aktau",
           "red",
           "blue"
+        ]
+      },
+      {
+        "src": "robot5",
+        "tags": [
+          "robot",
+          "Aktau",
+          "red"
+        ]
+      },
+      {
+        "src": "robot6",
+        "tags": [
+          "robot",
+          "Aktau",
+          "green"
+        ]
+      },
+      {
+        "src": "robot7",
+        "tags": [
+          "robot",
+          "Aktau",
+          "green"
+        ]
+      },
+      {
+        "src": "robot8",
+        "tags": [
+          "robot",
+          "Aktau",
+          "red",
+          "green"
         ]
       }
     ]
