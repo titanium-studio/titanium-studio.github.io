@@ -3,8 +3,9 @@
  * @param {( err: Error, res: JSON ) => void } callback
  */
 function getData(path, callback) {
-  if (path[0] !== "/") path = "/" + path
-  getJSON(window.location.origin + path, callback)
+  let p = path
+  if (p[0] !== "/") p = "/" + p
+  getJSON(window.location.origin + p, callback)
 }
 
 /**
