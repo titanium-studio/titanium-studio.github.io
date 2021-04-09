@@ -7,23 +7,18 @@
  * @param { string } url
  * @param { fn } fn
  */
-function getData(url, fn) {
+const getData = (url, fn) => {
   let p = url
   if (p[0] !== "/") p = "/" + p
   getJSON(window.location.origin + p, fn)
-}
-
-/**
- * @param { string } url
- * @param { fn } fn
- */
-const getJSON = function (url, fn) {
-  let x = new XMLHttpRequest()
-  x.open('GET', url, true)
-  x.responseType = 'json'
-  x.onload = (() => (x.status === 200) ? fn(null, x.response) : fn(x.status, x.response))
-  x.send()
-}
+},
+  getJSON = (url, fn) => {
+    let x = new XMLHttpRequest()
+    x.open('GET', url, true)
+    x.responseType = 'json'
+    x.onload = (() => (x.status === 200) ? fn(null, x.response) : fn(x.status, x.response))
+    x.send()
+  }
 
 /** @type { (a: n, b: n, c: n, d: n) => n } */
 const calcRatio = (() => {

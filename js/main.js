@@ -49,18 +49,11 @@ const proto = {
     smooth($("section.active"))
     return this
   },
-  /**
-   * @param {HTMLElement} el
-   */
   btn_hover(x) {
     let d = "mouse", m = mouse[d], a = "style", b = "width", c = "height";
     $event(x, d + "enter", () => m[a][b] = m[a][c] = "var(--size5)")
     $event(x, d + "leave", () => m[a][b] = m[a][c] = "")
   },
-  /**
-   * @param { string } eventName
-   * @param { () => void } callback
-   */
   event(x, eventName, callback, options = {}) {
     $event(x, eventName, callback, options)
     return this
@@ -84,8 +77,8 @@ const proto = {
     }, { passive: false })
     return this
   },
-  changeFavicon(url) {
-    $id("favicon").attributes.getNamedItem("href").value = "./src/png/" + url
+  favicon(url) {
+    $id("favicon").attributes.getNamedItem("href").value = "./src/png/" + url + ".png"
     return this
   },
   _(n) { let a = this.__sections__[n].self; add(a, "active"); smooth(a) },
@@ -123,20 +116,8 @@ const proto = {
     forEach(this.__sections__, x => remove(x.self, ["fly", "none", "small"]))
     return this
   },
-  /**
-   * @param {( main: Main ) => void } fn
-   * @param { number } time
-   */
   timeOut(fn, time) {
     setTimeout(fn, time, this)
-    return this
-  },
-  /**
-   * @param {( main: Main ) => void } fn
-   */
-  endLoading(fn, recursion = 0) {
-    if ($$.readyState !== "loading" && recursion > 0) fn(this)
-    else this.timeOut(() => this.endLoading(fn, ++recursion), 100)
     return this
   }
 }

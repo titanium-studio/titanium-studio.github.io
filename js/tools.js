@@ -18,29 +18,22 @@ const $event = (x, ev, fn, opt) => x.addEventListener(ev, fn, opt);
 //#region CSS Function[s]
 /**
  * @param { HTMLElement } target
+ * @param { string | string[] } css
+ */
+const add = (target, css) => {
+  if (is.array(css)) target.classList.add(...css)
+  else target.classList.add(css)
+},
+  remove = (target, css) => {
+    if (is.array(css)) target.classList.remove(...css)
+    else target.classList.remove(css)
+  };
+
+/**
+ * @param { HTMLElement } target
  * @param { string } css
  */
 const contains = (target, css) => target.classList.contains(css),
-  /**
-   * @param { HTMLElement } target
-   * @param { string | string[] } css
-   */
-  add = (target, css) => {
-    if (is.array(css)) css.forEach(c => target.classList.add(c))
-    else target.classList.add(css)
-  },
-  /**
-   * @param { HTMLElement } target
-   * @param { string | string[] } css
-   */
-  remove = (target, css) => {
-    if (is.array(css)) css.forEach(c => target.classList.remove(c))
-    else target.classList.remove(css)
-  },
-  /**
-   * @param { HTMLElement } element
-   * @param { string } css
-   */
   toggle = (target, css) => {
     let p = [target, css]
     contains(...p) ? remove(...p) : add(...p)
@@ -57,9 +50,9 @@ const smooth = target => target.scrollIntoView({ behavior: "smooth" });
 //#region Tools Function[s]
 /**
  * @param  { any[] } arr
- * @param  { (item: any, index: number) => void } callback
+ * @param  { (item: any, index: number) => void } fn
  */
-const forEach = (arr, callback) => { for (let i = 0; i < arr.length; i++) if (callback(arr[i], i) == true) return }
+const forEach = (arr, fn) => { for (let i = 0; i < arr.length; i++) if (fn(arr[i], i) == true) return }
 /**
  * @param {{ }} obj
  * @param { (x, y) => void } fn
@@ -81,9 +74,13 @@ const is = {
   func: value => "function" == typeof value,
   notClass: value => (value == globalThis || value == document || is.empty(value))
 }
+/**
+ * @param {{ }} target
+ * @param {{ }} proto
+ */
 const EXTEND = (target, proto) => forIn(proto, x => {
   let y = proto[x]
-  if (is.empty(target[x])) target[x] = (is.func(y) ? proto[x].bind(target) : y)
+  if (is.empty(target[x])) target[x] = (is.func(y) ? y.bind(target) : y)
 })
 
 //#endregion
@@ -94,8 +91,7 @@ const EXTEND = (target, proto) => forIn(proto, x => {
  */
 function Div(cssClass) {
   let x = $$.createElement("div")
-  if (typeof cssClass == "string") add(x, cssClass)
-  else if (Array.isArray(cssClass)) x.classList.add(...cssClass)
+  add(x, cssClass)
   return x
 }
 Div.x = function (css) {
@@ -111,15 +107,14 @@ Div.x = function (css) {
 
 function section(title = "", content) {
   if (!(this instanceof section)) return new section(title, content)
-
   let d = $$.createElement("section"),
     c = Div(["content", "grid"]),
     t = $$.createElement("a");
 
-  d.id = title
   add(c, "section")
   add(t, ["title", "notranslate"])
 
+  d.id = title
   t.setAttribute("translate", "no")
   t.innerHTML = "<span>" + title.slice(0, title.length - 1) + "</span>" + title[title.length - 1];
 
@@ -129,7 +124,7 @@ function section(title = "", content) {
   d.appendChild(t)
   d.appendChild(c)
   this.setContent = value => { c.appendChild(value); return this }
-  this.setEventTitle = callback => $event(t, "click", callback);
+  this.setEventTitle = fn => $event(t, "click", fn);
   this.reverse = bool => { bool ? add(c, "reverse") : remove(c, "reverse"); return this }
   this.self = d
   this.title = t
@@ -154,19 +149,18 @@ function box_height(child, style) {
   if (!is.empty(style)) Styler(div, style)
   if (is.array(child)) forEach(child, c => div.appendChild(c))
   else if (!is.empty(child)) div.appendChild(child)
-
   return div
 }
 /**
  * @param { HTMLDivElement } div
  * @param {{ }} style
  */
-function Styler(div, style) { forIn(style, x => div.style[x] = style[x]) }
+const Styler = (div, style) => forIn(style, x => div.style[x] = style[x])
 /**
  * @param { HTMLDivElement } div
  * @param {{ }} style
  */
-Styler.set = function (div, style) { forIn(style, x => div.style.setProperty(x, style[x])) }
+Styler.set = (div, style) => forIn(style, x => div.style.setProperty(x, style[x]))
 /**
  * @param { boolean } slide
  * @param {{ }} style
@@ -196,7 +190,6 @@ function box(slide, imgsrc, innerText = "") {
 }
 function card__() {
   if (!(this instanceof card__)) return new card__()
-
   let div = Div("card"),
     b = Div("boxz"),
     m = btn(null, true, ["more"]);

@@ -9,6 +9,7 @@ const { $id, add, remove, contains } = html,
   $$ = $id("body"),
   main = Main.init();
 let error = false
+
 //#region LoadData
 getJSON("/src/json/index.json", (err, res) => {
   if (error = err) return _body_.innerHTML = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
@@ -33,18 +34,18 @@ getJSON("/src/json/index.json", (err, res) => {
 
 //#region LazyLoad
 main.timeOut(() => {
-  if(error) return
+  if (error) return
   main.view($$).event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
   remove(_back_, "active")
 
-  if (isMobile) main.changeFavicon("phone.png")
-  else {
-    main.changeFavicon("laptop.png").addScroll()
-    mouse.followMouse()
+  if (!isMobile) {
+    main.favicon("laptop").addScroll()
+    mouse.start()
     mouse.view()
     add(mouse.mouse, "invert")
     add(mouse.ball, "invert")
-  }
+  } else main.favicon("phone")
 }, 1500)
 //#endregion
+
 export default main
