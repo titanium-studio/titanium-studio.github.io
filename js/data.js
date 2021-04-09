@@ -1,27 +1,31 @@
+//#region Types
+/** @typedef { number } n */
+/** @typedef { (err: null | n, res: JSON | any) => void } fn */
+//#endregion
+
 /**
- * @param { string } path
- * @param {( err: Error, res: JSON ) => void } callback
+ * @param { string } url
+ * @param { fn } fn
  */
-function getData(path, callback) {
-  let p = path
+function getData(url, fn) {
+  let p = url
   if (p[0] !== "/") p = "/" + p
-  getJSON(window.location.origin + p, callback)
+  getJSON(window.location.origin + p, fn)
 }
 
 /**
- * @param { string } path
- * @param {( err: Error, res: JSON ) => void } callback
+ * @param { string } url
+ * @param { fn } fn
  */
-const getJSON = function (url, callback) {
-  let x = new XMLHttpRequest(),
-    c = callback;
+const getJSON = function (url, fn) {
+  let x = new XMLHttpRequest()
   x.open('GET', url, true)
   x.responseType = 'json'
-  x.onload = (() => (x.status === 200) ? c(null, x.response) : c(x.status, x.response))
+  x.onload = (() => (x.status === 200) ? fn(null, x.response) : fn(x.status, x.response))
   x.send()
 }
 
-/** @type { (a: number, b: number, c: number, d: number) => number } */
+/** @type { (a: n, b: n, c: n, d: n) => n } */
 const calcRatio = (() => {
   let x = v => "number" == typeof v,
     y = (...v) => v.every(u => x(u)),

@@ -12,9 +12,9 @@ const { $id,add, remove, contains } = html,
 main.timeOut(() => {
   main.view($$).event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
 
-  if (isMobile) main.changeFavicon("icons8-iphone-50.png")
+  if (isMobile) main.changeFavicon("phone.png")
   else {
-    main.changeFavicon("icons8-ноутбук-50.png").addScroll()
+    main.changeFavicon("laptop.png").addScroll()
     mouse.followMouse()
     mouse.view()
     add(mouse.mouse, "invert")
