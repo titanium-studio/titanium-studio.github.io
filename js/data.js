@@ -16,7 +16,7 @@ const getData = (url, fn) => {
     let x = new XMLHttpRequest()
     x.open('GET', url, true)
     x.responseType = 'json'
-    x.onload = (() => (x.status === 200) ? fn(null, x.response) : fn(x.status, x.response))
+    x.onload = () => fn(x.status === 200 ? null : x.status, x.response)
     x.send()
   }
 
