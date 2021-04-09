@@ -2,7 +2,7 @@ import Main from "./main.js"
 import { html, tools, Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
 
-const { $id,add, remove, contains } = html,
+const { $id, add, remove, contains } = html,
   { box_height, box, card, btn, link, Div } = Box,
   { isMobile, forEach, forIn } = tools,
   { _nav_, _back_, _body_ } = gVars,
@@ -44,7 +44,7 @@ main.timeOut(() => {
     })
 
     // CALL
-    for (let x of res.social.data) forIn(x, y => set(3, b_h(btn(link(y, x[y]), true))))
+    forEach(res.social.data, x => forIn(x, y => set(3, b_h(btn(link(y, x[y]), true)))))
   })
 }, 1500)
 export default main
