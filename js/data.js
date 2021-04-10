@@ -4,14 +4,16 @@
 //#endregion
 
 /**
+ * @param { any[] } arr
+ * @param { (item: any, index: n) => (void | true) } fn
+ */
+function forEach(arr, fn) { for (let i = 0; i < arr.length; i++) if (fn(arr[i], i) == true) return }
+
+/**
  * @param { string } url
  * @param { fn } fn
  */
-const getData = (url, fn) => {
-  let p = url
-  if (p[0] !== "/") p = "/" + p
-  getJSON(window.location.origin + p, fn)
-},
+const getData = (url, fn) => getJSON(location.origin + (url[0] !== "/" ? "/" + url : url), fn),
   getJSON = (url, fn) => {
     let x = new XMLHttpRequest()
     x.open('GET', url, true)
@@ -19,6 +21,24 @@ const getData = (url, fn) => {
     x.onload = () => fn(x.status === 200 ? null : x.status, x.response)
     x.send()
   }
+
+/**
+ * @param  {...string } str
+ */
+function path(...str) {
+  let res = "", y = "/"
+  forEach(str, (x, i) => {
+    x = x.trim()
+    if (i > 0 && x.slice(0, 3) == "../") {
+      res = res.slice(0, res.lastIndexOf("/"))
+      x = s.slice(2)
+    }
+    if (i > 0 && x[0] !== y) x = y + x
+    if (i < str.length && x.endsWith(y)) x = x.slice(0, x.length - 1)
+    res += x
+  })
+  return res
+}
 
 /** @type { (a: n, b: n, c: n, d: n) => n } */
 const calcRatio = (() => {
