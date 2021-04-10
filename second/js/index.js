@@ -9,10 +9,13 @@ const is = {
       for (let key in proto) if (Object.hasOwnProperty.call(proto, key)) target.prototype[key] = proto[key]
       return true
     } else return false
-  },
-
-  forEach = (arr, fn) => { for (let i = 0; i < arr.length; i++) if (fn(arr[i], i) == true) return };
-  const smooth = target => target.scrollIntoView({ behavior: "smooth" });
+  };
+/**
+ * @param { any[] } arr
+ * @param { (item: any, index: n) => (void | true) } fn
+ */
+function forEach(arr, fn) { for (let i = 0; i < arr.length; i++) if (fn(arr[i], i) == true) return }
+const smooth = target => target.scrollIntoView({ behavior: "smooth" });
 //#endregion
 
 //#region $ Query
