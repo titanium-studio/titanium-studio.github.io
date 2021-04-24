@@ -179,7 +179,7 @@ a:hover::after {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: -10;
+  /* z-index: -10; */
   border-top: 1px solid rgb(172, 172, 172);
   transition: all 0.5s cubic-bezier(1.000, 0.045, 0.425, 1);
 }
