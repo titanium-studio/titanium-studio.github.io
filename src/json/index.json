@@ -63,7 +63,7 @@
   "social": {
     "data": [
       {
-        "<i class='fab fa-telegram'></i>Telegram": "https://t.me/titanov"
+        "<i class='fab fa-vk'></i>VK": "https://vk.com/aset_telmanov"
       },
       {
         "<i class='fab fa-whatsapp'></i>WhatsApp": "https://api.whatsapp.com/send?phone=+77788405404"
@@ -77,7 +77,7 @@
     ],
     "other": [
       {
-        "<i class='fab fa-vk'></i>VK": "https://vk.com/aset_telmanov"
+        "<i class='fab fa-telegram'></i>Telegram": "https://t.me/titanov"
       }
     ]
   }
