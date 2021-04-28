@@ -182,7 +182,7 @@ body {
 .page {
   height: var(--height-body);
   position: relative;
-  background: #fcfcfc;
+  // background: #fcfcfc;
   width: 100vw;
 }
 
