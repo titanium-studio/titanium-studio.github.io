@@ -83,6 +83,7 @@ section.fly .title {
   position: fixed;
   z-index: 30;
   height: 10vw;
+  cursor: pointer;
 }
 
 section.small .title {
