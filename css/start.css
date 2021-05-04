@@ -73,7 +73,7 @@ input, button {
 body {
   overflow: hidden;
   width: 100vw;
-  // background: var(--first-color);
+  /* background: var(--first-color); */
 }
 
 body.none_mouse_visible {
@@ -172,7 +172,7 @@ a:hover::after {
 }
 
 #back {
-  // background: var(--first-color);
+  /* background: var(--first-color); */
   display: flex;
   justify-content: space-evenly;
   width: 100vw;
@@ -187,7 +187,7 @@ a:hover::after {
 
 #back .line {
   width: 1px;
-  height: 100vh;
+  height: 100%;
   background: rgb(172, 172, 172);
   transition: all 0.5s cubic-bezier(1.000, 0.045, 0.425, 1);
 }
