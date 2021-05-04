@@ -178,6 +178,66 @@
           "red",
           "green"
         ]
+      },
+      {
+        "src": "ocean2",
+        "tags": [
+          "ocean",
+          "green",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "ocean3",
+        "tags": [
+          "ocean",
+          "green",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "ocean4",
+        "tags": [
+          "aesthetic",
+          "blue",
+          "ocean",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "rock",
+        "tags": [
+          "black",
+          "aesthetic",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "flower1",
+        "tags": [
+          "pink",
+          "white",
+          "flower",
+          "leaves",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "flower2",
+        "tags": [
+          "white",
+          "flower",
+          "leaves",
+          "Aktau"
+        ]
+      },
+      {
+        "src": "gamepad",
+        "tags": [
+          "black",
+          "aesthetic",
+          "Aktau"
+        ]
       }
     ]
   }
