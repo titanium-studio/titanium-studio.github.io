@@ -58,9 +58,9 @@
   color: #fcfcfc;
 }
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .Open_sans {
   font-family: 'Open Sans', sans-serif;
@@ -182,7 +182,7 @@ body {
 .page {
   height: var(--height-body);
   position: relative;
-  // background: #fcfcfc;
+  /* background: #fcfcfc; */
   width: 100vw;
 }
 
