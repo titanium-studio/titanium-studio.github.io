@@ -74,6 +74,15 @@ const is = {
   func: value => "function" == typeof value,
   notClass: value => (value == globalThis || value == document || is.empty(value))
 }
+function getBase64Image(img) {
+  let x = $$.createElement("canvas");
+  x.width = img.width;
+  x.height = img.height;
+  x.getContext("2d").drawImage(img, 0, 0)
+  return x.toDataURL("image/png")
+}
+getBase64Image.pro = img => getBase64Image(img).replace(/^data:image\/(png|jpg);base64,/, "")
+
 /**
  * @param {{ }} target
  * @param {{ }} proto
@@ -163,30 +172,34 @@ const Styler = (div, style) => forIn(style, x => div.style[x] = style[x])
 Styler.set = (div, style) => forIn(style, x => div.style.setProperty(x, style[x]))
 /**
  * @param { boolean } slide
- * @param {{ }} style
  */
 function box(slide, imgsrc, innerText = "") {
-  let div = Div("box")
+  let z = Div("box")
 
-  if (imgsrc) {
-    let x = new Image(), a = "width"
-    x.src = imgsrc
-    $event(x, "load", () => x.style.setProperty(x.naturalHeight < x.naturalWidth ? "height" : "width", "100%"))
+  if ("string" == typeof imgsrc) {
+    let x = new Image(), b = localStorage.getItem(imgsrc.slice(imgsrc.lastIndexOf("/")))
+
+      ; is.empty(b) ? x.src = imgsrc : x.src = b;
+
+    $event(x, "load", () => {
+      if (is.empty(b)) localStorage.setItem(imgsrc.slice(imgsrc.lastIndexOf("/")), getBase64Image(x))
+      x.style.setProperty(x.naturalHeight < x.naturalWidth ? "height" : "width", "100%")
+    })
+
     Styler.set(x, {
-      "top": "50%",
-      "left": "50%",
+      "top": "50%", "left": "50%",
       "transform": "translate(-50%,-50%)",
       "position": "absolute"
     })
-    div.appendChild(x)
+    z.appendChild(x)
   }
-  if (slide) addSlide(div)
+  if (slide) addSlide(z)
   if (innerText !== "") {
     let a = $$.createElement("a")
     a.innerText = innerText
-    div.appendChild(a)
+    z.appendChild(a)
   }
-  return div
+  return z
 }
 function card__() {
   if (!(this instanceof card__)) return new card__()
