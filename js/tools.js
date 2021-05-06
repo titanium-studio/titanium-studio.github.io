@@ -177,13 +177,13 @@ function box(slide, imgsrc, innerText = "") {
   let z = Div("box")
 
   if ("string" == typeof imgsrc) {
-    let x = new Image(), b = localStorage.getItem(imgsrc.slice(imgsrc.lastIndexOf("/")))
+    let x = new Image(), b = localStorage.getItem(imgsrc.slice(imgsrc.lastIndexOf("/")));
 
-      ; is.empty(b) ? x.src = imgsrc : x.src = b;
+    ; is.empty(b) ? x.src = imgsrc : x.src = b;
 
     $event(x, "load", () => {
-      if (is.empty(b)) localStorage.setItem(imgsrc.slice(imgsrc.lastIndexOf("/")), getBase64Image(x));
       x.style.setProperty(x.naturalHeight < x.naturalWidth ? "height" : "width", "100%")
+      if(is.empty(b))localStorage.setItem(imgsrc.slice(imgsrc.lastIndexOf("/")), getBase64Image(x))
     })
 
     Styler.set(x, {
