@@ -1,6 +1,7 @@
 {
   "gallery": {
-    "corePath": "/src/jpg/",
+    "corePath": "/src/webp/",
+    "format":"webp",
     "data": [
       {
         "src": "1",
