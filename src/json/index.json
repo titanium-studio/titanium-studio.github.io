@@ -1,17 +1,17 @@
 {
   "index": {
-    "corePath": "/src/jpg/",
+    "corePath": "/src/webp/",
     "img": [
       {
-        "url": "drawing.jpg",
+        "url": "drawing.webp",
         "p": "Drawing"
       },
       {
-        "url": "keyboard.jpg",
+        "url": "keyboard.webp",
         "p": "Coding"
       },
       {
-        "url": "1.jpg",
+        "url": "1.webp",
         "p": "Photography"
       }
     ]
