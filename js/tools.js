@@ -180,10 +180,7 @@ function box(slide, imgsrc, innerText = "") {
     let x = new Image()
     x.src = imgsrc
 
-    $event(x, "load", () => {
-      x.style.setProperty(x.naturalHeight < x.naturalWidth ? "height" : "width", "100%")
-      if (is.empty(b)) localStorage.setItem(imgsrc.slice(imgsrc.lastIndexOf("/")), getBase64Image(x))
-    })
+    $event(x, "load", () => x.style.setProperty(x.naturalHeight < x.naturalWidth ? "height" : "width", "100%"))
 
     Styler.set(x, {
       "top": "50%", "left": "50%",
