@@ -177,8 +177,13 @@ function box(slide, imgsrc, innerText = "") {
   let z = Div("box")
 
   if ("string" == typeof imgsrc) {
-    let x = new Image(), b = localStorage.getItem(imgsrc.slice(imgsrc.lastIndexOf("/"))),
-      a = () => x.style.setProperty(x.naturalHeight < x.naturalWidth ? "height" : "width", "100%");
+    let x = new Image(), b = localStorage.getItem(imgsrc.slice(imgsrc.lastIndexOf("/"))), c = true,
+      a = () => {
+        if (c) {
+          c = !c
+          x.style.setProperty(x.naturalHeight < x.naturalWidth ? "height" : "width", "100%")
+        }
+      }
 
     if (is.empty(b)) { x.src = imgsrc } else { x.src = b; a() }
 
