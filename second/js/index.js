@@ -38,10 +38,10 @@ const add = (target, style) => is.array(style) ? target.classList.add(...style) 
 //#endregion
 
 //#region UI support
-const UI = function () {
-  if (globalThis == this || is.empty(this)) return new UI(...arguments)
-  this.self = this
-}
+// const UI = function () {
+//   if (globalThis == this || is.empty(this)) return new UI(...arguments)
+//   this.self = this
+// }
 // EXTEND(UI, {})
 //#endregion
 
@@ -51,7 +51,7 @@ const _body_ = $id("body"),
   _nav_li_ = $id("nav_li");
 //#endregion
 
-// //#region ScrollBar
+//#region ScrollBar
 // let sb = window.Scrollbar,
 //   st = "scrollbar-t",
 //   s_t = [st + "rack", st + "humb"];
@@ -74,7 +74,6 @@ const _body_ = $id("body"),
 
 // forEach(_nav_li_.children, a => a.addEventListener("click", () => ScrollTo("#" + a.innerText.toLowerCase())))
 // setTimeout(() => $all(s_t.join(", ").replaceAll("s", ".s")).forEach(h => remove(h, s_t)), 100)
-// //#endregion
+//#endregion
 
 forEach(_nav_li_.children, a => a.addEventListener("click", () => smooth($id(a.innerText.toLowerCase()))))
-// forEach($$.querySelectorAll("[press]"), x => x.addEventListener("click", () => ScrollTo(x.getAttribute("press"))))
