@@ -76,4 +76,45 @@ const _body_ = $id("body"),
 // setTimeout(() => $all(s_t.join(", ").replaceAll("s", ".s")).forEach(h => remove(h, s_t)), 100)
 //#endregion
 
+// #TODO: USE
+/**
+ * @param {docElement} target 
+ * @param {CSSStyleDeclaration} css
+ */
+let styler = (target, css) => each.obj(css, (x, y) => target.style[y] = x)
+/**
+ * @param {docElement} target 
+ * @param {CSSStyleDeclaration} css
+ */
+styler.pro = (target, css) => each.obj(css,
+  (x, y) => target.style.setProperty(y, x));
+
+/**
+ * @param {string} name
+ * @param {string} [value]
+ */
+let attr = (name, value) => {
+  let x = document.createAttribute(name)
+  is.empty(value) ? void 0 : x.value = value
+  return x
+}
+/**
+ * @param {HTMLDivElement} targe
+ * @param {Object} param1
+ * @param {Object} param1.pos
+ * @param {number} param1.pos.x
+ * @param {number} param1.pos.y
+ * @param {Object} param1.size
+ * @param {number} param1.size.x
+ * @param {number} param1.size.y
+ */
+function Block(target, { pos, size }) {
+  if (!(target instanceof Element))
+    return console.error("TypeError: target is not a HTMLElement")
+  if (!target.hasAttribute("block")) target.setAttributeNode(attr("block"))
+  styler.pro(target, { "--position": `${pos.y}/${pos.x}/${size.y + pos.y}/${size.x + pos.x}` })
+  return target
+}
+
+
 forEach(_nav_list_.children, a => a.addEventListener("click", () => smooth($id(a.innerText.toLowerCase()))))
