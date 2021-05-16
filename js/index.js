@@ -2,7 +2,7 @@ import Main from "./main.js"
 import { html, tools, Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
 
-const { $id, add, remove, contains } = html,
+const { $id, add, remove, contains,Styler } = html,
   { box_height, box, card, btn, link, Div } = Box,
   { isMobile, forEach, forIn, is } = tools,
   { _nav_, _back_, _body_ } = gVars,
