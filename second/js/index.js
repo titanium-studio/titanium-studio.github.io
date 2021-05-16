@@ -48,7 +48,7 @@ const add = (target, style) => is.array(style) ? target.classList.add(...style) 
 //#region HTML Element[s]
 const _body_ = $id("body"),
   _nav_ = $id("nav"),
-  _nav_li_ = $id("nav_li");
+  _nav_list_ = $id("nav_list");
 //#endregion
 
 //#region ScrollBar
@@ -72,8 +72,8 @@ const _body_ = $id("body"),
 // }),
 //   ScrollTo = query => s.scrollIntoView($(query))
 
-// forEach(_nav_li_.children, a => a.addEventListener("click", () => ScrollTo("#" + a.innerText.toLowerCase())))
+// forEach(_nav_list_.children, a => a.addEventListener("click", () => ScrollTo("#" + a.innerText.toLowerCase())))
 // setTimeout(() => $all(s_t.join(", ").replaceAll("s", ".s")).forEach(h => remove(h, s_t)), 100)
 //#endregion
 
-forEach(_nav_li_.children, a => a.addEventListener("click", () => smooth($id(a.innerText.toLowerCase()))))
+forEach(_nav_list_.children, a => a.addEventListener("click", () => smooth($id(a.innerText.toLowerCase()))))
