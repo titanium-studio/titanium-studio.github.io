@@ -215,9 +215,11 @@ body {
 .half {
   transform: translate(-50%, -50%);
 }
+
 .half_x {
   transform: translateX(-50%);
 }
+
 .half_y {
   transform: translateY(-50%);
 }
@@ -333,7 +335,7 @@ input#src:focus, input#src:hover {
   text-align: center;
 }
 
-.view{
+.view {
   overflow: visible;
 }
 
