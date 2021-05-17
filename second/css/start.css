@@ -249,7 +249,7 @@ header {
   margin: 0 auto;
 }
 
-nav #nav_list{
+nav #nav_list {
   display: flex;
   flex-direction: row;
 }
