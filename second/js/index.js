@@ -36,5 +36,5 @@ function Block(target, { pos, size }) {
   return target
 }
 
-
 each(_nav_list_.children, a => a.addEventListener("click", () => smooth(search.id(a.innerText.toLowerCase()))))
+export { Block, attr }

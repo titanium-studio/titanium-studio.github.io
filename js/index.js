@@ -30,7 +30,7 @@ getData("/src/json/index.json", (r, z) => {
   each(z.skills.data, x => set(2, b_h([Div.x("name").setHTML(x.name).self, Div.x("icon").setHTML(x.icon).self])))
 
   // CALL
-  each(z.social.data, x => each.obj(x, (y, z) => set(3, b_h(btn(link(z, y), true)))))
+  each(z.social.data, x => each.obj(x, (y, z) => set(3, b_h(btn(link(z, y,"_blank"), true)))))
 })
 //#endregion
 
@@ -48,7 +48,7 @@ setTimeout(() => {
     add(mouse.mouse, "invert")
     add(mouse.ball, "invert")
   } else main.favicon("phone")
-}, 1500)
+}, 1000)
 //#endregion
 
 export default main

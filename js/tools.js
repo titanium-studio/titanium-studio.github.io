@@ -1,6 +1,6 @@
 const { is, each } = tools,
   { search, add, remove, styler } = DOM,
-  s = search,
+  id = search.id,
   $$ = document
 
 //#region Event Element[s]
@@ -65,10 +65,11 @@ function btn(innerHTML, withSlide = false, cssClass = []) {
   innerHTML ? div.appendChild(innerHTML) : void 0;
   return div
 }
-function link(innerHTML, href) {
+function link(innerHTML, href, target) {
   let a = $$.createElement("a")
   is.str(href) ? a.setAttribute("href", href) : void 0;
   is.str(innerHTML) ? a.innerHTML = innerHTML : void 0;
+  is.str(target) ? a.setAttribute("target", target) : void 0;
   return a
 }
 function box_height(child, style) {
@@ -151,12 +152,12 @@ const Box = {
   $event
 }
 const gVars = {
-  _nav_: s.id("nav"),
-  _body_: s.id("body"),
-  _back_: s.id("back"),
-  _plane_: s.id("plane"),
-  _logo_: s.id("hero"),
-  _front_: s.id("front")
+  _nav_: id("nav"),
+  _body_: id("body"),
+  _back_: id("back"),
+  _plane_: id("plane"),
+  _logo_: id("hero"),
+  _front_: id("front")
 }
 
 export { Box, gVars }
