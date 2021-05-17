@@ -1,18 +1,19 @@
+import { tools, DOM } from "https://noname-titan.github.io/Tools/index.js"
 import Main from "./main.js"
-import { html, tools, Box, gVars } from "./tools.js"
+import { Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
 
-const { $id, add, remove, contains,Styler } = html,
-  { box_height, box, card, btn, link, Div } = Box,
-  { isMobile, forEach, forIn, is } = tools,
+const { each, getData } = tools,
+  { search, add, remove, contains, styler, device } = DOM,
+  { box_height, box, card, btn, link, Div, $event } = Box,
   { _nav_, _back_, _body_ } = gVars,
-  data = localStorage,
-  $$ = $id("body"),
+  $$ = search.id("body"),
   main = Main.init();
+
 let error = false
 
 //#region LoadData
-getJSON("/src/json/index.json", (r, z) => {
+getData("/src/json/index.json", (r, z) => {
   if (error = r) return _body_.innerHTML = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
 
   let core = window.location.origin + z.index.corePath, imgs = z.index.img,
@@ -20,26 +21,27 @@ getJSON("/src/json/index.json", (r, z) => {
     b_h = box_height;
 
   // DSGN
-  forEach(imgs, (x, i) => set(0, b_h(box(true, core + x.url, x.p), { gridArea: "x" + i })).reverse(true))
+  each(imgs, (x, i) => set(0, b_h(box(true, core + x.url, x.p), { gridArea: "x" + i })).reverse(true))
 
   // WORK
-  forEach(z.work.data, x => set(1, b_h(card().addH2(x.name).addP(x.description).addMore(x.more).self)))
+  each(z.work.data, x => set(1, b_h(card().addH2(x.name).addP(x.description).addMore(x.more).self)))
 
   // SKILLS
-  forEach(z.skills.data, x => set(2, b_h([Div.x("name").setHTML(x.name).self, Div.x("icon").setHTML(x.icon).self])))
+  each(z.skills.data, x => set(2, b_h([Div.x("name").setHTML(x.name).self, Div.x("icon").setHTML(x.icon).self])))
 
   // CALL
-  forEach(z.social.data, x => forIn(x, y => set(3, b_h(btn(link(y, x[y]), true)))))
+  each(z.social.data, x => each.obj(x, (y, z) => set(3, b_h(btn(link(z, y), true)))))
 })
 //#endregion
 
 //#region LazyLoad
-main.timeOut(() => {
+setTimeout(() => {
   if (error) return
-  main.view($$).event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
+  main.view($$)
+  $event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
   remove(_back_, "active")
 
-  if (!isMobile) {
+  if (!device.isMobile) {
     main.favicon("laptop").addScroll()
     mouse.start()
     mouse.view()

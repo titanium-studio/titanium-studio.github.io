@@ -1,9 +1,17 @@
-let src = $id("src"), imgs = [], z = "hide", filter = src => imgs.forEach(x => src == "" ? remove(x.x, z) : (x.y.includes(src) ? remove(x.x, z) : add(x.x, z)))
+import { tools, DOM } from "https://noname-titan.github.io/Tools/index.js"
+
+const { is, each, getData } = tools,
+  { search, add, remove } = DOM,
+  $$ = document;
+
+let src = search.id("src"), imgs = [], z = "hide",
+  filter = src => imgs.forEach(x => src == "" ?
+    remove(x.x, z) : (x.y.includes(src) ? remove(x.x, z) : add(x.x, z)))
 
 getData("/src/json/gallery.json", (r, d) => {
   if (r) throw new Error(r)
-  let a = d.gallery, b = a.data, с = window.location.origin + a.corePath, z = $id("gallery");
-  forEach(b, x => z.appendChild(imageItem(с, x.src + "." + a.format, x.tags)))
+  let a = d.gallery, b = a.data, с = window.location.origin + a.corePath, z = search.id("gallery");
+  each(b, x => z.appendChild(imageItem(с, x.src + "." + a.format, x.tags)))
 })
 
 src.addEventListener("input", () => filter(src.value))

@@ -1,23 +1,25 @@
-import { html, tools, Box, gVars } from "./tools.js"
+import { tools, DOM } from "https://noname-titan.github.io/Tools/index.js"
+import { Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
-const { $, $id, $event, smooth, contains, add, remove } = html,
-  { forEach, EXTEND } = tools,
-  { section } = Box,
+
+const { each, EXTEND } = tools,
+  { search, add, remove, contains, smooth } = DOM,
+  { section, $event } = Box,
   { _nav_, _back_, _plane_, _logo_, _front_ } = gVars;
 
 class Main {
   constructor() {
     this.__sections__ = []
-    EXTEND(this, proto)
+    EXTEND.binder(this, proto)
   }
 
   //#region Static
   static init() {
     let main = new Main()
-    forEach(["DSGN", "WORK", "SKILLS", "CALL"], t => {
+    each(["DSGN", "WORK", "SKILLS", "CALL"], t => {
       let x = section(t)
       x.setEventTitle(() => {
-        forEach(main.__sections__, s => remove(s.self, "active"))
+        each(main.__sections__, s => remove(s.self, "active"))
         add(x.self, "active")
         smooth(x.self)
         main.nav_off()
@@ -26,10 +28,10 @@ class Main {
       $event(x.title, "mouseleave", () => mouse.mouse.style.width = mouse.mouse.style.height = "")
       main.__sections__.push(x)
     })
-    main.event(window, "resize", main.reSize)
-    main.event(_logo_, "click", main.firstPage)
+    $event(window, "resize", main.reSize)
+    $event(_logo_, "click", main.firstPage)
 
-      ;[_logo_, _nav_, _plane_].forEach(x => main.btn_hover(x))
+    each([_logo_, _nav_, _plane_], x => main.btn_hover(x))
     main.firstPage()
     return main
   }
@@ -42,11 +44,11 @@ const proto = {
   view(x) {
     remove(_front_, "hide")
     x.innerHTML = ""
-    forEach(this.__sections__, s => x.appendChild(s.self))
+    each(this.__sections__, s => x.appendChild(s.self))
     return this
   },
   reSize() {
-    smooth($("section.active"))
+    smooth(search("section.active"))
     return this
   },
   btn_hover(x) {
@@ -54,13 +56,9 @@ const proto = {
     $event(x, d + "enter", () => m[a][b] = m[a][c] = "var(--size5)")
     $event(x, d + "leave", () => m[a][b] = m[a][c] = "")
   },
-  event(x, eventName, callback, options = {}) {
-    $event(x, eventName, callback, options)
-    return this
-  },
   firstPage() {
     let s = this.__sections__
-    s.forEach(x => remove(x.self, "active"))
+    each(s, x => remove(x.self, "active"))
     add(s[0].self, "active")
     smooth(s[0].self)
     return this
@@ -68,7 +66,7 @@ const proto = {
   addScroll() {
     let t = 100, aT = 500, lT = 0;
 
-    this.event(window, "wheel", e => {
+    $event(window, "wheel", e => {
       e.preventDefault()
       let tn = new Date().getTime();
       if (tn - lT < t + aT) return
@@ -78,13 +76,13 @@ const proto = {
     return this
   },
   favicon(url) {
-    $id("favicon").attributes.getNamedItem("href").value = "./src/png/" + url + ".png"
+    search.id("favicon").attributes.getNamedItem("href").value = "./src/png/" + url + ".png"
     return this
   },
   _(n) { let a = this.__sections__[n].self; add(a, "active"); smooth(a) },
   nextPage() {
     let _ = this._, s = this.__sections__
-    forEach(s, (x, i) => {
+    each(s, (x, i) => {
       if (contains(x.self, "active")) {
         remove(x.self, "active")
         if (i == s.length - 1) _(0)
@@ -95,7 +93,7 @@ const proto = {
   },
   prevPage() {
     let _ = this._, s = this.__sections__
-    forEach(this.__sections__, (x, i) => {
+    each(this.__sections__, (x, i) => {
       if (contains(x.self, "active")) {
         remove(x.self, "active")
         if (i == 0) _(s.length - 1)
@@ -107,17 +105,13 @@ const proto = {
   nav_on() {
     add(_nav_, "active")
     add(_back_, "active")
-    forEach(this.__sections__, x => add(x.self, ["fly", "none", "small"]))
+    each(this.__sections__, x => add(x.self, "fly", "none", "small"))
     return this
   },
   nav_off() {
     remove(_nav_, "active")
     remove(_back_, "active")
-    forEach(this.__sections__, x => remove(x.self, ["fly", "none", "small"]))
-    return this
-  },
-  timeOut(fn, time) {
-    setTimeout(fn, time, this)
+    each(this.__sections__, x => remove(x.self, "fly", "none", "small"))
     return this
   }
 }
