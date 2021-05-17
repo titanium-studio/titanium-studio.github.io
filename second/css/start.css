@@ -249,6 +249,11 @@ header {
   margin: 0 auto;
 }
 
+nav #nav_list{
+  display: flex;
+  flex-direction: row;
+}
+
 nav ul li {
   margin: 0 1vw;
 }
