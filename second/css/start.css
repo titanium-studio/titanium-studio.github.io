@@ -150,6 +150,10 @@ a[not_after] i {
   width: 2rem;
 }
 
+a[not_after]::after {
+  display: none!important;
+}
+
 a, button, .btn {
   cursor: pointer;
 }
@@ -231,10 +235,6 @@ body {
 
 .width_1024 {
   width: 1024px!important;
-}
-
-a[not_after]::after {
-  display: none!important;
 }
 
 /* START */
