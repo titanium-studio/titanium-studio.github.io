@@ -29,7 +29,8 @@
       <p block class="flex" style="--position:3/4/4/10;align-items:center">You didn’t come this far to stop.</p>
       <h1 block class="font_700 flex" style="--position:4/4/7/10;overflow:visible">Wellcome to the future for you</h1>
       <div block class="flex" style="--position:6/4/8/7;overflow:visible;align-items:center">
-          <a class="button" href="https://nonametitan.github.io" style="background-color:var(--grey-600);color:var(--light)">LEARN MORE</a>
+        <a class="button" href="https://nonametitan.github.io"
+          style="background-color:var(--grey-600);color:var(--light)">LEARN MORE</a>
       </div>
     </section>
 
@@ -75,6 +76,10 @@
         align-items: center;
         display: flex;
         justify-content: center;
+      }
+
+      [gallery] .card a:after {
+        display: none!important;
       }
 
       [gallery] .card a:hover {
