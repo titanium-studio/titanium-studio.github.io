@@ -332,6 +332,10 @@ input#src:focus, input#src:hover {
   color: black;
 }
 
+.radius{
+  border: 50%;
+}
+
 .font_700 {
   font-weight: 700;
 }
