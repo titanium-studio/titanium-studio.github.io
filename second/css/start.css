@@ -319,7 +319,7 @@ button:hover, .button:hover {
 
 [gallery], .gallery {
   --gallery-min: 300px;
-  --gallery-min: 1fr;
+  --gallery-max: 1fr;
   --gallery-gap: var(--size3);
   --gallery-padding: var(--size3);
   position: relative;
