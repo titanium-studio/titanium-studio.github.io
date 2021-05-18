@@ -1,3 +1,5 @@
+import { tools, DOM } from "https://noname-titan.github.io/Tools/index.js"
+
 const { is, each } = tools,
   { search, add, remove, styler } = DOM,
   id = search.id,
