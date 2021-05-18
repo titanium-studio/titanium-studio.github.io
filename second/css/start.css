@@ -182,7 +182,6 @@ body {
 .page {
   height: var(--height-body);
   position: relative;
-  /* background: #fcfcfc; */
   width: 100vw;
 }
 
@@ -297,6 +296,9 @@ button:hover, .button:hover {
 }
 
 [grid], .grid {
+  --column-gap-count: calc(var(--column-count) - 1);
+  --column-width: calc((var(--grid-width) - var(--column-gap-count)*var(--column-gap))/var(--column-count));
+  --container-width: 100%;
   position: relative;
   display: grid;
   grid-area: 1/1/-1/-1;
@@ -307,15 +309,25 @@ button:hover, .button:hover {
   margin: auto;
   row-gap: var(--row-gap);
   column-gap: var(--column-gap);
-  --column-gap-count: calc(var(--column-count) - 1);
-  --column-width: calc((var(--grid-width) - var(--column-gap-count)*var(--column-gap))/var(--column-count));
-  --container-width: 100%;
 }
 
 [block], .grid_item {
   position: relative;
   grid-area: var(--position);
   overflow: hidden;
+}
+
+[gallery], .gallery {
+  --gallery-min: 300px;
+  --gallery-min: 1fr;
+  --gallery-gap: var(--size3);
+  --gallery-padding: var(--size3);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--gallery-min), var(--gallery-max)));
+  grid-gap: var(--gallery-gap);
+  justify-items: center;
+  padding: 0 var(--gallery-padding);
 }
 
 input#src {
@@ -332,7 +344,7 @@ input#src:focus, input#src:hover {
   color: black;
 }
 
-.radius{
+.radius {
   border: 50%;
 }
 
