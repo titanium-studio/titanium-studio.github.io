@@ -10,7 +10,7 @@ const { each, getData } = tools,
   $$ = search.id("body"),
   main = Main.init();
 
-let error = false
+let data = false, error = false
 
 //#region LoadData
 getData("/src/json/index.json", (r, z) => {
@@ -30,17 +30,18 @@ getData("/src/json/index.json", (r, z) => {
   each(z.skills.data, x => set(2, b_h([Div.x("name").setHTML(x.name).self, Div.x("icon").setHTML(x.icon).self])))
 
   // CALL
-  each(z.social.data, x => each.obj(x, (y, z) => set(3, b_h(btn(link(z, y,"_blank"), true)))))
+  each(z.social.data, x => each.obj(x, (y, z) => set(3, b_h(btn(link(z, y, "_blank"), true)))))
+  data = !data
 })
 //#endregion
 
 //#region LazyLoad
-setTimeout(() => {
+function init() {
   if (error) return
+  if (!data) return setTimeout(init, 200)
   main.view($$)
   $event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
   remove(_back_, "active")
-
   if (!device.isMobile) {
     main.favicon("laptop").addScroll()
     mouse.start()
@@ -48,7 +49,8 @@ setTimeout(() => {
     add(mouse.mouse, "invert")
     add(mouse.ball, "invert")
   } else main.favicon("phone")
-}, 1000)
+}
+document.addEventListener("DOMContentLoaded", init, { once: true })
 //#endregion
 
 export default main
