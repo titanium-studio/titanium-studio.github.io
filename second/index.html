@@ -173,7 +173,7 @@
         .then(x => each(x, y => gallery.appendChild(
           Div_(y.has_pages ? ["card", "gold"] : ["card"], `<h4>${y.name}</h4><h6>${y.owner.login}</h6><a href="${y.html_url}">Open</a>`)
         ))))
-    }, 1000)
+    }, 500)
 
   </script>
 </body>
