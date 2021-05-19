@@ -59,9 +59,21 @@
   color: #fcfcfc;
 }
 
-/* *::-webkit-scrollbar {
-  display: none;
-} */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ccc;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #777; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 .Open_sans {
   font-family: 'Open Sans', sans-serif;
