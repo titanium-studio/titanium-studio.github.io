@@ -1,5 +1,5 @@
-# titanuim-studio.github.io
+# titanium-studio.github.io
 
-## https://titanuim-studio.github.io/
+## https://titanium-studio.github.io/
 ### /index.html
 ### /second/index.html
