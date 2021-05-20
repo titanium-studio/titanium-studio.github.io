@@ -1,4 +1,4 @@
-import { tools, DOM } from "https://noname-titan.github.io/Tools/index.js"
+import { tools, DOM } from "https://titanuim-studio.github.io/Tools/index.js"
 
 const { is, each, getData } = tools,
   { search, add, remove, styler } = DOM,
@@ -28,6 +28,6 @@ function imageItem(path, img, format, alt) {
     y.style[y.width > y.height ? "height" : "width"] = "100%"
     x.appendChild(y)
   }, { once: true })
-  y.addEventListener("click", () => open("https://noname-titan.github.io/src/jpg/" + img + ".jpg","_blank"))
+  y.addEventListener("click", () => open("https://titanuim-studio.github.io/src/jpg/" + img + ".jpg","_blank"))
   return x
 }
