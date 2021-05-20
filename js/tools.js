@@ -1,4 +1,4 @@
-import { tools, DOM } from "https://noname-titan.github.io/Tools/index.js"
+import { tools, DOM } from "https://titanuim-studio.github.io/Tools/index.js"
 
 const { is, each } = tools,
   { search, add, remove, styler } = DOM,
