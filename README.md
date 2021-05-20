@@ -1,4 +1,4 @@
-# noname-titan.github.io
+# titanuim-x.github.io
 
 ## https://noname-titan.github.io/
 ### /index.html
