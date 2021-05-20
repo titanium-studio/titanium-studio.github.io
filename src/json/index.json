@@ -21,12 +21,12 @@
       {
         "name": "<svg aria-hidden='true' focusable='false' class='icon-layer-group' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><g class='fa-group'><path fill='currentColor' d='M12.41 236.31L70.51 210l161.63 73.27a57.64 57.64 0 0 0 47.72 0L441.5 210l58.09 26.33c16.55 7.5 16.55 32.5 0 40L266.64 381.9a25.68 25.68 0 0 1-21.29 0L12.41 276.31c-16.55-7.5-16.55-32.5 0-40z' class='fa-secondary'></path><path fill='currentColor' d='M12.41 148l232.94 105.7a25.61 25.61 0 0 0 21.29 0L499.58 148c16.55-7.51 16.55-32.52 0-40L266.65 2.32a25.61 25.61 0 0 0-21.29 0L12.41 108c-16.55 7.5-16.55 32.52 0 40zm487.18 216.11l-57.87-26.23-161.86 73.37a57.64 57.64 0 0 1-47.72 0L70.29 337.88l-57.88 26.23c-16.55 7.5-16.55 32.5 0 40L245.35 509.7a25.68 25.68 0 0 0 21.29 0l233-105.59c16.5-7.5 16.5-32.5-.05-40z' class='fa-primary'></path></g></svg> Tools",
         "description": "Library for <a href='https://learn.javascript.ru/'>Javascript</a> and <a href='https: //nodejs.org/'>NodeJS</a>",
-        "more": "https://github.com/titanuim-studio/Tools"
+        "more": "https://github.com/titanium-studio/Tools"
       },
       {
         "name": "<svg aria-hidden='true' focusable='false' class='icon-gamepad' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'><g class='fa-group'><path fill='currentColor' d='M480.07 96H160a160 160 0 1 0 114.24 272h91.52A160 160 0 1 0 480.07 96zM248 268a12 12 0 0 1-12 12h-52v52a12 12 0 0 1-12 12h-24a12 12 0 0 1-12-12v-52H84a12 12 0 0 1-12-12v-24a12 12 0 0 1 12-12h52v-52a12 12 0 0 1 12-12h24a12 12 0 0 1 12 12v52h52a12 12 0 0 1 12 12zm216 76a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm64-96a40 40 0 1 1 40-40 40 40 0 0 1-40 40z' class='fa-secondary'></path><path fill='currentColor' d='M248 268a12 12 0 0 1-12 12h-52v52a12 12 0 0 1-12 12h-24a12 12 0 0 1-12-12v-52H84a12 12 0 0 1-12-12v-24a12 12 0 0 1 12-12h52v-52a12 12 0 0 1 12-12h24a12 12 0 0 1 12 12v52h52a12 12 0 0 1 12 12z' class='fa-primary'></path></g></svg> Game (alpha)",
         "description": "Simple 2d game. My first game",
-        "more": "https://github.com/titanuim-x/Game"
+        "more": "https://github.com/x-titan/Game"
       },
       {
         "name": "<svg aria-hidden='true' focusable='false' class='icon-clone' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><g class='fa-group'><path fill='currentColor' d='M48 512a48 48 0 0 1-48-48V176a48 48 0 0 1 48-48h48v208a80.09 80.09 0 0 0 80 80h208v48a48 48 0 0 1-48 48H48z' class='fa-secondary'></path><path fill='currentColor' d='M512 48v288a48 48 0 0 1-48 48H176a48 48 0 0 1-48-48V48a48 48 0 0 1 48-48h288a48 48 0 0 1 48 48z' class='fa-primary'></path></g></svg> Photo",
@@ -36,7 +36,7 @@
       {
         "name": "<svg aria-hidden='true' focusable='false' class='icon-file-edit' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><g class='fa-group'><path fill='currentColor' d='M384 128H272a16 16 0 0 1-16-16V0H24A23.94 23.94 0 0 0 0 23.88V488a23.94 23.94 0 0 0 23.88 24H360a23.94 23.94 0 0 0 24-23.88V128zM242.4 323.6l-95 95-48.2 5.4a9.93 9.93 0 0 1-2.2 0 10.17 10.17 0 0 1-9-11.2l5.4-48.2 95-95a5.07 5.07 0 0 1 7.17 0l46.8 46.8a5.07 5.07 0 0 1 .03 7.2zm55.7-55.7l-26 26a5.07 5.07 0 0 1-7.17 0l-46.8-46.8a5.07 5.07 0 0 1 0-7.17l26-26a20.22 20.22 0 0 1 28.6 0l25.4 25.4a20.22 20.22 0 0 1-.03 28.57z' class='fa-secondary'></path><path fill='currentColor' d='M377 105L279.1 7a24 24 0 0 0-17-7H256v112a16 16 0 0 0 16 16h112v-6.1a23.9 23.9 0 0 0-7-16.9zM242.4 316.4l-46.8-46.8a5.07 5.07 0 0 0-7.17 0l-95 95L88 412.8a10.17 10.17 0 0 0 9 11.2 9.93 9.93 0 0 0 2.18 0l48.2-5.4 95-95a5.07 5.07 0 0 0 0-7.17zm55.7-77.1l-25.4-25.4a20.22 20.22 0 0 0-28.6 0l-26 26a5.07 5.07 0 0 0 0 7.17l46.8 46.8a5.07 5.07 0 0 0 7.17 0l26-26a20.22 20.22 0 0 0 0-28.6z' class='fa-primary'></path></g></svg> \"MAX\"",
         "description": "Text editor [beta]",
-        "more": "https://github.com/titanuim-x/max"
+        "more": "https://github.com/x-titan/max"
       }
     ]
   },
@@ -69,7 +69,7 @@
         "<i class='fab fa-whatsapp'></i>WhatsApp": "https://api.whatsapp.com/send?phone=+77788405404"
       },
       {
-        "<i class='fab fa-github'></i>Github": "https://github.com/NoNameTitan"
+        "<i class='fab fa-github'></i>Github": "https://github.com/x-titan"
       },
       {
         "<i class='fab fa-facebook-f'></i>Facebook": "https://www.facebook.com/ace.titan.404"
