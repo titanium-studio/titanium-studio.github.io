@@ -215,6 +215,7 @@ a:hover::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: var(--size3);
 }
 
 .nav {
@@ -230,7 +231,12 @@ a:hover::after {
 }
 
 .header .nav i, .logo {
+  height: var(--size3);
   font-size: var(--size3);
+}
+
+.logo img{
+  height: 100%;
 }
 
 .logo a::after {
