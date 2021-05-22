@@ -43,7 +43,7 @@ function init() {
   $event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
   remove(_back_, "active")
   if (!device.isMobile) {
-    main.favicon("hero2").addScroll()
+    main.addScroll()
     mouse.start()
     mouse.view()
     add(mouse.mouse, "invert")
