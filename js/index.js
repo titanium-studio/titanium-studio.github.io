@@ -48,7 +48,7 @@ function init() {
     mouse.view()
     add(mouse.mouse, "invert")
     add(mouse.ball, "invert")
-  } else main.favicon("phone")
+  }
 }
 document.addEventListener("DOMContentLoaded", init, { once: true })
 //#endregion
