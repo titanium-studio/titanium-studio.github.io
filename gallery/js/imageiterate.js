@@ -11,8 +11,25 @@ let src = search.id("src"), imgs = [], h = "hide",
 getData("/src/json/gallery.json", (r, d) => {
   if (r) throw new Error(r)
   let a = d.gallery, b = a.data, с = window.location.origin + a.corePath, z = search.id("gallery");
-  if (imgs.length % 5 == 0)
-    each(b, x => { z.appendChild(imageItem(с, x.src, a.format, x.tags)) })
+
+
+  let aa = [], bb = [], cc = 0, dd = search.id("loadMore")
+  each(b, (x, i) => {
+    if (i % 5 == 0 && i !== 0) {
+      aa.push(bb)
+      bb = []
+    }
+    bb.push({ c: с, s: x.src, f: a.format, t: x.tags })
+  })
+  if (!aa.includes(bb)) aa.push(bb)
+  dd.onclick = () => {
+    if (cc < aa.length) {
+      each(aa[cc], x => z.appendChild(imageItem(x.c, x.s, x.f, x.t)))
+      if (aa.length - 1 == cc) add(dd, "hide")
+      cc++
+    } else add(dd, "hide")
+  }
+  dd.onclick()
 })
 
 src.addEventListener("input", () => filter(src.value))
@@ -28,6 +45,6 @@ function imageItem(path, img, format, alt) {
     y.style[y.width > y.height ? "height" : "width"] = "100%"
     x.appendChild(y)
   }, { once: true })
-  y.addEventListener("click", () => open("https://titanium-studio.github.io/src/jpg/" + img + ".jpg","_blank"))
+  y.addEventListener("click", () => open("https://titanium-studio.github.io/src/jpg/" + img + ".jpg", "_blank"))
   return x
 }
