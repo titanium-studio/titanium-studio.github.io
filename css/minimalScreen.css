@@ -14,6 +14,18 @@
   .box_height, .box_height .box, .content .boxz, .content .card {
     height: 100%!important;
   }
+  .content .card {
+    position: relative;
+    border: 1px solid black;
+  }
+  .content .boxz {
+    justify-content: center;
+  }
+  .content .card .more {
+    position: absolute;
+    height: 100%;
+    opacity: 0;
+  }
   .content h2, #WORK h2, #WORK h3 {
     font-size: var(--h4);
   }
