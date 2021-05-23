@@ -10,7 +10,7 @@ let src = search.id("src"), imgs = [], h = "hide",
 
 getData("/src/json/gallery.json", (r, d) => {
   if (r) throw new Error(r)
-  let a = d.gallery, b = a.data, с = window.location.origin + a.corePath, z = search.id("gallery")
+  let a = d.gallery, b = a.data, с = window.location.origin + a.corePath, z = search.id("gallery"),
   aa = [], bb = [], cc = 0, dd = search.id("loadMore");
   each(b, (x, i) => {
     if (i % 5 == 0 && i !== 0) { aa.push(bb); bb = [] }
