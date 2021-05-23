@@ -2,10 +2,10 @@ import { tools, DOM } from "https://titanium-studio.github.io/Tools/index.js"
 import { Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
 
-const { each, EXTEND } = tools,
+const { is, each, EXTEND } = tools,
   { search, add, remove, contains, smooth } = DOM,
   { section, $event } = Box,
-  { _nav_, _back_, _plane_, _logo_, _front_ } = gVars;
+  { _body_, _nav_, _back_, _plane_, _logo_, _front_ } = gVars;
 
 class Main {
   constructor() {
@@ -113,6 +113,10 @@ const proto = {
     remove(_back_, "active")
     each(this.__sections__, x => remove(x.self, "fly", "none", "small"))
     return this
+  },
+  error(msg) {
+    if (!is.str(msg)) msg = "<h1 class='center_float half'>😓Unfortunately this page doesn't work</h1>"
+    _body_.innerHTML = msg
   }
 }
 //#endregion
