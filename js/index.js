@@ -10,11 +10,11 @@ const { each, getData } = tools,
   $$ = search.id("body"),
   main = Main.init();
 
-let data = false, error = false
+let data = false, error = false, ERROR = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
 
 //#region LoadData
 getData("/src/json/index.json", (r, z) => {
-  if (error = r) return _body_.innerHTML = "<h1 class='center_float half'>Unfortunately this page doesn't work</h1>"
+  if (error = r) return _body_.innerHTML = ERROR
 
   let core = window.location.origin + z.index.corePath, imgs = z.index.img,
     set = (i, ...v) => { return main.__sections__[i].setContent(...v) },
@@ -37,7 +37,7 @@ getData("/src/json/index.json", (r, z) => {
 
 //#region LazyLoad
 function init() {
-  if (error) return
+  if (error) return _body_.innerHTML = ERROR
   if (!data) return setTimeout(init, 200)
   main.view($$)
   $event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
