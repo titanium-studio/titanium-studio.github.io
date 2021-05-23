@@ -395,5 +395,23 @@ input#src:focus, input#src:hover {
 @supports not (aspect-ratio: 1/1) {
   img {
     height: 90%;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .hello h1, .info h2 {
+    font-size: 2em;
+  }
+  .hello .button {
+    text-align: center;
+    font-size: 0.8em;
+    padding: var(--size0);
+  }
+  .info p {
+    font-size: 0.8em;
+  }
+  #projects {
+    padding: 0!important;
   }
 }
