@@ -321,7 +321,7 @@ a:hover::after {
   transition: width 0.3s ease, height 0.3s ease;
 }
 
-#mouse.invert {
+#mouse {
   width: var(--size3);
   height: var(--size3);
 }
