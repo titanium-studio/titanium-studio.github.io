@@ -4,7 +4,7 @@ import { Box, gVars } from "./tools.js"
 import mouse from "./mouse.js"
 
 const { each } = tools,
-  { search, add, remove, contains, styler, device } = DOM,
+  { add, remove, contains, device } = DOM,
   { box_height, box, card, btn, link, Div, $event } = Box,
   { _nav_, _back_, _body_ } = gVars,
   main = Main.init();
