@@ -7,7 +7,6 @@ const { each } = tools,
   { search, add, remove, contains, styler, device } = DOM,
   { box_height, box, card, btn, link, Div, $event } = Box,
   { _nav_, _back_, _body_ } = gVars,
-  $$ = search.id("body"),
   main = Main.init();
 
 //#region LoadData
@@ -31,7 +30,7 @@ fetch("/src/json/index.json")
     each(z.social.data, x => each.obj(x, (y, z) => set(3, b_h(btn(link(z, y, "_blank"), true)))))
   })
   .then(() => {
-    main.view($$); remove(_back_, "active")
+    main.view(search.id("body")); remove(_back_, "active")
     $event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
     if (!device.isMobile) {
       main.addScroll(); mouse.start(); mouse.view()
