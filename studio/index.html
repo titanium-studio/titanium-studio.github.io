@@ -155,9 +155,9 @@
         return x
       }
 
-      each(USERS, user => getJSON(path(HOST_URL, user, REPOS), (status, data) => {
-        console.log(data)
-      }))
+      // each(USERS, user => getJSON(path(HOST_URL, user, REPOS), (status, data) => {
+      //   console.log(data)
+      // }))
 
       each(USERS, user => fetch(path(HOST_URL, user, REPOS))
         .then(x => x.json())
