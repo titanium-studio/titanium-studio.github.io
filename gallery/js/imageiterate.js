@@ -6,7 +6,7 @@ const { is, each, getData } = tools,
 
 let src = search.id("src"), imgs = [], h = "hide",
   filter = src => imgs.forEach(x => src == "" ?
-    remove(x.x, h) : (x.y.includes(src) ? remove(x.x, h) : add(x.x, h)))
+    remove(x.x, h) : (x.y.includes(src.toLowerCase()) ? remove(x.x, h) : add(x.x, h)))
 
 getData("/src/json/gallery.json", (r, d) => {
   if (r) throw new Error(r)
@@ -15,10 +15,7 @@ getData("/src/json/gallery.json", (r, d) => {
 
   let aa = [], bb = [], cc = 0, dd = search.id("loadMore")
   each(b, (x, i) => {
-    if (i % 5 == 0 && i !== 0) {
-      aa.push(bb)
-      bb = []
-    }
+    if (i % 5 == 0 && i !== 0) { aa.push(bb); bb = [] }
     bb.push({ c: с, s: x.src, f: a.format, t: x.tags })
   })
   if (!aa.includes(bb)) aa.push(bb)
@@ -36,7 +33,7 @@ src.addEventListener("input", () => filter(src.value))
 
 function imageItem(path, img, format, alt) {
   let x = $$.createElement("div"), y = new Image();
-  imgs.push({ x: x, y: alt })
+  imgs.push({ x: x, y: alt.map(x => x.toLowerCase()) })
   styler(x, { width: "100%", aspectRatio: "1/1", overflow: "hidden" })
   add(x, "flex", "to_center")
   y.src = path + img + "." + format
