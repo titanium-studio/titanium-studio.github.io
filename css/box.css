@@ -210,6 +210,7 @@ section.none .content {
   align-items: center;
   flex-direction: column;
   padding: 0 20px;
+  justify-content: center;
 }
 
 .card h2, .card h3 {
