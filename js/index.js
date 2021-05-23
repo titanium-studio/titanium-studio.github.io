@@ -30,7 +30,7 @@ fetch("/src/json/index.json")
     each(z.social.data, x => each.obj(x, (y, z) => set(3, b_h(btn(link(z, y, "_blank"), true)))))
   })
   .then(() => {
-    main.view(search.id("body")); remove(_back_, "active")
+    main.view(_body_); remove(_back_, "active")
     $event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())
     if (!device.isMobile) {
       main.addScroll(); mouse.start(); mouse.view()
