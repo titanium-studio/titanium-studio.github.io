@@ -24,21 +24,21 @@
   <main id="body">
     <section id="home" grid class="page hello">
       <p block class="flex" style="--position:3/4/4/10;align-items:center">You didn’t come this far to stop.</p>
-      <h1 block class="font_700 flex" style="--position:4/4/7/10;overflow:visible">Wellcome to the future for you</h1>
-      <div block class="flex" style="--position:6/4/8/7;overflow:visible;align-items:center">
+      <h1 block class="font_700 flex view" style="--position:4/4/7/10">Wellcome to the future for you</h1>
+      <div block class="flex view" style="--position:6/4/8/7;align-items:center">
         <a class="button" href="https://x-titan.github.io"
           style="background-color:var(--grey-600);color:var(--light)">LEARN MORE</a>
       </div>
     </section>
 
     <section grid class="page info">
-      <h2 block class="to_center font_700 text_center flex" style="--position:3/5/5/13;overflow:visible">If there's one
+      <h2 block class="to_center font_700 text_center flex view" style="--position:3/5/5/13">If there's one
         thing I can do,
         it's write code</h2>
       <p block class="to_center text_center flex" style="--position:5/5/7/13;line-height:2rem">I know how to program
         in languages like
         js, python and c#.<br>I do web design, game development, and photography.</p>
-      <div block class="flex to_center" style="--position:7/8/8/10;overflow:visible">
+      <div block class="flex to_center view" style="--position:7/8/8/10">
         <a class="button" href="../" style="background-color:var(--grey-600);color:var(--light)">PORTFOLLIO</a>
       </div>
     </section>
@@ -76,7 +76,7 @@
       }
 
       [gallery] .card a:after {
-        display: none!important;
+        display: none !important;
       }
 
       [gallery] .card a:hover {
@@ -90,31 +90,36 @@
     </section>
 
     <section id="gallery" grid class="page photo">
-      <h2 block class="flex to_center" style="--position:2/8/4/10;overflow:visible">Gallery</h2>
-      <div block class="flex to_center" style="--position:4/-15/9/7;aspect-ratio:1/1;width:80%">
+      <style>
+        .img_card {
+          aspect-ratio: 1/1;
+          width: 80%;
+        }
+      </style>
+      <h2 block class="flex to_center view" style="--position:2/8/4/10">Gallery</h2>
+      <div block class="flex to_center img_card" style="--position:4/-15/9/7;justify-self:end">
         <img src="../src/webp/1.webp" style="width:100%" alt="blue, Aktau">
       </div>
-      <div block class="flex to_center" style="--position:4/7/9/11;aspect-ratio:1/1;width:80%;align-items:flex-end">
+      <div block class="flex to_center img_card" style="--position:4/7/9/11;align-items:flex-end;justify-self:center">
         <img src="../src/webp/palma.webp" style="width:100%" alt="blue, palm, tree, Aktau">
       </div>
-      <div block class="flex to_center" style="--position:4/11/9/15;aspect-ratio:1/1;width:80%">
+      <div block class="flex to_center img_card" style="--position:4/11/9/15;width:80%;justify-self:start">
         <img src="../src/webp/keyboard.webp" style="height:100%" alt="keyboard, red, black, aesthetic">
       </div>
-      <div block class="flex to_center" style="--position:8/11/9/15;overflow:visible">
+      <div block class="flex to_center view" style="--position:8/11/9/15">
         <a href="../gallery/index.html">See more</a>
       </div>
     </section>
     <footer id="footer" grid class="page" style="height:160px;grid-template-rows:repeat(auto-fill,40px)">
-      <div id="social" block class="flex"
-        style="--position:2/-16/4/7;align-items:center;font-size:var(--h4);padding-left:4rem;overflow:visible">
+      <div id="social" block class="flex view"
+        style="--position:2/-16/4/7;align-items:center;font-size:var(--h4);padding-left:4rem">
         <a not_after href="https://www.facebook.com/ace.titan.404" target="_blank" style="margin-right:2rem"><i
             class="fab fa-facebook-f"></i></a>
         <a not_after href="https://api.whatsapp.com/send?phone=+77788405404" target="_blank"
           style="margin-right:2rem;"><i class="fab fa-whatsapp"></i></a>
         <a not_after href="https://github.com/x-titan" target="_blank"><i class="fab fa-github"></i></a>
       </div>
-      <div block class="flex to_center"
-        style="--position:2/11/4/16;justify-content:flex-end;padding-right:4rem;overflow:visible">
+      <div block class="flex to_center view" style="--position:2/11/4/16;justify-content:flex-end;padding-right:4rem">
         <span>Powered by <a href="https://github.com/titanium-studio" target="_blank">titanium studio</a></span>
       </div>
     </footer>
