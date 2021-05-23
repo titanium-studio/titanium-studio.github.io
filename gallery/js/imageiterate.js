@@ -27,6 +27,7 @@ getData("/src/json/gallery.json", (r, d) => {
     } else add(dd, "hide")
   }
   dd.onclick()
+  dd.onclick()
 })
 
 src.addEventListener("input", () => filter(src.value))
