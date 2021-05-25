@@ -235,7 +235,7 @@ a:hover::after {
   font-size: var(--size3);
 }
 
-.logo img{
+.logo img {
   height: 100%;
 }
 
@@ -324,6 +324,11 @@ a:hover::after {
 #mouse {
   width: var(--size3);
   height: var(--size3);
+}
+
+#mouse.animate {
+  width: var(--size5);
+  height: var(--size5);
 }
 
 .invert {
