@@ -4,11 +4,10 @@ const { is, each, getData } = tools,
   { search, add, remove, styler, Div } = DOM,
   $$ = document,
   datalist = search.id("search_list"),
-  list = new Set();
-
-let src = search.id("src"), imgs = [], h = "hide",
+  list = new Set(),
+  src = search.id("src"), imgs = [], h = "hide",
   filter = src => imgs.forEach(x => src == "" ?
-    remove(x.x, h) : (x.y.includes(src.toLowerCase()) ? remove(x.x, h) : add(x.x, h)))
+    remove(x.x, h) : (x.y.includes(src.toLowerCase()) ? remove(x.x, h) : add(x.x, h)));
 
 getData("/src/json/gallery.json", (r, d) => {
   if (r) throw new Error(r)
@@ -20,11 +19,12 @@ getData("/src/json/gallery.json", (r, d) => {
   })
   if (!aa.includes(bb)) aa.push(bb)
   dd.onclick = () => {
+    src.value = ""; filter("")
     if (cc < aa.length) {
       each(aa[cc], x => z.appendChild(imageItem(x.c, x.s, x.f, x.t)))
-      if (aa.length - 1 == cc) add(dd, "hide")
+      if (aa.length - 1 == cc) add(dd, h)
       cc++
-    } else add(dd, "hide")
+    } else add(dd, h)
   }
   dd.onclick(); dd.onclick()
 })
@@ -40,18 +40,11 @@ function addDataList(opt) {
   }
 }
 
-function imageItem(path, img, format, alt) {
-  let x = Div(), y = new Image();
-  imgs.push({ x: x, y: alt.map(x => x.toLowerCase()) })
-  each(alt, al => addDataList(al))
-  styler(x, { width: "100%", aspectRatio: "1/1", overflow: "hidden" })
-  add(x, "flex", "to_center")
-  y.src = path + img + "." + format
-  if (is.array(alt)) y.setAttribute("alt", alt.join(", "))
-  y.addEventListener("load", () => {
-    y.style[y.width > y.height ? "height" : "width"] = "100%"
-    x.appendChild(y)
-  }, { once: true })
-  y.addEventListener("click", () => open("https://titanium-studio.github.io/src/jpg/" + img + ".jpg", "_blank"))
+function imageItem(path, img, format, alt = []) {
+  let x = Div(), y = new Image(); imgs.push({ x: x, y: alt.map(x => x.toLowerCase()) })
+  each(alt, a => addDataList(a)); styler(x, { width: "100%", aspectRatio: "1/1", overflow: "hidden" })
+  add(x, "flex", "to_center"); y.src = path + img + "." + format; y.setAttribute("alt", alt.join(", "))
+  y.addEventListener("load", () => { y.style[y.width > y.height ? "height" : "width"] = "100%"; x.appendChild(y) }, { once: true })
+  y.addEventListener("click", () => open(location.origin + "/src/jpg/" + img + ".jpg", "_blank"))
   return x
 }
