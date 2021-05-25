@@ -31,7 +31,7 @@ class Main {
     $event(window, "resize", main.reSize)
     $event(_logo_, "click", main.firstPage)
 
-    each([_logo_, _nav_, _plane_], x => main.btn_hover(x))
+    each([_logo_, _nav_, _plane_], x => mouse.animate(x))
     main.firstPage()
     return main
   }
@@ -50,11 +50,6 @@ const proto = {
   reSize() {
     smooth(search("section.active"))
     return this
-  },
-  btn_hover(x) {
-    let d = "mouse", m = mouse[d], a = "style", b = "width", c = "height";
-    $event(x, d + "enter", () => m[a][b] = m[a][c] = "var(--size5)")
-    $event(x, d + "leave", () => m[a][b] = m[a][c] = "")
   },
   firstPage() {
     let s = this.__sections__
