@@ -178,11 +178,9 @@ input, button {
   appearance: none
 }
 
-
-input::-webkit-calendar-picker-indicator{
+input::-webkit-calendar-picker-indicator {
   display: none;
 }
-
 
 body {
   overflow: hidden;
