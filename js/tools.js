@@ -1,4 +1,6 @@
 import { tools, DOM } from "https://titanium-studio.github.io/Tools/index.js"
+import m from "./mouse.js"
+
 
 const { is, each } = tools,
   { search, add, remove, styler } = DOM,
@@ -39,7 +41,7 @@ function section(title = "", content) {
   if (!(this instanceof section)) return new section(title, content)
   let d = $$.createElement("section"),
     c = Div("content", "grid"),
-    t = $$.createElement("a");
+    t = $$.createElement("h1");
 
   add(c, "section")
   add(t, "title", "notranslate")
@@ -65,6 +67,7 @@ function btn(innerHTML, withSlide = false, cssClass = []) {
   cssClass[0] ? add(div, ...cssClass) : void 0;
   withSlide ? addSlide(div) : void 0;
   innerHTML ? div.appendChild(innerHTML) : void 0;
+  m.animate(div)
   return div
 }
 function link(innerHTML, href, target) {
