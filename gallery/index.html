@@ -14,7 +14,9 @@
 <body>
   <header class="to_center" style="margin-top:var(--size3)">
     <a href="../index.html" class="logo notranslate" not_after translate="no"><img src="../src/svg/hero1.svg"></a>
-    <div><input type="text" id="src" placeholder="Search photo with tag"></div>
+    <div><input type="text" list="search_list" id="src" placeholder="Search photo with tag">
+      <datalist id="search_list"></datalist>
+    </div>
     <nav id="nav">
       <ul id="nav_list"></ul>
     </nav>
@@ -35,8 +37,7 @@
           style="margin-right:2rem;"><i class="fab fa-whatsapp"></i></a>
         <a not_after href="https://github.com/x-titan" target="_blank"><i class="fab fa-github"></i></a>
       </div>
-      <div block class="flex to_center view"
-        style="--position:2/11/4/16;justify-content:flex-end;padding-right:4rem">
+      <div block class="flex to_center view" style="--position:2/11/4/16;justify-content:flex-end;padding-right:4rem">
         <span>Powered by <a href="https://github.com/titanium-studio" target="_blank">titanium studio</a></span>
       </div>
     </footer>

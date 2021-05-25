@@ -172,9 +172,17 @@ a, button, .btn {
 }
 
 input, button {
+  -webkit-appearance: none;
   outline: none;
   box-sizing: border-box;
+  appearance: none
 }
+
+
+input::-webkit-calendar-picker-indicator{
+  display: none;
+}
+
 
 body {
   overflow: hidden;
