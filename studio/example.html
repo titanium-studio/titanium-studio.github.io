@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/start.css">
+  <title>Example</title>
+</head>
+
+<body>
+  <header class="to_center">
+    <a href="../index.html" class="logo notranslate" not_after translate="no"><img src="../src/svg/hero1.svg"></a>
+    <nav id="nav">
+      <ul id="nav_list">
+        <li><a>Headers</a></li>
+        <li><a>Buttons</a></li>
+        <li><a>Text</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="body">
+    <style>
+      .pad {
+        padding: 5em;
+        border-bottom: 1px solid black;
+        height: auto;
+      }
+
+      .pad code {
+        font-weight: 700;
+      }
+
+      .pad h1 {
+        width: 100%;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 1em;
+      }
+
+      .pad table h1:first-child {
+        margin-bottom: 0;
+      }
+
+      th {
+        background-color: black;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #eee;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #fff;
+      }
+
+      tr td:first-child {
+        width: 18vw;
+      }
+
+      #buttons ul li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+      }
+    </style>
+
+    <section id="headers" class="page pad">
+      <h1>#Headers</h1>
+      <table>
+        <tr>
+          <th>HTML</th>
+          <th>Results</th>
+        </tr>
+        <tr>
+          <td><code>h1</code></td>
+          <td>
+            <h1>Header1</h1>
+          </td>
+        </tr>
+        <tr>
+          <td><code>h2</code></td>
+          <td>
+            <h2>Header2</h2>
+          </td>
+        </tr>
+        <tr>
+          <td><code>h3</code></td>
+          <td>
+            <h3>Header3</h3>
+          </td>
+        </tr>
+        <tr>
+          <td><code>h4</code></td>
+          <td>
+            <h4>Header4</h4>
+          </td>
+        </tr>
+        <tr>
+          <td><code>h5</code></td>
+          <td>
+            <h5>Header5</h5>
+          </td>
+        </tr>
+        <tr>
+          <td><code>h6</code></td>
+          <td>
+            <h6>Header6</h6>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="buttons" class="page pad">
+      <h1 class="text_center">#Buttons</h1>
+      <table>
+        <tr>
+          <th>HTML</th>
+          <th>Results</th>
+        </tr>
+        <tr>
+          <td><code>button</code></td>
+          <td><button>button</button></td>
+        </tr>
+        <tr>
+          <td><code>a</code></td>
+          <td><a>link</a></td>
+        </tr>
+        <tr>
+          <td><code>a[not_after]</code></td>
+          <td><a not_after>link</a></td>
+        </tr>
+        <tr>
+          <td><code>a.button</code></td>
+          <td><a class="button">button</a></td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="text" class="page pad">
+      <h1 class="text_center">#Text</h1>
+      <table>
+        <tr>
+          <th>HTML</th>
+          <th>Results</th>
+        </tr>
+        <tr>
+          <td>p</td>
+          <td>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sapiente officiis alias facere deleniti
+              eius. Laboriosam cum impedit eos est molestias vitae totam perferendis, aliquam illum aut inventore, quos
+              soluta.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>strong</td>
+          <td>
+            <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur mollitia beatae dolorum
+              veritatis, ipsum non impedit voluptatibus necessitatibus, suscipit ea doloribus et adipisci sed.
+              Doloribus, est. Itaque facere assumenda facilis?</strong>
+          </td>
+        </tr>
+        <tr>
+          <td>abbr</td>
+          <td><abbr title="title">Lorem</abbr></td>
+        </tr>
+      </table>
+    </section>
+
+  </main>
+  <script src="./js/index.js" type="module" defer></script>
+</body>
+
+</html>
