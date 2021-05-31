@@ -5,8 +5,16 @@
   --accent: rgb(36, 76, 255);
   --light: #FDFFFC;
   --dark: #010303;
-  --grey-600: #323232;
-  --grey: #282828;
+  --gray: #282828;
+  --gray-100: #ddd;
+  --gray-200: #888;
+  --gray-300: #818181;
+  --gray-400: #6b6b6b;
+  --gray-500: #424242;
+  --gray-600: #323232;
+  --gray-700: #282828;
+  --gray-800: #1b1b1b;
+  --gray-900: #101010;
   --h1: 3.5em;
   --h2: 2.6em;
   --h3: 2.2em;
@@ -147,7 +155,7 @@ a::after {
   content: "";
   width: 0;
   height: 1px;
-  background: var(--grey);
+  background: var(--gray);
   transition: all 0.2s ease-in-out;
 }
 
@@ -186,6 +194,26 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+}
+
+table {
+  width: 100%;
+}
+
+table, tr, th, td {
+  border: 1px solid black;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+abbr{
+  text-decoration:underline var(--accent) 2px;
+}
+
+th, td {
+  padding: 1em;
+  text-align: center;
 }
 
 #body {
@@ -300,6 +328,7 @@ button, .button {
   line-height: 23px;
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
+  background-color: var(--gray-100);
 }
 
 .button:hover::after {
@@ -365,7 +394,7 @@ button:hover, .button:hover, button:focus, .button:focus {
 }
 
 input#src {
-  border: 1px solid var(--grey);
+  border: 1px solid var(--gray);
   font-size: 1.1em;
   padding: 6px 14px;
   border-radius: var(--size0);
