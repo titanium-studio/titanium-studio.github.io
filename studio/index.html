@@ -84,9 +84,12 @@
         color: var(--light);
       }
     </style>
-    <section id="projects" gallery
-      style="--gallery-min:350px;border-top:1px solid var(--dark);border-bottom:1px solid var(--dark);padding:var(--size4)">
-      <h3 class="flex to_center font_700">Projects</h3>
+    <section id="projects" class="page" style="height:auto;border-top:1px solid var(--dark);border-bottom:1px solid var(--dark);padding:var(--size4) 0">
+      <div id="git_projects" gallery class="content"
+        style="--gallery-min:350px">
+        <h3 class="flex to_center font_700">Projects</h3>
+      </div>
+
     </section>
 
     <section id="gallery" grid class="page photo">
@@ -144,7 +147,7 @@
           "x-titan",
           "titanium-studio"
         ],
-        gallery = search("[gallery]");
+        git_projects = search.id("git_projects");
 
       function Div_(css, child, tag) {
         let x = Div()
@@ -166,7 +169,7 @@
 
       each(USERS, user => fetch(path(HOST_URL, user, REPOS))
         .then(x => x.json())
-        .then(x => each(x, y => gallery.appendChild(
+        .then(x => each(x, y => git_projects.appendChild(
           Div_(y.has_pages ? ["card", "gold"] : ["card"], `<h4>${y.name}</h4><h6>${y.owner.login}</h6><a href="${y.html_url}">Open</a>`)
         ))))
     }, 500)
