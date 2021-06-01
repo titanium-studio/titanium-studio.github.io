@@ -46,9 +46,7 @@
   margin: 0;
   padding: 0;
   outline: none;
-  font-family: 'Montserrat', sans-serif;
   color: var(--gray-800);
-  font-size: 16px;
   border: none;
   scroll-behavior: smooth;
 }
@@ -82,24 +80,12 @@
   background: var(--gray-400);
 }
 
-.Montserrat {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.Open_sans {
-  font-family: 'Open Sans', sans-serif;
-}
-
-.Roboto {
-  font-family: 'Roboto', sans-serif;
-}
-
-.Barlow {
-  font-family: 'Barlow', sans-serif;
-}
-
-.Comfortaa {
-  font-family: 'Comfortaa', sans-serif;
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 a, li {
@@ -125,6 +111,15 @@ strong {
 
 abbr {
   text-decoration: underline var(--accent) 2px;
+}
+
+mark {
+  background-color: var(--accent);
+  color: var(--light);
+}
+
+small {
+  font-size: 0.82em;
 }
 
 h1 {
@@ -198,12 +193,6 @@ input::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-body {
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-}
-
 table {
   width: 100%;
 }
@@ -218,6 +207,26 @@ table, tr, th, td {
 th, td {
   padding: 1em;
   text-align: center;
+}
+
+.Montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.Open_sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.Barlow {
+  font-family: 'Barlow', sans-serif;
+}
+
+.Comfortaa {
+  font-family: 'Comfortaa', sans-serif;
 }
 
 #body {
@@ -251,6 +260,7 @@ th, td {
   height: 100%;
   margin: 0 auto;
   position: relative;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .logo {
