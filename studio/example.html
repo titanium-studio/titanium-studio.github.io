@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
   <link rel="stylesheet" href="./css/start.css">
   <title>Example</title>
 </head>
@@ -14,17 +15,18 @@
     <a href="../index.html" class="logo notranslate" not_after translate="no">LOGO</a>
     <nav id="nav">
       <ul id="nav_list">
+        <li><a>Usings</a></li>
         <li><a>Fonts</a></li>
+        <li><a>Texts</a></li>
         <li><a>Headers</a></li>
         <li><a>Buttons</a></li>
-        <li><a>Text</a></li>
       </ul>
     </nav>
   </header>
   <main id="body">
     <style>
       .pad {
-        padding: 5em;
+        padding: 5em 0;
         border-bottom: 1px solid black;
         height: auto;
       }
@@ -74,138 +76,334 @@
       }
     </style>
 
-    <section id="fonts" class="pad">
-      <h1>#Fonts</h1>
-      <table>
-        <tr>
-          <th>Font name</th>
-          <th>CSS Class</th>
-          <th>Text</th>
-        </tr>
-        <tr>
-          <td>Montserrat (Default)</td>
-          <td>.Montserrat</td>
-          <td class="Montserrat">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
-            repudiandae mollitia, maiores inventore dolores autem minus officiis eaque corrupti natus temporibus illo ex
-            laudantium ea animi vero. Harum, repellendus non.</td>
-        </tr>
-        <tr>
-          <td>Open Sans</td>
-          <td>.Open_sans</td>
-          <td class="Open_sans">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos eius
-            nobis quam labore ullam, excepturi amet. In, cupiditate consectetur corporis quo autem explicabo laborum
-            nulla fugit distinctio, mollitia earum adipisci!</td>
-        </tr>
-        <tr>
-          <td>Barlow</td>
-          <td>.Barlow</td>
-          <td class="Barlow">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, repudiandae ab?
-            Ullam quo illo nemo ducimus sed. Tenetur vero, nostrum ab at voluptatibus odit, mollitia, facere sint beatae
-            possimus corporis.</td>
-        </tr>
-      </table>
+    <section id="usings" class="page pad">
+      <div class="content">
+        <h1>#Usings</h1>
+        <table>
+          <tr>
+            <th>Uses CSS</th>
+            <th>Source</th>
+          </tr>
+          <tr>
+            <td>Font Awesome</td>
+            <td><code>https://use.fontawesome.com/releases/v5.7.1/css/all.css</code></td>
+          </tr>
+          <tr>
+            <td>studio/css/start.css</td>
+            <td><code>https://titanium-studio.github.io/studio/css/start.css</code></td>
+          </tr>
+        </table>
+        <table style="margin-top:5em">
+          <tr>
+            <th>Uses Script</th>
+            <th>Source</th>
+          </tr>
+          <tr>
+            <td><code>Tools/index.js [module]</code></td>
+            <td><code>https://titanium-studio.github.io/Tools/index.js</code></td>
+          </tr>
+          <tr>
+            <td><code>studio/js/index.js [module]</code></td>
+            <td><code>https://titanium-studio.github.io/studio/js/index.js</code></td>
+          </tr>
+        </table>
+      </div>
     </section>
 
-    <section id="headers" class="pad">
-      <h1>#Headers</h1>
-      <table>
-        <tr>
-          <th>HTML</th>
-          <th>Results</th>
-        </tr>
-        <tr>
-          <td><code>h1</code></td>
-          <td>
-            <h1>Header1</h1>
-          </td>
-        </tr>
-        <tr>
-          <td><code>h2</code></td>
-          <td>
-            <h2>Header2</h2>
-          </td>
-        </tr>
-        <tr>
-          <td><code>h3</code></td>
-          <td>
-            <h3>Header3</h3>
-          </td>
-        </tr>
-        <tr>
-          <td><code>h4</code></td>
-          <td>
-            <h4>Header4</h4>
-          </td>
-        </tr>
-        <tr>
-          <td><code>h5</code></td>
-          <td>
-            <h5>Header5</h5>
-          </td>
-        </tr>
-        <tr>
-          <td><code>h6</code></td>
-          <td>
-            <h6>Header6</h6>
-          </td>
-        </tr>
-      </table>
+    <section id="fonts" class="page pad">
+      <div class="content">
+        <h1>#Fonts</h1>
+        <table>
+          <tr>
+            <th>Font name</th>
+            <th>CSS Class</th>
+            <th>Text</th>
+          </tr>
+          <tr>
+            <td><code>Montserrat</code> (Default, 400-900)</td>
+            <td><code>.Montserrat</code></td>
+            <td class="Montserrat">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
+              repudiandae mollitia, maiores inventore dolores autem minus officiis eaque corrupti natus temporibus illo
+              ex
+              laudantium ea animi vero. Harum, repellendus non.</td>
+          </tr>
+          <tr>
+            <td><code>Open Sans</code> (400)</td>
+            <td><code>.Open_Sans</code></td>
+            <td class="Open_sans">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos eius
+              nobis quam labore ullam, excepturi amet. In, cupiditate consectetur corporis quo autem explicabo laborum
+              nulla fugit distinctio, mollitia earum adipisci!</td>
+          </tr>
+          <tr>
+            <td><code>Barlow</code> (400)</td>
+            <td><code>.Barlow</code></td>
+            <td class="Barlow">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, repudiandae ab?
+              Ullam quo illo nemo ducimus sed. Tenetur vero, nostrum ab at voluptatibus odit, mollitia, facere sint
+              beatae
+              possimus corporis.</td>
+          </tr>
+          <tr>
+            <td><code>Roboto</code> (Recomended, used in the "content" class, 400, 500, 700)</td>
+            <td><code>.Roboto</code></td>
+            <td class="Roboto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, repudiandae ab?
+              Ullam quo illo nemo ducimus sed. Tenetur vero, nostrum ab at voluptatibus odit, mollitia, facere sint
+              beatae
+              possimus corporis.</td>
+          </tr>
+          <tr>
+            <td><code>Comfortaa</code> (400)</td>
+            <td><code>.Comfortaa</code></td>
+            <td class="Comfortaa">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, repudiandae ab?
+              Ullam quo illo nemo ducimus sed. Tenetur vero, nostrum ab at voluptatibus odit, mollitia, facere sint
+              beatae
+              possimus corporis.</td>
+          </tr>
+        </table>
+      </div>
     </section>
 
-    <section id="buttons" class="pad">
-      <h1 class="text_center">#Buttons</h1>
-      <table>
-        <tr>
-          <th>HTML</th>
-          <th>Results</th>
-        </tr>
-        <tr>
-          <td><code>button</code></td>
-          <td><button>button</button></td>
-        </tr>
-        <tr>
-          <td><code>a</code></td>
-          <td><a>link</a></td>
-        </tr>
-        <tr>
-          <td><code>a[not_after]</code></td>
-          <td><a not_after>link</a></td>
-        </tr>
-        <tr>
-          <td><code>a.button</code></td>
-          <td><a class="button">button</a></td>
-        </tr>
-      </table>
+    <section id="texts" class="page pad">
+      <div class="content">
+        <h1>#Texts</h1>
+        <table>
+          <tr>
+            <th>HTML</th>
+            <th>Result</th>
+          </tr>
+          <tr>
+            <td><code>p</code></td>
+            <td>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sapiente officiis alias facere deleniti
+                eius. Laboriosam cum impedit eos est molestias vitae totam perferendis, aliquam illum aut inventore,
+                quos
+                soluta.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>strong</code></td>
+            <td>
+              <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur mollitia beatae dolorum
+                veritatis, ipsum non impedit voluptatibus necessitatibus, suscipit ea doloribus et adipisci sed.
+                Doloribus, est. Itaque facere assumenda facilis?</strong>
+            </td>
+          </tr>
+          <tr>
+            <td><code>abbr</code></td>
+            <td><abbr title="Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, vel optio error
+                harum assumenda unde at facere sapiente doloribus, tempore aliquam nihil in amet officia ullam quos
+                voluptates commodi molestias.</abbr></td>
+          </tr>
+          <tr>
+            <td><code>i</code></td>
+            <td>
+              <i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse nemo voluptatem similique doloribus
+                recusandae neque unde ratione? Temporibus officia delectus odio deserunt libero? Eligendi fuga et quos
+                id
+                provident?</i>
+            </td>
+          </tr>
+          <tr>
+            <td><code>em</code></td>
+            <td>
+              <em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse nemo voluptatem similique
+                doloribus
+                recusandae neque unde ratione? Temporibus officia delectus odio deserunt libero? Eligendi fuga et quos
+                id
+                provident?</em>
+            </td>
+          </tr>
+          <tr>
+            <td><code>small</code></td>
+            <td>
+              <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse nemo voluptatem similique
+                doloribus
+                recusandae neque unde ratione? Temporibus officia delectus odio deserunt libero? Eligendi fuga et quos
+                id
+                provident?</small>
+            </td>
+          </tr>
+          <tr>
+            <td><code>mark</code></td>
+            <td>
+              <mark>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse nemo voluptatem similique
+                doloribus
+                recusandae neque unde ratione? Temporibus officia delectus odio deserunt libero? Eligendi fuga et quos
+                id
+                provident?</mark>
+            </td>
+          </tr>
+          <tr>
+            <td><code>del</code></td>
+            <td>
+              <del>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse nemo voluptatem similique
+                doloribus
+                recusandae neque unde ratione? Temporibus officia delectus odio deserunt libero? Eligendi fuga et quos
+                id
+                provident?</del>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ins</code></td>
+            <td>
+              <ins>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse nemo voluptatem similique
+                doloribus
+                recusandae neque unde ratione? Temporibus officia delectus odio deserunt libero? Eligendi fuga et quos
+                id
+                provident?</ins>
+            </td>
+          </tr>
+        </table>
+      </div>
     </section>
 
-    <section id="text" class="pad">
-      <h1 class="text_center">#Text</h1>
-      <table>
-        <tr>
-          <th>HTML</th>
-          <th>Results</th>
-        </tr>
-        <tr>
-          <td>p</td>
-          <td>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sapiente officiis alias facere deleniti
-              eius. Laboriosam cum impedit eos est molestias vitae totam perferendis, aliquam illum aut inventore, quos
-              soluta.</p>
-          </td>
-        </tr>
-        <tr>
-          <td>strong</td>
-          <td>
-            <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur mollitia beatae dolorum
-              veritatis, ipsum non impedit voluptatibus necessitatibus, suscipit ea doloribus et adipisci sed.
-              Doloribus, est. Itaque facere assumenda facilis?</strong>
-          </td>
-        </tr>
-        <tr>
-          <td>abbr</td>
-          <td><abbr title="title">Lorem</abbr></td>
-        </tr>
-      </table>
+    <section id="headers" class="page pad">
+      <div class="content">
+        <h1>#Headers</h1>
+        <table>
+          <tr>
+            <th>HTML</th>
+            <th>Result</th>
+          </tr>
+          <tr>
+            <td><code>h1</code></td>
+            <td>
+              <h1>Header1</h1>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h2</code></td>
+            <td>
+              <h2>Header2</h2>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h3</code></td>
+            <td>
+              <h3>Header3</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h4</code></td>
+            <td>
+              <h4>Header4</h4>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h5</code></td>
+            <td>
+              <h5>Header5</h5>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h6</code></td>
+            <td>
+              <h6>Header6</h6>
+            </td>
+          </tr>
+        </table>
+        <table style="margin-top:5em">
+          <tr>
+            <th>HTML</th>
+            <th>Result</th>
+          </tr>
+          <tr>
+            <td><code>h1.Montserrat</code></td>
+            <td>
+              <h1 class="Montserrat">Header1</h1>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h2.Montserrat</code></td>
+            <td>
+              <h2 class="Montserrat">Header2</h2>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h1.Comfortaa</code></td>
+            <td>
+              <h1 class="Comfortaa">Header1</h1>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h2.Comfortaa</code></td>
+            <td>
+              <h2 class="Comfortaa">Header2</h2>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h1.Barlow</code></td>
+            <td>
+              <h1 class="Barlow">Header1</h1>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h2.Barlow</code></td>
+            <td>
+              <h2 class="Barlow">Header2</h2>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h1.Roboto</code></td>
+            <td>
+              <h1 class="Roboto">Header1</h1>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h2.Roboto</code></td>
+            <td>
+              <h2 class="Roboto">Header2</h2>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h1.Open_sans</code></td>
+            <td>
+              <h1 class="Open_sans">Header1</h1>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h2.Open_sans</code></td>
+            <td>
+              <h2 class="Open_sans">Header2</h2>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="buttons" class="page pad">
+      <div class="content">
+        <h1>#Buttons</h1>
+        <table>
+          <tr>
+            <th>HTML</th>
+            <th>Result</th>
+          </tr>
+          <tr>
+            <td><code>button</code></td>
+            <td><button>button</button></td>
+          </tr>
+          <tr>
+            <td><code>a</code></td>
+            <td><a>link</a></td>
+          </tr>
+          <tr>
+            <td><code>a[not_after]</code></td>
+            <td><a not_after>link</a></td>
+          </tr>
+          <tr>
+            <td><code>a>i.fas.fa-paragraph</code></td>
+            <td><a><i class="fas fa-paragraph"></i></a></td>
+          </tr>
+          <tr>
+            <td><code>a[not_after]>i.fas.fa-paragraph</code></td>
+            <td><a not_after><i class="fas fa-paragraph"></i></a></td>
+          </tr>
+          <tr>
+            <td><code>a.button</code></td>
+            <td><a class="button">button</a></td>
+          </tr>
+        </table>
+      </div>
     </section>
 
   </main>
