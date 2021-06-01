@@ -11,9 +11,10 @@
 
 <body>
   <header class="to_center">
-    <a href="../index.html" class="logo notranslate" not_after translate="no"><img src="../src/svg/hero1.svg"></a>
+    <a href="../index.html" class="logo notranslate" not_after translate="no">LOGO</a>
     <nav id="nav">
       <ul id="nav_list">
+        <li><a>Fonts</a></li>
         <li><a>Headers</a></li>
         <li><a>Buttons</a></li>
         <li><a>Text</a></li>
@@ -41,6 +42,7 @@
 
       .pad table h1:first-child {
         margin-bottom: 0;
+        font-weight: normal;
       }
 
       th {
@@ -56,8 +58,12 @@
         background-color: #fff;
       }
 
-      tr td:first-child {
-        width: 18vw;
+      tr td {
+        width: 15vw;
+      }
+
+      tr td:last-child {
+        width: auto;
       }
 
       #buttons ul li {
@@ -68,7 +74,39 @@
       }
     </style>
 
-    <section id="headers" class="page pad">
+    <section id="fonts" class="pad">
+      <h1>#Fonts</h1>
+      <table>
+        <tr>
+          <th>Font name</th>
+          <th>CSS Class</th>
+          <th>Text</th>
+        </tr>
+        <tr>
+          <td>Montserrat (Default)</td>
+          <td>.Montserrat</td>
+          <td class="Montserrat">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
+            repudiandae mollitia, maiores inventore dolores autem minus officiis eaque corrupti natus temporibus illo ex
+            laudantium ea animi vero. Harum, repellendus non.</td>
+        </tr>
+        <tr>
+          <td>Open Sans</td>
+          <td>.Open_sans</td>
+          <td class="Open_sans">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos eius
+            nobis quam labore ullam, excepturi amet. In, cupiditate consectetur corporis quo autem explicabo laborum
+            nulla fugit distinctio, mollitia earum adipisci!</td>
+        </tr>
+        <tr>
+          <td>Barlow</td>
+          <td>.Barlow</td>
+          <td class="Barlow">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, repudiandae ab?
+            Ullam quo illo nemo ducimus sed. Tenetur vero, nostrum ab at voluptatibus odit, mollitia, facere sint beatae
+            possimus corporis.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="headers" class="pad">
       <h1>#Headers</h1>
       <table>
         <tr>
@@ -114,7 +152,7 @@
       </table>
     </section>
 
-    <section id="buttons" class="page pad">
+    <section id="buttons" class="pad">
       <h1 class="text_center">#Buttons</h1>
       <table>
         <tr>
@@ -140,7 +178,7 @@
       </table>
     </section>
 
-    <section id="text" class="page pad">
+    <section id="text" class="pad">
       <h1 class="text_center">#Text</h1>
       <table>
         <tr>
