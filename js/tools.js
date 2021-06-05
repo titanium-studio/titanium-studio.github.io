@@ -27,7 +27,7 @@ function section(title = "", content) {
   this.setEventTitle = fn => $event(t, "click", fn); this.reverse = bool => { bool ? add(c, "reverse") : remove(c, "reverse"); return this }
 }
 function btn(iHTML, slide = false, css = []) { let x = Div("btn"); x.setAttribute("focusable", "true"); if (css[0]) add(x, ...css); if (slide) addSlide(x); if (iHTML) x.appendChild(iHTML); m.animate(x); return x }
-function link(iHTML, href, target) { let a = $$.createElement("a"); if (is.str(href)) a.setAttribute("href", href); if (is.str(iHTML)) a.innerHTML = iHTML; if (is.str(target)) a.setAttribute("target", target); return a }
+function link(iHTML, href, target) { let a = $$.createElement("a"); if (is.str(href)) a.setAttribute("href", href); if (is.str(iHTML)) a.innerHTML = iHTML; if (is.str(target)) { a.setAttribute("target", target); a.rel = "noopener" }; return a }
 function box_height(child, style) { let div = Div(); add(div, "box_height"); if (!is.empty(style)) styler(div, style); if (is.array(child)) each(child, c => div.appendChild(c)); else if (!is.empty(child)) div.appendChild(child); return div }
 /**
  * @param {boolean} slide
