@@ -17,7 +17,6 @@
   position: absolute;
   display: block;
   content: "";
-  z-index: 0;
   width: 0;
   height: 0;
   background: var(--first-color);
@@ -178,17 +177,14 @@ section.none .content {
   align-items: center;
 }
 
-.box a {
+.box a, .box p {
   transition: all 0.5s ease;
   font-size: var(--h5);
   font-weight: 500;
+  z-index: 1;
 }
 
-.box a:hover::after {
-  display: none;
-}
-
-.box:hover a {
+.box:hover a, .box:hover p {
   color: var(--dark-black);
 }
 
@@ -241,4 +237,33 @@ section.none .content {
 #SKILLS .name {
   font-size: var(--h3);
   padding: 3vmin 0 10vmin;
+}
+
+#CALL .box_height {
+  align-items: flex-start;
+  padding-left: var(--size2);
+  overflow: visible;
+  position: relative;
+}
+
+#CALL a, #CALL div, #CALL .email {
+  margin-bottom: var(--size2);
+  text-align: left;
+  font-weight: 600;
+}
+
+#CALL .email p {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+
+#CALL .email {
+  font-size: 2.8vw;
+  width: 25vw;
+}
+
+#CALL a i {
+  margin-right: 0.5em;
+  display: none;
 }

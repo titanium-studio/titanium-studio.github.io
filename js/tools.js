@@ -37,14 +37,13 @@ function box_height(child, style) { let div = Div(); add(div, "box_height"); if 
  * @param {string} a.format
  * @param {string} iText
  */
-function box(slide, { src, name, format }, iText = "") {
-  let z = Div("box")
-  if (is.str(src)) {
+function box(slide, { src, name, format }, { text = "", href }) {
+  let z = Div("box"); if (is.str(src)) {
     let x = new Image(); x.src = src + name + "." + format; x.alt = name
     $event(x, "load", () => x.style.setProperty(x.naturalHeight < x.naturalWidth ? "height" : "width", "100%"))
     styler.pro(x, { "top": "50%", "left": "50%", "transform": "translate(-50%,-50%)", "position": "absolute" }); z.appendChild(x)
-  }
-  if (slide) addSlide(z); if (iText !== "") { let p = $$.createElement("p"); p.innerText = iText; z.appendChild(p) }; return z
+  }; if (slide) addSlide(z);
+  if (text !== "") { let p; if (is.str(href)) { p = $$.createElement("a"); p.href = href } else { $$.createElement("p") } p.innerText = text; z.appendChild(p) }; return z
 }
 function card__() {
   if (!(this instanceof card__)) return new card__()

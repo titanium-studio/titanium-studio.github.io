@@ -5,15 +5,18 @@
     "img": [
       {
         "url": "drawing",
-        "p": "Drawing"
+        "p": "Drawing",
+        "href": "https://github.com/x-titan/Game"
       },
       {
         "url": "keyboard",
-        "p": "Coding"
+        "p": "Coding",
+        "href": "https://x-titan.github.io"
       },
       {
         "url": "1",
-        "p": "Photography"
+        "p": "Photography",
+        "href": "https://titanium-studio.github.io/gallery"
       }
     ]
   },
@@ -64,7 +67,7 @@
   "social": {
     "data": [
       {
-        "<i class='fab fa-vk'></i>VK": "https://vk.com/aset_telmanov"
+        "<i class='fab fa-vk'></i>VKontakte": "https://vk.com/aset_telmanov"
       },
       {
         "<i class='fab fa-whatsapp'></i>WhatsApp": "https://api.whatsapp.com/send?phone=+77788405404"
@@ -74,11 +77,20 @@
       },
       {
         "<i class='fab fa-facebook-f'></i>Facebook": "https://www.facebook.com/ace.titan.404"
-      }
-    ],
-    "other": [
+      },
       {
         "<i class='fab fa-telegram'></i>Telegram": "https://t.me/titanov"
+      }
+    ],
+    "site": [
+      {
+        "<code>Firebase</code>": "https://x-titan.web.app/"
+      },
+      {
+        "<code>Heroku</code>": "https://x-titan.herokuapp.com/"
+      },
+      {
+        "<code>Titanium Studio</code>": "https://titanium-studio.github.io/"
       }
     ]
   }
