@@ -24,7 +24,6 @@ fetch("/src/json/index.json")
     set(3, b_h(ss))
     set(3, b_h(Div.x("email").setHTML("<p>Let's work together. Say Hello.</p><a href=mailto:'" + email + "'>" + email + "</a>").self))
     set(3, b_h())
-    // each(z.social.data, x => each.obj(x, (y, z) => set(3, b_h(btn(link(z, y, "_blank"), true)))))
   })
   .then(() => {
     main.view(_body_); remove(_back_, "active"); $event(_nav_, "click", () => contains(_nav_, "active") ? main.nav_off() : main.nav_on())

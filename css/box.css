@@ -244,6 +244,11 @@ section.none .content {
   padding-left: var(--size2);
   overflow: visible;
   position: relative;
+  width: 25vw;
+}
+#CALL .box_height:last-child{
+  width: 0;
+  padding: 0;
 }
 
 #CALL a, #CALL div, #CALL .email {
