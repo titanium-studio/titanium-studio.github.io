@@ -1,0 +1,26 @@
+{
+  "data": {
+    "use": [
+      {
+        "type": "img",
+        "name": "x1",
+        "value": "https://titanium-studio.github.io/src/jpg/1.jpg"
+      },
+      {
+        "type": "img",
+        "name": "x2",
+        "value": "https://titanium-studio.github.io/src/jpg/keyboard.jpg"
+      },
+      {
+        "type": "img",
+        "name": "x3",
+        "value": "https://titanium-studio.github.io/src/jpg/gamepad.jpg"
+      },
+      {
+        "type": "img",
+        "name": "x4",
+        "value": "https://titanium-studio.github.io/src/jpg/skills.jpg"
+      }
+    ]
+  }
+}
