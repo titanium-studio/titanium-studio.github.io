@@ -70,4 +70,3 @@ fetch("../../src/json/studio.json")
   .then(xstudio.use)
   .then(xstudio.ready)
   .catch(XStudio.ERROR)
-globalThis.xstudio = xstudio
