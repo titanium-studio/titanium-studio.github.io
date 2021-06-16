@@ -20,46 +20,45 @@ fetch("../../src/json/studio.json")
         )
       ),
       XSection({ id: "about", css: "wrapper" },
-        XList( 
-          XList({ listType: "row" }, 
+        XList(
+          XList({ listType: "row" },
             XText({ tagName: "h2" }, "My name is Aset.\nI'm based in Aktau, Kazakhstan."),
-            XBlank()
+            XBlank({ css: "empty" })
           ),
-          XList({ listType: "row" }, 
-            XBlank(),
+          XList({ listType: "row" },
+            XBlank({ css: "empty" }),
             XText({ css: "description", tagName: "p" }, "I am engaged in web development.")
           ),
-          XList({ listType: "row" }, 
+          XList({ listType: "row" },
             XText({ css: "leftSide" }, "What can I do:"),
-            XList({ css: "rightSide" }, 
+            XList({ css: "rightSide" },
               XText("Make a website for every taste."),
               XText("Create computer applications using Electron"),
               XText("Work in NodeJS")
             )
           ),
-          XList({ listType: "row" }, 
+          XList({ listType: "row" },
             XText({ css: "leftSide" }, "What I'm studying:"),
-            XList({ css: "rightSide" }, 
+            XList({ css: "rightSide" },
               XText("Development of native applications on React"),
               XText("Java programming")
             )
           ),
-          )
+        )
       ),
       XFooter({ id: "footer" },
-        XBlank({ css: "footer_grid", notranslate: true }, 
+        XBlank({ css: "footer_grid", notranslate: true },
           XText({
-            tagName: "a", href: "mailto:telmanov2002.at@gmail.com",
-            style: { gridArea: "Email", fontSize: "var(--h2,2.6em)" }
+            tagName: "a", css: "footer_email", href: "mailto:telmanov2002.at@gmail.com"
           }, "telmanov2002.at@gmail.com"),
-          XList({ style: { gridArea: "Socials" } }, 
+          XList({ style: { gridArea: "Socials" } },
             XText({ tagName: "p" }, "— Socials"),
             XText({ tagName: "a", href: "https://www.facebook.com/ace.titan.404" }, "Facebook"),
             XText({ tagName: "a", href: "https://t.me/titanov" }, "Telegram"),
             XText({ tagName: "a", href: "https://vk.com/aset_telmanov" }, "VKontakte"),
             XText({ tagName: "a", href: "https://api.whatsapp.com/send?phone=+77788405404" }, "WhatsApp")
           ),
-          XList({ style: { gridArea: "Githubs", paddingLeft: "0" } }, 
+          XList({ style: { gridArea: "Githubs", paddingLeft: "0" } },
             XText({ tagName: "p" }, "— Github pages"),
             XText({ tagName: "a", href: "https://github.com/x-titan" }, "/x-titan"),
             XText({ tagName: "a", href: "https://github.com/titanium-studio" }, "/titanium-studio"),
@@ -71,4 +70,4 @@ fetch("../../src/json/studio.json")
   .then(xstudio.use)
   .then(xstudio.ready)
   .catch(XStudio.ERROR)
-  globalThis.xstudio = xstudio
+globalThis.xstudio = xstudio

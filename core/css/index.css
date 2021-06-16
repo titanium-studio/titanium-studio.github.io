@@ -11,6 +11,10 @@ a:hover {
   color: var(--light);
 }
 
+[xbuild] {
+  overflow: hidden;
+}
+
 #main [xtext] {
   font-family: 'Montserrat', sans-serif;
   font-size: 18vw;
@@ -50,10 +54,6 @@ a:hover {
   margin-top: var(--size3, 32px);
 }
 
-#about .rightSide [xbuild]:first-child {
-  margin-top: 0;
-}
-
 #about [xlist="row"] [xbuild] {
   flex: 1;
 }
@@ -83,4 +83,45 @@ a:hover {
 
 #footer [xlist] a {
   margin-top: var(--size1, 18px);
+}
+
+#footer .footer_email {
+  grid-area: Email;
+  font-size: var(--h2, 2.6em)
+}
+
+@media screen and (min-width:750px) {
+  #about .rightSide [xbuild]:first-child {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width:750px) {
+  #main [xtext]{
+    transform-origin: left;
+    transform: rotateZ(90deg);
+    bottom: initial;
+    top: -10%;
+    left: 18vh;
+    font-size: 18vh;
+  }
+  #footer .footer_grid {
+    grid-template-areas: 'Email Email' 'Socials Githubs';
+  }
+  #footer .footer_email {
+    justify-self: end;
+    font-size: var(--h4, 1.8em);
+  }
+  #about .empty {
+    flex: 0!important;
+  }
+  #about [xlist=row] {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:450px) {
+  #footer .footer_email {
+    font-size: var(--h5, 1.4em);
+  }
 }
