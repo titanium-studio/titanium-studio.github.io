@@ -66,15 +66,15 @@ a:hover {
 
 #footer .footer_grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: '. Email' 'Socials Githubs';
+  grid-template-areas: '. . Email Email' 'Socials Githubs Sites .';
   align-items: flex-end;
   height: 100%;
 }
 
 #footer [xlist] {
-  padding: var(--size2, 24px);
+  padding: var(--size2, 24px) 0;
 }
 
 #footer [xtext]:first-child {
@@ -88,6 +88,19 @@ a:hover {
 #footer .footer_email {
   grid-area: Email;
   font-size: var(--h2, 2.6em)
+}
+
+#footer .footer_social {
+  grid-area: Socials;
+  padding-left: var(--size2, 24px);
+}
+
+#footer .footer_github {
+  grid-area: Githubs;
+}
+
+#footer .footer_site {
+  grid-area: Sites;
 }
 
 @media screen and (min-width:750px) {
@@ -106,11 +119,15 @@ a:hover {
     font-size: 18vh;
   }
   #footer .footer_grid {
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 'Email Email' 'Socials Githubs';
   }
   #footer .footer_email {
     justify-self: end;
     font-size: var(--h4, 1.8em);
+  }
+  #footer .footer_site{
+    display: none;
   }
   #about .empty {
     flex: 0!important;

@@ -51,17 +51,24 @@ fetch("../../src/json/studio.json")
           XText({
             tagName: "a", css: "footer_email", href: "mailto:telmanov2002.at@gmail.com"
           }, "telmanov2002.at@gmail.com"),
-          XList({ style: { gridArea: "Socials" } },
+          XList({ css: "footer_social", style: { gridArea: "Socials" } },
             XText({ tagName: "p" }, "— Socials"),
             XText({ tagName: "a", href: "https://www.facebook.com/ace.titan.404" }, "Facebook"),
             XText({ tagName: "a", href: "https://t.me/titanov" }, "Telegram"),
             XText({ tagName: "a", href: "https://vk.com/aset_telmanov" }, "VKontakte"),
             XText({ tagName: "a", href: "https://api.whatsapp.com/send?phone=+77788405404" }, "WhatsApp")
           ),
-          XList({ style: { gridArea: "Githubs", paddingLeft: "0" } },
-            XText({ tagName: "p" }, "— Github pages"),
+          XList({ css: "footer_github", style: { gridArea: "Githubs", paddingLeft: "0" } },
+            XText({ tagName: "p" }, "— Githubs"),
             XText({ tagName: "a", href: "https://github.com/x-titan" }, "/x-titan"),
-            XText({ tagName: "a", href: "https://github.com/titanium-studio" }, "/titanium-studio"),
+            XText({ tagName: "a", href: "https://github.com/titanium-studio" }, "/titanium-studio")
+          ),
+          XList({ css: "footer_site" },
+            XText({ tagName: "p" }, "— Sites"),
+            XText({ tagName: "a", href: "https://x-titan.github.io" }, "x-titan"),
+            XText({ tagName: "a", href: "https://titanium-studio.github.io" }, "titanium-studio"),
+            XText({ tagName: "a", href: "https://titanium-studio.github.io/studio" }, "titanium-studio/studio"),
+            XText({ tagName: "a", href: "https://titanium-studio.github.io/gallery" }, "titanium-studio/gallery")
           )
         )
       )
