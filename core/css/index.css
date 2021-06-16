@@ -97,7 +97,7 @@ a:hover {
 }
 
 @media screen and (max-width:750px) {
-  #main [xtext]{
+  #main [xtext] {
     transform-origin: left;
     transform: rotateZ(90deg);
     bottom: initial;
