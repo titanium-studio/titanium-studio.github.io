@@ -30,7 +30,7 @@ const proto = {
     $event(window, "wheel", e => { e.preventDefault(); let tn = new Date().getTime(); if (tn - lT < t + aT) return; e.wheelDelta < 0 ? this.nextPage() : this.prevPage(); lT = tn }, { passive: false })
     return this
   },
-  favicon(url) { search.id("favicon").attributes.getNamedItem("href").value = "./src/png/" + url + ".png"; return this },
+  favicon(url) { search.id("favicon").attributes.getNamedItem("href").value = "../src/png/" + url + ".png"; return this },
   _(n) { let a = this.__sections__[n].self; add(a, act); smooth(a) },
   nextPage() {
     let _ = this._, s = this.__sections__

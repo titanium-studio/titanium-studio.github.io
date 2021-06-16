@@ -64,6 +64,15 @@ a:hover {
   font-weight: 500;
 }
 
+#footer .footer_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: '. Email' 'Socials Githubs';
+  align-items: flex-end;
+  height: 100%;
+}
+
 #footer [xlist] {
   padding: var(--size2, 24px);
 }

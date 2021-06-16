@@ -1,44 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-  <link id="favicon" rel="shortcut icon" href="./src/png/hero2.png" type="image/png">
-  <link rel="stylesheet" href="./css/start.css">
-  <link rel="stylesheet" href="./css/box.css">
-  <link rel="stylesheet" href="./css/minimalScreen.css">
-  <link rel="prefetch" href="./src/json/index.json" as="fetch" type="json">
+  <link rel="shortcut icon" href="./src/png/hero2.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="./core/css/index.css">
   <title>X Titan</title>
 </head>
-
 <body>
-  <div id="back" class="active">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-  <main id="body">
-    <div class="loader center_float circle"></div>
-  </main>
-  <div id="front" class="hide">
-    <header class="header">
-      <div class="logo"><a id="hero" translate="no" class="notranslate"><img src="./src/svg/hero1.svg" alt="hero"></a></div>
-      <nav class="nav">
-        <a href="./studio" id="plane" class="btn">
-          <i class="fas fa-paper-plane"></i>
-        </a>
-        <a id="nav" class="nav_burger btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-      </nav>
-    </header>
-  </div>
-  <script src="https://titanium-studio.github.io/Tools/index.js" type="module" defer></script>
-  <script src="./js/index.js" type="module" defer></script>
+  <div id="app"></div>
+  <script src="https://x-titan.github.io/utils/index.js" type="module" defer></script>
+  <script src="https://x-titan.github.io/web-utils/index.js" type="module" defer></script>
+  <script src="https://x-titan.github.io/xstudio/index.js" type="module" defer></script>
+  <script src="./core/js/index.js" type="module" defer></script>
 </body>
-
 </html>
