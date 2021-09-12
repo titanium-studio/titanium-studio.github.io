@@ -1,0 +1,17 @@
+:root {
+  --full_: -webkit-fill-available;
+  --full: var(--full_, 100%)
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: var(--full);
+  height: var(--full);
+  overflow: hidden;
+}
+
+#app {
+  width: var(--full);
+  height: var(--full);
+}
