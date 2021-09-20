@@ -1,40 +1,37 @@
-import { tools, DOM } from "https://titanium-studio.github.io/Tools/index.js"
+import { is, each, extend } from "https://x-titan.github.io/utils/index.js"
+import { search, styler, scrollTo, device } from "https://x-titan.github.io/web-utils/index.js"
 
-const { is, each } = tools,
-  { search, styler, smooth } = DOM
-
-//#region HTML Element[s]
-const _body_ = search.id("body"),
-  _nav_ = search.id("nav"),
-  _nav_list_ = search.id("nav_list");
-//#endregion
+extend(globalThis, { is, each, extend, search, styler, scrollTo, device })
+console.log(device)
+const _nav_list_ = search.id("nav_list"), $$ = document
 
 /**
  * @param {string} name
  * @param {string} [value]
  */
-let attr = (name, value) => {
-  let x = document.createAttribute(name)
+export function attr(name, value) {
+  let x = $$.createAttribute(name)
   is.empty(value) ? void 0 : x.value = value
   return x
 }
 /**
+ * @typedef {{x: number, y: number}} vec_
+ * 
  * @param {HTMLDivElement} targe
  * @param {Object} param1
- * @param {Object} param1.pos
- * @param {number} param1.pos.x
- * @param {number} param1.pos.y
- * @param {Object} param1.size
- * @param {number} param1.size.x
- * @param {number} param1.size.y
+ * @param {vec_} param1.pos
+ * @param {vec_} param1.size
  */
-function Block(target, { pos, size }) {
+export function Block(target, { pos, size }) {
   if (!(target instanceof Element))
     return console.error("TypeError: target is not a HTMLElement")
   if (!target.hasAttribute("block")) target.setAttributeNode(attr("block"))
-  styler.pro(target, { "--position": `${pos.y}/${pos.x}/${size.y + pos.y}/${size.x + pos.x}` })
+  styler.pro(target, {
+    "--position": `${pos.y}/${pos.x}/${size.y + pos.y}/${size.x + pos.x}`
+  })
   return target
 }
 
-each(_nav_list_.children, a => a.addEventListener("click", () => smooth(search.id(a.innerText.toLowerCase()))))
-export { Block, attr }
+each(_nav_list_.children,
+  a => a.addEventListener("click",
+    () => scrollTo(search.id(a.innerText.toLowerCase()))))
