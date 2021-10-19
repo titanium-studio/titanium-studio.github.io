@@ -2,7 +2,7 @@ import { is, each, extend } from "https://x-titan.github.io/utils/index.js"
 import { search, styler, scrollTo, device } from "https://x-titan.github.io/web-utils/index.js"
 
 extend(globalThis, { is, each, extend, search, styler, scrollTo, device })
-console.log(device)
+
 const _nav_list_ = search.id("nav_list"), $$ = document
 
 /**
