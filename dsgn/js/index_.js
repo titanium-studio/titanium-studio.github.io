@@ -21,17 +21,19 @@ const initNav = () => {
   const fill = d[newEl](div)
   const btn = d[newEl]("button")
   const hero = d[newEl](div)
-  const act = "active"
+  const act = "navActive"
+  const navZone = d[newEl](div)
+
 
   nav.id = "nav"
   btn.innerHTML = "<span></span><span></span><span></span>"
 
   nav[use](fill).className = "full relative"
+  nav[use](navZone).id = "navZone"
   fill[use](hero).id = "navHero"
   fill[use](btn).id = "navBtn"
-  btn.className = act
   btn.onclick = () => {
-    toggle(btn, act)
+    toggle(b, act)
   }
   return nav
 }

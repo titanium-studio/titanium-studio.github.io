@@ -64,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   cursor: pointer;
   position: relative;
+  z-index: 500;
 }
 
 #navBtn span {
@@ -83,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #navBtn:hover {
-  background-color: #0006;
+  background: #0003;
 }
 
 #navBtn:hover span:first-child {
@@ -100,6 +101,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #zone {
   z-index: 10;
+  transition: filter 0.2s ease;
+  transition: -webkit-filter 0.2s ease;
 }
 
 #zoneName {
@@ -154,22 +157,46 @@ h1, h2, h3, h4, h5, h6 {
   border-left: none;
 }
 
-#navBtn.active span {
+.navActive #navBtn span {
   position: absolute;
   transform-origin: center;
   top: 50%;
   left: 50%;
+  background: white;
 }
 
-#navBtn.active span:first-child {
+.navActive #navBtn span:first-child {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-#navBtn.active span:nth-child(2) {
+.navActive #navBtn span:nth-child(2) {
   width: 0px;
   opacity: 0;
 }
 
-#navBtn.active span:last-child {
+.navActive #navBtn span:last-child {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#navZone {
+  position: absolute;
+  inset: 0 0 auto 0;
+  width: 100%;
+  height: 0;
+  transition: all 0.5s ease;
+  background: #141414;
+}
+
+.navActive #navZone {
+  height: 50vh;
+}
+
+.navActive #zone {
+  filter: grayscale(1) blur(5px);
+}
+
+@media screen and (max-height: 700px) {
+  #navZone {
+    height: 100vh!important;
+  }
 }
