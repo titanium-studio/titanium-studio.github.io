@@ -19,6 +19,7 @@
 html, body, #app {
   overflow: hidden;
   font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
 }
 
 html, body, #app, #zone, #view, .card {
@@ -28,7 +29,7 @@ html, body, #app, #zone, #view, .card {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 2.6em;
+  font-size: 3.2em;
 }
 
 .full, [full] {
@@ -72,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   width: 100%;
   background: black;
-  transition: width 0.2s ease, transform 0.2s ease;
+  transition: width 0.2s ease, transform 0.2s ease, background 0.5s ease;
 }
 
 #navBtn span:first-child {
@@ -102,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 #zone {
   z-index: 10;
   transition: filter 0.2s ease;
-  transition: -webkit-filter 0.2s ease;
+  -webkit-transition: -webkit-filter 0.2s ease;
 }
 
 #zoneName {
@@ -121,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #view {
   display: grid;
-  grid-template-columns: 1fr 0.8fr 0.8fr;
+  grid-template-columns: 0.6fr 1fr 1fr;
   grid-template-rows: 1fr;
   align-content: center;
   justify-content: center;

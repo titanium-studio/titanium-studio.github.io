@@ -32,9 +32,7 @@ const initNav = () => {
   nav[use](navZone).id = "navZone"
   fill[use](hero).id = "navHero"
   fill[use](btn).id = "navBtn"
-  btn.onclick = () => {
-    toggle(b, act)
-  }
+  btn.onclick = () => toggle(b, act)
   return nav
 }
 
@@ -101,9 +99,9 @@ const newCard = ({ tag = "div", value = "", image = "" }) => {
   fetch("/src/json/" + jsonSource + ".json")
     .then(x => x.json())
     .then((x) => {
-      if (is.array(x.data)) {
+      if (is.array(x.data))
         each(x.data, y => viewCards.push(newCard(y)), false)
-      }
+
     })
     .catch(console.error)
     .finally(() => {
