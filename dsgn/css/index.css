@@ -32,6 +32,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3.2em;
 }
 
+li {
+  list-style: none;
+}
+
+a{
+  cursor: pointer;
+}
+
 .full, [full] {
   width: var(--full);
   height: var(--full);
@@ -142,6 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   background-position: center;
   text-shadow: 0 0.2em 1em #3335;
+  font-size: 1vw;
 }
 
 .aspectResize #zoneName {
@@ -179,17 +188,63 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+#navZone, #navZone nav li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #navZone {
+  --nav-background: #141414;
   position: absolute;
   inset: 0 0 auto 0;
   width: 100%;
   height: 0;
   transition: all 0.5s ease;
-  background: #141414;
+  background: var(--nav-background);
+  overflow: hidden;
+  color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navZone a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+
+#navZone a:hover::after {
+  width: 100%;
+}
+
+#navZone a::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0.2em;
+  background-color: var(--nav-background);
+  border-bottom: 0.1em solid white;
+  box-sizing: border-box;
+  bottom: calc(50% - 0.05em);
+  width: 0;
+  transition: all 0.2s ease;
+}
+
+#zone a::after{
+  content: "↗";
+  transition: all 0.2s ease;
+  font-size: 0;
+}
+#zone a:hover::after{
+  font-size: 1em;
 }
 
 .navActive #navZone {
   height: 50vh;
+  font-size: 5vh;
+  color: white;
 }
 
 .navActive #zone {
@@ -197,7 +252,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-height: 700px) {
-  #navZone {
-    height: 100vh!important;
+  .navActive #navZone {
+    height: 100vh;
+  }
+
+  #view>.card {
+    font-size: 1vh;
   }
 }

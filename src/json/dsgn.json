@@ -2,13 +2,13 @@
   "data": [
     {
       "tag": "div",
-      "value": "<h2>NoMedia</h2>",
-      "image":"/src/webp/1.webp"
+      "value": "<h2><a>About me</a></h2>",
+      "image":"/src/webp/city.webp"
     },
     {
       "tag": "div",
-      "value": "<h2>Finish</h2>",
-      "image":"/src/webp/2.webp"
+      "value": "<h2><a>My works</a></h2>",
+      "image":"/src/webp/keyboard.webp"
     }
   ]
 }

@@ -24,6 +24,17 @@ const initNav = () => {
   const act = "navActive"
   const navZone = d[newEl](div)
 
+  navZone.innerHTML = `
+  <nav>
+    <ul>
+      <li><a href='/'>DSGN</a></li>
+      <li><a href='/works.html'>WORKS</a></li>
+      <li><a href='/skills.html'>SKILLS</a></li>
+      <li><a href='/call.html'>CALL</a></li>
+    </ul>
+  </nav>
+
+  `
 
   nav.id = "nav"
   btn.innerHTML = "<span></span><span></span><span></span>"
