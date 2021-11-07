@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap');
 :root {
+  ----------------------: "full";
   --full_: -webkit-fill-available;
   --full: var(--full_, 100%);
   ----------------------: "size";
@@ -21,6 +22,27 @@
   --statusPin-size: 12px;
   --statusPin-active-size: 18px;
   --header-size: 1rem;
+  ----------------------: "grayscale";
+  --gray: #282828;
+  --gray-100: #DEE2E6;
+  --gray-200: #CED4DA;
+  --gray-300: #ADB5BD;
+  --gray-400: #6C757D;
+  --gray-500: #495057;
+  --gray-600: #343A40;
+  --gray-700: #212529;
+  --gray-800: #1B1F22;
+  --gray-900: #121517;
+  ----------------------: "colors";
+  --white: #fdfffc;
+  --white-1: #f7fff7;
+  --black: #08090a;
+  --red: #ef233c;
+  --red-1: #ff6b6b;
+  --green: #80ed99;
+  --blue: #00B4D8;
+  --yellow: #f5cb5c;
+  --orange: #ff7b00;
 }
 
 * {
@@ -78,12 +100,40 @@ h6 {
   font-size: calc(var(--header-size) * 2.5);
 }
 
-body[loading]::after{
+body[loading]::before {
   content: "";
   width: 100vw;
   height: 100vh;
   position: fixed;
   inset: 0;
+  background-color: var(--gray-900);
+  z-index: 2000;
+}
+
+body[loading]::after {
+  content: "Aset Studios";
+  z-index: 2000;
+  position: fixed;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: 'Dawning of a New Day', cursive;
+  font-size: 2em;
+  background: linear-gradient(90deg, #4d4d4d 0, white 10%, #4d4d4d 20%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60%, 100% {
+    background-position: 150px;
+  }
 }
 
 #dockZone {
@@ -94,8 +144,8 @@ body[loading]::after{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  box-shadow: 0 -1vh 3vh #0003;
+  background-color: var(--white);
+  box-shadow: 0 -1vh 3vh var(--gray-500);
   z-index: 1000;
 }
 
@@ -111,7 +161,7 @@ body[loading]::after{
 
 #openButton>span {
   display: block;
-  background-color: black;
+  background-color: var(--black);
   width: 100%;
   height: 2px;
   transition: width 0.2s ease, transform 0.2s ease;
@@ -126,7 +176,7 @@ body[loading]::after{
 }
 
 #openButton:hover {
-  background-color: #3335;
+  background-color: var(--gray-100);
 }
 
 #openButton:hover>span {
@@ -207,8 +257,8 @@ body[loading]::after{
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  color: white;
-  text-shadow: 0 0.1em 0.5em #0005;
+  color: var(--white);
+  text-shadow: 0 0.1em 0.5em var(--gray-500);
 }
 
 #zone .card>img {
@@ -230,16 +280,16 @@ body[loading]::after{
 #scrollStatus>div {
   width: var(--statusPin-size);
   height: var(--statusPin-size);
-  background-color: white;
+  background-color: var(--white);
   margin: calc(var(--statusPin-size) / 2) 0;
   cursor: pointer;
-  box-shadow: 0 0 0.5em 0.2em #0005;
+  box-shadow: 0 0 0.5em 0.2em #6C757D44;
   border-radius: 50%;
   transition: all 0.2s ease;
 }
 
 #scrollStatus>div:hover {
-  background-color: #aaa;
+  background-color: var(--gray-200);
 }
 
 #scrollStatus>div.active {

@@ -18,13 +18,10 @@ const div = "div"
 const child = "appendChild"
 const navOpen = "navOpen"
 
-const duration = 300
+const duration = 700
 let index = 0
 let currT = 0
 let lastT = 0
-
-
-openButton.onclick = () => css.toggle(body, navOpen)
 
 
 function newCard({ name, img, value }, img_source_path) {
@@ -74,12 +71,14 @@ fetch("/src/json/index.json")
 
 function doScroll(deltaY) { doScrollIndex(index + Math.sign(deltaY)) }
 
-zone.addEventListener("wheel", e => {
+openButton.onclick = () => css.toggle(body, navOpen)
+
+zone.onwheel = e => {
   e.preventDefault()
   if (lastT + duration < (currT = Date.now())) {
     lastT = currT
     doScroll(e.deltaY)
   }
-})
+}
 
 globalThis.addEventListener("resize", () => doScrollIndex(index))
