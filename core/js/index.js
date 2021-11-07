@@ -1,73 +1,85 @@
-import { XStudio, XBlank, XSection, XContent, XList, XText, XFooter } from "https://x-titan.github.io/xstudio/index.js"
+import { is, each, extend, List } from "https://x-titan.github.io/utils/index.js"
+import { css, search, styler, scrollTo } from "https://x-titan.github.io/web-utils/index.js"
 
-const xstudio = new XStudio("#app")
+const $ = search
+const $d = document
+const { body } = $d
+const zone = $.id("zone")
+const scrollStatus = $.id("scrollStatus")
+const openButton = $.id("openButton")
 
-xstudio
-  .init()
-  .then(imgList => {
-    return [
-      XSection({ id: "main" },
-        XBlank(
-          XText({
-            tagName: "h1", notranslate: true
-          }, "Titanium\nStudio")
-        )
-      ),
-      XSection({ id: "about", css: "wrapper" },
-        XList(
-          XList({ listType: "row" },
-            XText({ tagName: "h2" }, "My name is Aset.\nI'm based in Aktau, Kazakhstan."),
-            XBlank({ css: "empty" })
-          ),
-          XList({ listType: "row" },
-            XBlank({ css: "empty" }),
-            XText({ css: "description", tagName: "p" }, "I am engaged in web development.")
-          ),
-          XList({ listType: "row" },
-            XText({ css: "leftSide" }, "What can I do:"),
-            XList({ css: "rightSide" },
-              XText("Make a website for every taste."),
-              XText("Create computer applications using Electron"),
-              XText("Work in NodeJS")
-            )
-          ),
-          XList({ listType: "row" },
-            XText({ css: "leftSide" }, "What I'm studying:"),
-            XList({ css: "rightSide" },
-              XText("Development of native applications on React"),
-              XText("Java programming")
-            )
-          ),
-        )
-      ),
-      XFooter({ id: "footer" },
-        XBlank({ css: "footer_grid", notranslate: true },
-          XText({
-            tagName: "a", css: "footer_email", href: "mailto:telmanov2002.at@gmail.com"
-          }, "telmanov2002.at@gmail.com"),
-          XList({ css: "footer_social", style: { gridArea: "Socials" } },
-            XText({ tagName: "p" }, "— Socials"),
-            XText({ tagName: "a", href: "https://www.facebook.com/ace.titan.404" }, "Facebook"),
-            XText({ tagName: "a", href: "https://t.me/titanov" }, "Telegram"),
-            XText({ tagName: "a", href: "https://vk.com/aset_telmanov" }, "VKontakte"),
-            XText({ tagName: "a", href: "https://api.whatsapp.com/send?phone=+77788405404" }, "WhatsApp")
-          ),
-          XList({ css: "footer_github", style: { gridArea: "Githubs", paddingLeft: "0" } },
-            XText({ tagName: "p" }, "— Githubs"),
-            XText({ tagName: "a", href: "https://github.com/x-titan" }, "/x-titan"),
-            XText({ tagName: "a", href: "https://github.com/titanium-studio" }, "/titanium-studio")
-          ),
-          XList({ css: "footer_site" },
-            XText({ tagName: "p" }, "— Sites"),
-            XText({ tagName: "a", href: "https://x-titan.github.io" }, "x-titan"),
-            XText({ tagName: "a", href: "https://titanium-studio.github.io" }, "titanium-studio"),
-            XText({ tagName: "a", href: "https://titanium-studio.github.io/studio" }, "titanium-studio/studio"),
-            XText({ tagName: "a", href: "https://titanium-studio.github.io/gallery" }, "titanium-studio/gallery")
-          )
-        )
-      )
-    ]
+const zoneList = []
+const scrollStatusList = []
+
+const defaultImage = ""
+const scrollStatusActive = "active"
+const newEl = "newElement"
+const div = "div"
+const child = "appendChild"
+const navOpen = "navOpen"
+
+const duration = 300
+let index = 0
+let currT = 0
+let lastT = 0
+
+
+openButton.onclick = () => css.toggle(body, navOpen)
+
+
+function newCard({ name, img, value }, img_source_path) {
+  const x = $[newEl](div)
+  const n = $[newEl](div)
+  const i = new Image()
+
+  x.className = "card"
+  n.className = "name"
+
+  if (is.str(img)) {
+    i.src = img_source_path + img
+  } else i.src = defaultImage
+  x[child](n).innerHTML = name || ""
+  x[child](i)
+  return x
+}
+
+function doScrollIndex(i) {
+  if (i >= zoneList.length) i = 0
+  else if (i < 0) i = zoneList.length - 1
+
+  scrollTo(zoneList[index = i])
+  each(scrollStatusList, x => x.className = "")
+  scrollStatusList[index].className = scrollStatusActive
+}
+
+
+fetch("/src/json/index.json")
+  .then(x => x.json())
+  .then(x => {
+    if (is.array(x.data) && is.str(x.img_source_path))
+      each(x.data, item => zoneList.push(newCard(item, x.img_source_path)))
   })
-  .then(xstudio.use)
-  .then(xstudio.ready)
-  .catch(XStudio.ERROR)
+  .then(() => {
+    if (zoneList.length < 1) {
+      zoneList.push(newCard({ name: "<h1>Sorry|<code>500</code></h1>" }))
+    }
+    each(zoneList, (item, i) => {
+      zone[child](item)
+      const z = $[newEl](div)
+      z.onclick = () => doScrollIndex(i)
+      scrollStatusList.push(scrollStatus[child](z))
+    })
+    doScrollIndex(0)
+  })
+
+function doScroll(deltaY) { doScrollIndex(index + Math.sign(deltaY)) }
+
+zone.addEventListener("wheel", e => {
+  e.preventDefault()
+  if (lastT + duration < (currT = Date.now())) {
+    lastT = currT
+    doScroll(e.deltaY)
+  }
+})
+
+globalThis.addEventListener("resize", () => doScrollIndex(index))
