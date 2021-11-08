@@ -10,6 +10,7 @@ const openButton = $.id("openButton")
 
 const zoneList = []
 const scrollStatusList = []
+const usingImageList = []
 
 const defaultImage = ""
 const scrollStatusActive = "active"
@@ -17,11 +18,14 @@ const newEl = "newElement"
 const div = "div"
 const child = "appendChild"
 const navOpen = "navOpen"
+const loading = "loading"
 
+const loadingTime = 2500
 const duration = 700
 let index = 0
 let currT = 0
 let lastT = 0
+const timeNow = Date.now()
 
 
 function newCard({ name, img, value }, img_source_path) {
@@ -33,7 +37,10 @@ function newCard({ name, img, value }, img_source_path) {
   n.className = "name"
 
   if (is.str(img)) {
+    let z = usingImageList.push(false) - 1
+    i.onload = () => { usingImageList[z] = true }
     i.src = img_source_path + img
+
   } else i.src = defaultImage
   x[child](n).innerHTML = name || ""
   x[child](i)
@@ -67,6 +74,18 @@ fetch("/src/json/index.json")
       scrollStatusList.push(scrollStatus[child](z))
     })
     doScrollIndex(0)
+
+    globalThis.addEventListener("resize", () => doScrollIndex(index))
+
+    function removeLoad() {
+      if (document.readyState === "complete" && timeNow + loadingTime < Date.now() && usingImageList.every(image => image)) {
+        css.remove(body, loading)
+        if (body.hasAttribute(loading)) body.removeAttribute(loading)
+      } else setTimeout(removeLoad, 50)
+    }
+    document.addEventListener("DOMContentLoaded", removeLoad)
+    document.onreadystatechange = removeLoad
+    removeLoad()
   })
 
 function doScroll(deltaY) { doScrollIndex(index + Math.sign(deltaY)) }
@@ -80,5 +99,3 @@ zone.onwheel = e => {
     doScroll(e.deltaY)
   }
 }
-
-globalThis.addEventListener("resize", () => doScrollIndex(index))
