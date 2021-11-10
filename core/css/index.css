@@ -15,13 +15,14 @@
   --size8: 128px;
   --size9: 144px;
   ----------------------: "dock";
-  --heroName-size: var(--size6);
-  --hero-size: var(--size8);
-  --navZone-size: calc(100vh - (var(--hero-size) * 2));
-  --openButton-size: var(--size6);
+  --heroName-size: var(--size4);
+  --hero-size: var(--size6);
+  --open-size: calc(100vh - (var(--hero-size) * 2));
+  --openButton-size: var(--size4);
   --statusPin-size: 12px;
   --statusPin-active-size: 18px;
   --header-size: 1rem;
+  --onloaded-duration: 0.5s;
   ----------------------: "grayscale";
   --gray: #282828;
   --gray-100: #DEE2E6;
@@ -59,11 +60,11 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-html, body, #dockZone, #navZone, #heroZone, #bodyZone, #zone>.card {
+html, body, #dockZone, #open, #heroZone, #bodyZone, #zone>.card {
   overflow: hidden;
 }
 
-body, #bodyZone, #openButton, #navZone, #zone, #zone>.card {
+body, #bodyZone, #openButton, #open, #openContent, #zone, #zone>.card {
   position: relative;
 }
 
@@ -100,7 +101,7 @@ h6 {
   font-size: calc(var(--header-size) * 2.5);
 }
 
-body::before{
+body::before {
   content: "";
   width: 100vw;
   height: 0;
@@ -136,14 +137,17 @@ body[loading]::after {
   animation: shine 2s infinite linear;
 }
 
-body #bodyZone{
+body #bodyZone {
   transform-origin: center;
-  transition: transform 0.5s ease;
-
+  transition: transform var(--onloaded-duration) ease;
 }
-body[loading] #bodyZone{
-  transform: scale(1.5);
 
+body[loading] #bodyZone {
+  transform: scale(1.5);
+}
+
+body[loading] #dockZone {
+  transform: translateY(100%);
 }
 
 @keyframes shine {
@@ -166,6 +170,8 @@ body[loading] #bodyZone{
   background-color: var(--white);
   box-shadow: 0 -1vh 3vh var(--gray-500);
   z-index: 1000;
+  transition: transform var(--onloaded-duration) ease;
+  transition-delay: var(--onloaded-duration);
 }
 
 #openButton {
@@ -210,12 +216,12 @@ body[loading] #bodyZone{
   width: 100vw;
   height: var(--hero-size);
   display: grid;
-  grid-template-columns: var(--hero-size) 1fr var(--hero-size);
+  grid-template-columns: auto 1fr var(--hero-size);
   align-items: center;
   justify-items: center;
 }
 
-#navZone {
+#open {
   width: 100%;
   height: 0;
   transition: height 0.25s cubic-bezier(0.39, 0.58, 0.57, 1);
@@ -226,8 +232,8 @@ body[loading] #bodyZone{
   font-family: 'Montserrat', sans-serif;
 }
 
-.navOpen #navZone, #navZone .zone {
-  height: var(--navZone-size);
+.navOpen #open, #zone {
+  height: var(--open-size);
 }
 
 .navOpen #openButton>span {
@@ -285,36 +291,37 @@ body[loading] #bodyZone{
 }
 
 #scrollStatus {
-  position: fixed;
-  right: var(--size2);
-  top: 50%;
-  transform: translateY(-50%);
+  /* right: var(--size2); */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  z-index: 500;
+  margin-left: var(--statusPin-active-size);
+  /* z-index: 500; */
 }
 
 #scrollStatus>div {
   width: var(--statusPin-size);
   height: var(--statusPin-size);
-  background-color: var(--white);
-  margin: calc(var(--statusPin-size) / 2) 0;
+  background-color: var(--black);
+  margin: 0 calc(var(--statusPin-size) / 2);
   cursor: pointer;
-  box-shadow: 0 0 0.5em 0.2em #6C757D44;
+  /* box-shadow: 0 0 0.5em 0.2em #6C757D44; */
   border-radius: 50%;
   transition: all 0.2s ease;
 }
 
-#scrollStatus>div:hover {
-  background-color: var(--gray-200);
+#scrollStatus>div:not(.active):hover {
+  /* background-color: var(--gray-300); */
+  transform: scale(1.5);
 }
 
 #scrollStatus>div.active {
   width: var(--statusPin-active-size);
   height: var(--statusPin-active-size);
-  margin: var(--statusPin-active-size) 0;
+  margin: 0 var(--statusPin-active-size);
 }
 
 @media screen and (max-width: 750px) {
@@ -326,4 +333,25 @@ body[loading] #bodyZone{
     --statusPin-active-size: 12px;
     --header-size: 0.5rem;
   }
+}
+
+#openContent {
+  /* width: 100%; */
+  height: var(--open-size);
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.box {
+  flex: 0 0 200px;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(135deg, red, blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3em;
 }

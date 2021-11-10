@@ -7,10 +7,15 @@ const { body } = $d
 const zone = $.id("zone")
 const scrollStatus = $.id("scrollStatus")
 const openButton = $.id("openButton")
+const openZone = $d.getElementById("openZone")
 
 const zoneList = []
 const scrollStatusList = []
-const usingImageList = []
+const loadingImages = []
+const allImages = []
+const openImages = []
+
+let openedZone = false
 
 const defaultImage = ""
 const scrollStatusActive = "active"
@@ -20,7 +25,7 @@ const child = "appendChild"
 const navOpen = "navOpen"
 const loading = "loading"
 
-const loadingTime = 2500
+const loadingTime = 500
 const duration = 700
 let index = 0
 let currT = 0
@@ -37,8 +42,8 @@ function newCard({ name, img, value }, img_source_path) {
   n.className = "name"
 
   if (is.str(img)) {
-    let z = usingImageList.push(false) - 1
-    i.onload = () => { usingImageList[z] = true }
+    let z = loadingImages.push(false) - 1
+    i.onload = () => { loadingImages[z] = true }
     i.src = img_source_path + img
 
   } else i.src = defaultImage
@@ -56,6 +61,14 @@ function doScrollIndex(i) {
   scrollStatusList[index].className = scrollStatusActive
 }
 
+
+function doOpenImage() {
+  fetch("/src/json/open.json")
+    .then(x => x.json())
+    .then(x => {
+
+    })
+}
 
 fetch("/src/json/index.json")
   .then(x => x.json())
@@ -78,7 +91,7 @@ fetch("/src/json/index.json")
     globalThis.addEventListener("resize", () => doScrollIndex(index))
 
     function removeLoad() {
-      if (document.readyState === "complete" && timeNow + loadingTime < Date.now() && usingImageList.every(image => image)) {
+      if (document.readyState === "complete" && timeNow + loadingTime < Date.now() && loadingImages.every(image => image)) {
         css.remove(body, loading)
         if (body.hasAttribute(loading)) body.removeAttribute(loading)
       } else setTimeout(removeLoad, 50)
@@ -99,3 +112,10 @@ zone.onwheel = e => {
     doScroll(e.deltaY)
   }
 }
+
+const boxList = $.all(".box", openZone)
+openZone.addEventListener("wheel", (e) => {
+  // console.log(e)
+  // e.preventDefault()
+  const { deltaX, deltaY } = e
+})
