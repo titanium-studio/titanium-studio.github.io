@@ -2,24 +2,23 @@
   "img_source_path": "/src/webp/",
   "data": [
     {
+      "name": "<h2>Aesthetic</h2>",
+      "img": "city.webp",
+      "value": "The photo was taken in Aktau (Kazakhstan)."
+    },
+    {
       "name": "<h2>Flowers</h2>",
-      "img": "flower1.webp",
-      "value": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere incidunt quae ratione possimus facilis cum fugit molestiae! Eaque, modi debitis! Quaerat vitae consequuntur libero iure illum nesciunt veritatis, itaque laudantium.</p>"
+      "img": "flower1.webp"
     },
     {
       "name": "<h2>Blue😀</h2>",
-      "img": "1.webp",
-      "value": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere incidunt quae ratione possimus facilis cum fugit molestiae! Eaque, modi debitis! Quaerat vitae consequuntur libero iure illum nesciunt veritatis, itaque laudantium.</p>"
-    },
-    {
-      "name": "<h2>Beatyfull</h2>",
       "img": "2.webp",
-      "value": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere incidunt quae ratione possimus facilis cum fugit molestiae! Eaque, modi debitis! Quaerat vitae consequuntur libero iure illum nesciunt veritatis, itaque laudantium.</p>"
+      "value": "Beautyfull boat. Caspian sea."
     },
     {
       "name": "<h2>Cool</h2>",
       "img": "3.webp",
-      "value": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere incidunt quae ratione possimus facilis cum fugit molestiae! Eaque, modi debitis! Quaerat vitae consequuntur libero iure illum nesciunt veritatis, itaque laudantium.</p>"
+      "value": "That Almaty, bro."
     }
   ]
 }
