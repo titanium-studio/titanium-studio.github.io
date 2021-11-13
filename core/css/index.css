@@ -267,8 +267,6 @@ body[loading] #dockZone {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd {}
-
 #bodyZone, #zone, #zone>.card {
   width: 100vw;
   height: 100vh;
