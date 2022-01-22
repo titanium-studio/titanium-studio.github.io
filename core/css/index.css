@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap');
+
 @font-face {
   font-family: 'Azonix Regular';
   font-style: normal;
@@ -165,6 +166,7 @@ body[loading] #dockZone {
   0% {
     background-position: 0;
   }
+
   60%, 100% {
     background-position: 300px;
   }
@@ -359,7 +361,7 @@ body[loading] #dockZone {
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
-  grid-template-areas: ". card2 ." "card1 card2 card3" "card1 card2 card3" "card1 . card4";
+  grid-template-areas: ". card2 .""card1 card2 card3""card1 card2 card3""card1 . card4";
   grid-gap: var(--size1);
   padding: var(--size1);
 }
@@ -374,13 +376,15 @@ body[loading] #dockZone {
   align-items: center;
   font-size: 2em;
   transition: all 0.2s ease;
+}
+
+#openContent a {
   text-decoration: none;
   color: var(--black);
 }
 
 #openContent .card:hover {
   background-color: var(--gray-300);
-  font-size: 2.5em;
 }
 
 #openContent .card::before {
@@ -442,6 +446,6 @@ body[loading] #dockZone {
   #openContent {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2fr 1fr 1fr;
-    grid-template-areas: "card1 card2" "card1 card4" "card3 card4";
+    grid-template-areas: "card1 card2""card1 card4""card3 card4";
   }
 }
