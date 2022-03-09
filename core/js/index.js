@@ -33,7 +33,7 @@ let lastT = 0
 const timeNow = Date.now()
 
 
-function newCard({ name, img, value }, img_source_path) {
+function newCard({ name, img, value }, img_source_path, index) {
   const x = $[newEl](div)
   const n = $[newEl](div)
   const i = new Image()
@@ -49,7 +49,7 @@ function newCard({ name, img, value }, img_source_path) {
   } else i.src = defaultImage
 
   if (is.str(name) && name !== "")
-    x[child](n).innerHTML = name
+    x[child](n).innerHTML = "" + name + index
   if (is.str(value) && value !== "")
     x[child](p).innerHTML = value
 
@@ -58,6 +58,7 @@ function newCard({ name, img, value }, img_source_path) {
 }
 
 function doScrollIndex(i) {
+  console.log(i)
   if (i >= zoneList.length) i = 0
   else if (i < 0) i = zoneList.length - 1
 
@@ -77,26 +78,26 @@ fetch("/src/json/index.json")
   .then(x => x.json())
   .then(x => {
     if (is.array(x.data) && is.str(x.img_source_path))
-      each(x.data, item => zoneList.push(newCard(item, x.img_source_path)))
+      each(x.data, (item, i) => zoneList[i] = newCard(item, x.img_source_path, i))
   })
   .then(() => {
     if (zoneList.length < 1) zoneList.push(newCard(sorry500))
-
+    console.log(zoneList)
     each(zoneList, (item, i) => {
       const z = $[newEl](div)
       zone[child](item)
       z.onclick = () => doScrollIndex(i)
-      scrollStatusList.push(scrollStatus[child](z))
+      scrollStatusList[i] = scrollStatus[child](z)
     })
 
     $g[addEv]("resize", () => doScrollIndex(index))
     $d[addEv]("DOMContentLoaded", $d.onreadystatechange = removeLoad)
 
     removeLoad()
-    doScrollIndex(0)
+    doScrollIndex(3)
   })
 
-function doScroll(deltaY) { doScrollIndex(index + Math.sign(deltaY)) }
+function doScroll(deltaY) { doScrollIndex(index - Math.sign(deltaY)) }
 
 openButton.onclick = () => css.toggle(body, navOpen)
 
@@ -108,9 +109,3 @@ zone.onwheel = e => {
     doScroll(e.deltaY)
   }
 }
-
-// const mstyle = mouse.style
-// $g[addEv]("mousemove", e => {
-//   mstyle.top = e.clientY + "px"
-//   mstyle.left = e.clientX + "px"
-// })
