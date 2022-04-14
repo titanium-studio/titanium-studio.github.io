@@ -34,6 +34,7 @@ const timeNow = Date.now()
 
 
 function newCard({ name, img, value }, img_source_path, index) {
+  console.log(index)
   const x = $[newEl](div)
   const n = $[newEl](div)
   const i = new Image()
@@ -94,10 +95,10 @@ fetch("/src/json/index.json")
     $d[addEv]("DOMContentLoaded", $d.onreadystatechange = removeLoad)
 
     removeLoad()
-    doScrollIndex(3)
+    doScrollIndex(0)
   })
 
-function doScroll(deltaY) { doScrollIndex(index - Math.sign(deltaY)) }
+function doScroll(deltaY) { doScrollIndex(index + Math.sign(deltaY)) }
 
 openButton.onclick = () => css.toggle(body, navOpen)
 
