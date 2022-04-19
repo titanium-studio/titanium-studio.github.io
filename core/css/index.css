@@ -25,7 +25,7 @@
   ----------------------: "dock";
   --heroName-size: var(--size4);
   --hero-size: var(--size6);
-  --open-size: calc(100vh - (var(--hero-size) * 2));
+  --open-size: 50vh;
   --openButton-size: var(--size4);
   --statusPin-size: 12px;
   --statusPin-active-size: 18px;
@@ -415,21 +415,6 @@ body[loading] #dockZone {
 #openContent .card:nth-child(4) {
   grid-area: card4;
 }
-
-/* body:not([loading]) #mouse {
-  top: 50%;
-  left: 50%;
-  position: fixed;
-  pointer-events: none;
-  width: 64px;
-  height: 64px;
-  background: var(--gray-600);
-  opacity: 0.5;
-  border-radius: 50%;
-  z-index: 5000;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-} */
 
 @media screen and (max-width: 750px) {
   :root {
