@@ -232,7 +232,7 @@ th, td {
 #body {
   height: var(--body-height);
   width: 100vw;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   z-index: 2;
   position: relative;

@@ -1,4 +1,4 @@
-import { is, each, extend, List } from "https://x-titan.github.io/utils/index.js"
+import { is, each, extend } from "https://x-titan.github.io/utils/index.js"
 import { css, search, styler, scrollTo } from "https://x-titan.github.io/web-utils/index.js"
 
 const $g = globalThis
