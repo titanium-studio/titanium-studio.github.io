@@ -5,47 +5,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-  <link rel="shortcut icon" href="../src/png/hero2.png" type="image/x-icon">
-  <link rel="stylesheet" href="../studio/css/start.css">
   <title>Gallery</title>
+  <link rel="stylesheet" href="https://x-titan.github.io/base/index.css">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://x-titan.github.io/base/style.css">
+  <link rel="shortcut icon" href="../src/png/hero2.png" type="image/x-icon">
+  <script src="https://x-titan.github.io/base/index.js" type="module" defer></script>
 </head>
 
 <body>
-  <header class="to_center" style="margin-top:var(--size3)">
-    <a href="../index.html" class="logo notranslate" not_after translate="no"><img src="../src/svg/hero1.svg" alt="hero"></a>
-    <div><input type="text" list="search_list" id="src" placeholder="Search photo with tag" spellcheck="false">
-      <datalist id="search_list"></datalist>
-    </div>
-    <nav id="nav">
-      <ul id="nav_list"></ul>
-    </nav>
-  </header>
-  <main id="body">
-    <section id="gallery" gallery class="m_bottom" style="padding-top:var(--size4)"></section>
-    <section grid style="height:auto">
-      <div block class="view flex to_center" style='--position:1/1/-1/-1;padding:var(--size3)'>
-        <button id="loadMore">Load More</button>
-      </div>
+  <div id="body">
+    <main>
+      <h1>Gallery</h1>
+    </main>
+    <section id="view" class="gallery_grid" grid>
+
     </section>
-    <footer id="footer" grid class="page" style="height:160px;grid-template-rows:repeat(auto-fill,40px);">
-      <div id="social" block class="flex view"
-        style="--position:2/-16/4/7;align-items:center;font-size:var(--h4);padding-left:4rem">
-        <a not_after href="https://www.facebook.com/ace.titan.404" rel="noopener" target="_blank" style="margin-right:2rem"><i
-            class="fab fa-facebook-f"></i></a>
-        <a not_after href="https://api.whatsapp.com/send?phone=+77788405404" rel="noopener" target="_blank"
-          style="margin-right:2rem;"><i class="fab fa-whatsapp"></i></a>
-        <a not_after href="https://github.com/x-titan" rel="noopener" target="_blank"><i class="fab fa-github"></i></a>
-      </div>
-      <div block class="flex to_center view" style="--position:2/11/4/16;justify-content:flex-end;padding-right:4rem">
-        <span>Powered by <a href="https://github.com/titanium-studio" target="_blank">titanium studio</a></span>
-      </div>
-    </footer>
-  </main>
-  <script src="https://x-titan.github.io/utils/index.js" type="module" defer></script>
-  <script src="https://x-titan.github.io/web-utils/index.js" type="module" defer></script>
-  <script src="../studio/js/index.js" type="module" defer></script>
-  <script src="./js/imageiterate.js" type="module" defer></script>
+    <section flex center>
+      <button id="more">More</button>
+    </section>
+  </div>
+  <script src="./index.js" type="module" defer></script>
 </body>
 
 </html>
