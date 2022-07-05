@@ -361,7 +361,11 @@ body[loading] #dockZone {
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
-  grid-template-areas: ". card2 .""card1 card2 card3""card1 card2 card3""card1 . card4";
+  grid-template-areas:
+    ". card2 ."
+    "card1 card2 card3"
+    "card1 card2 card3"
+    "card1 . card4";
   grid-gap: var(--size1);
   padding: var(--size1);
 }
@@ -431,6 +435,9 @@ body[loading] #dockZone {
   #openContent {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2fr 1fr 1fr;
-    grid-template-areas: "card1 card2""card1 card4""card3 card4";
+    grid-template-areas:
+      "card1 card2"
+      "card1 card4"
+      "card3 card4";
   }
 }
