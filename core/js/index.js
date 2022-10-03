@@ -1,112 +1,109 @@
-import { is, each, extend } from "https://x-titan.github.io/utils/index.js"
-import { css, search, styler, scrollTo } from "https://x-titan.github.io/web-utils/index.js"
+import { is, each } from "https://x-titan.github.io/utils/index.js"
+import { search, css, scrollTo } from "https://x-titan.github.io/web-utils/index.js"
 
-const $g = globalThis
-const $ = search
-const $d = document
-const { body } = $d
-const zone = $.id("zone")
-const scrollStatus = $.id("scrollStatus")
-const openButton = $.id("openButton")
-const mouse = $.id("mouse")
+const g = globalThis
+const d = document
+const body = d.body
 
+const headerHTML = `
+<div flex="row" header-container>
+  <button header-button>
+    <div header-icon></div>
+  </button>
+  <a href="/" button header-button header-hero>
+    <div header-icon>
+      <img src="https://titanium-studio.github.io/src/svg/hero1.svg" alt="hero">
+    </div>
+  </a>
+  <button onclick="headerOnClick()" header-button header-burger>
+    <div header-icon>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+</div>`
 
-const sorry500 = { name: "<h1>Sorry|<code>500</code></h1>" }
+const navHTML = `
+<div>
+  <div></div>
+</div>`
 
-const zoneList = []
-const scrollStatusList = []
-const loadingImages = []
+/** @type {HTMLDivElement} */
+const view = search.id("view")
+/** @type {HTMLDivElement} */
+const dockStatus = search.id("status")
+const list = []
 
-const defaultImage = ""
-const scrollStatusActive = "active"
-const addEv = "addEventListener"
-const newEl = "newElement"
-const div = "div"
-const child = "appendChild"
-const navOpen = "navOpen"
-const loading = "loading"
+function newCard({ name, value, img, href }, img_source_path, index) {
+  const card = search.new("a")
+  const photo = new Image()
+  const button = search.new("button")
 
-const loadingTime = 2500
-const duration = 700
-let index = 0
-let lastT = 0
-const timeNow = Date.now()
-
-
-function newCard({ name, img, value }, img_source_path, index) {
-  console.log(index)
-  const x = $[newEl](div)
-  const n = $[newEl](div)
-  const i = new Image()
-  const p = $[newEl]("p")
-
-  x.className = "card"
-  n.className = "name"
 
   if (is.str(img)) {
-    let z = loadingImages.push(false) - 1
-    i.onload = () => loadingImages[z] = true
-    i.src = img_source_path + img
-  } else i.src = defaultImage
+    photo.src = img_source_path + img
+  }
 
-  if (is.str(name) && name !== "")
-    x[child](n).innerHTML = "" + name + index
-  if (is.str(value) && value !== "")
-    x[child](p).innerHTML = value
+  if (is.str(href)) {
+    card.href = href
+  }
 
-  x[child](i)
-  return x
-}
+  card.classList.add("card","item")
+  button.onclick = () => { doScrollIndex(index) }
+  card.appendChild(photo)
 
-function doScrollIndex(i) {
-  console.log(i)
-  if (i >= zoneList.length) i = 0
-  else if (i < 0) i = zoneList.length - 1
-
-  scrollTo(zoneList[index = i])
-  each(scrollStatusList, x => x.className = "")
-  scrollStatusList[index].className = scrollStatusActive
-}
-
-function removeLoad() {
-  if ($d.readyState === "complete" && timeNow + loadingTime < Date.now() && loadingImages.every(image => image)) {
-    css.remove(body, loading)
-    if (body.hasAttribute(loading)) body.removeAttribute(loading)
-  } else setTimeout(removeLoad, 50)
-}
-
-fetch("/src/json/index.json")
-  .then(x => x.json())
-  .then(x => {
-    if (is.array(x.data) && is.str(x.img_source_path))
-      each(x.data, (item, i) => zoneList[i] = newCard(item, x.img_source_path, i))
-  })
-  .then(() => {
-    if (zoneList.length < 1) zoneList.push(newCard(sorry500))
-    console.log(zoneList)
-    each(zoneList, (item, i) => {
-      const z = $[newEl](div)
-      zone[child](item)
-      z.onclick = () => doScrollIndex(i)
-      scrollStatusList[i] = scrollStatus[child](z)
-    })
-
-    $g[addEv]("resize", () => doScrollIndex(index))
-    $d[addEv]("DOMContentLoaded", $d.onreadystatechange = removeLoad)
-
-    removeLoad()
-    doScrollIndex(0)
-  })
-
-function doScroll(deltaY) { doScrollIndex(index + Math.sign(deltaY)) }
-
-openButton.onclick = () => css.toggle(body, navOpen)
-
-zone.onwheel = e => {
-  e.preventDefault()
-  const currT = Date.now()
-  if (lastT + duration < currT) {
-    lastT = currT
-    doScroll(e.deltaY)
+  return {
+    name,
+    value,
+    index,
+    card,
+    href,
+    button
   }
 }
+
+
+function doScrollIndex() { }
+
+
+fetch("/src/json/index.json")
+  .then((response) => (response.json()))
+  .then((json) => {
+    if (is.array(json.data) && is.str(json.img_source_path)) {
+      const { data, img_source_path } = json
+
+      each(data, (item, index) => {
+        const card = newCard(item, img_source_path)
+        view.appendChild(card.card)
+        dockStatus.appendChild(card.button)
+      })
+    }
+  })
+
+
+function onload() {
+  if (onload.once) { return }
+
+  onload.once++
+
+  // const content = search("#body")
+  const header = search.new("header")
+  const nav = search.new("div")
+
+  header.id = "header"
+  nav.id = "navbox"
+
+  header.innerHTML = headerHTML
+  nav.innerHTML = navHTML
+
+  g.headerOnClick = function () {
+    css.toggle(body, "header_nav_active")
+  }
+
+  body.prepend(header)
+  body.append(nav)
+}
+onload.once = 0
+
+g.addEventListener("DOMContentLoaded", onload)
+g.addEventListener("load", onload)

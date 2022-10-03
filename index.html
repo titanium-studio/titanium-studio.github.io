@@ -12,45 +12,32 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
   <link id="favicon" rel="icon" href="/src/png/hero2.png" type="image/png">
   <link id="favicon" rel="shortcut icon" href="/src/png/hero2.png" type="image/png">
-  <link rel="stylesheet" href="/core/css/index.css">
+  <link rel="stylesheet" href="https://x-titan.github.io/base/index.css">
+  <link rel="stylesheet" href="./core/css/index.css">
   <title class="notranslate" translate="no">Titanium Studio</title>
 </head>
 
-<body loading>
-
-  <div id="bodyZone">
-    <div id="zone"></div>
-    <div id="scrollStatus"></div>
-  </div>
-
-  <article id="dockZone">
-    <div id="heroZone">
-      <div></div>
-      <h1 id="heroName" class="notranslate" translate="no">DSGN</h1>
-      <button id="openButton">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div id="open">
-      <div id="openName"></div>
-      <div id="openZone">
-        <div id="openContent">
-          <div class="card">
-            <a href="/">Index</a>
-          </div>
-
-          <a href="https://x-titan.herokuapp.com/about" class="card">About</a>
-          <a href="/studio/" class="card">Studio</a>
-          <a href="https://x-titan.herokuapp.com/contact" class="card">Contacts</a>
-        </div>
+<body>
+  <div id="body">
+    <div id="content">
+      <button class="controller" id="prev">Prev</button>
+      <div id="view">
+        
       </div>
+      <button class="controller" id="next">Next</button>
     </div>
-  </article>
-  <div id="mouse"></div>
+    <div id="dock">
+      <h6 id="name">
+        Item name
+      </h6>
+      <div id="status">
+        
+      </div>
+      <div id="desc">Item description</div>
+    </div>
+  </div>
   <script src="https://x-titan.github.io/utils/index.js" type="module" defer></script>
-  <script src="/core/js/index.js" type="module" defer></script>
+  <script src="./core/js/index.js" type="module" defer></script>
   <script type="text/javascript" defer>
     (function (m, e, t, r, i, k, a) {
       m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };

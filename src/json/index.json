@@ -1,24 +1,25 @@
 {
-  "img_source_path": "/src/webp/",
+  "img_source_path": "/src/png/",
   "data": [
     {
-      "name": "<h2>Aesthetic</h2>",
-      "img": "city.webp",
-      "value": "The photo was taken in Aktau (Kazakhstan)."
+      "name": "Aesthetic",
+      "img": "rectangle.png",
+      "href": "/"
     },
     {
-      "name": "<h2>Flowers</h2>",
-      "img": "flower1.webp"
+      "name": "Unique",
+      "img": "ball.png",
+      "href": "/"
     },
     {
-      "name": "<h2>Blue😀</h2>",
-      "img": "2.webp",
-      "value": "Beautyfull boat. Caspian sea."
+      "name": "Design",
+      "img": "cone.png",
+      "href": "/"
     },
     {
-      "name": "<h2>Cool</h2>",
-      "img": "3.webp",
-      "value": "That Almaty, bro."
+      "name": "Cool",
+      "img": "ball2.png",
+      "href": "/"
     }
   ]
 }
