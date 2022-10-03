@@ -17,25 +17,127 @@
   <title class="notranslate" translate="no">Titanium Studio</title>
 </head>
 
-<body>
-  <div id="body">
-    <div id="content">
-      <button class="controller" id="prev">Prev</button>
-      <div id="view">
-        
-      </div>
-      <button class="controller" id="next">Next</button>
-    </div>
-    <div id="dock">
-      <h6 id="name">
-        Item name
-      </h6>
-      <div id="status">
-        
-      </div>
-      <div id="desc">Item description</div>
-    </div>
+<body class="">
+
+  <div id="back">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+
+  <header id="header">
+    <div flex="row" header-container="">
+      <button header-button="">
+        <div header-icon=""></div>
+      </button>
+      <a href="/" button="" header-button="" header-hero="">
+        <div header-icon="">
+          <img src="https://titanium-studio.github.io/src/svg/hero1.svg" alt="hero">
+        </div>
+      </a>
+      <button onclick="headerOnClick()" header-button="" header-burger="">
+        <div header-icon="">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <main id="body">
+
+    <div id="dsgn" class="section active">
+      <div class="name">DSG<span>N</span></div>
+      <div class="content split">
+        <div column>
+          <a button href="https://x-titan.github.io/"><div>More</div><span></span></a>
+          <div class="card">
+            <div class="value">About me</div>
+            
+          </div>
+        </div>
+        <div column>
+          <div class="card">
+            <div class="value">Last Project</div>
+            
+          </div>
+        </div>
+        <div column>
+          <div class="card">
+            <div class="value">Most Popular Projet</div>
+            
+          </div>
+        </div>
+        <div column></div>
+      </div>
+    </div>
+
+    <div id="work" class="section active">
+      <div class="name">WOR<span>K</span></div>
+      <div class="content split">
+        <div column>
+          <div class="card">
+            <div class="value">Utils</div>
+            <a button href="https://x-titan.github.io/">
+              <div>Read more</div>
+              <span></span>
+            </a>
+          </div>
+        </div>
+        <div column>
+          <div class="card">
+            <div class="value">Game</div>
+            <a button href="https://x-titan.github.io/">
+              <div>Read more</div>
+              <span></span>
+            </a>
+          </div>
+        </div>
+        <div column>
+          <div class="card">
+            <div class="value">Noise</div>
+            <a button href="https://x-titan.github.io/">
+              <div>Read more</div>
+              <span></span>
+            </a>
+          </div>
+        </div>
+        <div column>
+          <div class="card">
+            <div class="value">Vector</div>
+            <a button href="https://x-titan.github.io/">
+              <div>Read more</div>
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="skills" class="section active">
+      <div class="name">SKIIL<span>S</span></div>
+      <div class="content split">
+        <div column></div>
+        <div column></div>
+        <div column></div>
+        <div column></div>
+      </div>
+    </div>
+
+    <div id="contacts" class="section active">
+      <div class="name">CONTACT<span>S</span></div>
+      <div class="content split">
+        <div column></div>
+        <div column></div>
+        <div column></div>
+        <div column></div>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="dialog"></div>
+
   <script src="https://x-titan.github.io/utils/index.js" type="module" defer></script>
   <script src="./core/js/index.js" type="module" defer></script>
   <script type="text/javascript" defer>

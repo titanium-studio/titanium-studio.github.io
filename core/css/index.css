@@ -7,9 +7,9 @@
   --header-padding: calc((var(--header-height) - var(--header-size)) / 2);
   --height: calc(100vh - var(--header-height));
   --span-stick-width: 2px;
-  --header-icon-color: white;
-  --color: #fff;
-  --background-color: #000;
+  --header-icon-color: #000;
+  --color: #000;
+  --background-color: #fff;
   --hover-accent: #3a3a3a;
 }
 
@@ -17,7 +17,6 @@ body {
   color: var(--color);
   background-color: var(--background-color);
   font-family: 'Montserrat', sans-serif;
-  padding: var(--header-padding);
 }
 
 button {
@@ -25,10 +24,6 @@ button {
   font-size: inherit;
   font-weight: inherit;
   font-family: inherit;
-}
-
-#body button:hover, #body [button]:hover {
-  border: none;
 }
 
 .scrollable {
@@ -70,11 +65,15 @@ button {
 }
 
 #header [header-hero] img {
-  filter: invert(1);
+  /* filter: invert(1); */
 }
 
 #header [header-button]:hover {
   border-color: var(--header-icon-color);
+}
+
+#header [header-burger] {
+  font-size: 0;
 }
 
 #header [header-burger] span {
@@ -83,11 +82,12 @@ button {
   width: 100%;
   background-color: var(--header-icon-color);
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   transform-origin: center;
   top: 50%;
-  left: 50%;
+  left: 0;
   transition: all 0.2s ease-in-out;
+  pointer-events: none;
 }
 
 #header [header-burger] span:first-child {
@@ -96,86 +96,203 @@ button {
 
 #header [header-burger] span:last-child {
   top: 65%;
+  width: 50%;
+}
+
+#header [header-burger]:hover span:last-child {
+  width: 100%;
+}
+
+.header_nav_active #header [header-burger] span {
+  top: 50%;
+  left: 50%;
+  width: 100%;
+}
+
+.header_nav_active #header [header-burger]:hover span {
+  width: 50%;
 }
 
 .header_nav_active #header [header-burger] span:first-child {
-  top: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .header_nav_active #header [header-burger] span:last-child {
-  top: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-#body {
+#back {
+  z-index: -1000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   height: 100%;
   width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--gray-900);
+  transition: all 0.4s ease;
+  transform-origin: bottom;
+}
+
+#back span {
+  display: block;
+  height: 100%;
+  width: 1px;
+  background-color: var(--gray-200);
+}
+
+.header_nav_active #back {
+  height: 0;
+}
+
+#body {
   overflow: hidden;
-  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom;
+  transition: rotateX 0.4s ease;
+}
+
+.name {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20vh;
+  letter-spacing: 0.2em;
+  z-index: 1;
+  transition:
+    top 0.6s cubic-bezier(0.68, -0.55, 0.46, 0.62),
+    font-size 0.6s cubic-bezier(0.68, -0.55, 0.46, 0.62);
+}
+
+.name span {
+  letter-spacing: 0;
+}
+
+.split {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.split [column] {
+  width: 25%;
+  height: auto;
   display: flex;
   flex-direction: column;
-}
-
-#content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-end;
 }
 
-.controller {
-  position: absolute;
-  z-index: 1;
+.header_nav_active .name {
+  position: fixed;
+  font-size: 10vh;
+  top: 0;
+  cursor: pointer;
 }
 
-#prev {
-  left: 0;
+.header_nav_active .name:hover {
+  color: var(--accent);
 }
 
-#next {
-  right: 0;
+
+.header_nav_active .section:nth-child(1) .name {
+  top: 35%;
 }
 
-#view {
-  height: 100%;
+.header_nav_active .section:nth-child(2) .name {
+  top: 45%
+}
+
+.header_nav_active .section:nth-child(3) .name {
+  top: 55%;
+}
+
+.header_nav_active .section:nth-child(4) .name {
+  top: 65%;
+}
+
+.header_nav_active .content {
+  transform: rotateX(90deg);
+}
+
+a{
+  text-decoration: none;
+}
+
+.split [button] {
   width: 100%;
-  white-space: nowrap;
+  height: 64px;
+  background-color: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  transition: all 0.5s ease;
+  border: 1px solid var(--gray-400);
+}
+
+.split [button] span {
+  display: block;
+  width: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  pointer-events: none;
+  border-radius: 100%;
+  transition: all 0.5s ease;
+  aspect-ratio: 1/1;
+}
+.split [button] div:first-child {
   z-index: 1;
 }
+.split [button]:hover span{
+  width: 150%;
+}
 
-#view .item {
-  display: inline-flex;
+.card {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1/1;
+  border-top: 1px solid var(--gray-200);
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
 
-#view .item-active {
+}
+.card .value{
   width: 100%;
   height: 100%;
+  position: relative;
+  aspect-ratio: 1/1;
 }
-
-#dock {
-  z-index: 10;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.card [button]{
+  height: 0;
 }
-
-#name, #desc {
-  border-top: 1px solid white;
-  width: 256px;
-  margin: 0;
-  padding-top: 28px;
-}
-
-#status {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+.card:hover [button]{
+  height: 64px;
 }
