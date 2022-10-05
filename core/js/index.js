@@ -51,6 +51,10 @@ g.headerOnClick = () => {
   css.toggle(body, "header_nav_active")
 }
 
+g.onresize =(e)=>{
+  openSection(index)
+}
+
 function openSection(targetIndex) {
   if (0 <= targetIndex && targetIndex <= sections.length) {
     scrollTo(sections[index = targetIndex])
