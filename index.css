@@ -177,6 +177,7 @@ button {
   transform: translate(-50%, -50%);
   font-size: 20vh;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
   z-index: 1;
   transition:
     top 0.6s cubic-bezier(0.68, -0.55, 0.46, 0.62),
@@ -237,7 +238,7 @@ button {
   transform: rotateX(90deg);
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -267,10 +268,12 @@ a{
   transition: all 0.5s ease;
   aspect-ratio: 1/1;
 }
+
 .split [button] div:first-child {
   z-index: 1;
 }
-.split [button]:hover span{
+
+.split [button]:hover span {
   width: 150%;
 }
 
@@ -283,7 +286,8 @@ a{
   align-items: center;
   justify-content: center;
 }
-.card .value{
+
+.card .value {
   width: 100%;
   height: 100%;
   position: relative;
@@ -294,13 +298,16 @@ a{
   align-items: center;
   justify-content: center;
 }
-.card .value img{
+
+.card .value img {
   object-fit: contain;
   height: 50%;
 }
-.card [button]{
+
+.card [button] {
   height: 0;
 }
-.card:hover [button]{
+
+.card:hover [button] {
   height: 64px;
 }
