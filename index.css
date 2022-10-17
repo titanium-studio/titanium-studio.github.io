@@ -145,6 +145,46 @@ button {
   background-color: var(--gray-200);
 }
 
+#blur {
+  position: fixed;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  filter: blur(10vw);
+}
+
+#blur::before, #blur::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1/1;
+  width: 60vw;
+  border-radius: 50%;
+  background-color: var(--accent);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+#blur::before {
+  width: 60vw;
+  top: 30%;
+  left: 10%;
+}
+
+#blur::after {
+  width: 40vw;
+  top: 80%;
+  left: 90%;
+}
+
 .header_nav_active #back {
   height: 0;
 }
