@@ -9,7 +9,6 @@
   Web programming. Design.">
   <meta name="google-site-verification" content="aXIBa9oc3Vn1FbZSgmYEoFMqbutaT9WGI9Gtr85l8t0" />
   <meta name="yandex-verification" content="01d26f2f2e025b1b" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
   <link id="favicon" rel="icon" href="/src/png/hero2.png" type="image/png">
   <link id="favicon" rel="shortcut icon" href="/src/png/hero2.png" type="image/png">
   <link rel="stylesheet" href="https://x-titan.github.io/simple/index.css">
@@ -18,139 +17,41 @@
 </head>
 
 <body class="">
+  <div flex="row" id="body">
 
-  <div id="blur">
+    <div id="navPanel">
+      <nav>
+        <ul>
+          <li><a href="#about">
+              <h1>About</h1>
+            </a></li>
+          <li><a href="#contacts">
+              <h1>Contacts</h1>
+            </a></li>
+          <li><a href="#gallery">
+              <h1>Gallery</h1>
+            </a></li>
+          <li><a href="#projects">
+              <h1>Projects</h1>
+            </a></li>
+          <li><a href="#studio">
+              <h1 class="active">Studio</h1>
+            </a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main id="content">
+      <section id="studio"></section>
+      <section id="projects"></section>
+      <section id="gallery"></section>
+      <section id="contacts"></section>
+      <section id="about"></section>
+    </main>
+
   </div>
 
-  <div id="back">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
 
-  <header id="header">
-    <div flex="row" header-container="">
-      <button header-button="">
-        <div header-icon=""></div>
-      </button>
-      <a href="/" button="" header-button="" header-hero="">
-        <div header-icon="">
-          <img src="https://titanium-studio.github.io/src/svg/hero1.svg" alt="hero">
-        </div>
-      </a>
-      <button onclick="headerOnClick()" header-button="" header-burger="">
-        <div header-icon="">
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-    </div>
-  </header>
-
-  <main id="body">
-
-    <div id="dsgn" class="section active">
-      <div class="name">Studi<span>o</span></div>
-      <div class="content split">
-        <div column>
-          <a button href="https://x-titan.github.io/">
-            <div>More</div><span></span>
-          </a>
-          <div class="card">
-            <div class="value">
-              <img src="./src/png/ball.png" alt="">
-            </div>
-          </div>
-        </div>
-        <div column>
-          <div class="card">
-            <div class="value">
-              <img src="./src/png/rectangle.png" alt="">
-            </div>
-          </div>
-        </div>
-        <div column>
-          <div class="card">
-            <div class="value">
-              <img src="./src/png/cone.png" alt="">
-            </div>
-          </div>
-        </div>
-        <div column></div>
-      </div>
-    </div>
-
-    <div id="work" class="section active">
-      <div class="name">Project<span>s</span></div>
-      <div class="content split">
-        <div column>
-          <div class="card">
-            <div class="value">Utils</div>
-            <a button href="https://x-titan.github.io/">
-              <div>Read more</div>
-              <span></span>
-            </a>
-          </div>
-        </div>
-        <div column>
-          <div class="card">
-            <div class="value">Game</div>
-            <a button href="https://x-titan.github.io/">
-              <div>Read more</div>
-              <span></span>
-            </a>
-          </div>
-        </div>
-        <div column>
-          <div class="card">
-            <div class="value">
-              <img src="./src/png/stack.png" alt="">
-              <h6>List</h6>
-            </div>
-            <a button href="https://x-titan.github.io/">
-              <div>Read more</div>
-              <span></span>
-            </a>
-          </div>
-        </div>
-        <div column>
-          <div class="card">
-            <div class="value">
-              <img src="./src/png/3d.png" alt="">
-              <h6>Vector</h6>
-            </div>
-            <a button href="https://x-titan.github.io/">
-              <div>Read more</div>
-              <span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="skills" class="section active">
-      <div class="name">SKILL<span>S</span></div>
-      <div class="content split">
-        <div column></div>
-        <div column></div>
-        <div column></div>
-        <div column></div>
-      </div>
-    </div>
-
-    <div id="contacts" class="section active">
-      <div class="name">CONTACT<span>S</span></div>
-      <div class="content split">
-        <div column></div>
-        <div column></div>
-        <div column></div>
-        <div column></div>
-      </div>
-    </div>
-
-  </main>
-
-  <div id="dialog"></div>
 
   <script src="https://x-titan.github.io/utils/index.js" type="module" defer></script>
   <script src="./index.js" type="module" defer></script>
