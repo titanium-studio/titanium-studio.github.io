@@ -6,7 +6,7 @@ body {
   font-family: "Montserrat";
 }
 
-#body{
+#body {
   /* overflow: hidden; */
 }
 
@@ -16,7 +16,7 @@ body {
   padding: 1em 6em 1em 2em;
 }
 
-#navPanel ul{
+#navPanel ul {
   gap: 0;
   grid-gap: 0;
 }
@@ -33,17 +33,21 @@ body {
   color: #fff;
 }
 
-#navPanel a:hover{
+#navPanel a:hover {
   color: #fff;
 }
 
-#content{
+#content {
   flex: 1;
   height: 100%;
   overflow: hidden;
 }
 
-#content>section{
+#content>section {
   height: 100%;
+}
+
+.dev {
+
   background: linear-gradient(45deg, black, white);
 }
