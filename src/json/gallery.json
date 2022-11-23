@@ -4,14 +4,14 @@
     "format": "webp",
     "data": [
       {
-        "src": "1",
+        "name": "1",
         "tags": [
           "blue",
           "Aktau"
         ]
       },
       {
-        "src": "2",
+        "name": "2",
         "tags": [
           "ship",
           "blue",
@@ -20,7 +20,7 @@
         ]
       },
       {
-        "src": "3",
+        "name": "3",
         "tags": [
           "white",
           "snow",
@@ -29,7 +29,7 @@
         ]
       },
       {
-        "src": "4",
+        "name": "4",
         "tags": [
           "Aktau",
           "green",
@@ -38,7 +38,7 @@
         ]
       },
       {
-        "src": "college",
+        "name": "college",
         "tags": [
           "robot",
           "Aktau",
@@ -47,7 +47,7 @@
         ]
       },
       {
-        "src": "badocean",
+        "name": "badocean",
         "tags": [
           "black",
           "aesthetic",
@@ -56,7 +56,7 @@
         ]
       },
       {
-        "src": "blur1",
+        "name": "blur1",
         "tags": [
           "blue",
           "blur",
@@ -64,7 +64,7 @@
         ]
       },
       {
-        "src": "city",
+        "name": "city",
         "tags": [
           "night",
           "Aktau",
@@ -73,7 +73,7 @@
         ]
       },
       {
-        "src": "drawing",
+        "name": "drawing",
         "tags": [
           "house",
           "tree",
@@ -83,7 +83,7 @@
         ]
       },
       {
-        "src": "green",
+        "name": "green",
         "tags": [
           "green",
           "leaves",
@@ -91,7 +91,7 @@
         ]
       },
       {
-        "src": "keyboard",
+        "name": "keyboard",
         "tags": [
           "black",
           "red",
@@ -99,14 +99,14 @@
         ]
       },
       {
-        "src": "ocean1",
+        "name": "ocean1",
         "tags": [
           "ocean",
           "Aktau"
         ]
       },
       {
-        "src": "palma",
+        "name": "palma",
         "tags": [
           "blue",
           "palm",
@@ -115,7 +115,7 @@
         ]
       },
       {
-        "src": "robot1",
+        "name": "robot1",
         "tags": [
           "robot",
           "Aktau",
@@ -123,7 +123,7 @@
         ]
       },
       {
-        "src": "robot2",
+        "name": "robot2",
         "tags": [
           "robot",
           "Aktau",
@@ -131,7 +131,7 @@
         ]
       },
       {
-        "src": "robot3",
+        "name": "robot3",
         "tags": [
           "robot",
           "Aktau",
@@ -140,7 +140,7 @@
         ]
       },
       {
-        "src": "robot4",
+        "name": "robot4",
         "tags": [
           "robot",
           "Aktau",
@@ -149,7 +149,7 @@
         ]
       },
       {
-        "src": "robot5",
+        "name": "robot5",
         "tags": [
           "robot",
           "Aktau",
@@ -157,7 +157,7 @@
         ]
       },
       {
-        "src": "robot6",
+        "name": "robot6",
         "tags": [
           "robot",
           "Aktau",
@@ -165,7 +165,7 @@
         ]
       },
       {
-        "src": "robot7",
+        "name": "robot7",
         "tags": [
           "robot",
           "Aktau",
@@ -173,7 +173,7 @@
         ]
       },
       {
-        "src": "robot8",
+        "name": "robot8",
         "tags": [
           "robot",
           "Aktau",
@@ -182,7 +182,7 @@
         ]
       },
       {
-        "src": "ocean2",
+        "name": "ocean2",
         "tags": [
           "ocean",
           "green",
@@ -190,7 +190,7 @@
         ]
       },
       {
-        "src": "ocean3",
+        "name": "ocean3",
         "tags": [
           "ocean",
           "green",
@@ -198,7 +198,7 @@
         ]
       },
       {
-        "src": "ocean4",
+        "name": "ocean4",
         "tags": [
           "aesthetic",
           "blue",
@@ -207,7 +207,7 @@
         ]
       },
       {
-        "src": "rock",
+        "name": "rock",
         "tags": [
           "black",
           "aesthetic",
@@ -215,7 +215,7 @@
         ]
       },
       {
-        "src": "flower1",
+        "name": "flower1",
         "tags": [
           "pink",
           "white",
@@ -225,7 +225,7 @@
         ]
       },
       {
-        "src": "flower2",
+        "name": "flower2",
         "tags": [
           "white",
           "flower",
@@ -234,7 +234,7 @@
         ]
       },
       {
-        "src": "gamepad",
+        "name": "gamepad",
         "tags": [
           "black",
           "aesthetic",

@@ -4,13 +4,13 @@ import { search, css, scrollTo } from "https://x-titan.github.io/web-utils/index
 const g = globalThis
 const d = document
 const body = d.body
+const list = search.id("list")
 
 new Promise((res, rej) => {
   const minLoadT = 200
   const updT = 100
   const maxLoadT = 7000
   const startTime = Date.now()
-
   const update = () => {
     const currT = Date.now()
     if (
@@ -26,26 +26,49 @@ new Promise((res, rej) => {
 
     setTimeout(update, updT)
   }
-
   update()
 })
-  .then(() => {
-    body.removeAttribute("loading")
-  })
-  .then(() => {
-    const pages = new Set([
-      "studio",
-      "gellery",
-      "about",
-      "projects",
-      "contacts"
-    ])
+  .then(() => (loadImages()))
 
-    const hash = location.hash || ""
 
-    if (pages.has(hash.replace("#", "").toLowerCase())) {
-      scrollTo(search(hash))
-    } else {
-      location.hash = "#studio"
-    }
-  })
+function ImageCard(path, format, obj, view_card) {
+  const div = search.new("div")
+  const img = search.new("img")
+
+  div.setAttribute("card", "")
+  img.setAttribute("box", "")
+  console.log(view_card)
+  if (view_card) {
+    img.setAttribute("view-card", "")
+  }
+  img.onload = () => {
+    div.appendChild(img)
+  }
+
+  img.onclick = () => {
+    open(location.origin + "/src/jpg/" + obj.name + ".jpg", "_blank")
+  }
+
+  img.src = path + obj.name + "." + format
+
+  return div
+}
+
+function loadImages() {
+  fetch("/src/json/gallery.json", { method: "get" })
+    .then((file) => (file.json()))
+    .then((json) => {
+      const core = json.gallery
+      const path = location.origin + core.corePath
+      const format = core.format
+      const data = core.data
+
+      each(data, (obj, i) => {
+        list.appendChild(ImageCard(path, format, obj, i % 5 === 0))
+
+        if (i % 8 === 0 && i !== 0) {
+          return false
+        }
+      }, { stoppable: true })
+    })
+}
