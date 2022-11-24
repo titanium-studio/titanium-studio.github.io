@@ -85,7 +85,15 @@ body {
   height: 100%;
   display: inline-block;
   margin: 0 var(--size3);
-  overflow: hidden;
+}
+
+[card] img {
+  transition: all 0.2s ease;
+}
+
+[card] img:hover {
+  cursor: pointer;
+  transform: scale(0.98);
 }
 
 [box] {
@@ -104,4 +112,8 @@ body {
 [card-name] {
   margin-top: var(--size2);
   font-size: 28px;
+}
+
+.rounded {
+  border-radius: 24px;
 }

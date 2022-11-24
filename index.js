@@ -35,6 +35,7 @@ function ImageCard(path, format, obj, view_card) {
   const div = search.new("div")
   const img = search.new("img")
 
+  css.add(img,"rounded")
   div.setAttribute("card", "")
   img.setAttribute("box", "")
   console.log(view_card)
