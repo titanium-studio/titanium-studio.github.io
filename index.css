@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+:root {
+  --scrollbar-color: transparent;
+  --scrollbar-thumb-color: var(--gray-200);
+  --scrollbar-thumb-hover-color: var(--gray-400);
+}
+
 body {
   font-family: "Montserrat";
   display: flex;
@@ -9,15 +15,25 @@ body {
 }
 
 #dock {
-  height: 80px;
   width: 100%;
-  background-color: #fff;
+  position: fixed;
   color: #000;
+  background-color: #fff9;
+  backdrop-filter: blur(8px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#dockpanel {
+  height: 80px;
   display: flex;
+  background-color: #fff2;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: var(--size2);
+  padding: var(--size3);
+  overflow: hidden;
 }
 
 #hero {
@@ -63,6 +79,7 @@ body {
   align-items: flex-start;
   justify-content: center;
   overflow: hidden;
+  padding-bottom: 80px;
 }
 
 #title {
@@ -116,4 +133,59 @@ body {
 
 .rounded {
   border-radius: 24px;
+}
+
+#dockcontainer {
+  height: 0;
+  overflow: hidden;
+  width: 100vw;
+  transition: all 0.5s ease;
+}
+
+#dockcontainer .container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: var(--size3);
+}
+
+#dockcontainer p {
+  padding: 0;
+  margin: 0;
+}
+
+#dockcontainer #nav {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#dockcontainer #nav ul {
+  width: fit-content;
+}
+
+#dockcontainer #nav ul li a::after {
+  content: " ↗";
+}
+
+#dockcontainer #footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#dockcontainer .place {
+  text-align: right;
+}
+
+body.open-active #dockcontainer {
+  height: 50vh;
+}
+
+.bold {
+  font-weight: 600;
 }

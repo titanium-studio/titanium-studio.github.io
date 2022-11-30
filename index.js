@@ -5,6 +5,7 @@ const g = globalThis
 const d = document
 const body = d.body
 const list = search.id("list")
+const open = search.id("open")
 
 new Promise((res, rej) => {
   const minLoadT = 200
@@ -30,15 +31,19 @@ new Promise((res, rej) => {
 })
   .then(() => (loadImages()))
 
+open.onclick = (e) => {
+  e.preventDefault()
+  css.toggle(body,"open-active")
+}
 
 function ImageCard(path, format, obj, view_card) {
   const div = search.new("div")
   const img = search.new("img")
 
-  css.add(img,"rounded")
+  css.add(img, "rounded")
   div.setAttribute("card", "")
   img.setAttribute("box", "")
-  console.log(view_card)
+
   if (view_card) {
     img.setAttribute("view-card", "")
   }
