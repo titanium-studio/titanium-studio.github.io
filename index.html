@@ -3,71 +3,99 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Author: Telmanov Aset.
-  A portfolio made with XStudio.
-  Web programming. Design.">
-  <meta name="google-site-verification" content="aXIBa9oc3Vn1FbZSgmYEoFMqbutaT9WGI9Gtr85l8t0" />
-  <meta name="yandex-verification" content="01d26f2f2e025b1b" />
+  <link rel="stylesheet" href="/simple.css">
+  <link rel="stylesheet" href="/index.css">
   <link id="favicon" rel="icon" href="/src/png/hero2.png" type="image/png">
   <link id="favicon" rel="shortcut icon" href="/src/png/hero2.png" type="image/png">
-  <link rel="stylesheet" href="https://x-titan.github.io/simple/index.css">
-  <link rel="stylesheet" href="./index.css">
-  <title class="notranslate" translate="no">Titanium Studio</title>
+  <title>Studio</title>
 </head>
 
-<body class="">
+<body>
 
-  <div id="view">
+  <header pos="fix" flex="row" class="content text-shadow">
+    <div box>
+      <a id="link_hero" href="/">
+        <img src="/src/png/hero2.png" alt="hero">
+      </a>
+    </div>
+    <div box>
+      <nav>
+        <ul>
+          <li><a href="/">Studio</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/lab">Lab</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div box hidible></div>
+    <div box hidible>
+      <input type="search" name="image_search_name" id="image_search" value="Aktau">
+    </div>
+  </header>
 
-    <h4 id="title">Projects</h4>
-
-    <div id="list">
+  <div id="view" fill center>
+    <div id="slide" fill class="text-shadow slideScroll">
 
     </div>
   </div>
 
-  <div id="dock">
-    <div id="dockpanel">
-      <h1 id="hero">STUDIO</h1>
-      <div id="open">
-        <button>
-          <span></span>
-          <span></span>
+  <div id="main" pos="fix">
+    <div id="dock" flex="row" class="content">
+      <div box hidible>
+        <div id="more">More</div>
+      </div>
+      <div box>
+        <h1 id="title">Studio</h1>
+      </div>
+      <div box hidible></div>
+      <div box id="button_box">
+        <button id="dock_open">
+          <div></div>
+          <div></div>
         </button>
       </div>
     </div>
-    <div id="dockcontainer">
-      <div class="container">
-        <nav id="nav">
+    <section id="section_open">
+      <div class="content" flex fill>
+        <div box><b>Sites</b></div>
+        <div box>
           <ul>
-            <li class="bold">Socials</li>
+            <li><a rel="noopener" target="_blank" href="https://x-titan.github.io">X-Titan</a></li>
+            <li><a rel="noopener" target="_blank" href="https://titanium-studio.github.io">Titanium Studio</a></li>
+            <li><a rel="noopener" target="_blank" href="https://x-titan.web.app">Firebase/X-Titan</a></li>
+          </ul>
+        </div>
+        <div box><b>Socials</b></div>
+        <div box>
+          <ul>
+            <li><a rel="noopener" target="_blank" href="mailto:telmanov2002.at@gmail.com">Mail</a></li>
             <li><a rel="noopener" target="_blank" href="https://www.behance.net/asettelmanov">Behance</a></li>
             <li><a rel="noopener" target="_blank" href="https://www.facebook.com/ace.titan.404">Facebook</a></li>
-            <li><a rel="noopener" target="_blank" href="https://t.me/titanov">Telegram</a></li>
-            <li><a rel="noopener" target="_blank" href="https://vk.com/aset_telmanov">VKontakte</a></li>
             <li><a rel="noopener" target="_blank" href="https://wa.me/+77788405404">WhatsApp</a></li>
+            <li><a rel="noopener" target="_blank" href="https://github.com/x-titan">Github</a></li>
           </ul>
-          <p class="place"><span class="bold">Place</span><br>Kazakhstan, Mangistau,<br>Aktau, 14-27-28</p>
-        </nav>
-        <footer id="footer">
-          <a href="mailto:telmanov2002.at@gmail.com">telmanov2002.at@<br>gmail.com</a>
-          <p>Powered by <a href="https://x-titan.herohuapp.com">X-Titan</a></p>
-        </footer>
+        </div>
+        <div box>
+
+        </div>
+        <div box class="reverse">
+          <b>Powered by <a rel="noopener" target="_blank" href="https://x-titan.github.io">X-Titan</a></b>
+        </div>
+        <div box><b>Contacts</b></div>
+        <div box>
+          <ul>
+            <li><a rel="noopener" target="_blank" href="tel:87788405404">8 778 840 5404</a></li>
+            <li><a rel="noopener" target="_blank" href="tel:87788405456">8 778 840 5456</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 
-
-  <script src="https://x-titan.github.io/utils/index.js" type="module" defer></script>
-  <script src="./index.js" type="module" defer></script>
-  <script type="text/javascript" defer>
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-      m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    ym(81311461, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
-  </script>
+  <script src="/index.js" type="module" defer></script>
 </body>
 
 </html>

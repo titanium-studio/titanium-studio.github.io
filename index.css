@@ -1,191 +1,203 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
 
 :root {
   --scrollbar-color: transparent;
   --scrollbar-thumb-color: var(--gray-200);
   --scrollbar-thumb-hover-color: var(--gray-400);
+  --scrollbar-display: none;
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--gray);
+  background-image: url("/src/gif/noise.gif");
+}
+
+#slide {
+  overflow: auto;
+}
+
+#slide [box] {
+  position: relative;
+  background-image: url("/src/gif/noise.gif");
+}
+
+#slide [box] h2 {
+  position: absolute;
+  color: var(--white);
+  font-size: var(--size3);
+  top: 50%;
+  right: 0;
+  padding: var(--size1) var(--size4);
+  text-align: right;
+  transform: translateY(-50%);
+  height: auto;
+  width: auto;
+  max-width: 100vw;
+}
+
+#main {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 #dock {
   width: 100%;
-  position: fixed;
-  color: #000;
-  background-color: #fff9;
-  backdrop-filter: blur(8px);
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-#dockpanel {
-  height: 80px;
-  display: flex;
-  background-color: #fff2;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--size3);
-  overflow: hidden;
-}
-
-#hero {
-  font-size: 32px;
-}
-
-#open {
-  width: 32px;
-  height: 32px;
+  height: var(--size5);
+  background-color: var(--white);
   position: relative;
 }
 
-#open button {
-  width: 100%;
+.content {
+  padding: var(--size1) var(--size4);
+}
+
+#dock [box], header [box] {
   height: 100%;
-  font-size: 0;
-}
-
-#open button span {
-  display: block;
-  width: 80%;
-  height: 1px;
-  background-color: #000;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-#open button span:nth-child(1) {
-  top: 40%;
-}
-
-#open button span:nth-child(2) {
-  top: 60%;
-}
-
-#view {
-  height: 100%;
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  overflow: hidden;
-  padding-bottom: 80px;
+  overflow: visible;
 }
 
-#title {
-  margin: var(--size3);
+#dock [box] {
+  align-items: center;
+  justify-content: flex-start;
 }
 
-#list {
+#dock #button_box {
+  justify-content: flex-end;
+}
+
+#dock_open {
+  width: var(--size4);
+  height: var(--size3);
+  position: relative;
+  outline: none;
+  border: none;
+}
+
+#dock_open div {
   width: 100%;
-  height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: var(--size4);
-  display: block;
-  white-space: nowrap;
-}
-
-[card] {
-  width: unset;
-  aspect-ratio: 2/3;
-  height: 100%;
-  display: inline-block;
-  margin: 0 var(--size3);
-}
-
-[card] img {
+  height: 2px;
+  background-color: black;
+  position: absolute;
   transition: all 0.2s ease;
 }
 
-[card] img:hover {
-  cursor: pointer;
-  transform: scale(0.98);
+#dock_open div:first-child {
+  top: 25%;
 }
 
-[box] {
+#dock_open div:last-child {
+  width: 50%;
+  bottom: 25%;
+}
+
+#dock_open:hover div:last-child {
   width: 100%;
-  height: unset;
-  aspect-ratio: 1/1;
-  background-color: #000;
-  display: flex;
 }
 
-[view-card] {
-  height: 100%;
-  aspect-ratio: unset;
+#title {
+  margin: 0;
+  font-size: var(--size3);
 }
 
-[card-name] {
-  margin-top: var(--size2);
-  font-size: 28px;
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  color: white;
+  min-height: var(--size5);
+  background: linear-gradient(180deg, #0003, transparent 75%);
 }
 
-.rounded {
-  border-radius: 24px;
+.text-shadow {
+  text-shadow: 0 0 0.5em #0009;
 }
 
-#dockcontainer {
-  height: 0;
+header a:hover {
+  color: white !important;
+}
+
+header #link_hero {
+  height: var(--size3);
+  width: var(--size3);
+}
+
+#image_search {
+  background: #0005;
+  border: 0;
+  width: 100%;
+  font-size: 1em;
+  padding: var(--size0) var(--size1);
+  border-radius: var(--size0);
+  color: white;
+}
+
+#more {
+  padding: var(--size0) var(--size1);
+  border: 1px solid black;
+  transition: all 0.2s ease;
+}
+
+#more:hover {
+  color: white;
+  background-color: black;
+}
+
+#section_open {
+  transition: all 0.4s ease;
   overflow: hidden;
-  width: 100vw;
-  transition: all 0.5s ease;
+  background-color: var(--white);
+  width: 100%;
+  height: 0;
+  max-height: calc(100vh - var(--size6));
 }
 
-#dockcontainer .container {
+#section_open .content {
+  height: 60vh;
+  overflow: auto;
+}
+
+#section_open [box] {
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: var(--size3);
+  padding-bottom: var(--size1);
 }
 
-#dockcontainer p {
-  padding: 0;
-  margin: 0;
+#section_open [box].reverse {
+  flex-direction: column-reverse;
 }
 
-#dockcontainer #nav {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.section_open #section_open {
+  height: 60vh;
 }
 
-#dockcontainer #nav ul {
-  width: fit-content;
-}
+@media screen and (max-width:800px) {
+  html, body {
+    font-size: 0.9em;
+  }
 
-#dockcontainer #nav ul li a::after {
-  content: " ↗";
-}
+  #section_open [box] {
+    width: 50%;
+    height: 50%;
+  }
 
-#dockcontainer #footer {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+  #dock [box],header [box]{
+    width: 50%!important;
+  }
 
-#dockcontainer .place {
-  text-align: right;
-}
-
-body.open-active #dockcontainer {
-  height: 50vh;
-}
-
-.bold {
-  font-weight: 600;
+  [hidible]{
+    display: none!important;
+  }
 }

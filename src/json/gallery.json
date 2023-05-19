@@ -4,23 +4,26 @@
     "format": "webp",
     "data": [
       {
-        "name": "1",
+        "file": "1",
+        "name": "Kazakhstan, Aktau 14 microdistrict",
         "tags": [
           "blue",
           "Aktau"
         ]
       },
       {
-        "name": "2",
+        "file": "2",
+        "name": "Caspian sea",
         "tags": [
           "ship",
           "blue",
           "Aktau",
-          "ocean"
+          "sea"
         ]
       },
       {
-        "name": "3",
+        "file": "3",
+        "name": "Kazakhstan, Almaty snow season",
         "tags": [
           "white",
           "snow",
@@ -29,42 +32,30 @@
         ]
       },
       {
-        "name": "4",
+        "file": "4",
+        "name": "Caspian beach",
         "tags": [
           "Aktau",
           "green",
-          "ocean",
+          "sea",
           "white"
-        ]
+        ],
+        "object-position": "right center"
       },
       {
-        "name": "college",
-        "tags": [
-          "robot",
-          "Aktau",
-          "blue",
-          "people"
-        ]
-      },
-      {
-        "name": "badocean",
+        "file": "badocean",
+        "name": "Art of Night",
         "tags": [
           "black",
           "aesthetic",
           "Aktau",
           "night"
-        ]
+        ],
+        "object-position": "center 30%"
       },
       {
-        "name": "blur1",
-        "tags": [
-          "blue",
-          "blur",
-          "Aktau"
-        ]
-      },
-      {
-        "name": "city",
+        "file": "city",
+        "name": "Kazakhstan, night Aktau",
         "tags": [
           "night",
           "Aktau",
@@ -73,149 +64,66 @@
         ]
       },
       {
-        "name": "drawing",
+        "file": "blur1",
+        "name": "",
         "tags": [
-          "house",
-          "tree",
-          "white",
-          "paper",
-          "draw"
+          "blue",
+          "blur",
+          "Aktau"
+        ],
+        "object-position": "center 70%"
+      },
+      {
+        "file": "ocean1",
+        "name": "",
+        "tags": [
+          "sea",
+          "Aktau"
         ]
       },
       {
-        "name": "green",
+        "file": "ocean2",
+        "name": "",
         "tags": [
+          "sea",
           "green",
-          "leaves",
           "Aktau"
         ]
       },
       {
-        "name": "keyboard",
+        "file": "ocean3",
+        "name": "",
         "tags": [
-          "black",
-          "red",
-          "aesthetic"
-        ]
-      },
-      {
-        "name": "ocean1",
-        "tags": [
-          "ocean",
+          "sea",
+          "green",
           "Aktau"
         ]
       },
       {
-        "name": "palma",
+        "file": "ocean4",
+        "name": "Hurrycane sky",
+        "tags": [
+          "aesthetic",
+          "blue",
+          "sea",
+          "Aktau"
+        ],
+        "object-position": "right bottom"
+      },
+      {
+        "file": "palma",
+        "name": "",
         "tags": [
           "blue",
           "palm",
           "tree",
           "Aktau"
-        ]
+        ],
+        "object-position": "center 85%"
       },
       {
-        "name": "robot1",
-        "tags": [
-          "robot",
-          "Aktau",
-          "grey"
-        ]
-      },
-      {
-        "name": "robot2",
-        "tags": [
-          "robot",
-          "Aktau",
-          "grey"
-        ]
-      },
-      {
-        "name": "robot3",
-        "tags": [
-          "robot",
-          "Aktau",
-          "red",
-          "aesthetic"
-        ]
-      },
-      {
-        "name": "robot4",
-        "tags": [
-          "robot",
-          "Aktau",
-          "red",
-          "blue"
-        ]
-      },
-      {
-        "name": "robot5",
-        "tags": [
-          "robot",
-          "Aktau",
-          "red"
-        ]
-      },
-      {
-        "name": "robot6",
-        "tags": [
-          "robot",
-          "Aktau",
-          "green"
-        ]
-      },
-      {
-        "name": "robot7",
-        "tags": [
-          "robot",
-          "Aktau",
-          "green"
-        ]
-      },
-      {
-        "name": "robot8",
-        "tags": [
-          "robot",
-          "Aktau",
-          "red",
-          "green"
-        ]
-      },
-      {
-        "name": "ocean2",
-        "tags": [
-          "ocean",
-          "green",
-          "Aktau"
-        ]
-      },
-      {
-        "name": "ocean3",
-        "tags": [
-          "ocean",
-          "green",
-          "Aktau"
-        ]
-      },
-      {
-        "name": "ocean4",
-        "tags": [
-          "aesthetic",
-          "blue",
-          "ocean",
-          "Aktau"
-        ]
-      },
-      {
-        "name": "rock",
-        "tags": [
-          "black",
-          "aesthetic",
-          "Aktau"
-        ]
-      },
-      {
-        "name": "flower1",
+        "file": "flower1",
+        "name": "",
         "tags": [
           "pink",
           "white",
@@ -225,7 +133,8 @@
         ]
       },
       {
-        "name": "flower2",
+        "file": "flower2",
+        "name": "",
         "tags": [
           "white",
           "flower",
@@ -234,11 +143,135 @@
         ]
       },
       {
-        "name": "gamepad",
+        "file": "green",
+        "name": "",
+        "tags": [
+          "green",
+          "leaves",
+          "Aktau"
+        ]
+      },
+      {
+        "file": "rock",
+        "name": "",
         "tags": [
           "black",
           "aesthetic",
           "Aktau"
+        ]
+      },
+      {
+        "file": "keyboard",
+        "name": "",
+        "tags": [
+          "black",
+          "red",
+          "aesthetic"
+        ]
+      },
+      {
+        "file": "gamepad",
+        "name": "",
+        "tags": [
+          "black",
+          "aesthetic",
+          "Aktau"
+        ]
+      },
+      {
+        "file": "drawing",
+        "name": "",
+        "tags": [
+          "house",
+          "tree",
+          "white",
+          "paper",
+          "draw"
+        ]
+      },
+      {
+        "file": "college",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "blue",
+          "people"
+        ]
+      },
+      {
+        "file": "robot1",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "grey"
+        ]
+      },
+      {
+        "file": "robot2",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "grey"
+        ]
+      },
+      {
+        "file": "robot3",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "red",
+          "aesthetic"
+        ]
+      },
+      {
+        "file": "robot4",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "file": "robot5",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "red"
+        ]
+      },
+      {
+        "file": "robot6",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "green"
+        ]
+      },
+      {
+        "file": "robot7",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "green"
+        ]
+      },
+      {
+        "file": "robot8",
+        "name": "",
+        "tags": [
+          "robot",
+          "Aktau",
+          "red",
+          "green"
         ]
       }
     ]

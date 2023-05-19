@@ -7,7 +7,7 @@ const body = d.body
 const moreButton = search.id("more")
 const view = search.id("view")
 
-function item({ path, name, format, alt = [] }) {
+function item({ path, file, format, alt = [] }) {
   const div = search.new("div")
   const img = search.new("img")
 
@@ -16,10 +16,10 @@ function item({ path, name, format, alt = [] }) {
   }
 
   img.onclick = () => {
-    open(location.origin + "/src/jpg/" + name + ".jpg", "_blank")
+    open(location.origin + "/src/jpg/" + file + ".jpg", "_blank")
   }
 
-  img.src = path + name + "." + format
+  img.src = path + file + "." + format
 
   return div
 }
@@ -43,7 +43,7 @@ fetch("/src/json/gallery.json")
 
       temp.push({
         path,
-        name: obj.name,
+        file: obj.file,
         format: core.format,
         alt: obj.tags
       })
