@@ -4,7 +4,6 @@ h1 {
 
 #gallery {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* grid-template-columns: repeat(4, 1fr); */
   gap: var(--size2);
   padding: var(--size2);
 
@@ -13,6 +12,7 @@ h1 {
 #gallery>div {
   aspect-ratio: 1/1;
   background-color: black;
+  background-image: url("/src/gif/noise.gif");
   width: 100%;
   height: 100%;
   display: flex;
@@ -33,4 +33,14 @@ h1 {
   box-sizing: border-box;
   margin: var(--size2) 0;
   padding: var(--size0) var(--size2);
+}
+
+
+@media screen and (max-width:800px) {
+  #gallery {
+    grid-template-columns: 1fr;
+    gap: var(--size2);
+    padding: var(--size2);
+
+  }
 }

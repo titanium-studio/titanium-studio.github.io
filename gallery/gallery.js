@@ -49,6 +49,7 @@ export function initGallery(cfg) {
       div.appendChild(img)
       div.appendChild(title)
     }
+
     cfg.openImageOnclickImage
       && (img.onclick = () => {
         open(
@@ -84,7 +85,6 @@ export function initGallery(cfg) {
           stack.push(temp)
           temp = []
         }
-
         temp.push({ path, format, obj })
       })
 
@@ -94,11 +94,10 @@ export function initGallery(cfg) {
         if (clicked < stack.length) {
           each(stack[clicked], (obj) => {
             gallery.appendChild(imageItem(obj))
-            if (stack.length - 1 === clicked) css.add(moreButton, "hide")
-
+            if (stack.length - 1 === clicked) (css.add(moreButton, "hide"))
           })
           clicked++
-        } else css.add(moreButton, "hide")
+        } else (css.add(moreButton, "hide"))
 
       }
       moreButton.onclick()

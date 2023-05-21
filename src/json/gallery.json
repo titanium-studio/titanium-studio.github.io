@@ -2,6 +2,12 @@
   "gallery": {
     "corePath": "/src/webp/",
     "format": "webp",
+    "dataItem": {
+      "file": "",
+      "name": "",
+      "tags": [],
+      "object-position": "x y"
+    },
     "data": [
       {
         "file": "1",
@@ -141,6 +147,53 @@
           "leaves",
           "Aktau"
         ]
+      },
+      {
+        "file": "IMG_4252",
+        "name": "",
+        "tags": []
+      },
+      {
+        "file": "IMG_4264",
+        "name": "",
+        "tags": []
+      },
+      {
+        "file": "IMG_4336",
+        "name": "",
+        "tags": [],
+        "object-position": "30% 60%"
+      },
+      {
+        "file": "IMG_4385",
+        "name": "",
+        "tags": []
+      },
+      {
+        "file": "IMG_4438",
+        "name": "",
+        "tags": []
+      },
+      {
+        "file": "IMG_4439",
+        "name": "",
+        "tags": [],
+        "object-position": "center bottom"
+      },
+      {
+        "file": "IMG_4442",
+        "name": "",
+        "tags": []
+      },
+      {
+        "file": "IMG_4443",
+        "name": "",
+        "tags": []
+      },
+      {
+        "file": "IMG_4447",
+        "name": "",
+        "tags": []
       },
       {
         "file": "green",
