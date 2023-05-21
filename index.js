@@ -23,16 +23,15 @@ initGallery({
   const animationT = 750
   let galleryIndex = 0
   let lastAnimateT = Date.now()
-  console.log(g.CONFIG)
 
   g.onresize = (e) => (scrollTo(gallerychildren[galleryIndex]))
 
   dockButton.onclick = (e) => {
-    toggle(body, "section_open")
+    css.toggle(body, "section_open")
   }
 
   dockButton.onclick = (e) => {
-    toggle(body, "section_open")
+    css.toggle(body, "section_open")
   }
 
   gallery.onwheel = (e) => {
@@ -63,12 +62,12 @@ initGallery({
   }
 
   searchInput.oninput = (e) => {
-
     const value = searchInput.value
     let opts = ""
+    console.log(e)
+
     tagsSet.forEach((tag) => {
       if (tag.toLowerCase().includes(value.toLowerCase())) {
-        console.log(tag)
         opts += newOption(tag)
       }
     })

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('/src/font/fontello.eot?14886943');
+  src: url('/src/font/fontello.eot?14886943#iefix') format('embedded-opentype'),
+    url('/src/font/fontello.woff2?14886943') format('woff2'),
+    url('/src/font/fontello.woff?14886943') format('woff'),
+    url('/src/font/fontello.ttf?14886943') format('truetype'),
+    url('/src/font/fontello.svg?14886943#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-hero1:before {
+  content: '\e800';
+  /* '' */
+}

@@ -29,6 +29,8 @@ h1 {
   cursor: pointer;
 }
 
-#more {
+#moreButton {
+  box-sizing: border-box;
   margin: var(--size2) 0;
+  padding: var(--size0) var(--size2);
 }
