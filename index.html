@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/simple.css">
+  <link rel="stylesheet" href="https://x-titan.github.io/simple/index.css">
   <link rel="stylesheet" href="/index.css">
   <link id="favicon" rel="icon" href="/src/png/hero2.png" type="image/png">
   <link id="favicon" rel="shortcut icon" href="/src/png/hero2.png" type="image/png">
@@ -32,12 +32,13 @@
     </div>
     <div box hidible></div>
     <div box hidible>
-      <input type="search" name="image_search_name" id="image_search" value="Aktau">
+      <input type="search" id="searchInput" list="searchList" placeholder="Aktau">
+      <datalist id="searchList" role="listbox"></datalist>
     </div>
   </header>
 
   <div id="view" fill center>
-    <div id="slide" fill class="text-shadow slideScroll">
+    <div id="gallery" fill class="text-shadow galleryScroll">
 
     </div>
   </div>
@@ -45,14 +46,14 @@
   <div id="main" pos="fix">
     <div id="dock" flex="row" class="content">
       <div box hidible>
-        <div id="more">More</div>
+
       </div>
       <div box>
         <h1 id="title">Studio</h1>
       </div>
       <div box hidible></div>
       <div box id="button_box">
-        <button id="dock_open">
+        <button id="dockButton">
           <div></div>
           <div></div>
         </button>
@@ -95,6 +96,7 @@
     </section>
   </div>
 
+  <script src="/gallery/gallery.js" type="module" defer></script>
   <script src="/index.js" type="module" defer></script>
 </body>
 

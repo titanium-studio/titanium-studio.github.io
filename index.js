@@ -1,118 +1,77 @@
+import { is, each } from "https://x-titan.github.io/utils/index.js"
+import { search, scrollTo, styler, css, attr } from "https://x-titan.github.io/web-utils/index.js"
+import { initGallery } from "./gallery/gallery.js"
+
 const g = globalThis
 const d = document
 const body = d.body
-const moreButton = document.getElementById("more") || document.createElement("button")
-const slide = document.getElementById("slide")
+const dockButton = search.id("dockButton") || search.new("button")
+const moreButton = search.id("moreButton") || search.new("button")
+const searchInput = search.id("searchInput") || search.new("input")
+const searchList = search.id("searchList") || search.new("datalist")
+const gallery = search.id("gallery") || search.new("div")
+const gallerychildren = gallery.children
+const tagsSet = new Set(["Aktau", "Almaty", "White", "Red", "Blue"])
 
-function item({ path, format, obj }) {
-  const {
-    name = "",
-    file = "",
-    tags = []
-  } = obj
-  console.log(tags)
-  const div = document.createElement("div")
-  const img = document.createElement("img")
-  const h2 = document.createElement("h2")
+initGallery({
+  moreButton,
+  gallery,
+  openImageOnclickImage: false,
+  addImageOnClickMoreButton: 4
+}).then(() => {
 
-  div.setAttribute("box", "")
-  div.setAttribute("flex", "")
-  h2.setAttribute("card", "")
-  h2.innerHTML = name.replace(",", "<br>")
-  img.style.objectPosition = obj["object-position"] || ""
-  img.onload = () => {
-    div.appendChild(h2)
-    div.appendChild(img)
+  const animationT = 750
+  let galleryIndex = 0
+  let lastAnimateT = Date.now()
+  console.log(g.CONFIG)
+
+  g.onresize = (e) => (scrollTo(gallerychildren[galleryIndex]))
+
+  dockButton.onclick = (e) => {
+    toggle(body, "section_open")
   }
 
-  // img.onclick = () => {
-  //   open(location.origin + "/src/jpg/" + file + ".jpg", "_blank")
-  // }
+  dockButton.onclick = (e) => {
+    toggle(body, "section_open")
+  }
 
-  if (name !== "") (img.alt = name + "; ")
+  gallery.onwheel = (e) => {
+    e.preventDefault()
+    const nowT = Date.now()
 
-  img.alt += tags.join(", ")
-  img.src = path + file + "." + format
-
-  return div
-}
-
-fetch("/src/json/gallery.json")
-  .then((responce) => (responce.json()))
-  .then((json) => {
-    const core = json.gallery
-    const path = location.origin + core.corePath
-    const format = core.format
-    const data = core.data
-    const stack = []
-    let clicked = 0
-    let temp = []
-    data.forEach((obj, i) => {
-      if (i % 4 === 0 && i !== 0) {
-        stack.push(temp)
-        temp = []
-      }
-      temp.push({ path, format, obj })
-    })
-
-    if (!stack.includes(temp)) stack.push(temp)
-
-    function scrollIntoView(target) {
-      target.scrollIntoView({ behavior: 'smooth' })
-      return target
+    if (nowT > lastAnimateT + animationT) {
+      lastAnimateT = nowT
+    } else {
+      return
     }
 
-    const dock_open = document.getElementById("dock_open")
-    const slidechildren = slide.children
-    const inputs = document.querySelector("input")
-
-    const animationT = 750
-    let slideIndex = 0
-    let lastAnimateT = Date.now()
-
-    globalThis.onresize = (e) => {
-      scrollIntoView(slidechildren[slideIndex])
-    }
-
-    dock_open.onclick = (e) => {
-      document.body.classList.toggle("section_open")
-    }
-
-    slide.onwheel = (e) => {
-      e.preventDefault()
-      const nowT = Date.now()
-
-      if (nowT > lastAnimateT + animationT) {
-        lastAnimateT = nowT
+    if (e.deltaY < 0) {
+      if (galleryIndex > 0 && gallerychildren[--galleryIndex]) {
+        scrollTo(gallerychildren[galleryIndex])
+      } else { galleryIndex = 0 }
+    } else if (e.deltaY > 0) {
+      if (galleryIndex < gallerychildren.length && gallerychildren[++galleryIndex]) {
+        scrollTo(gallerychildren[galleryIndex])
       } else {
-        return
-      }
-
-      if (e.deltaY < 0) {
-        if (slideIndex > 0 && slidechildren[--slideIndex]) {
-          scrollIntoView(slidechildren[slideIndex])
-        } else { slideIndex = 0 }
-      } else if (e.deltaY > 0) {
-        if (slideIndex < slidechildren.length && slidechildren[++slideIndex]) {
-          scrollIntoView(slidechildren[slideIndex])
-        } else {
-          slideIndex = slidechildren.length - 1
-        }
+        galleryIndex = gallerychildren.length - 1
       }
     }
+  }
 
-    moreButton.onclick = () => {
-      if (clicked < stack.length) {
+  function newOption(name) {
+    return "<option value='" + name + "'></option>"
+  }
 
-        stack[clicked].forEach((obj) => {
-          slide.appendChild(item(obj))
-          if (stack.length - 1 === clicked) moreButton.classList.add("hide")
-        })
+  searchInput.oninput = (e) => {
 
-        clicked++
-      } else moreButton.classList.add("hide")
-
-    }
-    moreButton.onclick()
-  })
-
+    const value = searchInput.value
+    let opts = ""
+    tagsSet.forEach((tag) => {
+      if (tag.toLowerCase().includes(value.toLowerCase())) {
+        console.log(tag)
+        opts += newOption(tag)
+      }
+    })
+    searchList.innerHTML = opts
+  }
+})
