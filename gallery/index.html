@@ -7,14 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/src/png/hero2.png" type="image/x-icon">
   <link rel="stylesheet" href="https://x-titan.github.io/simple/index.css">
+  <link rel="stylesheet" href="/fontello.css">
   <link rel="stylesheet" href="./index.css">
   <title>Gallery</title>
 </head>
 
 <body>
   <div id="body">
-    <main>
+    <main flex="row">
       <h1>Gallery</h1>
+      <div flex="col">
+        <b>Author</b>
+        <p>Telmanov Aset</p>
+      </div>
     </main>
     <section id="gallery" grid>
 
@@ -22,6 +27,42 @@
     <section flex center>
       <button id="moreButton">More</button>
     </section>
+    <footer>
+      <div container>
+        <div flex="row" fill>
+          <div flex="col" box>
+            <ul>
+              <li>
+                <b>About</b>
+              </li>
+              <li>
+                <p>I strive to create websites that are not only beautiful
+                  and functional but also help you express your uniqueness and achieve success in the online world.</p>
+              </li>
+            </ul>
+          </div>
+          <div flex="col" box>
+            <ul>
+              <li>
+                <b>Contacts</b>
+              </li>
+              <li>
+                <a rel="noopener" target="_blank" href="https://x-titan.github.io">x-titan.github.io</a>
+              </li>
+              <li>
+                <a rel="noopener" target="_blank" href="mailto:telmanov2002.at@gmail.com">telmanov2002.at@gmail.com</a>
+              </li>
+              <li>
+                <a rel="noopener" target="_blank" href="tel:87788405404">+7 778 840 5404</a>
+              </li>
+              <li>Mangistau Aktau, KZ</li>
+            </ul>
+          </div>
+          <a href="/" class="hidible"><i class="icon-hero1"></i></a>
+        </div>
+        <p class="copyright">COPYRIGHT 2023</p>
+      </div>
+    </footer>
   </div>
   <script src="./gallery.js" type="module" defer></script>
   <script src="./index.js" type="module" defer></script>

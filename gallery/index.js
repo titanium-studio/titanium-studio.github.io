@@ -4,5 +4,6 @@ import { initGallery } from "./gallery.js";
 
 initGallery({
   moreButton: search.id("moreButton"),
-  gallery: search.id("gallery")
+  gallery: search.id("gallery"),
+  addImageOnClickMoreButton: 10
 })

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Roboto:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
   --scrollbar-color: transparent;
@@ -143,16 +143,6 @@ header #link_hero {
   color: white;
   -webkit-appearance: none;
   position: relative;
-}
-
-#searchInput::-webkit-calendar-picker-indicator,
-#searchInput::-webkit-search-decoration,
-#searchInput::-webkit-search-cancel-button,
-#searchInput::-webkit-search-results-button,
-#searchInput::-webkit-search-results-decoration {
-  display: none;
-  opacity: 0;
-  pointer-events: none;
 }
 
 #more {

@@ -1,5 +1,14 @@
-h1 {
-  margin-left: var(--size2);
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Roboto:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+main {
+  padding: var(--size2);
+  justify-content: space-between;
+  align-items: center;
 }
 
 #gallery {
@@ -35,12 +44,44 @@ h1 {
   padding: var(--size0) var(--size2);
 }
 
+footer {
+  color: var(--white);
+  font-size: 14px;
+  padding: var(--size8) 0 var(--size3);
+  background-color: var(--black);
+  background-image: url("/src/webp/dark.webp");
+  background-size: contain;
+}
+
+footer [flex] {
+  justify-content: space-between;
+}
+
+footer [flex] [box] {
+  height: 100%;
+}
+
+.copyright {
+  padding: var(--size5) 0 0;
+}
+
+.icon-hero1 {
+  font-size: 7em;
+}
 
 @media screen and (max-width:800px) {
   #gallery {
     grid-template-columns: 1fr;
     gap: var(--size2);
     padding: var(--size2);
+  }
 
+  footer [flex] [box] {
+    width: 100%;
+    margin-bottom: var(--size5);
+  }
+
+  .hidible {
+    display: none;
   }
 }
