@@ -21,6 +21,10 @@ body {
   background-image: url("/src/gif/noise.gif");
 }
 
+.content {
+  padding: var(--size1) var(--size4);
+}
+
 #gallery {
   overflow: auto;
 }
@@ -56,10 +60,7 @@ body {
   height: var(--size5);
   background-color: var(--white);
   position: relative;
-}
-
-.content {
-  padding: var(--size1) var(--size4);
+  font-size: var(--size2);
 }
 
 #dock [box], header [box] {
@@ -70,10 +71,9 @@ body {
 
 #dock [box] {
   align-items: center;
-  justify-content: flex-start;
 }
 
-#dock #button_box {
+#button_box {
   justify-content: flex-end;
 }
 
@@ -175,6 +175,9 @@ header #link_hero {
   flex-direction: column;
   padding-bottom: var(--size1);
   overflow: visible;
+}
+#section_open [box] .icon-hero1{
+  font-size: 5em;
 }
 
 #section_open [box].reverse {
