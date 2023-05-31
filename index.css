@@ -83,6 +83,8 @@ body {
   position: relative;
   outline: none;
   border: none;
+  padding: 0;
+  border: 0;
 }
 
 #dockButton div {
@@ -130,14 +132,13 @@ header a:hover {
 }
 
 header #link_hero {
-  font-size: 1;
+  font-size: var(--size2);
 }
 
 #searchInput {
   background: #0005;
   border: 0;
   width: 100%;
-  font-size: 1em;
   padding: var(--size0) var(--size1);
   border-radius: var(--size0);
   color: white;
@@ -168,6 +169,9 @@ header #link_hero {
 #section_open .content {
   height: 60vh;
   overflow: auto;
+}
+#section_open .content::-webkit-scrollbar{
+  display: block;
 }
 
 #section_open [box] {
