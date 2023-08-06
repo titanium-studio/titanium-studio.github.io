@@ -13,14 +13,16 @@ const defcfg = {
  * @param {{addImageOnClickMoreButton:number, moreButton:HTMLElement,gallery:HTMLElement,openImageOnclickImage:boolean}} cfg
  */
 export function initGallery(cfg) {
-  if (!is.obj(cfg)) (cfg = defcfg)
   cfg = mixin(defcfg, cfg)
+
   if (!isHTML(cfg.moreButton)) {
     cfg.moreButton = search.new("button")
   }
+
   if (!isHTML(cfg.gallery)) {
     cfg.gallery = search.new("div")
   }
+
   const moreButton = validHTML(cfg.moreButton)
   const gallery = validHTML(cfg.gallery)
 
@@ -36,11 +38,13 @@ export function initGallery(cfg) {
     const title = search.new("div")
 
     attr.set(div, "box", "")
-    attr.set(div, "flex", "")
+    css.add(div, "imageBox")
+    attr.add(div, "box")
     attr.set(title, "card", "")
     css.add(title, "imageTitle")
 
     title.innerHTML = name.replace(",", "<br>")
+
     styler(img, {
       objectPosition: obj["object-position"] || ""
     })
@@ -48,6 +52,7 @@ export function initGallery(cfg) {
     img.onload = () => {
       div.appendChild(img)
       div.appendChild(title)
+      div.appendChild(itags)
     }
 
     cfg.openImageOnclickImage

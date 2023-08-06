@@ -15,10 +15,10 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--size2);
   padding: var(--size2);
-
 }
 
-#gallery>div {
+.imageBox {
+  display: flex;
   aspect-ratio: 1/1;
   background-color: black;
   background-image: url("/src/gif/noise.gif");
@@ -31,9 +31,11 @@ main {
   flex-grow: 1;
 }
 
-#gallery>div>img {
-  width: 100%;
-  height: 100%;
+.imageTitle{
+  display: none;
+}
+
+.imageBox img {
   object-fit: cover;
   cursor: pointer;
 }

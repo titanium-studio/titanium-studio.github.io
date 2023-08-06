@@ -8,12 +8,24 @@
   <title>404</title>
   <base href="https://titanium-studio.github.io/">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-  <link rel="shortcut icon" href="src/png/regular.png" type="image/png">
+  <link id="favicon" rel="icon" href="/src/png/hero2.png" type="image/png">
+  <link id="favicon" rel="shortcut icon" href="/src/png/hero2.png" type="image/png">
+  <link rel="stylesheet" href="https://x-titan.github.io/simple/index.css">
+  <link rel="stylesheet" href="/fontello.css">
 </head>
 
 <body>
-  <h1 class="">😅<a href="/">Go home page</a></h1>
-  <h5 class="">Powered by <a href="https://github.com/titanium-studio">Titanium Studio</a></h5>
+
+  <div pos="fix" style="padding: var(--size1)">
+    <a href="/">
+      <i class="icon-hero1"></i>
+    </a>
+  </div>
+  <div flex="col" wrapper fill>
+    <p>Ups. <a href="/" style="text-decoration: underline;">Go home page</a></p>
+    <p>Powered by <a href="https://github.com/titanium-studio">Titanium Studio</a></p>
+  </div>
+
 </body>
 
 </html>
