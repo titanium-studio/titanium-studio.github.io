@@ -19,6 +19,7 @@ body {
   justify-content: center;
   background-color: var(--gray);
   background-image: url("/src/gif/noise.gif");
+  font-size: 14px;
 }
 
 .content {
@@ -48,6 +49,7 @@ body {
 }
 
 .imageTitle {
+  position: relative;
   grid-area: auto / 2 / auto / -1;
   font-size: var(--size2);
   height: auto;
@@ -55,8 +57,10 @@ body {
   max-width: 100vw;
   z-index: 2;
   font-weight: 500;
+  overflow: visible;
 }
-.imageTags{
+
+.imageTags {
   z-index: 1;
 }
 
@@ -133,6 +137,7 @@ header {
   color: white;
   min-height: var(--size5);
   background: linear-gradient(180deg, #0003, transparent 75%);
+  font-size: 14px;
 }
 
 .text-shadow {
@@ -222,5 +227,9 @@ header #link_hero {
 
   [hidible] {
     display: none !important;
+  }
+
+  .imageTitle {
+    grid-area: auto / 1 / auto / -1;
   }
 }
