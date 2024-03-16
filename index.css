@@ -183,6 +183,11 @@ header #link_hero {
   max-height: calc(100vh - var(--size6));
 }
 
+#section_open [grid] {
+  --cols: repeat(4, 1fr);
+  --rows: repeat(2, 1fr);
+}
+
 #section_open .content {
   height: 60vh;
   overflow: auto;
